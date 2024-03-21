@@ -245,6 +245,8 @@ paths:
                 type: integer
                 format: int64
                 description: ""
+                minimum: 1
+                maximum: 999
               data:
                 type: string
                 format: date

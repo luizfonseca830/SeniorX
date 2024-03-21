@@ -112,6 +112,9 @@
                     "optional": false,
                     "multivalued": false,
                     "readOnly": false
+                ,
+                	"minValue": 1,
+                	"maxValue": 999
                 },
                 "data" : {
                     "type": "date",

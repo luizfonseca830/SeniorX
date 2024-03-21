@@ -191,7 +191,13 @@
                         </xsd:element>
                         <xsd:element name="apenasColaboradores" type="xsd:boolean" minOccurs="0" maxOccurs="1" default="false" readOnly="false">
                         </xsd:element>
-                        <xsd:element name="lotacaoMaxima" type="xsd:long" minOccurs="1" maxOccurs="1"  readOnly="false">
+                        <xsd:element name="lotacaoMaxima"  minOccurs="1" maxOccurs="1"  readOnly="false">
+                        <xsd:simpleType>
+                        	<xsd:restriction base="xsd:long">
+                        		<xsd:minInclusive value="1" />
+                        		<xsd:maxInclusive value="999" />
+                        	</xsd:restriction>
+                        </xsd:simpleType>
                         </xsd:element>
                         <xsd:element name="data" type="xsd:date" minOccurs="1" maxOccurs="1"  readOnly="false">
                         </xsd:element>
