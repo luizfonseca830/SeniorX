@@ -1,0 +1,20 @@
+properties my_domain.my_service {
+  	version:"0.0.1"
+  	
+	"This property is only an example. You can change it and create others properties as desired."
+	property only.example {
+		level: system
+		type: string
+		label: "Change to the desired label"
+		comment: "Change to the desired comment"
+		defaultValue: "empty"
+		minValue: null
+		maxValue: null
+		required: false
+		regEx: "[a-zA-Z0-9_]*"
+		hashTags: ["example one", "sample key"]
+		actionRead: "PermissionForRead"
+		actionWrite: "PermissionForWrite"
+	}
+
+}

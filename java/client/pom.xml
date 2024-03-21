@@ -1,0 +1,141 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    
+    <!--
+    
+    This is a generated file. DO NOT EDIT ANY CODE HERE, YOUR CHANGES WILL BE LOST.
+    
+    You are welcome to make changes to the pom.xml under the impl/ directory. 
+    
+    -->
+    
+    <modelVersion>4.0.0</modelVersion>
+    
+    <artifactId>hello-world-client</artifactId>
+    <packaging>jar</packaging>
+    <parent>
+        <groupId>br.com.senior</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+        <artifactId>hello-world-parent</artifactId>
+    </parent>
+    <dependencies>
+        <dependency>
+            <groupId>br.com.senior.messaging</groupId>
+            <artifactId>messaging-api</artifactId>
+            <version>${messaging-api-version}</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>br.com.senior.messaging</groupId>
+            <artifactId>service-model</artifactId>
+            <version>${service-model-version}</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>br.com.senior.platform</groupId>
+            <artifactId>service-model-custom-data</artifactId>
+            <version>${service-model-custom-data-version}</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>br.com.senior.platform</groupId>
+            <artifactId>sdl-api</artifactId>
+            <version>1.1.0</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>${validation-api-version}</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.hibernate.validator</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>${hibernate-validator-version}</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.hibernate.validator</groupId>
+            <artifactId>hibernate-validator-annotation-processor</artifactId>
+            <version>${hibernate-validator-annotation-processor-version}</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>javax.el</groupId>
+            <artifactId>javax.el-api</artifactId>
+            <version>${javax-el-api}</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.glassfish.web</groupId>
+            <artifactId>javax.el</artifactId>
+            <version>${javax-el}</version>
+        </dependency>
+    </dependencies>
+    <build>
+        <defaultGoal>install</defaultGoal>
+        <plugins>
+        	<plugin>
+        		<groupId>org.codehaus.mojo</groupId>
+        		<artifactId>templating-maven-plugin</artifactId>
+        		<version>1.0.0</version>
+        		<executions>
+        			<execution>
+        				<id>generate-version-class</id>
+        				<goals>
+        					<goal>filter-sources</goal>
+        				</goals>
+        				<configuration>
+        					<sourceDirectory>${basedir}/src-gen/main/java-templates</sourceDirectory>
+        					<outputDirectory>${basedir}/src-gen/main/java-templates</outputDirectory>
+        				</configuration>
+        			</execution>
+        		</executions>
+        	</plugin>
+        	<plugin>
+        		<groupId>org.codehaus.mojo</groupId>
+        		<artifactId>build-helper-maven-plugin</artifactId>
+        		<version>3.0.0</version>
+        		<executions>
+        			<execution>
+        				<id>add-source</id>
+        				<phase>generate-sources</phase>
+        				<goals>
+        					<goal>add-source</goal>
+        				</goals>
+        				<configuration>
+        					<sources>
+        						<source>src-gen/main/java</source>
+        						<source>src-gen/main/resources</source>
+        						<source>src/main/resources</source>
+        						<source>src/test/resources</source>
+        					</sources>
+        				</configuration>
+        			</execution>
+        			<execution>
+        				<id>add-resource</id>
+        				<phase>generate-resources</phase>
+        				<goals>
+        					<goal>add-resource</goal>
+        				</goals>
+        				<configuration>
+        					<resources>
+        						<resource>
+        							<directory>src-gen/main/resources</directory>
+        						</resource>
+        						<resource>
+        							<directory>src/main/resources</directory>
+        						</resource>
+        						<resource>
+        							<directory>src/test/resources</directory>
+        						</resource>
+        					</resources>
+        				</configuration>
+        			</execution>
+        		</executions>
+        	</plugin>
+        </plugins>
+    </build>
+</project>
+

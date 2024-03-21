@@ -1,0 +1,98 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<!--
+	
+	This is a generated file. DO NOT EDIT ANY CODE HERE, YOUR CHANGES WILL BE LOST.
+	
+	You are welcome to make changes to the pom.xml under the impl/ directory. 
+	
+	-->
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>hello-world-parent</artifactId>
+	<groupId>br.com.senior</groupId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>hello-world</name>
+	<description>hello-world</description>
+	<organization>
+		<name>Senior Sistemas S.A.</name>
+		<url>http://www.senior.com.br</url>
+	</organization>
+	<developers>
+	<developer>
+		<name>Senior Sistemas</name>
+	</developer>
+	</developers>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>11</maven.compiler.source>
+		<maven.compiler.target>11</maven.compiler.target>
+		<messaging-api-version>5.4.2</messaging-api-version>
+		<service-model-version>21.1.2</service-model-version>
+		<hibernate-version>5.4.1.Final</hibernate-version>
+		<customspringodata-version>2.1.0</customspringodata-version>
+		<springbatchintegration-version>1.0.0</springbatchintegration-version>
+		<customization-service-client-version>5.0.1</customization-service-client-version>
+		<translation-hub-api-version>4.4.1</translation-hub-api-version>
+		<httpclient-version>4.5.2</httpclient-version>
+		<file-minifier-version>1.0.1</file-minifier-version>
+		<service-model-custom-data-version>5.2.0</service-model-custom-data-version>
+		<validation-api-version>2.0.1.Final</validation-api-version>
+		<hibernate-validator-version>6.1.6.Final</hibernate-validator-version>
+		<hibernate-validator-annotation-processor-version>6.1.6.Final</hibernate-validator-annotation-processor-version>
+		<javax-el-api>3.0.1-b06</javax-el-api>
+		<javax-el>2.2.6</javax-el>
+	</properties>
+	<modules>
+		<module>client</module>
+		<module>server</module>
+		<module>impl</module>
+	</modules>
+	<distributionManagement>
+		<repository>
+			<id>senior-release</id>
+			<name>maven-releases</name>
+			<url>https://maven.senior.com.br/artifactory/libs-release-local</url>
+		</repository>
+		<snapshotRepository>
+			<id>senior-snapshot</id>
+			<name>maven-snapshots</name>
+			<url>https://maven.senior.com.br/artifactory/libs-snapshot-local</url>
+		</snapshotRepository>
+	</distributionManagement>
+	<repositories>
+		<repository>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<id>central</id>
+			<name>libs-release</name>
+			<url>https://maven.senior.com.br/artifactory/libs-release</url>
+		</repository>
+		<repository>
+			<snapshots/>
+				<id>snapshots</id>
+				<name>libs-snapshot</name>
+				<url>https://maven.senior.com.br/artifactory/libs-snapshot</url>
+		</repository>
+	</repositories>
+	<build>
+		<defaultGoal>install</defaultGoal>
+		<plugins>
+			<!-- Geração do jar dos sources -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>3.0.0</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>

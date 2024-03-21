@@ -1,0 +1,9 @@
+domain my_domain
+
+entities {
+	//define global properties here
+}
+
+service my_service {
+	//define entities properties here
+}

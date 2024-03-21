@@ -1,0 +1,4 @@
+FROM seniorsa/platform:3.1.2
+COPY . #INSTALL_DIR#
+WORKDIR #INSTALL_DIR#
+ENTRYPOINT exec java $JAVA_OPTS -jar ./#ARTIFACT_NAME#-jar-with-dependencies.jar 

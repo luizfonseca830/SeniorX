@@ -1,0 +1,189 @@
+{
+    "id": "my_domain.my_service",
+    "properties": {
+        "notifyUserEventPayload" : {
+        	"type" : "object",
+        	"id" : "notifyUserEventPayload",
+        	"properties" : {
+            	"notificationClass" : {
+            		"type": "string"
+            	},
+            	"notificationOrigin" : {
+            		"type": "string"
+            	},
+            	"notificationKind" : {
+            		"type": "string",
+            		"enum": ["Operational","Management","News"]
+            	},
+            	"notificationPriority" : {
+            		"type": "string",
+            		"enum": ["Error","Alert","None"]
+            	},
+            	"notificationSubject" : {
+            		"type": "string"
+            	},
+            	"notificationContent" : {
+            		"type": "string"
+            	},
+            	"sourceDomain" : {
+            		"type": "string"
+            	},
+            	"sourceService" : {
+            		"type": "string"
+            	},
+            	"destinationUser" : {
+            		"type": "string"
+            	},
+            	"link" : {
+            		"type": "string"
+            	}
+        	},
+        	"required" : ["notificationKind","notificationPriority","notificationSubject","notificationContent","sourceDomain","sourceService","destinationUser"]
+        }
+        ,
+        "emailNotifyUserEventPayload" : {
+        	"type" : "object",
+        	"id" : "emailNotifyUserEventPayload",
+        	"properties" : {
+            	"notificationClass" : {
+            		"type": "string"
+            	},
+            	"notificationOrigin" : {
+            		"type": "string"
+            	},
+            	"notificationKind" : {
+            		"type": "string",
+            		"enum": ["Operational","Management","News"]
+            	},
+            	"notificationPriority" : {
+            		"type": "string",
+            		"enum": ["Error","Alert","None"]
+            	},
+            	"notificationSubject" : {
+            		"type": "string"
+            	},
+            	"notificationContent" : {
+            		"type": "string"
+            	},
+            	"sourceDomain" : {
+            		"type": "string"
+            	},
+            	"sourceService" : {
+            		"type": "string"
+            	},
+            	"destinationUser" : {
+            		"type": "string"
+            	},
+            	"link" : {
+            		"type": "string"
+            	},
+            	"from" : {
+            		"type": "string"
+            	},
+            	"sendTo" : {
+            		"type": "array",
+            		"items": {
+            		  "type": "string"
+            		}
+            	},
+            	"format" : {
+            		"type": "string",
+            		"enum": ["HTML","PLAIN_TEXT"]
+            	}
+        	},
+        	"required" : ["notificationKind","notificationPriority","notificationSubject","notificationContent","sourceDomain","sourceService","destinationUser","from"]
+        }
+        ,
+        "pushNotifyUserEventPayload" : {
+        	"type" : "object",
+        	"id" : "pushNotifyUserEventPayload",
+        	"properties" : {
+            	"notificationClass" : {
+            		"type": "string"
+            	},
+            	"notificationOrigin" : {
+            		"type": "string"
+            	},
+            	"notificationKind" : {
+            		"type": "string",
+            		"enum": ["Operational","Management","News"]
+            	},
+            	"notificationPriority" : {
+            		"type": "string",
+            		"enum": ["Error","Alert","None"]
+            	},
+            	"notificationSubject" : {
+            		"type": "string"
+            	},
+            	"notificationContent" : {
+            		"type": "string"
+            	},
+            	"sourceDomain" : {
+            		"type": "string"
+            	},
+            	"sourceService" : {
+            		"type": "string"
+            	},
+            	"destinationUser" : {
+            		"type": "string"
+            	},
+            	"link" : {
+            		"type": "string"
+            	},
+            	"applicationId" : {
+            		"type": "string"
+            	}
+        	},
+        	"required" : ["notificationKind","notificationPriority","notificationSubject","notificationContent","sourceDomain","sourceService","destinationUser","applicationId"]
+        }
+        ,
+        "blobReference" : {
+        	"type" : "object",
+        	"id" : "blobReference",
+        	"properties" : {
+            	"domainName" : {
+            		"type": "string"
+            	},
+            	"serviceName" : {
+            		"type": "string"
+            	},
+            	"targetObjectId" : {
+            		"type": "string"
+            	},
+            	"targetCopyId" : {
+            		"type": "string"
+            	}
+        	},
+        	"required" : ["targetObjectId"]
+        }
+        ,
+        "basicErrorPayload" : {
+        	"type" : "object",
+        	"id" : "basicErrorPayload",
+        	"properties" : {
+            	"message" : {
+            		"type": "string"
+            	},
+            	"errorCode" : {
+            		"type": "string"
+            	}
+        	}}
+        ,
+        "dependency" : {
+        	"type" : "object",
+        	"id" : "dependency",
+        	"properties" : {
+            	"domain" : {
+            		"type": "string"
+            	},
+            	"service" : {
+            		"type": "string"
+            	},
+            	"version" : {
+            		"type": "string"
+            	}
+        	},
+        	"required" : ["domain","service","version"]
+        }
+    }
+}

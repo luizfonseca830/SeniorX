@@ -1,0 +1,47 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: my-service
+    domain: my_domain
+    service: my_service
+  name: hello-world
+  namespace: platform
+spec:
+  replicas: 1
+  progressDeadlineSeconds: 600
+  template:
+    metadata:
+      labels:
+        app: my-service
+        domain: my_domain
+        service: my_service
+      namespace: platform
+    spec:
+      containers:
+      - env:
+        - name: BROKER_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: general-config
+              key: broker.host
+        - name: BROKER_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: general-config
+              key: broker.port
+        - name: BROKER_USER
+          valueFrom:
+            configMapKeyRef:
+              name: general-config
+              key: broker.user
+        - name: BROKER_PASS
+          valueFrom:
+            secretKeyRef:
+              name: general-secrets
+              key: broker.password
+        - name: JAVA_OPTS
+          value: -Xmx128m -XX:+UseG1GC -Xss256K -Dservicemodel.logger.br.com.senior=INFO
+        image: seniorsa/hello-world:{$version}
+        name: hello-world
+  revisionHistoryLimit: 3

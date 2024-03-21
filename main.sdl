@@ -1,0 +1,43 @@
+domain my_domain
+
+service my_service {
+    endpoints {
+    // add actions, queries, events and signals here
+        "
+        Primitiva que retorna uma mensagem de olá com o nome do requisitante
+        Normalmente no campo who é informado seu próprio nome
+        "
+        query helloWorld {
+            in {
+          //Parametro com o nome do requisitante
+                who : string
+            }
+            out {
+                "Saida com a mensagem de olá mundo"
+                helloWorldMessage : string
+            }
+        }
+
+        "Cadastra um novo envento (ex: SeniorTec, Casamento, Aniversário, etc)"
+        action cadastrarEvento{
+            in {
+                nome : string(10)
+                "Caso o valor não seja informado, será false"
+                apenasColaboradores : boolean? default:false
+                lotacaoMaxima : integer minValue: 1 maxValue: 999
+                data : date
+            }
+            out{
+                retorno : string
+            }
+        }
+
+    }
+    types {
+    // define records and enumerations here
+    }
+    entities {
+    // define any entities here
+
+    }
+} 

@@ -1,0 +1,459 @@
+{
+    "appName": "hello-world",
+    "domain": "my_domain",
+    "documentation": "",
+    "isPublicSwaggerEnabled": false,
+    "name": "my_service",
+    "version": "${version}",
+    "commands" : {
+        "getMetadata": {
+            "endpointType" : "command",
+            "kind": "query",
+            "priority" : "NORMAL",
+            "documentation": "Default 'getMetadata' query. Every service must handle this command and return metadata in the format requested.",
+            "idempotent": true,
+            "input" : {
+                "metadataFormat" : {
+                    "type": "string",
+                    "optional": true,
+                    "multivalued": false,
+                    "readOnly": false
+                }
+            },
+            "output" : {
+                "metadata" : {
+                    "type": "string",
+                    "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                }
+            },
+            "extensionPoint" : false,
+            "responses" : {
+            },
+            "visibility" : "PRIVATE",
+            "version": "0"
+        },
+        "getDependencies": {
+            "endpointType" : "command",
+            "kind": "query",
+            "priority" : "NORMAL",
+            "documentation": "Returns a list with all dependencies from this service, along with their respective versions",
+            "idempotent": true,
+            "output" : {
+                "dependencies" : {
+                    "type": "dependency",
+                    "optional": false,
+                    "multivalued": true,
+                    "documentation": "List with this service dependencies",
+                    "readOnly": false
+                }
+            },
+            "extensionPoint" : false,
+            "responses" : {
+            },
+            "visibility" : "PRIVATE",
+            "version": "0"
+        },
+        "helloWorld": {
+            "endpointType" : "command",
+            "kind": "query",
+            "priority" : "NORMAL",
+            "idempotent": true,
+            "input" : {
+                "who" : {
+                    "type": "string",
+                    "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                }
+            },
+            "output" : {
+                "helloWorldMessage" : {
+                    "type": "string",
+                    "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                }
+            },
+            "extensionPoint" : false,
+            "responses" : {
+            },
+            "visibility" : "PRIVATE",
+            "version": "0"
+        }
+    },
+    "signals" : {
+    },
+    "events" : {
+        "serviceStarted": {
+            "endpointType" : "event",
+            "documentation" : "Default 'serviceStarted' event.",
+            "payload" : {
+                "domain" : {
+                    "type": "string",
+                    "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                },
+                "service" : {
+                    "type": "string",
+                    "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                }
+            },
+            "kind" : "Event",
+            "priority" : "LOW",
+            "extensionPoint" : false,
+            "visibility" : "PRIVATE"
+        },
+        "notifyUserEvent": {
+            "endpointType" : "event",
+            "documentation" : "Default 'notifyUser' event.",
+            "payload" : "notifyUserEventPayload",
+            "kind" : "Event",
+            "priority" : "LOW",
+            "extensionPoint" : false,
+            "visibility" : "PRIVATE"
+        }
+    },
+    "records": {
+        "notifyUserEventPayload" : {
+            "notificationClass" : {
+                "type": "string",
+                "optional": true,
+                "multivalued": false,
+                "documentation": "Class of notification",
+                "readOnly": false
+            },
+            "notificationOrigin" : {
+                "type": "string",
+                "optional": true,
+                "multivalued": false,
+                "documentation": "Origin of notification. Free text. Optional.",
+                "readOnly": false
+            },
+            "notificationKind" : {
+                "type": "userNotificationKind",
+                "optional": false,
+                "multivalued": false,
+                "documentation": "Notification kind.",
+                "readOnly": false
+            },
+            "notificationPriority" : {
+                "type": "userNotificationPriority",
+                "optional": false,
+                "multivalued": false,
+                "documentation": "Notification priority.",
+                "readOnly": false
+            },
+            "notificationSubject" : {
+                "type": "string",
+                "optional": false,
+                "multivalued": false,
+                "documentation": "Notification subject.",
+                "readOnly": false
+            },
+            "notificationContent" : {
+                "type": "string",
+                "optional": false,
+                "multivalued": false,
+                "documentation": "Notification content.",
+                "readOnly": false
+            },
+            "sourceDomain" : {
+                "type": "string",
+                "optional": false,
+                "multivalued": false,
+                "documentation": "Domain that generates the notification.",
+                "readOnly": false
+            },
+            "sourceService" : {
+                "type": "string",
+                "optional": false,
+                "multivalued": false,
+                "documentation": "Service that generates the notification.",
+                "readOnly": false
+            },
+            "destinationUser" : {
+                "type": "string",
+                "optional": false,
+                "multivalued": false,
+                "documentation": "Username of the destination user.",
+                "readOnly": false
+            },
+            "link" : {
+                "type": "string",
+                "optional": true,
+                "multivalued": false,
+                "documentation": "Notification link",
+                "readOnly": false
+            }
+        },
+        "emailNotifyUserEventPayload" : {
+            "notificationClass" : {
+                "type": "string",
+                "optional": true,
+                "multivalued": false,
+                "documentation": "Class of notification",
+                "readOnly": false
+            },
+            "notificationOrigin" : {
+                "type": "string",
+                "optional": true,
+                "multivalued": false,
+                "documentation": "Origin of notification. Free text. Optional.",
+                "readOnly": false
+            },
+            "notificationKind" : {
+                "type": "userNotificationKind",
+                "optional": false,
+                "multivalued": false,
+                "documentation": "Notification kind.",
+                "readOnly": false
+            },
+            "notificationPriority" : {
+                "type": "userNotificationPriority",
+                "optional": false,
+                "multivalued": false,
+                "documentation": "Notification priority.",
+                "readOnly": false
+            },
+            "notificationSubject" : {
+                "type": "string",
+                "optional": false,
+                "multivalued": false,
+                "documentation": "Notification subject.",
+                "readOnly": false
+            },
+            "notificationContent" : {
+                "type": "string",
+                "optional": false,
+                "multivalued": false,
+                "documentation": "Notification content.",
+                "readOnly": false
+            },
+            "sourceDomain" : {
+                "type": "string",
+                "optional": false,
+                "multivalued": false,
+                "documentation": "Domain that generates the notification.",
+                "readOnly": false
+            },
+            "sourceService" : {
+                "type": "string",
+                "optional": false,
+                "multivalued": false,
+                "documentation": "Service that generates the notification.",
+                "readOnly": false
+            },
+            "destinationUser" : {
+                "type": "string",
+                "optional": false,
+                "multivalued": false,
+                "documentation": "Username of the destination user.",
+                "readOnly": false
+            },
+            "link" : {
+                "type": "string",
+                "optional": true,
+                "multivalued": false,
+                "documentation": "Notification link",
+                "readOnly": false
+            },
+            "from" : {
+                "type": "string",
+                "optional": false,
+                "multivalued": false,
+                "documentation": "Email sender address",
+                "readOnly": false
+            },
+            "sendTo" : {
+                "type": "string",
+                "optional": true,
+                "multivalued": true,
+                "documentation": "Additional recipients to send the email to",
+                "readOnly": false
+            },
+            "format" : {
+                "type": "eventEmailFormat",
+                "optional": true,
+                "multivalued": false,
+                "documentation": "Email format",
+                "readOnly": false
+            }
+        },
+        "pushNotifyUserEventPayload" : {
+            "notificationClass" : {
+                "type": "string",
+                "optional": true,
+                "multivalued": false,
+                "documentation": "Class of notification",
+                "readOnly": false
+            },
+            "notificationOrigin" : {
+                "type": "string",
+                "optional": true,
+                "multivalued": false,
+                "documentation": "Origin of notification. Free text. Optional.",
+                "readOnly": false
+            },
+            "notificationKind" : {
+                "type": "userNotificationKind",
+                "optional": false,
+                "multivalued": false,
+                "documentation": "Notification kind.",
+                "readOnly": false
+            },
+            "notificationPriority" : {
+                "type": "userNotificationPriority",
+                "optional": false,
+                "multivalued": false,
+                "documentation": "Notification priority.",
+                "readOnly": false
+            },
+            "notificationSubject" : {
+                "type": "string",
+                "optional": false,
+                "multivalued": false,
+                "documentation": "Notification subject.",
+                "readOnly": false
+            },
+            "notificationContent" : {
+                "type": "string",
+                "optional": false,
+                "multivalued": false,
+                "documentation": "Notification content.",
+                "readOnly": false
+            },
+            "sourceDomain" : {
+                "type": "string",
+                "optional": false,
+                "multivalued": false,
+                "documentation": "Domain that generates the notification.",
+                "readOnly": false
+            },
+            "sourceService" : {
+                "type": "string",
+                "optional": false,
+                "multivalued": false,
+                "documentation": "Service that generates the notification.",
+                "readOnly": false
+            },
+            "destinationUser" : {
+                "type": "string",
+                "optional": false,
+                "multivalued": false,
+                "documentation": "Username of the destination user.",
+                "readOnly": false
+            },
+            "link" : {
+                "type": "string",
+                "optional": true,
+                "multivalued": false,
+                "documentation": "Notification link",
+                "readOnly": false
+            },
+            "applicationId" : {
+                "type": "string",
+                "optional": false,
+                "multivalued": false,
+                "documentation": "Apple/Google application id",
+                "readOnly": false
+            }
+        },
+        "blobReference" : {
+            "domainName" : {
+                "type": "string",
+                "optional": true,
+                "multivalued": false,
+                "documentation": "The domain the blob belongs to.",
+                "readOnly": false
+            },
+            "serviceName" : {
+                "type": "string",
+                "optional": true,
+                "multivalued": false,
+                "documentation": "The service the blob belongs to.",
+                "readOnly": false
+            },
+            "targetObjectId" : {
+                "type": "string",
+                "optional": false,
+                "multivalued": false,
+                "documentation": "The basic id of the blob.",
+                "readOnly": false
+            },
+            "targetCopyId" : {
+                "type": "string",
+                "optional": true,
+                "multivalued": false,
+                "documentation": "The id of the blob copy.",
+                "readOnly": false
+            }
+        },
+        "basicErrorPayload" : {
+            "message" : {
+                "type": "string",
+                "optional": true,
+                "multivalued": false,
+                "documentation": "The user-facing error message, if any.",
+                "readOnly": false
+            },
+            "errorCode" : {
+                "type": "string",
+                "optional": true,
+                "multivalued": false,
+                "documentation": "The program-accessible (and service-specific) error code.",
+                "readOnly": false
+            }
+        },
+        "dependency" : {
+            "domain" : {
+                "type": "string",
+                "optional": false,
+                "multivalued": false,
+                "documentation": "Domain of the dependency service",
+                "readOnly": false
+            },
+            "service" : {
+                "type": "string",
+                "optional": false,
+                "multivalued": false,
+                "documentation": "Name of the dependency service",
+                "readOnly": false
+            },
+            "version" : {
+                "type": "string",
+                "optional": false,
+                "multivalued": false,
+                "documentation": "Version of the dependency service",
+                "readOnly": false
+            }
+        }
+    },
+    "enumerations": {
+        "userNotificationKind" : [ 
+            "Operational",
+            "Management",
+            "News"
+        ],
+        "userNotificationPriority" : [ 
+            "Error",
+            "Alert",
+            "None"
+        ],
+        "eventEmailFormat" : [ 
+            "HTML",
+            "PLAIN_TEXT"
+        ]
+    },
+    "entities" : {
+    },
+    "apis" : {
+    }
+	,
+	"versions": {
+	}
+}

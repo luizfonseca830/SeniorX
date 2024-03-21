@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<!-- This artifact only exists to allow for future re-generation operations
+		from the command line (mvn generate-sources). -->
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>hello-world</artifactId>
+	<groupId>br.com.senior</groupId>
+	<version>0.0.1</version>
+	<packaging>pom</packaging>
+	<properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+		<sdl.version>33.3.7</sdl.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<pdl.version>2.4.1</pdl.version>
+		<xtext.version>2.17.0.1-SENIOR</xtext.version>
+		<edl.version>31.1.1</edl.version>
+	</properties>
+	<repositories>
+		<repository>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<id>senior-libs-release</id>
+			<url>https://maven.senior.com.br/artifactory/libs-release</url>
+		</repository>
+	</repositories>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>senior-plugin-release</id>
+			<url>https://maven.senior.com.br/artifactory/plugins-release</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</pluginRepository>
+		<pluginRepository>
+            <id>senior-plugin-snapshot local</id>
+            <url>https://maven.senior.com.br/artifactory/plugins-snapshot-local</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </pluginRepository>
+	</pluginRepositories>
+	<build>
+		<plugins>
+			<!-- SDL Maven plug-in for source generation -->
+			<plugin>
+				<groupId>br.com.senior.messaging.sdl</groupId>
+				<artifactId>sdl-maven-plugin</artifactId>
+				<version>${sdl.version}</version>
+				<executions>
+					<execution>
+						<id>clean-projects</id>
+						<phase>clean</phase>
+						<goals>
+							<goal>clean</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>generate-sdl-artifacts</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!-- Xtext Maven plug-in for generate PDL artifacts  -->
+			<plugin>
+                <groupId>org.eclipse.xtext</groupId>
+                <artifactId>xtext-maven-plugin</artifactId>
+                <version>${xtext.version}</version>
+                <executions>
+                    <execution>
+                        <id>generate-senior-dsl-sources</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <languages>
+                        <language>
+                            <!-- To setup SDL for EDL usage -->
+                            <setup>br.com.senior.sdl.language.SDLStandaloneSetup</setup>
+                            <outputConfigurations>
+                                <outputConfiguration>
+                                    <outputDirectory>src/main/generated-sources/xtend/</outputDirectory>
+                                </outputConfiguration>
+                            </outputConfigurations>
+                        </language>
+                        <language>
+                            <setup>br.com.senior.pdl.language.PDLStandaloneSetup</setup>
+                            <outputConfigurations>
+                                <outputConfiguration>
+                                    <outputDirectory>src/main/generated-sources/xtend/</outputDirectory>
+                                </outputConfiguration>
+                            </outputConfigurations>
+                        </language>
+                        <language>
+                            <setup>br.com.senior.edl.EDLStandaloneSetup</setup>
+                            <outputConfigurations>
+                                <outputConfiguration>
+                                    <outputDirectory>src/main/generated-sources/xtend/</outputDirectory>
+                                </outputConfiguration>
+                            </outputConfigurations>
+                        </language>
+                    </languages>
+                </configuration>
+                <dependencies>
+                    <!-- Begin SDL dependencies -->
+                    <dependency>
+                        <groupId>br.com.senior.messaging.sdl</groupId>
+                        <artifactId>br.com.senior.sdl.language</artifactId>
+                        <version>${sdl.version}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>commons-io</groupId>
+                        <artifactId>commons-io</artifactId>
+                        <version>1.3.2</version>
+                    </dependency>
+                    <!-- End SDL dependencies -->
+                    <dependency>
+                        <groupId>br.com.senior.messaging.pdl</groupId>
+                        <artifactId>br.com.senior.pdl.language</artifactId>
+                        <version>${pdl.version}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>br.com.senior.edl</groupId>
+                        <artifactId>br.com.senior.edl</artifactId>
+                        <version>${edl.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+		</plugins>
+	</build>
+</project>

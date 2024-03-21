@@ -1,0 +1,452 @@
+swagger: '2.0'
+
+info:
+  version: 0.0.1
+  title: my_service
+  x-senior-domain: my_domain
+  x-senior-domain-path: my_domain
+  x-senior-service-path: my_service
+  contact:
+    name: Senior X Platform
+    url: https://dev.senior.com.br
+    email: seniorx-dev@senior.com.br
+
+host: platform.senior.com.br
+
+basePath: /t/senior.com.br/bridge/1.0/rest/my_domain
+
+securityDefinitions:
+   APIKeyHeader:
+     type: apiKey
+     in: header
+     name: Authorization
+
+security:
+  - APIKeyHeader: []
+
+produces:
+  - application/json
+consumes:
+  - application/json
+
+paths:
+  /my_service/queries/helloWorld:
+    post:
+      description: "\n
+        Primitiva que retorna uma mensagem de olá com o nome do requisitante\n
+        Normalmente no campo who é informado seu próprio nome\n
+      "
+      tags:
+        - Queries
+      x-senior-visibility: PRIVATE
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            type: object
+            required:
+              - who
+            properties:
+              who:
+                type: string
+                description: ""
+      responses:
+        200:
+          description: Ok
+          schema:
+            type: object
+            required:
+              - helloWorldMessage
+            properties:
+              helloWorldMessage:
+                type: string
+                description: "Saida com a mensagem de olá mundo"
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          schema:
+            $ref: '#/definitions/genericError'
+    get:
+      description: "\n
+        Primitiva que retorna uma mensagem de olá com o nome do requisitante\n
+        Normalmente no campo who é informado seu próprio nome\n
+      "
+      tags:
+        - Queries
+      x-senior-visibility: PRIVATE
+      parameters:
+        - name: who
+          description: ""
+          in: query
+          required: true
+          type: string
+      responses:
+        200:
+          description: Ok
+          schema:
+            type: object
+            required:
+              - helloWorldMessage
+            properties:
+              helloWorldMessage:
+                type: string
+                description: "Saida com a mensagem de olá mundo"
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          schema:
+            $ref: '#/definitions/genericError'
+  
+  /my_service/queries/getMetadata:
+    post:
+      description: "Default 'getMetadata' query. Every service must handle this command and return metadata in the format requested."
+      tags:
+        - Queries
+      x-senior-visibility: PRIVATE
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              metadataFormat:
+                type: string
+                description: ""
+      responses:
+        200:
+          description: Ok
+          schema:
+            type: object
+            required:
+              - metadata
+            properties:
+              metadata:
+                type: string
+                description: ""
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          schema:
+            $ref: '#/definitions/genericError'
+    get:
+      description: "Default 'getMetadata' query. Every service must handle this command and return metadata in the format requested."
+      tags:
+        - Queries
+      x-senior-visibility: PRIVATE
+      parameters:
+        - name: metadataFormat
+          description: ""
+          in: query
+          type: string
+      responses:
+        200:
+          description: Ok
+          schema:
+            type: object
+            required:
+              - metadata
+            properties:
+              metadata:
+                type: string
+                description: ""
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          schema:
+            $ref: '#/definitions/genericError'
+  
+  /my_service/queries/getDependencies:
+    post:
+      description: "Returns a list with all dependencies from this service, along with their respective versions"
+      tags:
+        - Queries
+      x-senior-visibility: PRIVATE
+      responses:
+        200:
+          description: Ok
+          schema:
+            type: object
+            required:
+              - dependencies
+            properties:
+              dependencies:
+                type: array
+                items:
+                  type: object
+                  allOf:
+                   - $ref: '#/definitions/dependency'
+                  minimum: 1
+                description: "List with this service dependencies"
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          schema:
+            $ref: '#/definitions/genericError'
+    get:
+      description: "Returns a list with all dependencies from this service, along with their respective versions"
+      tags:
+        - Queries
+      x-senior-visibility: PRIVATE
+      responses:
+        200:
+          description: Ok
+          schema:
+            type: object
+            required:
+              - dependencies
+            properties:
+              dependencies:
+                type: array
+                items:
+                  type: object
+                  allOf:
+                   - $ref: '#/definitions/dependency'
+                  minimum: 1
+                description: "List with this service dependencies"
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          schema:
+            $ref: '#/definitions/genericError'
+  /my_service/actions/cadastrarEvento:
+    post:
+      description: "Cadastra um novo envento (ex: SeniorTec, Casamento, Aniversário, etc)"
+      tags:
+        - Actions
+      x-senior-visibility: PRIVATE
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            type: object
+            required:
+              - nome
+              - lotacaoMaxima
+              - data
+            properties:
+              nome:
+                type: string
+                maxLength: 10
+                description: ""
+              apenasColaboradores:
+                type: boolean
+                description: "Caso o valor não seja informado, será false"
+                default: false
+              lotacaoMaxima:
+                type: integer
+                format: int64
+                description: ""
+              data:
+                type: string
+                format: date
+                description: ""
+      responses:
+        200:
+          description: Ok
+          schema:
+            type: object
+            required:
+              - retorno
+            properties:
+              retorno:
+                type: string
+                description: ""
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          schema:
+            $ref: '#/definitions/genericError'
+
+definitions:
+  userNotificationKind:
+    description: "User notification kind."
+    type: string
+    enum:
+      - Operational
+      - Management
+      - News
+  
+  
+  userNotificationPriority:
+    description: "User notification priority."
+    type: string
+    enum:
+      - Error
+      - Alert
+      - None
+  
+  
+  eventEmailFormat:
+    description: "Format of the email"
+    type: string
+    enum:
+      - HTML
+      - PLAIN_TEXT
+  
+  notifyUserEventPayload:
+    description: "Represents a regular user event notification payload"
+    discriminator: _discriminator
+    type: object
+    required:
+      - notificationKind
+      - notificationPriority
+      - notificationSubject
+      - notificationContent
+      - sourceDomain
+      - sourceService
+      - destinationUser
+      - _discriminator
+    properties:
+      notificationClass:
+        type: string
+        description: "Class of notification"
+      notificationOrigin:
+        type: string
+        description: "Origin of notification. Free text. Optional."
+      notificationKind:
+        type: string
+        allOf:
+        - $ref: '#/definitions/userNotificationKind'
+        description: "Notification kind."
+      notificationPriority:
+        type: string
+        allOf:
+        - $ref: '#/definitions/userNotificationPriority'
+        description: "Notification priority."
+      notificationSubject:
+        type: string
+        description: "Notification subject."
+      notificationContent:
+        type: string
+        description: "Notification content."
+      sourceDomain:
+        type: string
+        description: "Domain that generates the notification."
+      sourceService:
+        type: string
+        description: "Service that generates the notification."
+      destinationUser:
+        type: string
+        description: "Username of the destination user."
+      link:
+        type: string
+        description: "Notification link"
+      _discriminator:
+        type: string
+        description: ""
+  
+  emailNotifyUserEventPayload:
+    description: "Represents an email notification payload"
+    allOf:
+    - $ref: '#/definitions/notifyUserEventPayload'
+    -
+      type: object
+      required:
+        - from
+      properties:
+        from:
+          type: string
+          description: "Email sender address"
+        sendTo:
+          type: array
+          items:
+            type: string
+          description: "Additional recipients to send the email to"
+        format:
+          type: string
+          allOf:
+          - $ref: '#/definitions/eventEmailFormat'
+          description: "Email format"
+  
+  pushNotifyUserEventPayload:
+    description: "Represents a push notification payload"
+    allOf:
+    - $ref: '#/definitions/notifyUserEventPayload'
+    -
+      type: object
+      required:
+        - applicationId
+      properties:
+        applicationId:
+          type: string
+          description: "Apple/Google application id"
+  
+  blobReference:
+    description: "Default blob reference type. Every service defines its own."
+    type: object
+    required:
+      - targetObjectId
+    properties:
+      domainName:
+        type: string
+        description: "The domain the blob belongs to."
+      serviceName:
+        type: string
+        description: "The service the blob belongs to."
+      targetObjectId:
+        type: string
+        description: "The basic id of the blob."
+      targetCopyId:
+        type: string
+        description: "The id of the blob copy."
+  
+  basicErrorPayload:
+    description: "Default error payload type. Every service defines its own."
+    type: object
+    properties:
+      message:
+        type: string
+        description: "The user-facing error message, if any."
+      errorCode:
+        type: string
+        description: "The program-accessible (and service-specific) error code."
+  
+  dependency:
+    description: "Represents a service dependency"
+    type: object
+    required:
+      - domain
+      - service
+      - version
+    properties:
+      domain:
+        type: string
+        description: "Domain of the dependency service"
+      service:
+        type: string
+        description: "Name of the dependency service"
+      version:
+        type: string
+        description: "Version of the dependency service"
+
+  genericError:
+    properties:
+      message:
+        type: string
+        description: Messaging describing the error.
+      reason:
+        type: string
+        description: A symbolic code identifying the category of the reason of the error.
+        enum:
+          - BAD_REQUEST
+          - UNAUTHORIZED
+          - PAYMENT_REQUIRED
+          - FORBIDDEN
+          - OBJECT_NOT_FOUND
+          - REQUEST_TIMEOUT
+          - GONE
+          - UNPROCESSABLE
+          - INTERNAL_ERROR
+          - NOT_IMPLEMENTED
+          - SERVICE_UNAVAILABLE
+          - INSUFFICIENT_STORAGE
