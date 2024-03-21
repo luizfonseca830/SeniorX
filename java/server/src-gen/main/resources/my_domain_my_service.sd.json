@@ -165,6 +165,12 @@
                     "optional": false,
                     "multivalued": false,
                     "readOnly": false
+                },
+                "tipoEntradaEvento" : {
+                    "type": "tipoEntrada",
+                    "optional": true,
+                    "multivalued": false,
+                    "readOnly": false
                 }
             },
             "output" : {
@@ -533,6 +539,12 @@
         }
     },
     "enumerations": {
+        "tipoEntrada" : [ 
+            "livre",
+            "noLocal",
+            "antecipado",
+            "lista"
+        ],
         "userNotificationKind" : [ 
             "Operational",
             "Management",

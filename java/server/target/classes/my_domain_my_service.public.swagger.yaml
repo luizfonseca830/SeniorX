@@ -29,6 +29,16 @@ consumes:
 paths:
   
 definitions:
+  tipoEntrada:
+    description: ""
+    type: string
+    enum:
+      - livre
+      - noLocal
+      - antecipado
+      - lista
+    
+  
   userNotificationKind:
     description: "User notification kind."
     type: string

@@ -26,6 +26,7 @@ service my_service {
                 apenasColaboradores : boolean? default:false
                 lotacaoMaxima : integer minValue: 1 maxValue: 999
                 data : date
+                tipoEntradaEvento: tipoEntrada?
             }
             out{
                 retorno : string
@@ -46,9 +47,16 @@ service my_service {
     }
     types {
     // define records and enumerations here
+        enumeration tipoEntrada {
+            livre
+            noLocal
+            antecipado
+            lista
+        }
+
     }
     entities {
     // define any entities here
 
     }
-} 
+}

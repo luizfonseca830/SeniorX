@@ -21,6 +21,8 @@ public class CadastrarEventoInputStringSerializer {
 		sb.append(", ");
 		serializeData(cadastrarEventoInput, sb);
 		sb.append(", ");
+		serializeTipoEntradaEvento(cadastrarEventoInput, sb);
+		sb.append(", ");
 		sb.append(']');
 	}
 	
@@ -38,5 +40,9 @@ public class CadastrarEventoInputStringSerializer {
 	
 	protected void serializeData(CadastrarEventoInput cadastrarEventoInput, StringBuilder sb) {
 		sb.append("data=").append(cadastrarEventoInput.data == null ? "null" : cadastrarEventoInput.data);
+	}
+	
+	protected void serializeTipoEntradaEvento(CadastrarEventoInput cadastrarEventoInput, StringBuilder sb) {
+		sb.append("tipoEntradaEvento=").append(cadastrarEventoInput.tipoEntradaEvento == null ? "null" : cadastrarEventoInput.tipoEntradaEvento);
 	}
 }

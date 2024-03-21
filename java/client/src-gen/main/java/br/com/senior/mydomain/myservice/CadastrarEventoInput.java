@@ -29,6 +29,8 @@ public class CadastrarEventoInput {
     @NotNull(message = "data is required")
     public java.time.LocalDate data;
     
+    public TipoEntrada tipoEntradaEvento;
+    
     
     public CadastrarEventoInput() {
     }
@@ -36,11 +38,12 @@ public class CadastrarEventoInput {
     /** 
      * This constructor allows initialization of all fields, required and optional.
      */
-    public CadastrarEventoInput(String nome, Boolean apenasColaboradores, Long lotacaoMaxima, java.time.LocalDate data) {
+    public CadastrarEventoInput(String nome, Boolean apenasColaboradores, Long lotacaoMaxima, java.time.LocalDate data, TipoEntrada tipoEntradaEvento) {
         this.nome = nome;
         this.apenasColaboradores = apenasColaboradores != null ? apenasColaboradores : false;
         this.lotacaoMaxima = lotacaoMaxima;
         this.data = data;
+        this.tipoEntradaEvento = tipoEntradaEvento;
     }
     /** 
      * This convenience constructor allows initialization of all required fields.
@@ -81,6 +84,9 @@ public class CadastrarEventoInput {
         if (data != null) {
             ret = 31 * ret + data.hashCode();
         }
+        if (tipoEntradaEvento != null) {
+            ret = 31 * ret + tipoEntradaEvento.hashCode();
+        }
         return ret;
     }
     
@@ -115,6 +121,12 @@ public class CadastrarEventoInput {
             return false;
         }
         if ((data != null) && !data.equals(other.data)) {
+            return false;
+        }
+        if ((tipoEntradaEvento == null) != (other.tipoEntradaEvento == null)) {
+            return false;
+        }
+        if ((tipoEntradaEvento != null) && !tipoEntradaEvento.equals(other.tipoEntradaEvento)) {
             return false;
         }
         return true;

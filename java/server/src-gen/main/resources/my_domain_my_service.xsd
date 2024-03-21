@@ -10,6 +10,14 @@
     <xsd:attribute name="i18n" type="xsd:boolean" default="false"/>
     
     <!-- Public types -->
+    <xsd:simpleType name="tipoEntrada">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="livre"/>
+            <xsd:enumeration value="noLocal"/>
+            <xsd:enumeration value="antecipado"/>
+            <xsd:enumeration value="lista"/>
+        </xsd:restriction>
+     </xsd:simpleType>
     <xsd:simpleType name="userNotificationKind">
         <xsd:restriction base="xsd:string">
             <xsd:enumeration value="Operational"/>
@@ -219,6 +227,8 @@
                 </xsd:simpleType>
                 </xsd:element>
                 <xsd:element name="data" type="xsd:date" minOccurs="1" maxOccurs="1"  readOnly="false">
+                </xsd:element>
+                <xsd:element name="tipoEntradaEvento" type="tipoEntrada" minOccurs="0" maxOccurs="1"  readOnly="false">
                 </xsd:element>
             </xsd:sequence>
         </xsd:complexType>

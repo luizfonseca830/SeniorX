@@ -362,6 +362,11 @@ paths:
                   type: string
                   format: date
                   description: ""
+                tipoEntradaEvento:
+                  type: string
+                  allOf:
+                  - $ref: '#/components/schemas/tipoEntrada'
+                  description: ""
       parameters:
         - in: header
           name: Accept
@@ -397,6 +402,16 @@ components:
       type: apiKey
       in: header
   schemas:
+    tipoEntrada:
+      description: ""
+      type: string
+      enum:
+        - livre
+        - noLocal
+        - antecipado
+        - lista
+      
+    
     userNotificationKind:
       description: "User notification kind."
       type: string

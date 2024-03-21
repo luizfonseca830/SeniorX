@@ -16,8 +16,8 @@ public class CadastrarEventoImpl implements CadastrarEvento {
         } else {
             resposta = "não";
         }*/
-        cadastrarEventoOutput.retorno = String.format("Evento cadastrado! Nome: %s, apenasColaboradores: %s, Limite de pessoas: %d, data: %s",
-                request.nome, resposta, request.lotacaoMaxima, formattedDate);
+        cadastrarEventoOutput.retorno = String.format("Evento cadastrado! Nome: %s, apenasColaboradores: %s, Limite de pessoas: %d, data: %s, o tipo de evento é %s",
+                request.nome, resposta, request.lotacaoMaxima, formattedDate, request.tipoEntradaEvento);
         return cadastrarEventoOutput;
     }
 }

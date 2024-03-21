@@ -251,6 +251,11 @@ paths:
                 type: string
                 format: date
                 description: ""
+              tipoEntradaEvento:
+                type: string
+                allOf:
+                - $ref: '#/definitions/tipoEntrada'
+                description: ""
       responses:
         200:
           description: Ok
@@ -317,6 +322,16 @@ paths:
             $ref: '#/definitions/genericError'
 
 definitions:
+  tipoEntrada:
+    description: ""
+    type: string
+    enum:
+      - livre
+      - noLocal
+      - antecipado
+      - lista
+  
+  
   userNotificationKind:
     description: "User notification kind."
     type: string
