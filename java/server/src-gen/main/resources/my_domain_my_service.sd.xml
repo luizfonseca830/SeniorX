@@ -19,6 +19,16 @@
                 <slot name="retorno" type="string" optional="false" multivalued="false"/>
             </output>
         </action>
+        <action name="cadastrarConvidado" idempotent="false" extensionPoint="false" visibility="PRIVATE">
+            <input>
+                <slot name="nome" type="string" optional="false" multivalued="false" maxLength="20"/>
+                <slot name="quantidadeAcompanhantes" type="integer" optional="false" multivalued="false" minValue="0" maxValue="9"/>
+                <slot name="nomeSocial" type="string" optional="true" multivalued="false"/>
+            </input>
+            <output>
+                <slot name="convidado" type="string" optional="false" multivalued="false"/>
+            </output>
+        </action>
         <query name="getMetadata" idempotent="false" extensionPoint="false" visibility="PRIVATE">
             <input>
                 <slot name="metadataFormat" type="string" optional="true" multivalued="false"/>

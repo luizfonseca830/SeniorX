@@ -167,6 +167,37 @@
             </xsd:sequence>
         </xsd:complexType>
     </xsd:element>
+    <xsd:element name="cadastrarConvidado">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="nome"  minOccurs="1" maxOccurs="1"  readOnly="false">
+                <xsd:simpleType>
+                	<xsd:restriction base="xsd:string">
+                		<xsd:maxLength value="20" />
+                	</xsd:restriction>
+                </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="quantidadeAcompanhantes"  minOccurs="1" maxOccurs="1"  readOnly="false">
+                <xsd:simpleType>
+                	<xsd:restriction base="xsd:long">
+                		<xsd:minInclusive value="0" />
+                		<xsd:maxInclusive value="9" />
+                	</xsd:restriction>
+                </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="nomeSocial" type="xsd:string" minOccurs="0" maxOccurs="1"  readOnly="false">
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="cadastrarConvidadoOutput">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="convidado" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
     <xsd:element name="cadastrarEvento">
         <xsd:complexType>
             <xsd:sequence>

@@ -18,7 +18,7 @@ service my_service {
             }
         }
 
-        "Cadastra um novo envento (ex: SeniorTec, Casamento, Aniversário, etc)"
+        "Cadastra um novo evento (ex: SeniorTec, Casamento, Aniversário, etc)"
         action cadastrarEvento{
             in {
                 nome : string(10)
@@ -29,6 +29,17 @@ service my_service {
             }
             out{
                 retorno : string
+            }
+        }
+        "Cadastrar um novo convidado e acompanhantes"
+        action cadastrarConvidado{
+            in {
+                nome: string(20)
+                quantidadeAcompanhantes: integer minValue:0 maxValue:9
+                nomeSocial: string?
+            }
+            out{
+                convidado : string
             }
         }
 

@@ -84,11 +84,55 @@
             "visibility" : "PRIVATE",
             "version": "0"
         },
+        "cadastrarConvidado": {
+            "endpointType" : "command",
+            "kind": "action",
+            "priority" : "NORMAL",
+            "documentation": "Cadastrar um novo convidado e acompanhantes",
+            "input" : {
+                "nome" : {
+                    "type": "string",
+                    "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                ,
+                	"maxLength": 20
+                },
+                "quantidadeAcompanhantes" : {
+                    "type": "integer",
+                    "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                ,
+                	"minValue": 0,
+                	"maxValue": 9
+                },
+                "nomeSocial" : {
+                    "type": "string",
+                    "optional": true,
+                    "multivalued": false,
+                    "readOnly": false
+                }
+            },
+            "output" : {
+                "convidado" : {
+                    "type": "string",
+                    "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                }
+            },
+            "extensionPoint" : false,
+            "responses" : {
+            },
+            "visibility" : "PRIVATE",
+            "version": "0"
+        },
         "cadastrarEvento": {
             "endpointType" : "command",
             "kind": "action",
             "priority" : "NORMAL",
-            "documentation": "Cadastra um novo envento (ex: SeniorTec, Casamento, Anivers\u00E1rio, etc)",
+            "documentation": "Cadastra um novo evento (ex: SeniorTec, Casamento, Anivers\u00E1rio, etc)",
             "input" : {
                 "nome" : {
                     "type": "string",

@@ -179,6 +179,37 @@
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>
+            <xsd:element name="cadastrarConvidado">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="nome"  minOccurs="1" maxOccurs="1"  readOnly="false">
+                        <xsd:simpleType>
+                        	<xsd:restriction base="xsd:string">
+                        		<xsd:maxLength value="20" />
+                        	</xsd:restriction>
+                        </xsd:simpleType>
+                        </xsd:element>
+                        <xsd:element name="quantidadeAcompanhantes"  minOccurs="1" maxOccurs="1"  readOnly="false">
+                        <xsd:simpleType>
+                        	<xsd:restriction base="xsd:long">
+                        		<xsd:minInclusive value="0" />
+                        		<xsd:maxInclusive value="9" />
+                        	</xsd:restriction>
+                        </xsd:simpleType>
+                        </xsd:element>
+                        <xsd:element name="nomeSocial" type="xsd:string" minOccurs="0" maxOccurs="1"  readOnly="false">
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="cadastrarConvidadoOutput">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="convidado" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
             <xsd:element name="cadastrarEvento">
                 <xsd:complexType>
                     <xsd:sequence>
@@ -233,6 +264,12 @@
     <wsdl:message name="helloWorldResponse">
         <wsdl:part name="result" element="helloWorldOutput"/>
     </wsdl:message>
+    <wsdl:message name="cadastrarConvidadoRequest">
+        <wsdl:part name="parameters" element="cadastrarConvidado"/>
+    </wsdl:message>
+    <wsdl:message name="cadastrarConvidadoResponse">
+        <wsdl:part name="result" element="cadastrarConvidadoOutput"/>
+    </wsdl:message>
     <wsdl:message name="cadastrarEventoRequest">
         <wsdl:part name="parameters" element="cadastrarEvento"/>
     </wsdl:message>
@@ -265,10 +302,18 @@
             <wsdl:input message="helloWorldRequest"/>
             <wsdl:output message="helloWorldResponse"/>
         </wsdl:operation>
+        <wsdl:operation name="cadastrarConvidado">
+            <wsdl:documentation>
+            WARNING: THIS OPERATION IS PRIVATE AND MAY HAVE ITS BEHAVIOR CHANGED AT ANY TIME WITHOUT NOTICE. 
+            Cadastrar um novo convidado e acompanhantes 
+            </wsdl:documentation>
+            <wsdl:input message="cadastrarConvidadoRequest"/>
+            <wsdl:output message="cadastrarConvidadoResponse"/>
+        </wsdl:operation>
         <wsdl:operation name="cadastrarEvento">
             <wsdl:documentation>
             WARNING: THIS OPERATION IS PRIVATE AND MAY HAVE ITS BEHAVIOR CHANGED AT ANY TIME WITHOUT NOTICE. 
-            Cadastra um novo envento (ex: SeniorTec, Casamento, Aniversário, etc) 
+            Cadastra um novo evento (ex: SeniorTec, Casamento, Aniversário, etc) 
             </wsdl:documentation>
             <wsdl:input message="cadastrarEventoRequest"/>
             <wsdl:output message="cadastrarEventoResponse"/>
@@ -297,6 +342,15 @@
         </wsdl:operation>
         <wsdl:operation name="helloWorld">
             <soap:operation soapAction="helloWorld"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="cadastrarConvidado">
+            <soap:operation soapAction="cadastrarConvidado"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>

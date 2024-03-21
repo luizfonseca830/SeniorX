@@ -30,7 +30,7 @@ public interface MyServiceConstants {
     	 */
     	String HELLO_WORLD_ERROR = "helloWorldError";
     	/**
-    	 * Cadastra um novo envento (ex: SeniorTec, Casamento, Aniversário, etc)
+    	 * Cadastra um novo evento (ex: SeniorTec, Casamento, Aniversário, etc)
     	 * @see CadastrarEventoInput the request payload
     	 */
     	String CADASTRAR_EVENTO = "cadastrarEvento";
@@ -47,6 +47,24 @@ public interface MyServiceConstants {
     	 * @see #CADASTRAR_EVENTO the request primitive
     	 */
     	String CADASTRAR_EVENTO_ERROR = "cadastrarEventoError";
+    	/**
+    	 * Cadastrar um novo convidado e acompanhantes
+    	 * @see CadastrarConvidadoInput the request payload
+    	 */
+    	String CADASTRAR_CONVIDADO = "cadastrarConvidado";
+    	/**
+    	 * The success response primitive for cadastrarConvidado.
+    	 *
+    	 * @see #CADASTRAR_CONVIDADO the request primitive
+    	 * @see CadastrarConvidadoOutput the response payload
+    	 */
+    	String CADASTRAR_CONVIDADO_RESPONSE = "cadastrarConvidadoResponse";
+    	/**
+    	 * An error response primitive for cadastrarConvidado.
+    	 *
+    	 * @see #CADASTRAR_CONVIDADO the request primitive
+    	 */
+    	String CADASTRAR_CONVIDADO_ERROR = "cadastrarConvidadoError";
     	/**
     	 * Default 'getMetadata' query. Every service must handle this command and return metadata in the format requested.
     	 * @see GetMetadataInput the request payload

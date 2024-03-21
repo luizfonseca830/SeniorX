@@ -59,7 +59,7 @@ public class CadastrarEventoImpl {
 	/**
 	* Chamada síncrona para o método cadastrarEvento
 	* Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
-	* Cadastra um novo envento (ex: SeniorTec, Casamento, Aniversário, etc) 
+	* Cadastra um novo evento (ex: SeniorTec, Casamento, Aniversário, etc) 
 	* @throws MyServiceMessageException quando um erro com payload for retornado pela mensageria
 	*/
 	public CadastrarEventoOutput cadastrarEvento(CadastrarEventoInput input, long timeout) {
@@ -93,7 +93,7 @@ public class CadastrarEventoImpl {
 	/**
 	* Chamada assíncrona para o método cadastrarEvento
 	* Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
-	* Cadastra um novo envento (ex: SeniorTec, Casamento, Aniversário, etc)
+	* Cadastra um novo evento (ex: SeniorTec, Casamento, Aniversário, etc)
 	*/
 	public void cadastrarEvento(CadastrarEventoInput input) {
 		MyServiceValidator.validate(input);
@@ -110,7 +110,7 @@ public class CadastrarEventoImpl {
 	/**
 	* Chamada assíncrona para o método cadastrarEvento
 	* Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
-	* Cadastra um novo envento (ex: SeniorTec, Casamento, Aniversário, etc)
+	* Cadastra um novo evento (ex: SeniorTec, Casamento, Aniversário, etc)
 	*/
 	@Deprecated
 	public CompletableFuture<CadastrarEventoOutput> cadastrarEventoRequest(CadastrarEventoInput input) {
@@ -128,7 +128,7 @@ public class CadastrarEventoImpl {
 	/**
 	* Chamada assíncrona para o método cadastrarEvento
 	* Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
-	* Cadastra um novo envento (ex: SeniorTec, Casamento, Aniversário, etc)
+	* Cadastra um novo evento (ex: SeniorTec, Casamento, Aniversário, etc)
 	*/
 	public CompletableFuture<CadastrarEventoOutput> cadastrarEventoRequest(CadastrarEventoInput input, long timeout, TimeUnit unit) {
 		MyServiceValidator.validate(input);

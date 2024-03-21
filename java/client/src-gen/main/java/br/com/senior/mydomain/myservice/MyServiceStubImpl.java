@@ -96,7 +96,7 @@ public class MyServiceStubImpl  implements MyServiceStub {
 	/**
 	 * Chamada síncrona para o método cadastrarEvento
 	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
-	 * Cadastra um novo envento (ex: SeniorTec, Casamento, Aniversário, etc)
+	 * Cadastra um novo evento (ex: SeniorTec, Casamento, Aniversário, etc)
 	 * @throws MyServiceMessageException quando um erro com payload for retornado pela mensageria
 	 */
 	@Override
@@ -108,7 +108,7 @@ public class MyServiceStubImpl  implements MyServiceStub {
 	/**
 	 * Chamada assíncrona para o método cadastrarEvento
 	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
-	 * Cadastra um novo envento (ex: SeniorTec, Casamento, Aniversário, etc)
+	 * Cadastra um novo evento (ex: SeniorTec, Casamento, Aniversário, etc)
 	 */
 	@Override
 	public void cadastrarEvento(CadastrarEventoInput input) {
@@ -119,7 +119,7 @@ public class MyServiceStubImpl  implements MyServiceStub {
 	/**
 	 * Chamada assíncrona para o método cadastrarEvento
 	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
-	 * Cadastra um novo envento (ex: SeniorTec, Casamento, Aniversário, etc)
+	 * Cadastra um novo evento (ex: SeniorTec, Casamento, Aniversário, etc)
 	 */
 	@Override
 	public CompletableFuture<CadastrarEventoOutput> cadastrarEventoRequest(CadastrarEventoInput input) {
@@ -129,12 +129,55 @@ public class MyServiceStubImpl  implements MyServiceStub {
 	/**
 	 * Chamada assíncrona para o método cadastrarEvento
 	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
-	 * Cadastra um novo envento (ex: SeniorTec, Casamento, Aniversário, etc)
+	 * Cadastra um novo evento (ex: SeniorTec, Casamento, Aniversário, etc)
 	*/
 	@Override
 	public CompletableFuture<CadastrarEventoOutput> cadastrarEventoRequest(CadastrarEventoInput input, long timeout) {
 		br.com.senior.mydomain.myservice.impl.CadastrarEventoImpl impl = new br.com.senior.mydomain.myservice.impl.CadastrarEventoImpl(messengerSupplier, userId, messageSupplier);
 		return impl.cadastrarEventoRequest(input, timeout, TimeUnit.MILLISECONDS);
+	}
+	/**
+	 * Chamada síncrona para o método cadastrarConvidado
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * Cadastrar um novo convidado e acompanhantes
+	 * @throws MyServiceMessageException quando um erro com payload for retornado pela mensageria
+	 */
+	@Override
+	public CadastrarConvidadoOutput cadastrarConvidado(CadastrarConvidadoInput input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.CadastrarConvidadoImpl impl = new br.com.senior.mydomain.myservice.impl.CadastrarConvidadoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.cadastrarConvidado(input, timeout);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método cadastrarConvidado
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * Cadastrar um novo convidado e acompanhantes
+	 */
+	@Override
+	public void cadastrarConvidado(CadastrarConvidadoInput input) {
+		br.com.senior.mydomain.myservice.impl.CadastrarConvidadoImpl impl = new br.com.senior.mydomain.myservice.impl.CadastrarConvidadoImpl(messengerSupplier, userId, messageSupplier);
+		impl.cadastrarConvidado(input);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método cadastrarConvidado
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * Cadastrar um novo convidado e acompanhantes
+	 */
+	@Override
+	public CompletableFuture<CadastrarConvidadoOutput> cadastrarConvidadoRequest(CadastrarConvidadoInput input) {
+		return this.cadastrarConvidadoRequest(input, 0l);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método cadastrarConvidado
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * Cadastrar um novo convidado e acompanhantes
+	*/
+	@Override
+	public CompletableFuture<CadastrarConvidadoOutput> cadastrarConvidadoRequest(CadastrarConvidadoInput input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.CadastrarConvidadoImpl impl = new br.com.senior.mydomain.myservice.impl.CadastrarConvidadoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.cadastrarConvidadoRequest(input, timeout, TimeUnit.MILLISECONDS);
 	}
 	/**
 	 * Chamada síncrona para o método getMetadata

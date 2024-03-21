@@ -48,31 +48,58 @@ public interface MyServiceStub {
 	CompletableFuture<HelloWorldOutput> helloWorldRequest(HelloWorldInput input, long timeout);
 	/**
 	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
-	 * Cadastra um novo envento (ex: SeniorTec, Casamento, Aniversário, etc)
+	 * Cadastra um novo evento (ex: SeniorTec, Casamento, Aniversário, etc)
 	 * Chamada síncrona, o valor de timeout deve ser informado em ms 
 	 */
 	CadastrarEventoOutput cadastrarEvento(CadastrarEventoInput input, long timeout);
 	
 	/**
 	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
-	 * Cadastra um novo envento (ex: SeniorTec, Casamento, Aniversário, etc)
+	 * Cadastra um novo evento (ex: SeniorTec, Casamento, Aniversário, etc)
 	 * Chamada assíncrona
 	 */
 	void cadastrarEvento(CadastrarEventoInput input);
 	
 	/**
 	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
-	 * Cadastra um novo envento (ex: SeniorTec, Casamento, Aniversário, etc)
+	 * Cadastra um novo evento (ex: SeniorTec, Casamento, Aniversário, etc)
 	 * Chamada assíncrona utilizando request
 	 */
 	CompletableFuture<CadastrarEventoOutput> cadastrarEventoRequest(CadastrarEventoInput input);
 	
 	/**
 	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
-	 * Cadastra um novo envento (ex: SeniorTec, Casamento, Aniversário, etc)
+	 * Cadastra um novo evento (ex: SeniorTec, Casamento, Aniversário, etc)
 	 * Chamada assíncrona utilizando request
 	 */
 	CompletableFuture<CadastrarEventoOutput> cadastrarEventoRequest(CadastrarEventoInput input, long timeout);
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * Cadastrar um novo convidado e acompanhantes
+	 * Chamada síncrona, o valor de timeout deve ser informado em ms 
+	 */
+	CadastrarConvidadoOutput cadastrarConvidado(CadastrarConvidadoInput input, long timeout);
+	
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * Cadastrar um novo convidado e acompanhantes
+	 * Chamada assíncrona
+	 */
+	void cadastrarConvidado(CadastrarConvidadoInput input);
+	
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * Cadastrar um novo convidado e acompanhantes
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<CadastrarConvidadoOutput> cadastrarConvidadoRequest(CadastrarConvidadoInput input);
+	
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * Cadastrar um novo convidado e acompanhantes
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<CadastrarConvidadoOutput> cadastrarConvidadoRequest(CadastrarConvidadoInput input, long timeout);
 	/**
 	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
 	 * Default 'getMetadata' query. Every service must handle this command and return metadata in the format requested.
