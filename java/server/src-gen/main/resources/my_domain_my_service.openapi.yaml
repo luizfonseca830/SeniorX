@@ -363,9 +363,11 @@ paths:
                   format: date
                   description: ""
                 tipoEntradaEvento:
-                  type: string
-                  allOf:
-                  - $ref: '#/components/schemas/tipoEntrada'
+                  type: array
+                  items:
+                    type: string
+                    allOf:
+                    - $ref: '#/components/schemas/tipoEntrada'
                   description: ""
       parameters:
         - in: header

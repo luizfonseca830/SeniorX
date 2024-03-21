@@ -252,9 +252,11 @@ paths:
                 format: date
                 description: ""
               tipoEntradaEvento:
-                type: string
-                allOf:
-                - $ref: '#/definitions/tipoEntrada'
+                type: array
+                items:
+                  type: string
+                  allOf:
+                  - $ref: '#/definitions/tipoEntrada'
                 description: ""
       responses:
         200:

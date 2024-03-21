@@ -169,7 +169,7 @@
                 "tipoEntradaEvento" : {
                     "type": "tipoEntrada",
                     "optional": true,
-                    "multivalued": false,
+                    "multivalued": true,
                     "readOnly": false
                 }
             },

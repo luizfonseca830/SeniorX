@@ -14,7 +14,7 @@
                 <slot name="apenasColaboradores" type="boolean" optional="true" multivalued="false"/>
                 <slot name="lotacaoMaxima" type="integer" optional="false" multivalued="false" minValue="1" maxValue="999"/>
                 <slot name="data" type="date" optional="false" multivalued="false"/>
-                <slot name="tipoEntradaEvento" type="tipoEntrada" optional="true" multivalued="false"/>
+                <slot name="tipoEntradaEvento" type="tipoEntrada" optional="true" multivalued="true"/>
             </input>
             <output>
                 <slot name="retorno" type="string" optional="false" multivalued="false"/>

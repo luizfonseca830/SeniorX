@@ -29,7 +29,7 @@ public class CadastrarEventoInput {
     @NotNull(message = "data is required")
     public java.time.LocalDate data;
     
-    public TipoEntrada tipoEntradaEvento;
+    public java.util.List<TipoEntrada> tipoEntradaEvento;
     
     
     public CadastrarEventoInput() {
@@ -38,7 +38,7 @@ public class CadastrarEventoInput {
     /** 
      * This constructor allows initialization of all fields, required and optional.
      */
-    public CadastrarEventoInput(String nome, Boolean apenasColaboradores, Long lotacaoMaxima, java.time.LocalDate data, TipoEntrada tipoEntradaEvento) {
+    public CadastrarEventoInput(String nome, Boolean apenasColaboradores, Long lotacaoMaxima, java.time.LocalDate data, java.util.List<TipoEntrada> tipoEntradaEvento) {
         this.nome = nome;
         this.apenasColaboradores = apenasColaboradores != null ? apenasColaboradores : false;
         this.lotacaoMaxima = lotacaoMaxima;

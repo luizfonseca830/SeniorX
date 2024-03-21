@@ -26,7 +26,7 @@ service my_service {
                 apenasColaboradores : boolean? default:false
                 lotacaoMaxima : integer minValue: 1 maxValue: 999
                 data : date
-                tipoEntradaEvento: tipoEntrada?
+                tipoEntradaEvento: tipoEntrada?*
             }
             out{
                 retorno : string
