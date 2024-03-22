@@ -408,9 +408,15 @@ definitions:
     description: ""
     type: object
     required:
+      - mensagem
       - nome
       - quantidadeAcompanhantes
     properties:
+      mensagem:
+        type: object
+        allOf:
+         - $ref: '#/definitions/mensagemRetornoComCodigo'
+        description: ""
       nome:
         type: string
         description: ""

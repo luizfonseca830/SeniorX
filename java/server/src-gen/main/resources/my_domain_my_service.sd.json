@@ -115,6 +115,12 @@
                 }
             },
             "output" : {
+                "mensagem" : {
+                    "type": "mensagemRetornoComCodigo",
+                    "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                },
                 "nome" : {
                     "type": "string",
                     "optional": false,
@@ -325,6 +331,12 @@
             }
         },
         "retornoCadastroConvidado" : {
+            "mensagem" : {
+                "type": "mensagemRetornoComCodigo",
+                "optional": false,
+                "multivalued": false,
+                "readOnly": false
+            },
             "nome" : {
                 "type": "string",
                 "optional": false,

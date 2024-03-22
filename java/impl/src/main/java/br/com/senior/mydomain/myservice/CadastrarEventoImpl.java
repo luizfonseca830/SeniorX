@@ -7,7 +7,7 @@ import java.time.format.DateTimeFormatter;
 @HandlerImpl
 public class CadastrarEventoImpl implements CadastrarEvento {
     @Override
-    public CadastrarEventoOutput cadastrarEvento(CadastrarEventoInput request) {
+    public RetornoCadastrarEvento cadastrarEvento(CadastrarEventoInput request) {
 
         final CadastrarEventoOutput cadastrarEventoOutput = new CadastrarEventoOutput();
 
@@ -25,7 +25,6 @@ public class CadastrarEventoImpl implements CadastrarEvento {
         recordCadastrarEvento.data = request.data;
         recordCadastrarEvento.tipoEntradaEvento = request.tipoEntradaEvento;
 
-        cadastrarEventoOutput.retorno = recordCadastrarEvento;
-        return cadastrarEventoOutput;
+        return recordCadastrarEvento;
     }
 }

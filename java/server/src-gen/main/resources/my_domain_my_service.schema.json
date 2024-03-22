@@ -53,6 +53,9 @@
         	"type" : "object",
         	"id" : "retornoCadastroConvidado",
         	"properties" : {
+            	"mensagem" : {
+            		"$ref": "#/properties/mensagemRetornoComCodigo"
+            	},
             	"nome" : {
             		"type": "string"
             	},
@@ -63,7 +66,7 @@
             		"type": "string"
             	}
         	},
-        	"required" : ["nome","quantidadeAcompanhantes"]
+        	"required" : ["mensagem","nome","quantidadeAcompanhantes"]
         }
         ,
         "notifyUserEventPayload" : {

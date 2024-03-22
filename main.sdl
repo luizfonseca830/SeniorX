@@ -69,6 +69,7 @@ service my_service {
         }
 
         record retornoCadastroConvidado{
+            mensagem : mensagemRetornoComCodigo
             nome: string
             quantidadeAcompanhantes: integer
             nomeSocial: string?

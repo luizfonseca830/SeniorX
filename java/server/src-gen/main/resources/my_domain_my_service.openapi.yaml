@@ -488,9 +488,15 @@ components:
       description: ""
       type: object
       required:
+        - mensagem
         - nome
         - quantidadeAcompanhantes
       properties:
+        mensagem:
+          type: object
+          allOf:
+            - $ref: '#/components/schemas/mensagemRetornoComCodigo'
+          description: ""
         nome:
           type: string
           description: ""
