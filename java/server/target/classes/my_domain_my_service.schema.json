@@ -22,8 +22,14 @@
         	"type" : "object",
         	"id" : "retornoCadastrarEvento",
         	"properties" : {
-            	"mensagem" : {
-            		"$ref": "#/properties/mensagemRetornoComCodigo"
+            	"mensagemRetorno" : {
+            		"type": "string"
+            	},
+            	"codigoCadastrado" : {
+            		"type": "string"
+            	},
+            	"contemErro" : {
+            		"type": "boolean"
             	},
             	"nome" : {
             		"type": "string"
@@ -46,15 +52,21 @@
             		}
             	}
         	},
-        	"required" : ["mensagem","nome","lotacaoMaxima","data"]
+        	"required" : ["mensagemRetorno","codigoCadastrado","nome","lotacaoMaxima","data"]
         }
         ,
         "retornoCadastroConvidado" : {
         	"type" : "object",
         	"id" : "retornoCadastroConvidado",
         	"properties" : {
-            	"mensagem" : {
-            		"$ref": "#/properties/mensagemRetornoComCodigo"
+            	"mensagemRetorno" : {
+            		"type": "string"
+            	},
+            	"codigoCadastrado" : {
+            		"type": "string"
+            	},
+            	"contemErro" : {
+            		"type": "boolean"
             	},
             	"nome" : {
             		"type": "string"
@@ -66,7 +78,7 @@
             		"type": "string"
             	}
         	},
-        	"required" : ["mensagem","nome","quantidadeAcompanhantes"]
+        	"required" : ["mensagemRetorno","codigoCadastrado","nome","quantidadeAcompanhantes"]
         }
         ,
         "notifyUserEventPayload" : {

@@ -115,9 +115,21 @@
                 }
             },
             "output" : {
-                "mensagem" : {
-                    "type": "mensagemRetornoComCodigo",
+                "mensagemRetorno" : {
+                    "type": "string",
                     "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                },
+                "codigoCadastrado" : {
+                    "type": "string",
+                    "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                },
+                "contemErro" : {
+                    "type": "boolean",
+                    "optional": true,
                     "multivalued": false,
                     "readOnly": false
                 },
@@ -192,9 +204,21 @@
                 }
             },
             "output" : {
-                "mensagem" : {
-                    "type": "mensagemRetornoComCodigo",
+                "mensagemRetorno" : {
+                    "type": "string",
                     "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                },
+                "codigoCadastrado" : {
+                    "type": "string",
+                    "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                },
+                "contemErro" : {
+                    "type": "boolean",
+                    "optional": true,
                     "multivalued": false,
                     "readOnly": false
                 },
@@ -293,9 +317,21 @@
             }
         },
         "retornoCadastrarEvento" : {
-            "mensagem" : {
-                "type": "mensagemRetornoComCodigo",
+            "mensagemRetorno" : {
+                "type": "string",
                 "optional": false,
+                "multivalued": false,
+                "readOnly": false
+            },
+            "codigoCadastrado" : {
+                "type": "string",
+                "optional": false,
+                "multivalued": false,
+                "readOnly": false
+            },
+            "contemErro" : {
+                "type": "boolean",
+                "optional": true,
                 "multivalued": false,
                 "readOnly": false
             },
@@ -331,9 +367,21 @@
             }
         },
         "retornoCadastroConvidado" : {
-            "mensagem" : {
-                "type": "mensagemRetornoComCodigo",
+            "mensagemRetorno" : {
+                "type": "string",
                 "optional": false,
+                "multivalued": false,
+                "readOnly": false
+            },
+            "codigoCadastrado" : {
+                "type": "string",
+                "optional": false,
+                "multivalued": false,
+                "readOnly": false
+            },
+            "contemErro" : {
+                "type": "boolean",
+                "optional": true,
                 "multivalued": false,
                 "readOnly": false
             },

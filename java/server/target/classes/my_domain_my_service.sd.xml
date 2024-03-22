@@ -60,7 +60,9 @@
             <slot name="contemErro" type="boolean" optional="true" multivalued="false"/>
         </record>
         <record name="retornoCadastrarEvento">
-            <slot name="mensagem" type="mensagemRetornoComCodigo" optional="false" multivalued="false"/>
+            <slot name="mensagemRetorno" type="string" optional="false" multivalued="false"/>
+            <slot name="codigoCadastrado" type="string" optional="false" multivalued="false"/>
+            <slot name="contemErro" type="boolean" optional="true" multivalued="false"/>
             <slot name="nome" type="string" optional="false" multivalued="false"/>
             <slot name="apenasColaboradores" type="boolean" optional="true" multivalued="false"/>
             <slot name="lotacaoMaxima" type="integer" optional="false" multivalued="false"/>
@@ -68,7 +70,9 @@
             <slot name="tipoEntradaEvento" type="tipoEntrada" optional="true" multivalued="true"/>
         </record>
         <record name="retornoCadastroConvidado">
-            <slot name="mensagem" type="mensagemRetornoComCodigo" optional="false" multivalued="false"/>
+            <slot name="mensagemRetorno" type="string" optional="false" multivalued="false"/>
+            <slot name="codigoCadastrado" type="string" optional="false" multivalued="false"/>
+            <slot name="contemErro" type="boolean" optional="true" multivalued="false"/>
             <slot name="nome" type="string" optional="false" multivalued="false"/>
             <slot name="quantidadeAcompanhantes" type="integer" optional="false" multivalued="false"/>
             <slot name="nomeSocial" type="string" optional="true" multivalued="false"/>

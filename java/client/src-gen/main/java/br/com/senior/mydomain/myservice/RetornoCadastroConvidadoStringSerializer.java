@@ -13,7 +13,11 @@ public class RetornoCadastroConvidadoStringSerializer {
 			return;
 		}
 		appended.add(retornoCadastroConvidado);
-		serializeMensagem(retornoCadastroConvidado, sb, appended);
+		serializeMensagemRetorno(retornoCadastroConvidado, sb);
+		sb.append(", ");
+		serializeCodigoCadastrado(retornoCadastroConvidado, sb);
+		sb.append(", ");
+		serializeContemErro(retornoCadastroConvidado, sb);
 		sb.append(", ");
 		serializeNome(retornoCadastroConvidado, sb);
 		sb.append(", ");
@@ -24,14 +28,16 @@ public class RetornoCadastroConvidadoStringSerializer {
 		sb.append(']');
 	}
 	
-	protected void serializeMensagem(RetornoCadastroConvidado retornoCadastroConvidado, StringBuilder sb, List<Object> appended) {
-		sb.append("mensagem=<");
-		if (retornoCadastroConvidado.mensagem == null) {
-			sb.append("null");
-		} else {
-			retornoCadastroConvidado.mensagem.toString(sb, appended);
-		}
-		sb.append('>');
+	protected void serializeMensagemRetorno(RetornoCadastroConvidado retornoCadastroConvidado, StringBuilder sb) {
+		sb.append("mensagemRetorno=").append(retornoCadastroConvidado.mensagemRetorno == null ? "null" : retornoCadastroConvidado.mensagemRetorno);
+	}
+	
+	protected void serializeCodigoCadastrado(RetornoCadastroConvidado retornoCadastroConvidado, StringBuilder sb) {
+		sb.append("codigoCadastrado=").append(retornoCadastroConvidado.codigoCadastrado == null ? "null" : retornoCadastroConvidado.codigoCadastrado);
+	}
+	
+	protected void serializeContemErro(RetornoCadastroConvidado retornoCadastroConvidado, StringBuilder sb) {
+		sb.append("contemErro=").append(retornoCadastroConvidado.contemErro == null ? "null" : retornoCadastroConvidado.contemErro);
 	}
 	
 	protected void serializeNome(RetornoCadastroConvidado retornoCadastroConvidado, StringBuilder sb) {

@@ -5,14 +5,9 @@ import java.util.List;
 import java.util.Map;
 
 import javax.validation.constraints.NotNull;
-import javax.validation.Valid;
 
 
-public class RetornoCadastrarEvento {
-    
-    @NotNull(message = "mensagem is required")
-    @Valid
-    public MensagemRetornoComCodigo mensagem;
+public class RetornoCadastrarEvento extends MensagemRetornoComCodigo {
     
     @NotNull(message = "nome is required")
     public String nome;
@@ -34,8 +29,10 @@ public class RetornoCadastrarEvento {
     /** 
      * This constructor allows initialization of all fields, required and optional.
      */
-    public RetornoCadastrarEvento(MensagemRetornoComCodigo mensagem, String nome, Boolean apenasColaboradores, Long lotacaoMaxima, java.time.LocalDate data, java.util.List<TipoEntrada> tipoEntradaEvento) {
-        this.mensagem = mensagem;
+    public RetornoCadastrarEvento(String mensagemRetorno, String codigoCadastrado, Boolean contemErro, String nome, Boolean apenasColaboradores, Long lotacaoMaxima, java.time.LocalDate data, java.util.List<TipoEntrada> tipoEntradaEvento) {
+        this.mensagemRetorno = mensagemRetorno;
+        this.codigoCadastrado = codigoCadastrado;
+        this.contemErro = contemErro;
         this.nome = nome;
         this.apenasColaboradores = apenasColaboradores;
         this.lotacaoMaxima = lotacaoMaxima;
@@ -45,8 +42,9 @@ public class RetornoCadastrarEvento {
     /** 
      * This convenience constructor allows initialization of all required fields.
      */
-    public RetornoCadastrarEvento(MensagemRetornoComCodigo mensagem, String nome, Long lotacaoMaxima, java.time.LocalDate data) {
-        this.mensagem = mensagem;
+    public RetornoCadastrarEvento(String mensagemRetorno, String codigoCadastrado, String nome, Long lotacaoMaxima, java.time.LocalDate data) {
+        this.mensagemRetorno = mensagemRetorno;
+        this.codigoCadastrado = codigoCadastrado;
         this.nome = nome;
         this.lotacaoMaxima = lotacaoMaxima;
         this.data = data;
@@ -69,10 +67,7 @@ public class RetornoCadastrarEvento {
     }
     @Override
     public int hashCode() {
-        int ret = 1;
-        if (mensagem != null) {
-            ret = 31 * ret + mensagem.hashCode();
-        }
+        int ret = super.hashCode();
         if (nome != null) {
             ret = 31 * ret + nome.hashCode();
         }
@@ -99,13 +94,10 @@ public class RetornoCadastrarEvento {
         if (!(obj instanceof RetornoCadastrarEvento)) {
             return false;
         }
+        if (!super.equals(obj)) {
+            return false;
+        }
         RetornoCadastrarEvento other = (RetornoCadastrarEvento) obj;
-        if ((mensagem == null) != (other.mensagem == null)) {
-            return false;
-        }
-        if ((mensagem != null) && !mensagem.equals(other.mensagem)) {
-            return false;
-        }
         if ((nome == null) != (other.nome == null)) {
             return false;
         }

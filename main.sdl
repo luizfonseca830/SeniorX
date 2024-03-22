@@ -59,8 +59,8 @@ service my_service {
 
         }
 
-        record retornoCadastrarEvento{
-            mensagem : mensagemRetornoComCodigo
+        record retornoCadastrarEvento extends mensagemRetornoComCodigo {
+            //mensagem : mensagemRetornoComCodigo
             nome: string
             apenasColaboradores: boolean?
             lotacaoMaxima: integer
@@ -68,8 +68,8 @@ service my_service {
             tipoEntradaEvento: tipoEntrada?*
         }
 
-        record retornoCadastroConvidado{
-            mensagem : mensagemRetornoComCodigo
+        record retornoCadastroConvidado extends mensagemRetornoComCodigo{
+            //mensagem : mensagemRetornoComCodigo
             nome: string
             quantidadeAcompanhantes: integer
             nomeSocial: string?

@@ -13,7 +13,11 @@ public class RetornoCadastrarEventoStringSerializer {
 			return;
 		}
 		appended.add(retornoCadastrarEvento);
-		serializeMensagem(retornoCadastrarEvento, sb, appended);
+		serializeMensagemRetorno(retornoCadastrarEvento, sb);
+		sb.append(", ");
+		serializeCodigoCadastrado(retornoCadastrarEvento, sb);
+		sb.append(", ");
+		serializeContemErro(retornoCadastrarEvento, sb);
 		sb.append(", ");
 		serializeNome(retornoCadastrarEvento, sb);
 		sb.append(", ");
@@ -28,14 +32,16 @@ public class RetornoCadastrarEventoStringSerializer {
 		sb.append(']');
 	}
 	
-	protected void serializeMensagem(RetornoCadastrarEvento retornoCadastrarEvento, StringBuilder sb, List<Object> appended) {
-		sb.append("mensagem=<");
-		if (retornoCadastrarEvento.mensagem == null) {
-			sb.append("null");
-		} else {
-			retornoCadastrarEvento.mensagem.toString(sb, appended);
-		}
-		sb.append('>');
+	protected void serializeMensagemRetorno(RetornoCadastrarEvento retornoCadastrarEvento, StringBuilder sb) {
+		sb.append("mensagemRetorno=").append(retornoCadastrarEvento.mensagemRetorno == null ? "null" : retornoCadastrarEvento.mensagemRetorno);
+	}
+	
+	protected void serializeCodigoCadastrado(RetornoCadastrarEvento retornoCadastrarEvento, StringBuilder sb) {
+		sb.append("codigoCadastrado=").append(retornoCadastrarEvento.codigoCadastrado == null ? "null" : retornoCadastrarEvento.codigoCadastrado);
+	}
+	
+	protected void serializeContemErro(RetornoCadastrarEvento retornoCadastrarEvento, StringBuilder sb) {
+		sb.append("contemErro=").append(retornoCadastrarEvento.contemErro == null ? "null" : retornoCadastrarEvento.contemErro);
 	}
 	
 	protected void serializeNome(RetornoCadastrarEvento retornoCadastrarEvento, StringBuilder sb) {

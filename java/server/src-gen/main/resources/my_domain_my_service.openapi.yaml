@@ -433,10 +433,13 @@ components:
       
     mensagemRetornoComCodigo:
       description: ""
+      discriminator: 
+        propertyName: _discriminator
       type: object
       required:
         - mensagemRetorno
         - codigoCadastrado
+        - _discriminator
       properties:
         mensagemRetorno:
           type: string
@@ -447,66 +450,63 @@ components:
         contemErro:
           type: boolean
           description: ""
+        _discriminator:
+          type: string
+          description: ""
     
     retornoCadastrarEvento:
       description: ""
-      type: object
-      required:
-        - mensagem
-        - nome
-        - lotacaoMaxima
-        - data
-      properties:
-        mensagem:
-          type: object
-          allOf:
-            - $ref: '#/components/schemas/mensagemRetornoComCodigo'
-          description: ""
-        nome:
-          type: string
-          description: ""
-        apenasColaboradores:
-          type: boolean
-          description: ""
-        lotacaoMaxima:
-          type: integer
-          format: int64
-          description: ""
-        data:
-          type: string
-          format: date
-          description: ""
-        tipoEntradaEvento:
-          type: array
-          items:
+      allOf:
+      - $ref: '#/components/schemas/mensagemRetornoComCodigo'
+      - 
+        type: object
+        required:
+          - nome
+          - lotacaoMaxima
+          - data
+        properties:
+          nome:
             type: string
-            allOf:
-            - $ref: '#/components/schemas/tipoEntrada'
-          description: ""
+            description: ""
+          apenasColaboradores:
+            type: boolean
+            description: ""
+          lotacaoMaxima:
+            type: integer
+            format: int64
+            description: ""
+          data:
+            type: string
+            format: date
+            description: ""
+          tipoEntradaEvento:
+            type: array
+            items:
+              type: string
+              allOf:
+              - $ref: '#/components/schemas/tipoEntrada'
+            description: ""
     
     retornoCadastroConvidado:
       description: ""
-      type: object
-      required:
-        - mensagem
-        - nome
-        - quantidadeAcompanhantes
-      properties:
-        mensagem:
-          type: object
-          allOf:
-            - $ref: '#/components/schemas/mensagemRetornoComCodigo'
-          description: ""
-        nome:
-          type: string
-          description: ""
-        quantidadeAcompanhantes:
-          type: integer
-          format: int64
-          description: ""
-        nomeSocial:
-          type: string
-          description: ""
+      allOf:
+      - $ref: '#/components/schemas/mensagemRetornoComCodigo'
+      - 
+        type: object
+        required:
+          - nome
+          - quantidadeAcompanhantes
+        properties:
+          nome:
+            type: string
+            description: ""
+          quantidadeAcompanhantes:
+            type: integer
+            format: int64
+            description: ""
+          nomeSocial:
+            type: string
+            description: ""
     
     notifyUserEventPayload:
       description: "Represents a regular user event notification payload"

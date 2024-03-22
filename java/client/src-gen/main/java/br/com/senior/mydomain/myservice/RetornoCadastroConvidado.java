@@ -5,14 +5,9 @@ import java.util.List;
 import java.util.Map;
 
 import javax.validation.constraints.NotNull;
-import javax.validation.Valid;
 
 
-public class RetornoCadastroConvidado {
-    
-    @NotNull(message = "mensagem is required")
-    @Valid
-    public MensagemRetornoComCodigo mensagem;
+public class RetornoCadastroConvidado extends MensagemRetornoComCodigo {
     
     @NotNull(message = "nome is required")
     public String nome;
@@ -29,8 +24,10 @@ public class RetornoCadastroConvidado {
     /** 
      * This constructor allows initialization of all fields, required and optional.
      */
-    public RetornoCadastroConvidado(MensagemRetornoComCodigo mensagem, String nome, Long quantidadeAcompanhantes, String nomeSocial) {
-        this.mensagem = mensagem;
+    public RetornoCadastroConvidado(String mensagemRetorno, String codigoCadastrado, Boolean contemErro, String nome, Long quantidadeAcompanhantes, String nomeSocial) {
+        this.mensagemRetorno = mensagemRetorno;
+        this.codigoCadastrado = codigoCadastrado;
+        this.contemErro = contemErro;
         this.nome = nome;
         this.quantidadeAcompanhantes = quantidadeAcompanhantes;
         this.nomeSocial = nomeSocial;
@@ -38,8 +35,9 @@ public class RetornoCadastroConvidado {
     /** 
      * This convenience constructor allows initialization of all required fields.
      */
-    public RetornoCadastroConvidado(MensagemRetornoComCodigo mensagem, String nome, Long quantidadeAcompanhantes) {
-        this.mensagem = mensagem;
+    public RetornoCadastroConvidado(String mensagemRetorno, String codigoCadastrado, String nome, Long quantidadeAcompanhantes) {
+        this.mensagemRetorno = mensagemRetorno;
+        this.codigoCadastrado = codigoCadastrado;
         this.nome = nome;
         this.quantidadeAcompanhantes = quantidadeAcompanhantes;
     }
@@ -61,10 +59,7 @@ public class RetornoCadastroConvidado {
     }
     @Override
     public int hashCode() {
-        int ret = 1;
-        if (mensagem != null) {
-            ret = 31 * ret + mensagem.hashCode();
-        }
+        int ret = super.hashCode();
         if (nome != null) {
             ret = 31 * ret + nome.hashCode();
         }
@@ -85,13 +80,10 @@ public class RetornoCadastroConvidado {
         if (!(obj instanceof RetornoCadastroConvidado)) {
             return false;
         }
+        if (!super.equals(obj)) {
+            return false;
+        }
         RetornoCadastroConvidado other = (RetornoCadastroConvidado) obj;
-        if ((mensagem == null) != (other.mensagem == null)) {
-            return false;
-        }
-        if ((mensagem != null) && !mensagem.equals(other.mensagem)) {
-            return false;
-        }
         if ((nome == null) != (other.nome == null)) {
             return false;
         }
