@@ -7,21 +7,19 @@ import java.util.Map;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Max;
-import javax.validation.constraints.Size;
+import javax.validation.Valid;
 
 
 public class CadastrarConvidadoInput {
     
     @NotNull(message = "nome is required")
-    @Size(max = 20, message = "nome max length is {max}")
-    public String nome;
+    @Valid
+    public FieldCadastroConvidado nome;
     
     @NotNull(message = "quantidadeAcompanhantes is required")
     @Min(value = 0L, message = "quantidadeAcompanhantes min value is {value}")
     @Max(value = 9L, message = "quantidadeAcompanhantes max value is {value}")
     public Long quantidadeAcompanhantes;
-    
-    public String nomeSocial;
     
     
     public CadastrarConvidadoInput() {
@@ -30,15 +28,7 @@ public class CadastrarConvidadoInput {
     /** 
      * This constructor allows initialization of all fields, required and optional.
      */
-    public CadastrarConvidadoInput(String nome, Long quantidadeAcompanhantes, String nomeSocial) {
-        this.nome = nome;
-        this.quantidadeAcompanhantes = quantidadeAcompanhantes;
-        this.nomeSocial = nomeSocial;
-    }
-    /** 
-     * This convenience constructor allows initialization of all required fields.
-     */
-    public CadastrarConvidadoInput(String nome, Long quantidadeAcompanhantes) {
+    public CadastrarConvidadoInput(FieldCadastroConvidado nome, Long quantidadeAcompanhantes) {
         this.nome = nome;
         this.quantidadeAcompanhantes = quantidadeAcompanhantes;
     }
@@ -67,9 +57,6 @@ public class CadastrarConvidadoInput {
         if (quantidadeAcompanhantes != null) {
             ret = 31 * ret + quantidadeAcompanhantes.hashCode();
         }
-        if (nomeSocial != null) {
-            ret = 31 * ret + nomeSocial.hashCode();
-        }
         return ret;
     }
     
@@ -92,12 +79,6 @@ public class CadastrarConvidadoInput {
             return false;
         }
         if ((quantidadeAcompanhantes != null) && !quantidadeAcompanhantes.equals(other.quantidadeAcompanhantes)) {
-            return false;
-        }
-        if ((nomeSocial == null) != (other.nomeSocial == null)) {
-            return false;
-        }
-        if ((nomeSocial != null) && !nomeSocial.equals(other.nomeSocial)) {
             return false;
         }
         return true;

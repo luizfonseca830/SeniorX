@@ -49,14 +49,14 @@ public interface MyServiceConstants {
     	String CADASTRAR_EVENTO_ERROR = "cadastrarEventoError";
     	/**
     	 * Cadastrar um novo convidado e acompanhantes
-    	 * @see fieldCadastroConvidado the request payload
+    	 * @see CadastrarConvidadoInput the request payload
     	 */
     	String CADASTRAR_CONVIDADO = "cadastrarConvidado";
     	/**
     	 * The success response primitive for cadastrarConvidado.
     	 *
     	 * @see #CADASTRAR_CONVIDADO the request primitive
-    	 * @see RetornoCadastroConvidado the response payload
+    	 * @see CadastrarConvidadoOutput the response payload
     	 */
     	String CADASTRAR_CONVIDADO_RESPONSE = "cadastrarConvidadoResponse";
     	/**

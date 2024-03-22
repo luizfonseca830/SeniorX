@@ -4,15 +4,18 @@ import br.com.senior.messaging.model.HandlerImpl;
 
 @HandlerImpl
 public class CadastrarConvidadoImpl implements CadastrarConvidado {
+
     @Override
-    public RetornoCadastroConvidado cadastrarConvidado(FieldCadastroConvidado request) {
+    public CadastrarConvidadoOutput cadastrarConvidado(CadastrarConvidadoInput request) {
 
-        final RetornoCadastroConvidado recordCadastroConvidado = new RetornoCadastroConvidado();
+        FieldCadastroConvidado recordField = new FieldCadastroConvidado();
+        recordField.nome = request.nome.nome;
+        recordField.nomeSocial = request.nome.nomeSocial;
 
-        recordCadastroConvidado.nome = request.nome;
-        recordCadastroConvidado.nomeSocial = request.nomeSocial;
-        recordCadastroConvidado.resultado = request.resultado;
+        final CadastrarConvidadoOutput output = new CadastrarConvidadoOutput();
+        output.convidado = recordField;
+        output.resultado = ResultadoCadastradoConvidado.CADASTRADO_NOVO;
 
-        return recordCadastroConvidado;
+        return output;
     }
 }

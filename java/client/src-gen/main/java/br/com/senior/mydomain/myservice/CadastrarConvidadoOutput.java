@@ -10,12 +10,12 @@ import javax.validation.Valid;
 
 public class CadastrarConvidadoOutput {
     
-    @NotNull(message = "mensagem is required")
-    @Valid
-    public MensagemRetornoComCodigo mensagem;
-    
     @NotNull(message = "convidado is required")
-    public String convidado;
+    @Valid
+    public FieldCadastroConvidado convidado;
+    
+    @NotNull(message = "resultado is required")
+    public ResultadoCadastradoConvidado resultado;
     
     
     public CadastrarConvidadoOutput() {
@@ -24,9 +24,9 @@ public class CadastrarConvidadoOutput {
     /** 
      * This constructor allows initialization of all fields, required and optional.
      */
-    public CadastrarConvidadoOutput(MensagemRetornoComCodigo mensagem, String convidado) {
-        this.mensagem = mensagem;
+    public CadastrarConvidadoOutput(FieldCadastroConvidado convidado, ResultadoCadastradoConvidado resultado) {
         this.convidado = convidado;
+        this.resultado = resultado;
     }
     
     public void validate() {
@@ -47,11 +47,11 @@ public class CadastrarConvidadoOutput {
     @Override
     public int hashCode() {
         int ret = 1;
-        if (mensagem != null) {
-            ret = 31 * ret + mensagem.hashCode();
-        }
         if (convidado != null) {
             ret = 31 * ret + convidado.hashCode();
+        }
+        if (resultado != null) {
+            ret = 31 * ret + resultado.hashCode();
         }
         return ret;
     }
@@ -65,16 +65,16 @@ public class CadastrarConvidadoOutput {
             return false;
         }
         CadastrarConvidadoOutput other = (CadastrarConvidadoOutput) obj;
-        if ((mensagem == null) != (other.mensagem == null)) {
-            return false;
-        }
-        if ((mensagem != null) && !mensagem.equals(other.mensagem)) {
-            return false;
-        }
         if ((convidado == null) != (other.convidado == null)) {
             return false;
         }
         if ((convidado != null) && !convidado.equals(other.convidado)) {
+            return false;
+        }
+        if ((resultado == null) != (other.resultado == null)) {
+            return false;
+        }
+        if ((resultado != null) && !resultado.equals(other.resultado)) {
             return false;
         }
         return true;

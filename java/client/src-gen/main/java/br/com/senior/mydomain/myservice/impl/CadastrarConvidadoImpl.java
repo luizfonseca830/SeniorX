@@ -16,8 +16,8 @@ import br.com.senior.messaging.model.ServiceContext;
 import br.com.senior.messaging.model.ServiceException;
 import br.com.senior.messaging.model.ServiceRunner;
 
-import br.com.senior.mydomain.myservice.FieldCadastroConvidado;
-import br.com.senior.mydomain.myservice.RetornoCadastroConvidado;
+import br.com.senior.mydomain.myservice.CadastrarConvidadoInput;
+import br.com.senior.mydomain.myservice.CadastrarConvidadoOutput;
 import br.com.senior.mydomain.myservice.MyServiceConstants;
 import br.com.senior.mydomain.myservice.MyServiceValidator;
 import br.com.senior.mydomain.myservice.MyServiceException;
@@ -40,7 +40,7 @@ public class CadastrarConvidadoImpl {
 		this.messageSupplier = messageSupplier;
 	}
 
-	private Message createMessage(FieldCadastroConvidado input) {
+	private Message createMessage(CadastrarConvidadoInput input) {
 		if (messageSupplier != null && messageSupplier.get() != null) {
 			return messageSupplier.get().followUp( //
 				userId.getTenant(), //
@@ -62,7 +62,7 @@ public class CadastrarConvidadoImpl {
 	* Cadastrar um novo convidado e acompanhantes 
 	* @throws MyServiceMessageException quando um erro com payload for retornado pela mensageria
 	*/
-	public RetornoCadastroConvidado cadastrarConvidado(FieldCadastroConvidado input, long timeout) {
+	public CadastrarConvidadoOutput cadastrarConvidado(CadastrarConvidadoInput input, long timeout) {
 		MyServiceValidator.validate(input);
 		
 		Message message = createMessage(input);
@@ -83,7 +83,7 @@ public class CadastrarConvidadoImpl {
 			ErrorPayload error = DtoJsonConverter.toDTO(resultMessage.getContent(), ErrorPayload.class);
 			throw new MyServiceMessageException(resultMessage.getErrorCategory(), error.getMessage(), error.getErrorCode());
 		}
-		RetornoCadastroConvidado output = DtoJsonConverter.toDTO(resultMessage.getContent(), RetornoCadastroConvidado.class);
+		CadastrarConvidadoOutput output = DtoJsonConverter.toDTO(resultMessage.getContent(), CadastrarConvidadoOutput.class);
 		if (output == null) {
 			throw new MyServiceException("Contéudo do retorno inválido");
 		}
@@ -95,7 +95,7 @@ public class CadastrarConvidadoImpl {
 	* Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
 	* Cadastrar um novo convidado e acompanhantes
 	*/
-	public void cadastrarConvidado(FieldCadastroConvidado input) {
+	public void cadastrarConvidado(CadastrarConvidadoInput input) {
 		MyServiceValidator.validate(input);
 		
 		Message message = createMessage(input);
@@ -113,7 +113,7 @@ public class CadastrarConvidadoImpl {
 	* Cadastrar um novo convidado e acompanhantes
 	*/
 	@Deprecated
-	public CompletableFuture<RetornoCadastroConvidado> cadastrarConvidadoRequest(FieldCadastroConvidado input) {
+	public CompletableFuture<CadastrarConvidadoOutput> cadastrarConvidadoRequest(CadastrarConvidadoInput input) {
 		MyServiceValidator.validate(input);
 	
 		if (ServiceContext.get() == null) {
@@ -122,7 +122,7 @@ public class CadastrarConvidadoImpl {
 		ServiceRunner serviceRunner = ServiceContext.get().getCurrentServiceRunner();
 		Message message = createMessage(input);
 		addMessageHeaders(message);
-		return serviceRunner.request(message, RetornoCadastroConvidado.class);
+		return serviceRunner.request(message, CadastrarConvidadoOutput.class);
 	}
 	
 	/**
@@ -130,7 +130,7 @@ public class CadastrarConvidadoImpl {
 	* Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
 	* Cadastrar um novo convidado e acompanhantes
 	*/
-	public CompletableFuture<RetornoCadastroConvidado> cadastrarConvidadoRequest(FieldCadastroConvidado input, long timeout, TimeUnit unit) {
+	public CompletableFuture<CadastrarConvidadoOutput> cadastrarConvidadoRequest(CadastrarConvidadoInput input, long timeout, TimeUnit unit) {
 		MyServiceValidator.validate(input);
 	
 		if (ServiceContext.get() == null) {
@@ -139,7 +139,7 @@ public class CadastrarConvidadoImpl {
 		ServiceRunner serviceRunner = ServiceContext.get().getCurrentServiceRunner();
 		Message message = createMessage(input);
 		addMessageHeaders(message);
-		return serviceRunner.request(message, RetornoCadastroConvidado.class, TimeUnit.MILLISECONDS.convert(timeout, unit));
+		return serviceRunner.request(message, CadastrarConvidadoOutput.class, TimeUnit.MILLISECONDS.convert(timeout, unit));
 	}
 	
 	private void addMessageHeaders(Message message) {

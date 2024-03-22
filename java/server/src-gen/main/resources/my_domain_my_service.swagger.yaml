@@ -284,15 +284,40 @@ paths:
           required: true
           schema:
             type: object
-            allOf:
-             - $ref: '#/definitions/fieldCadastroConvidado'
+            required:
+              - nome
+              - quantidadeAcompanhantes
+            properties:
+              nome:
+                type: object
+                allOf:
+                 - $ref: '#/definitions/fieldCadastroConvidado'
+                description: ""
+              quantidadeAcompanhantes:
+                type: integer
+                format: int64
+                description: ""
+                minimum: 0
+                maximum: 9
       responses:
         200:
           description: Ok
           schema:
             type: object
-            allOf:
-             - $ref: '#/definitions/retornoCadastroConvidado'
+            required:
+              - convidado
+              - resultado
+            properties:
+              convidado:
+                type: object
+                allOf:
+                 - $ref: '#/definitions/fieldCadastroConvidado'
+                description: ""
+              resultado:
+                type: string
+                allOf:
+                - $ref: '#/definitions/resultadoCadastradoConvidado'
+                description: ""
         401:
           description: "Invalid Credentials"
         default:
@@ -405,8 +430,6 @@ definitions:
     type: object
     required:
       - nome
-      - quantidadeAcompanhantes
-      - resultado
     properties:
       nome:
         type: string
@@ -414,17 +437,6 @@ definitions:
         description: ""
       nomeSocial:
         type: string
-        description: ""
-      quantidadeAcompanhantes:
-        type: integer
-        format: int64
-        description: ""
-        minimum: 0
-        maximum: 9
-      resultado:
-        type: string
-        allOf:
-        - $ref: '#/definitions/resultadoCadastradoConvidado'
         description: ""
   
   retornoCadastroConvidado:
@@ -435,18 +447,12 @@ definitions:
       type: object
       required:
         - nome
-        - resultado
       properties:
         nome:
           type: string
           description: ""
         nomeSocial:
           type: string
-          description: ""
-        resultado:
-          type: string
-          allOf:
-          - $ref: '#/definitions/resultadoCadastradoConvidado'
           description: ""
   
   notifyUserEventPayload:

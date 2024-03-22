@@ -19,8 +19,14 @@
             <output type="retornoCadastrarEvento"/>
         </action>
         <action name="cadastrarConvidado" idempotent="false" extensionPoint="false" visibility="PRIVATE">
-            <input type="fieldCadastroConvidado"/>
-            <output type="retornoCadastroConvidado"/>
+            <input>
+                <slot name="nome" type="fieldCadastroConvidado" optional="false" multivalued="false"/>
+                <slot name="quantidadeAcompanhantes" type="integer" optional="false" multivalued="false" minValue="0" maxValue="9"/>
+            </input>
+            <output>
+                <slot name="convidado" type="fieldCadastroConvidado" optional="false" multivalued="false"/>
+                <slot name="resultado" type="resultadoCadastradoConvidado" optional="false" multivalued="false"/>
+            </output>
         </action>
         <query name="getMetadata" idempotent="false" extensionPoint="false" visibility="PRIVATE">
             <input>
@@ -68,8 +74,6 @@
         <record name="fieldCadastroConvidado">
             <slot name="nome" type="string" optional="false" multivalued="false" maxLength="20"/>
             <slot name="nomeSocial" type="string" optional="true" multivalued="false"/>
-            <slot name="quantidadeAcompanhantes" type="integer" optional="false" multivalued="false" minValue="0" maxValue="9"/>
-            <slot name="resultado" type="resultadoCadastradoConvidado" optional="false" multivalued="false"/>
         </record>
         <record name="retornoCadastroConvidado">
             <slot name="mensagemRetorno" type="string" optional="false" multivalued="false"/>
@@ -77,7 +81,6 @@
             <slot name="contemErro" type="boolean" optional="true" multivalued="false"/>
             <slot name="nome" type="string" optional="false" multivalued="false"/>
             <slot name="nomeSocial" type="string" optional="true" multivalued="false"/>
-            <slot name="resultado" type="resultadoCadastradoConvidado" optional="false" multivalued="false"/>
         </record>
         <record name="notifyUserEventPayload">
             <slot name="notificationClass" type="string" optional="true" multivalued="false"/>

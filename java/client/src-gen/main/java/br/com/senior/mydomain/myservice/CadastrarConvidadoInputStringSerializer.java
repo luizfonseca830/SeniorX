@@ -13,24 +13,24 @@ public class CadastrarConvidadoInputStringSerializer {
 			return;
 		}
 		appended.add(cadastrarConvidadoInput);
-		serializeNome(cadastrarConvidadoInput, sb);
+		serializeNome(cadastrarConvidadoInput, sb, appended);
 		sb.append(", ");
 		serializeQuantidadeAcompanhantes(cadastrarConvidadoInput, sb);
-		sb.append(", ");
-		serializeNomeSocial(cadastrarConvidadoInput, sb);
 		sb.append(", ");
 		sb.append(']');
 	}
 	
-	protected void serializeNome(CadastrarConvidadoInput cadastrarConvidadoInput, StringBuilder sb) {
-		sb.append("nome=").append(cadastrarConvidadoInput.nome == null ? "null" : cadastrarConvidadoInput.nome);
+	protected void serializeNome(CadastrarConvidadoInput cadastrarConvidadoInput, StringBuilder sb, List<Object> appended) {
+		sb.append("nome=<");
+		if (cadastrarConvidadoInput.nome == null) {
+			sb.append("null");
+		} else {
+			cadastrarConvidadoInput.nome.toString(sb, appended);
+		}
+		sb.append('>');
 	}
 	
 	protected void serializeQuantidadeAcompanhantes(CadastrarConvidadoInput cadastrarConvidadoInput, StringBuilder sb) {
 		sb.append("quantidadeAcompanhantes=").append(cadastrarConvidadoInput.quantidadeAcompanhantes == null ? "null" : cadastrarConvidadoInput.quantidadeAcompanhantes);
-	}
-	
-	protected void serializeNomeSocial(CadastrarConvidadoInput cadastrarConvidadoInput, StringBuilder sb) {
-		sb.append("nomeSocial=").append(cadastrarConvidadoInput.nomeSocial == null ? "null" : cadastrarConvidadoInput.nomeSocial);
 	}
 }

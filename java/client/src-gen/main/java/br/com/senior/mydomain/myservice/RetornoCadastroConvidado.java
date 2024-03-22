@@ -14,9 +14,6 @@ public class RetornoCadastroConvidado extends MensagemRetornoComCodigo {
     
     public String nomeSocial;
     
-    @NotNull(message = "resultado is required")
-    public ResultadoCadastradoConvidado resultado;
-    
     
     public RetornoCadastroConvidado() {
     }
@@ -24,22 +21,20 @@ public class RetornoCadastroConvidado extends MensagemRetornoComCodigo {
     /** 
      * This constructor allows initialization of all fields, required and optional.
      */
-    public RetornoCadastroConvidado(String mensagemRetorno, String codigoCadastrado, Boolean contemErro, String nome, String nomeSocial, ResultadoCadastradoConvidado resultado) {
+    public RetornoCadastroConvidado(String mensagemRetorno, String codigoCadastrado, Boolean contemErro, String nome, String nomeSocial) {
         this.mensagemRetorno = mensagemRetorno;
         this.codigoCadastrado = codigoCadastrado;
         this.contemErro = contemErro;
         this.nome = nome;
         this.nomeSocial = nomeSocial;
-        this.resultado = resultado;
     }
     /** 
      * This convenience constructor allows initialization of all required fields.
      */
-    public RetornoCadastroConvidado(String mensagemRetorno, String codigoCadastrado, String nome, ResultadoCadastradoConvidado resultado) {
+    public RetornoCadastroConvidado(String mensagemRetorno, String codigoCadastrado, String nome) {
         this.mensagemRetorno = mensagemRetorno;
         this.codigoCadastrado = codigoCadastrado;
         this.nome = nome;
-        this.resultado = resultado;
     }
     
     public void validate() {
@@ -66,9 +61,6 @@ public class RetornoCadastroConvidado extends MensagemRetornoComCodigo {
         if (nomeSocial != null) {
             ret = 31 * ret + nomeSocial.hashCode();
         }
-        if (resultado != null) {
-            ret = 31 * ret + resultado.hashCode();
-        }
         return ret;
     }
     
@@ -94,12 +86,6 @@ public class RetornoCadastroConvidado extends MensagemRetornoComCodigo {
             return false;
         }
         if ((nomeSocial != null) && !nomeSocial.equals(other.nomeSocial)) {
-            return false;
-        }
-        if ((resultado == null) != (other.resultado == null)) {
-            return false;
-        }
-        if ((resultado != null) && !resultado.equals(other.resultado)) {
             return false;
         }
         return true;

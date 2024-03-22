@@ -23,8 +23,6 @@ public class RetornoCadastroConvidadoStringSerializer {
 		sb.append(", ");
 		serializeNomeSocial(retornoCadastroConvidado, sb);
 		sb.append(", ");
-		serializeResultado(retornoCadastroConvidado, sb);
-		sb.append(", ");
 		sb.append(']');
 	}
 	
@@ -46,9 +44,5 @@ public class RetornoCadastroConvidadoStringSerializer {
 	
 	protected void serializeNomeSocial(RetornoCadastroConvidado retornoCadastroConvidado, StringBuilder sb) {
 		sb.append("nomeSocial=").append(retornoCadastroConvidado.nomeSocial == null ? "null" : retornoCadastroConvidado.nomeSocial);
-	}
-	
-	protected void serializeResultado(RetornoCadastroConvidado retornoCadastroConvidado, StringBuilder sb) {
-		sb.append("resultado=").append(retornoCadastroConvidado.resultado == null ? "null" : retornoCadastroConvidado.resultado);
 	}
 }

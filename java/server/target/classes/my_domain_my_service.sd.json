@@ -89,35 +89,27 @@
             "kind": "action",
             "priority" : "NORMAL",
             "documentation": "Cadastrar um novo convidado e acompanhantes",
-            "input" : "fieldCadastroConvidado",
-            "output" : {
-                "mensagemRetorno" : {
-                    "type": "string",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                },
-                "codigoCadastrado" : {
-                    "type": "string",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                },
-                "contemErro" : {
-                    "type": "boolean",
-                    "optional": true,
-                    "multivalued": false,
-                    "readOnly": false
-                },
+            "input" : {
                 "nome" : {
-                    "type": "string",
+                    "type": "fieldCadastroConvidado",
                     "optional": false,
                     "multivalued": false,
                     "readOnly": false
                 },
-                "nomeSocial" : {
-                    "type": "string",
-                    "optional": true,
+                "quantidadeAcompanhantes" : {
+                    "type": "integer",
+                    "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                ,
+                	"minValue": 0,
+                	"maxValue": 9
+                }
+            },
+            "output" : {
+                "convidado" : {
+                    "type": "fieldCadastroConvidado",
+                    "optional": false,
                     "multivalued": false,
                     "readOnly": false
                 },
@@ -356,21 +348,6 @@
                 "optional": true,
                 "multivalued": false,
                 "readOnly": false
-            },
-            "quantidadeAcompanhantes" : {
-                "type": "integer",
-                "optional": false,
-                "multivalued": false,
-                "readOnly": false
-            ,
-            	"minValue": 0,
-            	"maxValue": 9
-            },
-            "resultado" : {
-                "type": "resultadoCadastradoConvidado",
-                "optional": false,
-                "multivalued": false,
-                "readOnly": false
             }
         },
         "retornoCadastroConvidado" : {
@@ -401,12 +378,6 @@
             "nomeSocial" : {
                 "type": "string",
                 "optional": true,
-                "multivalued": false,
-                "readOnly": false
-            },
-            "resultado" : {
-                "type": "resultadoCadastradoConvidado",
-                "optional": false,
                 "multivalued": false,
                 "readOnly": false
             }

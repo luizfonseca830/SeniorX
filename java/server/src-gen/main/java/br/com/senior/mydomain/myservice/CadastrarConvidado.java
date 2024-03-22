@@ -11,6 +11,6 @@ import br.com.senior.messaging.model.*;
 @CommandDescription(name="cadastrarConvidado", kind=CommandKind.Action, requestPrimitive="cadastrarConvidado", responsePrimitive="cadastrarConvidadoResponse")
 public interface CadastrarConvidado extends MessageHandler {
     
-    public RetornoCadastroConvidado cadastrarConvidado(FieldCadastroConvidado request);
+    public CadastrarConvidadoOutput cadastrarConvidado(CadastrarConvidadoInput request);
     
 }

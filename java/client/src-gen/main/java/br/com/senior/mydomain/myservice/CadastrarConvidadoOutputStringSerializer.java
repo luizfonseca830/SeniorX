@@ -13,24 +13,24 @@ public class CadastrarConvidadoOutputStringSerializer {
 			return;
 		}
 		appended.add(cadastrarConvidadoOutput);
-		serializeMensagem(cadastrarConvidadoOutput, sb, appended);
+		serializeConvidado(cadastrarConvidadoOutput, sb, appended);
 		sb.append(", ");
-		serializeConvidado(cadastrarConvidadoOutput, sb);
+		serializeResultado(cadastrarConvidadoOutput, sb);
 		sb.append(", ");
 		sb.append(']');
 	}
 	
-	protected void serializeMensagem(CadastrarConvidadoOutput cadastrarConvidadoOutput, StringBuilder sb, List<Object> appended) {
-		sb.append("mensagem=<");
-		if (cadastrarConvidadoOutput.mensagem == null) {
+	protected void serializeConvidado(CadastrarConvidadoOutput cadastrarConvidadoOutput, StringBuilder sb, List<Object> appended) {
+		sb.append("convidado=<");
+		if (cadastrarConvidadoOutput.convidado == null) {
 			sb.append("null");
 		} else {
-			cadastrarConvidadoOutput.mensagem.toString(sb, appended);
+			cadastrarConvidadoOutput.convidado.toString(sb, appended);
 		}
 		sb.append('>');
 	}
 	
-	protected void serializeConvidado(CadastrarConvidadoOutput cadastrarConvidadoOutput, StringBuilder sb) {
-		sb.append("convidado=").append(cadastrarConvidadoOutput.convidado == null ? "null" : cadastrarConvidadoOutput.convidado);
+	protected void serializeResultado(CadastrarConvidadoOutput cadastrarConvidadoOutput, StringBuilder sb) {
+		sb.append("resultado=").append(cadastrarConvidadoOutput.resultado == null ? "null" : cadastrarConvidadoOutput.resultado);
 	}
 }
