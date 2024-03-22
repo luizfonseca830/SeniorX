@@ -266,6 +266,54 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/genericError'
+  /rest/my_domain/my_service/actions/comprarIngresso:
+    post:
+      description: ""
+      tags:
+        - Actions
+      x-senior-visibility: PRIVATE
+      security :
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - nomeComprador
+              properties:
+                nomeComprador:
+                  type: string
+                  description: ""
+      parameters:
+        - in: header
+          name: Accept
+          description: 'Content types and endpoint version for the request. Example: application/json;seniorx.version=2'
+          schema:
+            type: string
+      responses:
+        200:
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - codigoIngresso
+                properties:
+                  codigoIngresso:
+                    type: string
+                    description: ""
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/genericError'
+  
   /rest/my_domain/my_service/actions/cadastrarConvidado:
     post:
       description: "Cadastrar um novo convidado e acompanhantes"

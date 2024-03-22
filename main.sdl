@@ -52,6 +52,22 @@ service my_service {
             }
         }
 
+        action comprarIngresso{
+            in {
+                nomeComprador: string
+            }
+
+            out {
+                codigoIngresso : string
+            }
+        }
+
+        event ingressoComprado {
+            payload {
+                codigoIngresso : string
+            }
+        }
+
     }
     types {
     // define records and enumerations here

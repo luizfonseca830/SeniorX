@@ -102,6 +102,33 @@ public interface MyServiceStub {
 	CompletableFuture<CadastrarConvidadoOutput> cadastrarConvidadoRequest(CadastrarConvidadoInput input, long timeout);
 	/**
 	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 * Chamada síncrona, o valor de timeout deve ser informado em ms 
+	 */
+	ComprarIngressoOutput comprarIngresso(ComprarIngressoInput input, long timeout);
+	
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 * Chamada assíncrona
+	 */
+	void comprarIngresso(ComprarIngressoInput input);
+	
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<ComprarIngressoOutput> comprarIngressoRequest(ComprarIngressoInput input);
+	
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<ComprarIngressoOutput> comprarIngressoRequest(ComprarIngressoInput input, long timeout);
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
 	 * Default 'getMetadata' query. Every service must handle this command and return metadata in the format requested.
 	 * Chamada síncrona, o valor de timeout deve ser informado em ms 
 	 */
@@ -161,6 +188,13 @@ public interface MyServiceStub {
 	 */
 	void cancelarEvento(CancelarEventoInput input);
 
+	/**
+	 * Chamada assíncrona para o método publishIngressoComprado 
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 */
+	void publishIngressoComprado( IngressoCompradoPayload input );
+			
+	
 	/**
 	 * Chamada assíncrona para o método publishServiceStarted 
 	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice

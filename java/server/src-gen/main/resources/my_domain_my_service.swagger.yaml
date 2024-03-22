@@ -324,6 +324,42 @@ paths:
           description: Error response
           schema:
             $ref: '#/definitions/genericError'
+  
+  /my_service/actions/comprarIngresso:
+    post:
+      description: ""
+      tags:
+        - Actions
+      x-senior-visibility: PRIVATE
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            type: object
+            required:
+              - nomeComprador
+            properties:
+              nomeComprador:
+                type: string
+                description: ""
+      responses:
+        200:
+          description: Ok
+          schema:
+            type: object
+            required:
+              - codigoIngresso
+            properties:
+              codigoIngresso:
+                type: string
+                description: ""
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          schema:
+            $ref: '#/definitions/genericError'
   /my_service/signals/cancelarEvento:
     post:
       description: ""
@@ -344,6 +380,31 @@ paths:
       responses:
         202:
           description: Accepted
+        default:
+          description: Error response
+          schema:
+            $ref: '#/definitions/genericError'
+  /my_service/events/ingressoComprado:
+    post:
+      description: ""
+      x-senior-event: true
+      tags:
+        - Events
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            type: object
+            required:
+              - codigoIngresso
+            properties:
+              codigoIngresso:
+                type: string
+                description: ""
+      responses:
+        200:
+          description: OK
         default:
           description: Error response
           schema:

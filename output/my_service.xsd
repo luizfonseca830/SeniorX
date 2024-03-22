@@ -221,6 +221,22 @@
             </xsd:sequence>
         </xsd:complexType>
     </xsd:element>
+    <xsd:element name="comprarIngresso">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="nomeComprador" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="comprarIngressoOutput">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="codigoIngresso" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
     <xsd:element name="helloWorld">
         <xsd:complexType>
             <xsd:sequence>

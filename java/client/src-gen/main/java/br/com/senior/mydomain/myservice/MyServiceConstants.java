@@ -66,6 +66,23 @@ public interface MyServiceConstants {
     	 */
     	String CADASTRAR_CONVIDADO_ERROR = "cadastrarConvidadoError";
     	/**
+    	 * @see ComprarIngressoInput the request payload
+    	 */
+    	String COMPRAR_INGRESSO = "comprarIngresso";
+    	/**
+    	 * The success response primitive for comprarIngresso.
+    	 *
+    	 * @see #COMPRAR_INGRESSO the request primitive
+    	 * @see ComprarIngressoOutput the response payload
+    	 */
+    	String COMPRAR_INGRESSO_RESPONSE = "comprarIngressoResponse";
+    	/**
+    	 * An error response primitive for comprarIngresso.
+    	 *
+    	 * @see #COMPRAR_INGRESSO the request primitive
+    	 */
+    	String COMPRAR_INGRESSO_ERROR = "comprarIngressoError";
+    	/**
     	 * Default 'getMetadata' query. Every service must handle this command and return metadata in the format requested.
     	 * @see GetMetadataInput the request payload
     	 */
@@ -107,6 +124,7 @@ public interface MyServiceConstants {
     }
     
     interface Events {
+    	String INGRESSO_COMPRADO = "ingressoComprado";
     	/**
     	 * Default 'serviceStarted' event.
     	 */

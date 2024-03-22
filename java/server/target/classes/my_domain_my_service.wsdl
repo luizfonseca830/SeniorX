@@ -233,6 +233,22 @@
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>
+            <xsd:element name="comprarIngresso">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="nomeComprador" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="comprarIngressoOutput">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="codigoIngresso" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
             <xsd:element name="helloWorld">
                 <xsd:complexType>
                     <xsd:sequence>
@@ -324,6 +340,12 @@
     <wsdl:message name="getDependenciesResponse">
         <wsdl:part name="result" element="getDependenciesOutput"/>
     </wsdl:message>
+    <wsdl:message name="comprarIngressoRequest">
+        <wsdl:part name="parameters" element="comprarIngresso"/>
+    </wsdl:message>
+    <wsdl:message name="comprarIngressoResponse">
+        <wsdl:part name="result" element="comprarIngressoOutput"/>
+    </wsdl:message>
     <wsdl:message name="helloWorldRequest">
         <wsdl:part name="parameters" element="helloWorld"/>
     </wsdl:message>
@@ -362,6 +384,13 @@
             </wsdl:documentation>
             <wsdl:input message="getDependenciesRequest"/>
             <wsdl:output message="getDependenciesResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="comprarIngresso">
+            <wsdl:documentation>
+            WARNING: THIS OPERATION IS PRIVATE AND MAY HAVE ITS BEHAVIOR CHANGED AT ANY TIME WITHOUT NOTICE. 
+            </wsdl:documentation>
+            <wsdl:input message="comprarIngressoRequest"/>
+            <wsdl:output message="comprarIngressoResponse"/>
         </wsdl:operation>
         <wsdl:operation name="helloWorld">
             <wsdl:documentation>
@@ -408,6 +437,15 @@
         </wsdl:operation>
         <wsdl:operation name="getDependencies">
             <soap:operation soapAction="getDependencies"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="comprarIngresso">
+            <soap:operation soapAction="comprarIngresso"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>

@@ -55,6 +55,32 @@
             "visibility" : "PRIVATE",
             "version": "0"
         },
+        "comprarIngresso": {
+            "endpointType" : "command",
+            "kind": "action",
+            "priority" : "NORMAL",
+            "input" : {
+                "nomeComprador" : {
+                    "type": "string",
+                    "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                }
+            },
+            "output" : {
+                "codigoIngresso" : {
+                    "type": "string",
+                    "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                }
+            },
+            "extensionPoint" : false,
+            "responses" : {
+            },
+            "visibility" : "PRIVATE",
+            "version": "0"
+        },
         "helloWorld": {
             "endpointType" : "command",
             "kind": "query",
@@ -246,6 +272,21 @@
         }
     },
     "events" : {
+        "ingressoComprado": {
+            "endpointType" : "event",
+            "payload" : {
+                "codigoIngresso" : {
+                    "type": "string",
+                    "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                }
+            },
+            "kind" : "Event",
+            "priority" : "LOW",
+            "extensionPoint" : false,
+            "visibility" : "PRIVATE"
+        },
         "serviceStarted": {
             "endpointType" : "event",
             "documentation" : "Default 'serviceStarted' event.",

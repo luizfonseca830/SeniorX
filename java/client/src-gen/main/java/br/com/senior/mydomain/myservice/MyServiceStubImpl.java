@@ -180,6 +180,49 @@ public class MyServiceStubImpl  implements MyServiceStub {
 		return impl.cadastrarConvidadoRequest(input, timeout, TimeUnit.MILLISECONDS);
 	}
 	/**
+	 * Chamada síncrona para o método comprarIngresso
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 * @throws MyServiceMessageException quando um erro com payload for retornado pela mensageria
+	 */
+	@Override
+	public ComprarIngressoOutput comprarIngresso(ComprarIngressoInput input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.ComprarIngressoImpl impl = new br.com.senior.mydomain.myservice.impl.ComprarIngressoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.comprarIngresso(input, timeout);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método comprarIngresso
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 */
+	@Override
+	public void comprarIngresso(ComprarIngressoInput input) {
+		br.com.senior.mydomain.myservice.impl.ComprarIngressoImpl impl = new br.com.senior.mydomain.myservice.impl.ComprarIngressoImpl(messengerSupplier, userId, messageSupplier);
+		impl.comprarIngresso(input);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método comprarIngresso
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 */
+	@Override
+	public CompletableFuture<ComprarIngressoOutput> comprarIngressoRequest(ComprarIngressoInput input) {
+		return this.comprarIngressoRequest(input, 0l);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método comprarIngresso
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	*/
+	@Override
+	public CompletableFuture<ComprarIngressoOutput> comprarIngressoRequest(ComprarIngressoInput input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.ComprarIngressoImpl impl = new br.com.senior.mydomain.myservice.impl.ComprarIngressoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.comprarIngressoRequest(input, timeout, TimeUnit.MILLISECONDS);
+	}
+	/**
 	 * Chamada síncrona para o método getMetadata
 	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
 	 * Default 'getMetadata' query. Every service must handle this command and return metadata in the format requested.
@@ -301,6 +344,22 @@ public class MyServiceStubImpl  implements MyServiceStub {
 	}
 	
 	
+	private Message createMessage(IngressoCompradoPayload input, String requestName) {
+		if (messageSupplier != null && messageSupplier.get() != null) {
+			return messageSupplier.get().followUp( //
+				userId.getTenant(), //
+				MyServiceConstants.DOMAIN, //
+				MyServiceConstants.SERVICE, //
+				requestName, //
+				DtoJsonConverter.toJSON(input));
+		}
+		return  new Message(userId.getTenant(), // 
+			MyServiceConstants.DOMAIN, // 
+			MyServiceConstants.SERVICE, //
+			requestName, // 
+			DtoJsonConverter.toJSON(input));
+	}
+	
 	private Message createMessage(ServiceStartedPayload input, String requestName) {
 		if (messageSupplier != null && messageSupplier.get() != null) {
 			return messageSupplier.get().followUp( //
@@ -334,6 +393,20 @@ public class MyServiceStubImpl  implements MyServiceStub {
 	}
 	
 
+	/**
+	 * Chamada assíncrona para o método publishIngressoComprado
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 */
+	public void publishIngressoComprado( IngressoCompradoPayload input ) {
+		Message message = createMessage(input, MyServiceConstants.Events.INGRESSO_COMPRADO);
+		try {
+			addMessageHeaders(message);
+			messengerSupplier.get().publish(message);
+		} catch (Exception e) {
+			throw new MyServiceException("Erro ao enviar a mensagem", e);
+		}
+	}
+	
 	/**
 	 * Chamada assíncrona para o método publishServiceStarted
 	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice

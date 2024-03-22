@@ -28,6 +28,14 @@
                 <slot name="resultado" type="resultadoCadastradoConvidado" optional="false" multivalued="false"/>
             </output>
         </action>
+        <action name="comprarIngresso" idempotent="false" extensionPoint="false" visibility="PRIVATE">
+            <input>
+                <slot name="nomeComprador" type="string" optional="false" multivalued="false"/>
+            </input>
+            <output>
+                <slot name="codigoIngresso" type="string" optional="false" multivalued="false"/>
+            </output>
+        </action>
         <query name="getMetadata" idempotent="false" extensionPoint="false" visibility="PRIVATE">
             <input>
                 <slot name="metadataFormat" type="string" optional="true" multivalued="false"/>
@@ -50,6 +58,11 @@
         </inboundSignal>
     </signals>
     <events>
+        <event name="ingressoComprado" extensionPoint="false" visibility="PRIVATE">
+            <payload>
+                <slot name="codigoIngresso" type="string" optional="false" multivalued="false"/>
+            </payload>
+        </event>
         <event name="serviceStarted" extensionPoint="false" visibility="PRIVATE">
             <payload>
                 <slot name="domain" type="string" optional="false" multivalued="false"/>
