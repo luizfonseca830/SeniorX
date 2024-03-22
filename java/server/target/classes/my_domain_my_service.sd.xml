@@ -1,0 +1,154 @@
+<service appName="hello-world" domain="my_domain" name="my_service" version="${version}">
+    <commands>
+        <query name="helloWorld" idempotent="false" extensionPoint="false" visibility="PRIVATE">
+            <input>
+                <slot name="who" type="string" optional="false" multivalued="false"/>
+            </input>
+            <output>
+                <slot name="helloWorldMessage" type="string" optional="false" multivalued="false"/>
+            </output>
+        </query>
+        <action name="cadastrarEvento" idempotent="false" extensionPoint="false" visibility="PRIVATE">
+            <input>
+                <slot name="nome" type="string" optional="false" multivalued="false" maxLength="10"/>
+                <slot name="apenasColaboradores" type="boolean" optional="true" multivalued="false"/>
+                <slot name="lotacaoMaxima" type="integer" optional="false" multivalued="false" minValue="1" maxValue="999"/>
+                <slot name="data" type="date" optional="false" multivalued="false"/>
+                <slot name="tipoEntradaEvento" type="tipoEntrada" optional="true" multivalued="true"/>
+            </input>
+            <output type="retornoCadastrarEvento"/>
+        </action>
+        <action name="cadastrarConvidado" idempotent="false" extensionPoint="false" visibility="PRIVATE">
+            <input>
+                <slot name="nome" type="string" optional="false" multivalued="false" maxLength="20"/>
+                <slot name="quantidadeAcompanhantes" type="integer" optional="false" multivalued="false" minValue="0" maxValue="9"/>
+                <slot name="nomeSocial" type="string" optional="true" multivalued="false"/>
+            </input>
+            <output type="retornoCadastroConvidado"/>
+        </action>
+        <query name="getMetadata" idempotent="false" extensionPoint="false" visibility="PRIVATE">
+            <input>
+                <slot name="metadataFormat" type="string" optional="true" multivalued="false"/>
+            </input>
+            <output>
+                <slot name="metadata" type="string" optional="false" multivalued="false"/>
+            </output>
+        </query>
+        <query name="getDependencies" idempotent="false" extensionPoint="false" visibility="PRIVATE">
+            <output>
+                <slot name="dependencies" type="dependency" optional="false" multivalued="true"/>
+            </output>
+        </query>
+    </commands>
+    <signals>
+    </signals>
+    <events>
+        <event name="serviceStarted" extensionPoint="false" visibility="PRIVATE">
+            <payload>
+                <slot name="domain" type="string" optional="false" multivalued="false"/>
+                <slot name="service" type="string" optional="false" multivalued="false"/>
+            </payload>
+        </event>
+        <event name="notifyUserEvent" extensionPoint="false" visibility="PRIVATE">
+            <payload type="notifyUserEventPayload"/>
+        </event>
+    </events>
+    <records>
+        <record name="mensagemRetornoComCodigo">
+            <slot name="mensagemRetorno" type="string" optional="false" multivalued="false"/>
+            <slot name="codigoCadastrado" type="string" optional="false" multivalued="false"/>
+            <slot name="contemErro" type="boolean" optional="true" multivalued="false"/>
+        </record>
+        <record name="retornoCadastrarEvento">
+            <slot name="mensagem" type="mensagemRetornoComCodigo" optional="false" multivalued="false"/>
+            <slot name="nome" type="string" optional="false" multivalued="false"/>
+            <slot name="apenasColaboradores" type="boolean" optional="true" multivalued="false"/>
+            <slot name="lotacaoMaxima" type="integer" optional="false" multivalued="false"/>
+            <slot name="data" type="date" optional="false" multivalued="false"/>
+            <slot name="tipoEntradaEvento" type="tipoEntrada" optional="true" multivalued="true"/>
+        </record>
+        <record name="retornoCadastroConvidado">
+            <slot name="mensagem" type="mensagemRetornoComCodigo" optional="false" multivalued="false"/>
+            <slot name="nome" type="string" optional="false" multivalued="false"/>
+            <slot name="quantidadeAcompanhantes" type="integer" optional="false" multivalued="false"/>
+            <slot name="nomeSocial" type="string" optional="true" multivalued="false"/>
+        </record>
+        <record name="notifyUserEventPayload">
+            <slot name="notificationClass" type="string" optional="true" multivalued="false"/>
+            <slot name="notificationOrigin" type="string" optional="true" multivalued="false"/>
+            <slot name="notificationKind" type="userNotificationKind" optional="false" multivalued="false"/>
+            <slot name="notificationPriority" type="userNotificationPriority" optional="false" multivalued="false"/>
+            <slot name="notificationSubject" type="string" optional="false" multivalued="false"/>
+            <slot name="notificationContent" type="string" optional="false" multivalued="false"/>
+            <slot name="sourceDomain" type="string" optional="false" multivalued="false"/>
+            <slot name="sourceService" type="string" optional="false" multivalued="false"/>
+            <slot name="destinationUser" type="string" optional="false" multivalued="false"/>
+            <slot name="link" type="string" optional="true" multivalued="false"/>
+        </record>
+        <record name="emailNotifyUserEventPayload">
+            <slot name="notificationClass" type="string" optional="true" multivalued="false"/>
+            <slot name="notificationOrigin" type="string" optional="true" multivalued="false"/>
+            <slot name="notificationKind" type="userNotificationKind" optional="false" multivalued="false"/>
+            <slot name="notificationPriority" type="userNotificationPriority" optional="false" multivalued="false"/>
+            <slot name="notificationSubject" type="string" optional="false" multivalued="false"/>
+            <slot name="notificationContent" type="string" optional="false" multivalued="false"/>
+            <slot name="sourceDomain" type="string" optional="false" multivalued="false"/>
+            <slot name="sourceService" type="string" optional="false" multivalued="false"/>
+            <slot name="destinationUser" type="string" optional="false" multivalued="false"/>
+            <slot name="link" type="string" optional="true" multivalued="false"/>
+            <slot name="from" type="string" optional="false" multivalued="false"/>
+            <slot name="sendTo" type="string" optional="true" multivalued="true"/>
+            <slot name="format" type="eventEmailFormat" optional="true" multivalued="false"/>
+        </record>
+        <record name="pushNotifyUserEventPayload">
+            <slot name="notificationClass" type="string" optional="true" multivalued="false"/>
+            <slot name="notificationOrigin" type="string" optional="true" multivalued="false"/>
+            <slot name="notificationKind" type="userNotificationKind" optional="false" multivalued="false"/>
+            <slot name="notificationPriority" type="userNotificationPriority" optional="false" multivalued="false"/>
+            <slot name="notificationSubject" type="string" optional="false" multivalued="false"/>
+            <slot name="notificationContent" type="string" optional="false" multivalued="false"/>
+            <slot name="sourceDomain" type="string" optional="false" multivalued="false"/>
+            <slot name="sourceService" type="string" optional="false" multivalued="false"/>
+            <slot name="destinationUser" type="string" optional="false" multivalued="false"/>
+            <slot name="link" type="string" optional="true" multivalued="false"/>
+            <slot name="applicationId" type="string" optional="false" multivalued="false"/>
+        </record>
+        <record name="blobReference">
+            <slot name="domainName" type="string" optional="true" multivalued="false"/>
+            <slot name="serviceName" type="string" optional="true" multivalued="false"/>
+            <slot name="targetObjectId" type="string" optional="false" multivalued="false"/>
+            <slot name="targetCopyId" type="string" optional="true" multivalued="false"/>
+        </record>
+        <record name="basicErrorPayload">
+            <slot name="message" type="string" optional="true" multivalued="false"/>
+            <slot name="errorCode" type="string" optional="true" multivalued="false"/>
+        </record>
+        <record name="dependency">
+            <slot name="domain" type="string" optional="false" multivalued="false"/>
+            <slot name="service" type="string" optional="false" multivalued="false"/>
+            <slot name="version" type="string" optional="false" multivalued="false"/>
+        </record>
+    </records>
+    <enumerations>
+        <enumeration name="tipoEntrada">
+            <value name="LIVRE"/>
+            <value name="NO_LOCAL"/>
+            <value name="ANTECIPADO"/>
+            <value name="LISTA"/>
+        </enumeration>
+        <enumeration name="userNotificationKind">
+            <value name="Operational"/>
+            <value name="Management"/>
+            <value name="News"/>
+        </enumeration>
+        <enumeration name="userNotificationPriority">
+            <value name="Error"/>
+            <value name="Alert"/>
+            <value name="None"/>
+        </enumeration>
+        <enumeration name="eventEmailFormat">
+            <value name="HTML"/>
+            <value name="PLAIN_TEXT"/>
+        </enumeration>
+    </enumerations>
+</service>
