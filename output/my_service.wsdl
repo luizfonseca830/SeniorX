@@ -190,6 +190,20 @@
             </xsd:complexType>
             
             <!-- Message payload elements for signals -->
+            <xsd:element name="estornarPagamentos">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <!-- collection wrapper for ingressos -->
+                        <xsd:element name="ingressos" minOccurs="1" maxOccurs="1">
+                            <xsd:complexType>
+                                <xsd:sequence>
+                                    <xsd:element name="item" type="xsd:string" minOccurs="1" maxOccurs="unbounded"/>
+                                </xsd:sequence>
+                            </xsd:complexType>
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
             <xsd:element name="cancelarEvento">
                 <xsd:complexType>
                     <xsd:sequence>
@@ -346,6 +360,9 @@
     <wsdl:message name="comprarIngressoResponse">
         <wsdl:part name="result" element="comprarIngressoOutput"/>
     </wsdl:message>
+    <wsdl:message name="estornarPagamentosSignal">
+        <wsdl:part name="parameters" element="estornarPagamentos"/>
+    </wsdl:message>
     <wsdl:message name="helloWorldRequest">
         <wsdl:part name="parameters" element="helloWorld"/>
     </wsdl:message>
@@ -392,9 +409,15 @@
             <wsdl:input message="comprarIngressoRequest"/>
             <wsdl:output message="comprarIngressoResponse"/>
         </wsdl:operation>
-        <wsdl:operation name="helloWorld">
+        <wsdl:operation name="estornarPagamentos">
             <wsdl:documentation>
             WARNING: THIS OPERATION IS PRIVATE AND MAY HAVE ITS BEHAVIOR CHANGED AT ANY TIME WITHOUT NOTICE. 
+            </wsdl:documentation>
+            <wsdl:input message="estornarPagamentosSignal"/>
+        </wsdl:operation>
+        <wsdl:operation name="helloWorld">
+            <wsdl:documentation>
+            THIS OPERATION IS PUBLIC. 
              Primitiva que retorna uma mensagem de olá com o nome do requisitante Normalmente no campo who é informado seu próprio nome  
             </wsdl:documentation>
             <wsdl:input message="helloWorldRequest"/>
@@ -452,6 +475,12 @@
             <wsdl:output>
                 <soap:body use="literal"/>
             </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="estornarPagamentos">
+            <soap:operation soapAction="estornarPagamentos"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
         </wsdl:operation>
         <wsdl:operation name="helloWorld">
             <soap:operation soapAction="helloWorld"/>

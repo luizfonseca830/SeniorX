@@ -7,7 +7,7 @@ service my_service {
         Primitiva que retorna uma mensagem de olá com o nome do requisitante
         Normalmente no campo who é informado seu próprio nome
         "
-        query helloWorld {
+        public query helloWorld {
             in {
           //Parametro com o nome do requisitante
                 who : string
@@ -65,6 +65,18 @@ service my_service {
         event ingressoComprado {
             payload {
                 codigoIngresso : string
+            }
+        }
+
+        event pagamentoEstornado{
+            payload{
+               codigoIngresso : string
+            }
+        }
+
+        signal estornarPagamentos {
+            in {
+                 ingressos : string*
             }
         }
 

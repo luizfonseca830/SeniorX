@@ -38,7 +38,7 @@ paths:
       "
       tags:
         - Queries
-      x-senior-visibility: PRIVATE
+      x-senior-visibility: PUBLIC
       parameters:
         - name: input
           in: body
@@ -75,7 +75,7 @@ paths:
       "
       tags:
         - Queries
-      x-senior-visibility: PRIVATE
+      x-senior-visibility: PUBLIC
       parameters:
         - name: who
           description: ""
@@ -384,7 +384,61 @@ paths:
           description: Error response
           schema:
             $ref: '#/definitions/genericError'
+  
+  /my_service/signals/estornarPagamentos:
+    post:
+      description: ""
+      tags:
+        - Signals
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            type: object
+            required:
+              - ingressos
+            properties:
+              ingressos:
+                type: array
+                items:
+                  type: string
+                  minimum: 1
+                description: ""
+      responses:
+        202:
+          description: Accepted
+        default:
+          description: Error response
+          schema:
+            $ref: '#/definitions/genericError'
   /my_service/events/ingressoComprado:
+    post:
+      description: ""
+      x-senior-event: true
+      tags:
+        - Events
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            type: object
+            required:
+              - codigoIngresso
+            properties:
+              codigoIngresso:
+                type: string
+                description: ""
+      responses:
+        200:
+          description: OK
+        default:
+          description: Error response
+          schema:
+            $ref: '#/definitions/genericError'
+  
+  /my_service/events/pagamentoEstornado:
     post:
       description: ""
       x-senior-event: true

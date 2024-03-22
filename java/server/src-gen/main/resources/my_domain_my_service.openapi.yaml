@@ -181,7 +181,7 @@ paths:
       "
       tags:
         - Queries
-      x-senior-visibility: PRIVATE
+      x-senior-visibility: PUBLIC
       security :
         - bearerAuth: []
       requestBody:
@@ -230,7 +230,7 @@ paths:
       "
       tags:
         - Queries
-      x-senior-visibility: PRIVATE
+      x-senior-visibility: PUBLIC
       security :
         - bearerAuth: []
       parameters:
@@ -446,6 +446,44 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/genericError'
+  /my_service/signals/estornarPagamentos:
+    post:
+      description: ""
+      tags:
+      - Signals
+      security :
+        - bearerAuth: []
+      parameters:
+        - in: header
+          name: Accept
+          description: 'Content types and endpoint version for the request. Example: application/json;seniorx.version=2'
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - ingressos
+              properties:
+                ingressos:
+                  type: array
+                  items:
+                    type: string
+                    minimum: 1
+                  description: ""
+      responses:
+        202:
+          description: Accepted
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/genericError'
+  
   /my_service/signals/cancelarEvento:
     post:
       description: ""

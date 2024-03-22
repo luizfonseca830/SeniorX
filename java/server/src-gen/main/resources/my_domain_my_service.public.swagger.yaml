@@ -27,6 +27,41 @@ consumes:
   - application/json
 
 paths:
+  /queries/helloWorld:
+    get:
+      description: "\n
+        Primitiva que retorna uma mensagem de olá com o nome do requisitante\n
+        Normalmente no campo who é informado seu próprio nome\n
+      "
+      tags:
+        - Endpoints
+      security :
+        - bearerAuth: []
+      parameters:
+        - name: who
+          description: ""
+          in: query
+          required: true
+          type: string
+        - in: header
+          name: Accept
+          description: 'Content types and endpoint version for the request. Example: application/json;seniorx.version=2'
+          type: string
+      responses:
+        200:
+          description: Ok
+          schema:
+            type: object
+            required:
+              - helloWorldMessage
+            properties:
+              helloWorldMessage:
+                type: string
+                description: "Saida com a mensagem de olá mundo"
+        default:
+          description: Error response
+          schema:
+            $ref: '#/definitions/genericError'
   /signals/cancelarEvento:
     post:
       description: ""
@@ -43,6 +78,34 @@ paths:
             properties:
               codigoEvento:
                 type: string
+                description: ""
+      responses:
+        202:
+          description: Accepted
+        default:
+          description: Error response
+          schema:
+            $ref: '#/definitions/genericError'
+  
+  /signals/estornarPagamentos:
+    post:
+      description: ""
+      tags:
+      - Signals
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            type: object
+            required:
+              - ingressos
+            properties:
+              ingressos:
+                type: array
+                items:
+                  type: string
+                  minimum: 1
                 description: ""
       responses:
         202:

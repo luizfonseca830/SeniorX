@@ -58,7 +58,7 @@ public class HelloWorldImpl {
 	
 	/**
 	* Chamada síncrona para o método helloWorld
-	* Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	* This is a public operation
 	* 
 	        Primitiva que retorna uma mensagem de olá com o nome do requisitante
 	        Normalmente no campo who é informado seu próprio nome
@@ -94,7 +94,7 @@ public class HelloWorldImpl {
 	
 	/**
 	* Chamada assíncrona para o método helloWorld
-	* Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	* This is a public operation
 	* 
 	        Primitiva que retorna uma mensagem de olá com o nome do requisitante
 	        Normalmente no campo who é informado seu próprio nome
@@ -113,7 +113,7 @@ public class HelloWorldImpl {
 	
 	/**
 	* Chamada assíncrona para o método helloWorld
-	* Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	* This is a public operation
 	* 
 	        Primitiva que retorna uma mensagem de olá com o nome do requisitante
 	        Normalmente no campo who é informado seu próprio nome
@@ -133,7 +133,7 @@ public class HelloWorldImpl {
 	
 	/**
 	* Chamada assíncrona para o método helloWorld
-	* Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	* This is a public operation
 	* 
 	        Primitiva que retorna uma mensagem de olá com o nome do requisitante
 	        Normalmente no campo who é informado seu próprio nome

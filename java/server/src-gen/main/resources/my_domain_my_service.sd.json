@@ -107,7 +107,7 @@
             "extensionPoint" : false,
             "responses" : {
             },
-            "visibility" : "PRIVATE",
+            "visibility" : "PUBLIC",
             "version": "0"
         },
         "cadastrarConvidado": {
@@ -255,6 +255,21 @@
         }
     },
     "signals" : {
+        "estornarPagamentos": {
+            "endpointType" : "signal",
+            "payload" : {
+                "ingressos" : {
+                    "type": "string",
+                    "optional": false,
+                    "multivalued": true,
+                    "readOnly": false
+                }
+            },
+            "kind" : "Inbound",
+            "priority" : "LOW",
+            "extensionPoint" : false,
+            "visibility" : "PRIVATE"
+        },
         "cancelarEvento": {
             "endpointType" : "signal",
             "payload" : {
@@ -273,6 +288,21 @@
     },
     "events" : {
         "ingressoComprado": {
+            "endpointType" : "event",
+            "payload" : {
+                "codigoIngresso" : {
+                    "type": "string",
+                    "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                }
+            },
+            "kind" : "Event",
+            "priority" : "LOW",
+            "extensionPoint" : false,
+            "visibility" : "PRIVATE"
+        },
+        "pagamentoEstornado": {
             "endpointType" : "event",
             "payload" : {
                 "codigoIngresso" : {

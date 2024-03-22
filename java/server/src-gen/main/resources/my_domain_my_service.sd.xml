@@ -1,6 +1,6 @@
 <service appName="hello-world" domain="my_domain" name="my_service" version="${version}">
     <commands>
-        <query name="helloWorld" idempotent="false" extensionPoint="false" visibility="PRIVATE">
+        <query name="helloWorld" idempotent="false" extensionPoint="false" visibility="PUBLIC">
             <input>
                 <slot name="who" type="string" optional="false" multivalued="false"/>
             </input>
@@ -56,9 +56,19 @@
                 <slot name="codigoEvento" type="string" optional="false" multivalued="false"/>
             </payload>
         </inboundSignal>
+        <inboundSignal name="estornarPagamentos" extensionPoint="false" visibility="PRIVATE">
+            <payload>
+                <slot name="ingressos" type="string" optional="false" multivalued="true"/>
+            </payload>
+        </inboundSignal>
     </signals>
     <events>
         <event name="ingressoComprado" extensionPoint="false" visibility="PRIVATE">
+            <payload>
+                <slot name="codigoIngresso" type="string" optional="false" multivalued="false"/>
+            </payload>
+        </event>
+        <event name="pagamentoEstornado" extensionPoint="false" visibility="PRIVATE">
             <payload>
                 <slot name="codigoIngresso" type="string" optional="false" multivalued="false"/>
             </payload>

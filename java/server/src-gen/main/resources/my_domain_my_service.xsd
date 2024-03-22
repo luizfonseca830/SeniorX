@@ -178,6 +178,20 @@
     </xsd:complexType>
     
     <!-- Message payload elements for signals -->
+    <xsd:element name="estornarPagamentos">
+        <xsd:complexType>
+            <xsd:sequence>
+                <!-- collection wrapper for ingressos -->
+                <xsd:element name="ingressos" minOccurs="1" maxOccurs="1">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="item" type="xsd:string" minOccurs="1" maxOccurs="unbounded"/>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
     <xsd:element name="cancelarEvento">
         <xsd:complexType>
             <xsd:sequence>

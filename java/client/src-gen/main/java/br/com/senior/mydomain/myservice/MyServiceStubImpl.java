@@ -44,7 +44,7 @@ public class MyServiceStubImpl  implements MyServiceStub {
 
 	/**
 	 * Chamada síncrona para o método helloWorld
-	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * This is a public operation
 	 * 
 	         Primitiva que retorna uma mensagem de olá com o nome do requisitante
 	         Normalmente no campo who é informado seu próprio nome
@@ -58,7 +58,7 @@ public class MyServiceStubImpl  implements MyServiceStub {
 	
 	/**
 	 * Chamada assíncrona para o método helloWorld
-	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * This is a public operation
 	 * 
 	         Primitiva que retorna uma mensagem de olá com o nome do requisitante
 	         Normalmente no campo who é informado seu próprio nome
@@ -71,7 +71,7 @@ public class MyServiceStubImpl  implements MyServiceStub {
 	
 	/**
 	 * Chamada assíncrona para o método helloWorld
-	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * This is a public operation
 	 * 
 	         Primitiva que retorna uma mensagem de olá com o nome do requisitante
 	         Normalmente no campo who é informado seu próprio nome
@@ -83,7 +83,7 @@ public class MyServiceStubImpl  implements MyServiceStub {
 	
 	/**
 	 * Chamada assíncrona para o método helloWorld
-	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * This is a public operation
 	 * 
 	         Primitiva que retorna uma mensagem de olá com o nome do requisitante
 	         Normalmente no campo who é informado seu próprio nome
@@ -343,6 +343,56 @@ public class MyServiceStubImpl  implements MyServiceStub {
 		}
 	}
 	
+	/**
+	 * Chamada assíncrona para o método estornarPagamentos
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 */
+	@Override
+	public void estornarPagamentos( EstornarPagamentosInput input ) {
+	
+		MyServiceValidator.validate(input);
+	
+		Message message = null;
+		if (messageSupplier != null && messageSupplier.get() != null) {
+			message = messageSupplier.get().followUp( //
+				userId.getTenant(), //
+				MyServiceConstants.DOMAIN, //
+				MyServiceConstants.SERVICE, //
+				MyServiceConstants.Signals.ESTORNAR_PAGAMENTOS, 
+				DtoJsonConverter.toJSON(input));
+		}
+		else {
+			message = new Message(userId.getTenant(), // 
+				MyServiceConstants.DOMAIN, // 
+				MyServiceConstants.SERVICE, //
+				MyServiceConstants.Signals.ESTORNAR_PAGAMENTOS,
+				DtoJsonConverter.toJSON(input));
+		}
+			
+		try {
+			addMessageHeaders(message);
+			messengerSupplier.get().send(message);
+		} catch (Exception e) {
+			throw new MyServiceException("Erro ao enviar a mensagem", e);
+		}
+	}
+	
+	
+	private Message createMessage(PagamentoEstornadoPayload input, String requestName) {
+		if (messageSupplier != null && messageSupplier.get() != null) {
+			return messageSupplier.get().followUp( //
+				userId.getTenant(), //
+				MyServiceConstants.DOMAIN, //
+				MyServiceConstants.SERVICE, //
+				requestName, //
+				DtoJsonConverter.toJSON(input));
+		}
+		return  new Message(userId.getTenant(), // 
+			MyServiceConstants.DOMAIN, // 
+			MyServiceConstants.SERVICE, //
+			requestName, // 
+			DtoJsonConverter.toJSON(input));
+	}
 	
 	private Message createMessage(IngressoCompradoPayload input, String requestName) {
 		if (messageSupplier != null && messageSupplier.get() != null) {
@@ -399,6 +449,20 @@ public class MyServiceStubImpl  implements MyServiceStub {
 	 */
 	public void publishIngressoComprado( IngressoCompradoPayload input ) {
 		Message message = createMessage(input, MyServiceConstants.Events.INGRESSO_COMPRADO);
+		try {
+			addMessageHeaders(message);
+			messengerSupplier.get().publish(message);
+		} catch (Exception e) {
+			throw new MyServiceException("Erro ao enviar a mensagem", e);
+		}
+	}
+	
+	/**
+	 * Chamada assíncrona para o método publishPagamentoEstornado
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 */
+	public void publishPagamentoEstornado( PagamentoEstornadoPayload input ) {
+		Message message = createMessage(input, MyServiceConstants.Events.PAGAMENTO_ESTORNADO);
 		try {
 			addMessageHeaders(message);
 			messengerSupplier.get().publish(message);

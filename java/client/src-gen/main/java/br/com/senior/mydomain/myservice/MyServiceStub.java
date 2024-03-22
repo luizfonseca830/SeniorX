@@ -12,7 +12,7 @@ import java.util.concurrent.CompletableFuture;
 public interface MyServiceStub {
 
 	/**
-	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * This is a public operation
 	 * 
 	         Primitiva que retorna uma mensagem de olá com o nome do requisitante
 	         Normalmente no campo who é informado seu próprio nome
@@ -21,7 +21,7 @@ public interface MyServiceStub {
 	HelloWorldOutput helloWorld(HelloWorldInput input, long timeout);
 	
 	/**
-	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * This is a public operation
 	 * 
 	         Primitiva que retorna uma mensagem de olá com o nome do requisitante
 	         Normalmente no campo who é informado seu próprio nome
@@ -30,7 +30,7 @@ public interface MyServiceStub {
 	void helloWorld(HelloWorldInput input);
 	
 	/**
-	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * This is a public operation
 	 * 
 	         Primitiva que retorna uma mensagem de olá com o nome do requisitante
 	         Normalmente no campo who é informado seu próprio nome
@@ -39,7 +39,7 @@ public interface MyServiceStub {
 	CompletableFuture<HelloWorldOutput> helloWorldRequest(HelloWorldInput input);
 	
 	/**
-	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * This is a public operation
 	 * 
 	         Primitiva que retorna uma mensagem de olá com o nome do requisitante
 	         Normalmente no campo who é informado seu próprio nome
@@ -187,12 +187,24 @@ public interface MyServiceStub {
 	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
 	 */
 	void cancelarEvento(CancelarEventoInput input);
+	/**
+	 * Chamada assíncrona para o método estornarPagamentos
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 */
+	void estornarPagamentos(EstornarPagamentosInput input);
 
 	/**
 	 * Chamada assíncrona para o método publishIngressoComprado 
 	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
 	 */
 	void publishIngressoComprado( IngressoCompradoPayload input );
+			
+	
+	/**
+	 * Chamada assíncrona para o método publishPagamentoEstornado 
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 */
+	void publishPagamentoEstornado( PagamentoEstornadoPayload input );
 			
 	
 	/**

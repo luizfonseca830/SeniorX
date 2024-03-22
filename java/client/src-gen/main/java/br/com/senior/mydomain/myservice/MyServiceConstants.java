@@ -121,10 +121,12 @@ public interface MyServiceConstants {
     
     interface Signals {
     	String CANCELAR_EVENTO = "cancelarEvento";
+    	String ESTORNAR_PAGAMENTOS = "estornarPagamentos";
     }
     
     interface Events {
     	String INGRESSO_COMPRADO = "ingressoComprado";
+    	String PAGAMENTO_ESTORNADO = "pagamentoEstornado";
     	/**
     	 * Default 'serviceStarted' event.
     	 */
