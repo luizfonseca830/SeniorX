@@ -117,6 +117,24 @@ definitions:
           - $ref: '#/definitions/tipoEntrada'
         description: ""
   
+  retornoCadastroConvidado:
+    description: ""
+    type: object
+    required:
+      - nome
+      - quantidadeAcompanhantes
+    properties:
+      nome:
+        type: string
+        description: ""
+      quantidadeAcompanhantes:
+        type: integer
+        format: int64
+        description: ""
+      nomeSocial:
+        type: string
+        description: ""
+  
   notifyUserEventPayload:
     description: "Represents a regular user event notification payload"
     discriminator: _discriminator

@@ -11,6 +11,6 @@ import br.com.senior.messaging.model.*;
 @CommandDescription(name="cadastrarEvento", kind=CommandKind.Action, requestPrimitive="cadastrarEvento", responsePrimitive="cadastrarEventoResponse")
 public interface CadastrarEvento extends MessageHandler {
     
-    public CadastrarEventoOutput cadastrarEvento(CadastrarEventoInput request);
+    public RetornoCadastrarEvento cadastrarEvento(CadastrarEventoInput request);
     
 }

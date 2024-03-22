@@ -100,7 +100,7 @@ public class MyServiceStubImpl  implements MyServiceStub {
 	 * @throws MyServiceMessageException quando um erro com payload for retornado pela mensageria
 	 */
 	@Override
-	public CadastrarEventoOutput cadastrarEvento(CadastrarEventoInput input, long timeout) {
+	public RetornoCadastrarEvento cadastrarEvento(CadastrarEventoInput input, long timeout) {
 		br.com.senior.mydomain.myservice.impl.CadastrarEventoImpl impl = new br.com.senior.mydomain.myservice.impl.CadastrarEventoImpl(messengerSupplier, userId, messageSupplier);
 		return impl.cadastrarEvento(input, timeout);
 	}
@@ -122,7 +122,7 @@ public class MyServiceStubImpl  implements MyServiceStub {
 	 * Cadastra um novo evento (ex: SeniorTec, Casamento, Aniversário, etc)
 	 */
 	@Override
-	public CompletableFuture<CadastrarEventoOutput> cadastrarEventoRequest(CadastrarEventoInput input) {
+	public CompletableFuture<RetornoCadastrarEvento> cadastrarEventoRequest(CadastrarEventoInput input) {
 		return this.cadastrarEventoRequest(input, 0l);
 	}
 	
@@ -132,7 +132,7 @@ public class MyServiceStubImpl  implements MyServiceStub {
 	 * Cadastra um novo evento (ex: SeniorTec, Casamento, Aniversário, etc)
 	*/
 	@Override
-	public CompletableFuture<CadastrarEventoOutput> cadastrarEventoRequest(CadastrarEventoInput input, long timeout) {
+	public CompletableFuture<RetornoCadastrarEvento> cadastrarEventoRequest(CadastrarEventoInput input, long timeout) {
 		br.com.senior.mydomain.myservice.impl.CadastrarEventoImpl impl = new br.com.senior.mydomain.myservice.impl.CadastrarEventoImpl(messengerSupplier, userId, messageSupplier);
 		return impl.cadastrarEventoRequest(input, timeout, TimeUnit.MILLISECONDS);
 	}
@@ -143,7 +143,7 @@ public class MyServiceStubImpl  implements MyServiceStub {
 	 * @throws MyServiceMessageException quando um erro com payload for retornado pela mensageria
 	 */
 	@Override
-	public CadastrarConvidadoOutput cadastrarConvidado(CadastrarConvidadoInput input, long timeout) {
+	public RetornoCadastroConvidado cadastrarConvidado(CadastrarConvidadoInput input, long timeout) {
 		br.com.senior.mydomain.myservice.impl.CadastrarConvidadoImpl impl = new br.com.senior.mydomain.myservice.impl.CadastrarConvidadoImpl(messengerSupplier, userId, messageSupplier);
 		return impl.cadastrarConvidado(input, timeout);
 	}
@@ -165,7 +165,7 @@ public class MyServiceStubImpl  implements MyServiceStub {
 	 * Cadastrar um novo convidado e acompanhantes
 	 */
 	@Override
-	public CompletableFuture<CadastrarConvidadoOutput> cadastrarConvidadoRequest(CadastrarConvidadoInput input) {
+	public CompletableFuture<RetornoCadastroConvidado> cadastrarConvidadoRequest(CadastrarConvidadoInput input) {
 		return this.cadastrarConvidadoRequest(input, 0l);
 	}
 	
@@ -175,7 +175,7 @@ public class MyServiceStubImpl  implements MyServiceStub {
 	 * Cadastrar um novo convidado e acompanhantes
 	*/
 	@Override
-	public CompletableFuture<CadastrarConvidadoOutput> cadastrarConvidadoRequest(CadastrarConvidadoInput input, long timeout) {
+	public CompletableFuture<RetornoCadastroConvidado> cadastrarConvidadoRequest(CadastrarConvidadoInput input, long timeout) {
 		br.com.senior.mydomain.myservice.impl.CadastrarConvidadoImpl impl = new br.com.senior.mydomain.myservice.impl.CadastrarConvidadoImpl(messengerSupplier, userId, messageSupplier);
 		return impl.cadastrarConvidadoRequest(input, timeout, TimeUnit.MILLISECONDS);
 	}

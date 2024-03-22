@@ -16,9 +16,7 @@
                 <slot name="data" type="date" optional="false" multivalued="false"/>
                 <slot name="tipoEntradaEvento" type="tipoEntrada" optional="true" multivalued="true"/>
             </input>
-            <output>
-                <slot name="retorno" type="retornoCadastrarEvento" optional="false" multivalued="false"/>
-            </output>
+            <output type="retornoCadastrarEvento"/>
         </action>
         <action name="cadastrarConvidado" idempotent="false" extensionPoint="false" visibility="PRIVATE">
             <input>
@@ -26,10 +24,7 @@
                 <slot name="quantidadeAcompanhantes" type="integer" optional="false" multivalued="false" minValue="0" maxValue="9"/>
                 <slot name="nomeSocial" type="string" optional="true" multivalued="false"/>
             </input>
-            <output>
-                <slot name="mensagem" type="mensagemRetornoComCodigo" optional="false" multivalued="false"/>
-                <slot name="convidado" type="string" optional="false" multivalued="false"/>
-            </output>
+            <output type="retornoCadastroConvidado"/>
         </action>
         <query name="getMetadata" idempotent="false" extensionPoint="false" visibility="PRIVATE">
             <input>
@@ -71,6 +66,11 @@
             <slot name="lotacaoMaxima" type="integer" optional="false" multivalued="false"/>
             <slot name="data" type="date" optional="false" multivalued="false"/>
             <slot name="tipoEntradaEvento" type="tipoEntrada" optional="true" multivalued="true"/>
+        </record>
+        <record name="retornoCadastroConvidado">
+            <slot name="nome" type="string" optional="false" multivalued="false"/>
+            <slot name="quantidadeAcompanhantes" type="integer" optional="false" multivalued="false"/>
+            <slot name="nomeSocial" type="string" optional="true" multivalued="false"/>
         </record>
         <record name="notifyUserEventPayload">
             <slot name="notificationClass" type="string" optional="true" multivalued="false"/>

@@ -49,6 +49,23 @@
         	"required" : ["mensagem","nome","lotacaoMaxima","data"]
         }
         ,
+        "retornoCadastroConvidado" : {
+        	"type" : "object",
+        	"id" : "retornoCadastroConvidado",
+        	"properties" : {
+            	"nome" : {
+            		"type": "string"
+            	},
+            	"quantidadeAcompanhantes" : {
+            		"type": "integer"
+            	},
+            	"nomeSocial" : {
+            		"type": "string"
+            	}
+        	},
+        	"required" : ["nome","quantidadeAcompanhantes"]
+        }
+        ,
         "notifyUserEventPayload" : {
         	"type" : "object",
         	"id" : "notifyUserEventPayload",

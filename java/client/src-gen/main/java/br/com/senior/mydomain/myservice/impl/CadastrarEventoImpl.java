@@ -17,7 +17,7 @@ import br.com.senior.messaging.model.ServiceException;
 import br.com.senior.messaging.model.ServiceRunner;
 
 import br.com.senior.mydomain.myservice.CadastrarEventoInput;
-import br.com.senior.mydomain.myservice.CadastrarEventoOutput;
+import br.com.senior.mydomain.myservice.RetornoCadastrarEvento;
 import br.com.senior.mydomain.myservice.MyServiceConstants;
 import br.com.senior.mydomain.myservice.MyServiceValidator;
 import br.com.senior.mydomain.myservice.MyServiceException;
@@ -62,7 +62,7 @@ public class CadastrarEventoImpl {
 	* Cadastra um novo evento (ex: SeniorTec, Casamento, Aniversário, etc) 
 	* @throws MyServiceMessageException quando um erro com payload for retornado pela mensageria
 	*/
-	public CadastrarEventoOutput cadastrarEvento(CadastrarEventoInput input, long timeout) {
+	public RetornoCadastrarEvento cadastrarEvento(CadastrarEventoInput input, long timeout) {
 		MyServiceValidator.validate(input);
 		
 		Message message = createMessage(input);
@@ -83,7 +83,7 @@ public class CadastrarEventoImpl {
 			ErrorPayload error = DtoJsonConverter.toDTO(resultMessage.getContent(), ErrorPayload.class);
 			throw new MyServiceMessageException(resultMessage.getErrorCategory(), error.getMessage(), error.getErrorCode());
 		}
-		CadastrarEventoOutput output = DtoJsonConverter.toDTO(resultMessage.getContent(), CadastrarEventoOutput.class);
+		RetornoCadastrarEvento output = DtoJsonConverter.toDTO(resultMessage.getContent(), RetornoCadastrarEvento.class);
 		if (output == null) {
 			throw new MyServiceException("Contéudo do retorno inválido");
 		}
@@ -113,7 +113,7 @@ public class CadastrarEventoImpl {
 	* Cadastra um novo evento (ex: SeniorTec, Casamento, Aniversário, etc)
 	*/
 	@Deprecated
-	public CompletableFuture<CadastrarEventoOutput> cadastrarEventoRequest(CadastrarEventoInput input) {
+	public CompletableFuture<RetornoCadastrarEvento> cadastrarEventoRequest(CadastrarEventoInput input) {
 		MyServiceValidator.validate(input);
 	
 		if (ServiceContext.get() == null) {
@@ -122,7 +122,7 @@ public class CadastrarEventoImpl {
 		ServiceRunner serviceRunner = ServiceContext.get().getCurrentServiceRunner();
 		Message message = createMessage(input);
 		addMessageHeaders(message);
-		return serviceRunner.request(message, CadastrarEventoOutput.class);
+		return serviceRunner.request(message, RetornoCadastrarEvento.class);
 	}
 	
 	/**
@@ -130,7 +130,7 @@ public class CadastrarEventoImpl {
 	* Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
 	* Cadastra um novo evento (ex: SeniorTec, Casamento, Aniversário, etc)
 	*/
-	public CompletableFuture<CadastrarEventoOutput> cadastrarEventoRequest(CadastrarEventoInput input, long timeout, TimeUnit unit) {
+	public CompletableFuture<RetornoCadastrarEvento> cadastrarEventoRequest(CadastrarEventoInput input, long timeout, TimeUnit unit) {
 		MyServiceValidator.validate(input);
 	
 		if (ServiceContext.get() == null) {
@@ -139,7 +139,7 @@ public class CadastrarEventoImpl {
 		ServiceRunner serviceRunner = ServiceContext.get().getCurrentServiceRunner();
 		Message message = createMessage(input);
 		addMessageHeaders(message);
-		return serviceRunner.request(message, CadastrarEventoOutput.class, TimeUnit.MILLISECONDS.convert(timeout, unit));
+		return serviceRunner.request(message, RetornoCadastrarEvento.class, TimeUnit.MILLISECONDS.convert(timeout, unit));
 	}
 	
 	private void addMessageHeaders(Message message) {

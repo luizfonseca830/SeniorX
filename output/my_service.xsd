@@ -50,6 +50,16 @@
             </xsd:element>
         </xsd:sequence>
     </xsd:complexType>
+    <xsd:complexType name="retornoCadastroConvidado">
+        <xsd:sequence>
+            <xsd:element name="nome" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+            </xsd:element>
+            <xsd:element name="quantidadeAcompanhantes" type="xsd:long" minOccurs="1" maxOccurs="1"  readOnly="false">
+            </xsd:element>
+            <xsd:element name="nomeSocial" type="xsd:string" minOccurs="0" maxOccurs="1"  readOnly="false">
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
     <xsd:simpleType name="userNotificationKind">
         <xsd:restriction base="xsd:string">
             <xsd:enumeration value="Operational"/>
@@ -230,16 +240,7 @@
             </xsd:sequence>
         </xsd:complexType>
     </xsd:element>
-    <xsd:element name="cadastrarConvidadoOutput">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="mensagem" type="mensagemRetornoComCodigo" minOccurs="1" maxOccurs="1"  readOnly="false">
-                </xsd:element>
-                <xsd:element name="convidado" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
-                </xsd:element>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
+    <xsd:element name="cadastrarConvidadoOutput" type="retornoCadastroConvidado"/>
     <xsd:element name="cadastrarEvento">
         <xsd:complexType>
             <xsd:sequence>
@@ -273,12 +274,5 @@
             </xsd:sequence>
         </xsd:complexType>
     </xsd:element>
-    <xsd:element name="cadastrarEventoOutput">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="retorno" type="retornoCadastrarEvento" minOccurs="1" maxOccurs="1"  readOnly="false">
-                </xsd:element>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
+    <xsd:element name="cadastrarEventoOutput" type="retornoCadastrarEvento"/>
 </xsd:schema>

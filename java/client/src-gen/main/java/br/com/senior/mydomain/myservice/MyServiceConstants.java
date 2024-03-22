@@ -38,7 +38,7 @@ public interface MyServiceConstants {
     	 * The success response primitive for cadastrarEvento.
     	 *
     	 * @see #CADASTRAR_EVENTO the request primitive
-    	 * @see CadastrarEventoOutput the response payload
+    	 * @see RetornoCadastrarEvento the response payload
     	 */
     	String CADASTRAR_EVENTO_RESPONSE = "cadastrarEventoResponse";
     	/**
@@ -56,7 +56,7 @@ public interface MyServiceConstants {
     	 * The success response primitive for cadastrarConvidado.
     	 *
     	 * @see #CADASTRAR_CONVIDADO the request primitive
-    	 * @see CadastrarConvidadoOutput the response payload
+    	 * @see RetornoCadastroConvidado the response payload
     	 */
     	String CADASTRAR_CONVIDADO_RESPONSE = "cadastrarConvidadoResponse";
     	/**

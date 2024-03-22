@@ -28,9 +28,7 @@ service my_service {
                 data : date
                 tipoEntradaEvento: tipoEntrada?*
             }
-            out {
-                retorno : retornoCadastrarEvento
-            }
+            out retornoCadastrarEvento
         }
 
         "Cadastrar um novo convidado e acompanhantes"
@@ -40,10 +38,8 @@ service my_service {
                 quantidadeAcompanhantes: integer minValue:0 maxValue:9
                 nomeSocial: string?
             }
-            out{
-                mensagem : mensagemRetornoComCodigo
-                convidado : string
-            }
+            out retornoCadastroConvidado
+
         }
 
     }
@@ -70,6 +66,12 @@ service my_service {
             lotacaoMaxima: integer
             data: date
             tipoEntradaEvento: tipoEntrada?*
+        }
+
+        record retornoCadastroConvidado{
+            nome: string
+            quantidadeAcompanhantes: integer
+            nomeSocial: string?
         }
 
     }

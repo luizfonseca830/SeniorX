@@ -263,14 +263,8 @@ paths:
           description: Ok
           schema:
             type: object
-            required:
-              - retorno
-            properties:
-              retorno:
-                type: object
-                allOf:
-                 - $ref: '#/definitions/retornoCadastrarEvento'
-                description: ""
+            allOf:
+             - $ref: '#/definitions/retornoCadastrarEvento'
         401:
           description: "Invalid Credentials"
         default:
@@ -312,18 +306,8 @@ paths:
           description: Ok
           schema:
             type: object
-            required:
-              - mensagem
-              - convidado
-            properties:
-              mensagem:
-                type: object
-                allOf:
-                 - $ref: '#/definitions/mensagemRetornoComCodigo'
-                description: ""
-              convidado:
-                type: string
-                description: ""
+            allOf:
+             - $ref: '#/definitions/retornoCadastroConvidado'
         401:
           description: "Invalid Credentials"
         default:
@@ -418,6 +402,24 @@ definitions:
           type: string
           allOf:
           - $ref: '#/definitions/tipoEntrada'
+        description: ""
+  
+  retornoCadastroConvidado:
+    description: ""
+    type: object
+    required:
+      - nome
+      - quantidadeAcompanhantes
+    properties:
+      nome:
+        type: string
+        description: ""
+      quantidadeAcompanhantes:
+        type: integer
+        format: int64
+        description: ""
+      nomeSocial:
+        type: string
         description: ""
   
   notifyUserEventPayload:

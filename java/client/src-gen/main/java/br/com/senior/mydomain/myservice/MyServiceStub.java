@@ -51,7 +51,7 @@ public interface MyServiceStub {
 	 * Cadastra um novo evento (ex: SeniorTec, Casamento, Aniversário, etc)
 	 * Chamada síncrona, o valor de timeout deve ser informado em ms 
 	 */
-	CadastrarEventoOutput cadastrarEvento(CadastrarEventoInput input, long timeout);
+	RetornoCadastrarEvento cadastrarEvento(CadastrarEventoInput input, long timeout);
 	
 	/**
 	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
@@ -65,20 +65,20 @@ public interface MyServiceStub {
 	 * Cadastra um novo evento (ex: SeniorTec, Casamento, Aniversário, etc)
 	 * Chamada assíncrona utilizando request
 	 */
-	CompletableFuture<CadastrarEventoOutput> cadastrarEventoRequest(CadastrarEventoInput input);
+	CompletableFuture<RetornoCadastrarEvento> cadastrarEventoRequest(CadastrarEventoInput input);
 	
 	/**
 	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
 	 * Cadastra um novo evento (ex: SeniorTec, Casamento, Aniversário, etc)
 	 * Chamada assíncrona utilizando request
 	 */
-	CompletableFuture<CadastrarEventoOutput> cadastrarEventoRequest(CadastrarEventoInput input, long timeout);
+	CompletableFuture<RetornoCadastrarEvento> cadastrarEventoRequest(CadastrarEventoInput input, long timeout);
 	/**
 	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
 	 * Cadastrar um novo convidado e acompanhantes
 	 * Chamada síncrona, o valor de timeout deve ser informado em ms 
 	 */
-	CadastrarConvidadoOutput cadastrarConvidado(CadastrarConvidadoInput input, long timeout);
+	RetornoCadastroConvidado cadastrarConvidado(CadastrarConvidadoInput input, long timeout);
 	
 	/**
 	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
@@ -92,14 +92,14 @@ public interface MyServiceStub {
 	 * Cadastrar um novo convidado e acompanhantes
 	 * Chamada assíncrona utilizando request
 	 */
-	CompletableFuture<CadastrarConvidadoOutput> cadastrarConvidadoRequest(CadastrarConvidadoInput input);
+	CompletableFuture<RetornoCadastroConvidado> cadastrarConvidadoRequest(CadastrarConvidadoInput input);
 	
 	/**
 	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
 	 * Cadastrar um novo convidado e acompanhantes
 	 * Chamada assíncrona utilizando request
 	 */
-	CompletableFuture<CadastrarConvidadoOutput> cadastrarConvidadoRequest(CadastrarConvidadoInput input, long timeout);
+	CompletableFuture<RetornoCadastroConvidado> cadastrarConvidadoRequest(CadastrarConvidadoInput input, long timeout);
 	/**
 	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
 	 * Default 'getMetadata' query. Every service must handle this command and return metadata in the format requested.

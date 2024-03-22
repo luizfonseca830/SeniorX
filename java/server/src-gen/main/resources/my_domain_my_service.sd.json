@@ -115,15 +115,21 @@
                 }
             },
             "output" : {
-                "mensagem" : {
-                    "type": "mensagemRetornoComCodigo",
+                "nome" : {
+                    "type": "string",
                     "optional": false,
                     "multivalued": false,
                     "readOnly": false
                 },
-                "convidado" : {
-                    "type": "string",
+                "quantidadeAcompanhantes" : {
+                    "type": "integer",
                     "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                },
+                "nomeSocial" : {
+                    "type": "string",
+                    "optional": true,
                     "multivalued": false,
                     "readOnly": false
                 }
@@ -180,10 +186,40 @@
                 }
             },
             "output" : {
-                "retorno" : {
-                    "type": "retornoCadastrarEvento",
+                "mensagem" : {
+                    "type": "mensagemRetornoComCodigo",
                     "optional": false,
                     "multivalued": false,
+                    "readOnly": false
+                },
+                "nome" : {
+                    "type": "string",
+                    "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                },
+                "apenasColaboradores" : {
+                    "type": "boolean",
+                    "optional": true,
+                    "multivalued": false,
+                    "readOnly": false
+                },
+                "lotacaoMaxima" : {
+                    "type": "integer",
+                    "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                },
+                "data" : {
+                    "type": "date",
+                    "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                },
+                "tipoEntradaEvento" : {
+                    "type": "tipoEntrada",
+                    "optional": true,
+                    "multivalued": true,
                     "readOnly": false
                 }
             },
@@ -285,6 +321,26 @@
                 "type": "tipoEntrada",
                 "optional": true,
                 "multivalued": true,
+                "readOnly": false
+            }
+        },
+        "retornoCadastroConvidado" : {
+            "nome" : {
+                "type": "string",
+                "optional": false,
+                "multivalued": false,
+                "readOnly": false
+            },
+            "quantidadeAcompanhantes" : {
+                "type": "integer",
+                "optional": false,
+                "multivalued": false,
+                "readOnly": false
+            },
+            "nomeSocial" : {
+                "type": "string",
+                "optional": true,
+                "multivalued": false,
                 "readOnly": false
             }
         },
