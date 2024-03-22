@@ -5,16 +5,13 @@ import br.com.senior.messaging.model.HandlerImpl;
 @HandlerImpl
 public class CadastrarConvidadoImpl implements CadastrarConvidado {
     @Override
-    public RetornoCadastroConvidado cadastrarConvidado(CadastrarConvidadoInput request) {
+    public RetornoCadastroConvidado cadastrarConvidado(FieldCadastroConvidado request) {
 
         final RetornoCadastroConvidado recordCadastroConvidado = new RetornoCadastroConvidado();
 
         recordCadastroConvidado.nome = request.nome;
-        recordCadastroConvidado.quantidadeAcompanhantes = request.quantidadeAcompanhantes;
         recordCadastroConvidado.nomeSocial = request.nomeSocial;
-        recordCadastroConvidado.codigoCadastrado = "1";
-        recordCadastroConvidado.mensagemRetorno = "Convidado cadastrado com sucesso !!";
-        recordCadastroConvidado.contemErro = false;
+        recordCadastroConvidado.resultado = request.resultado;
 
         return recordCadastroConvidado;
     }

@@ -78,28 +78,28 @@ public interface MyServiceStub {
 	 * Cadastrar um novo convidado e acompanhantes
 	 * Chamada síncrona, o valor de timeout deve ser informado em ms 
 	 */
-	RetornoCadastroConvidado cadastrarConvidado(CadastrarConvidadoInput input, long timeout);
+	RetornoCadastroConvidado cadastrarConvidado(FieldCadastroConvidado input, long timeout);
 	
 	/**
 	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
 	 * Cadastrar um novo convidado e acompanhantes
 	 * Chamada assíncrona
 	 */
-	void cadastrarConvidado(CadastrarConvidadoInput input);
+	void cadastrarConvidado(FieldCadastroConvidado input);
 	
 	/**
 	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
 	 * Cadastrar um novo convidado e acompanhantes
 	 * Chamada assíncrona utilizando request
 	 */
-	CompletableFuture<RetornoCadastroConvidado> cadastrarConvidadoRequest(CadastrarConvidadoInput input);
+	CompletableFuture<RetornoCadastroConvidado> cadastrarConvidadoRequest(FieldCadastroConvidado input);
 	
 	/**
 	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
 	 * Cadastrar um novo convidado e acompanhantes
 	 * Chamada assíncrona utilizando request
 	 */
-	CompletableFuture<RetornoCadastroConvidado> cadastrarConvidadoRequest(CadastrarConvidadoInput input, long timeout);
+	CompletableFuture<RetornoCadastroConvidado> cadastrarConvidadoRequest(FieldCadastroConvidado input, long timeout);
 	/**
 	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
 	 * Default 'getMetadata' query. Every service must handle this command and return metadata in the format requested.

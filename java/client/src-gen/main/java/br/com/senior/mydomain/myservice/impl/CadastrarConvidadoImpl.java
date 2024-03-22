@@ -16,7 +16,7 @@ import br.com.senior.messaging.model.ServiceContext;
 import br.com.senior.messaging.model.ServiceException;
 import br.com.senior.messaging.model.ServiceRunner;
 
-import br.com.senior.mydomain.myservice.CadastrarConvidadoInput;
+import br.com.senior.mydomain.myservice.FieldCadastroConvidado;
 import br.com.senior.mydomain.myservice.RetornoCadastroConvidado;
 import br.com.senior.mydomain.myservice.MyServiceConstants;
 import br.com.senior.mydomain.myservice.MyServiceValidator;
@@ -40,7 +40,7 @@ public class CadastrarConvidadoImpl {
 		this.messageSupplier = messageSupplier;
 	}
 
-	private Message createMessage(CadastrarConvidadoInput input) {
+	private Message createMessage(FieldCadastroConvidado input) {
 		if (messageSupplier != null && messageSupplier.get() != null) {
 			return messageSupplier.get().followUp( //
 				userId.getTenant(), //
@@ -62,7 +62,7 @@ public class CadastrarConvidadoImpl {
 	* Cadastrar um novo convidado e acompanhantes 
 	* @throws MyServiceMessageException quando um erro com payload for retornado pela mensageria
 	*/
-	public RetornoCadastroConvidado cadastrarConvidado(CadastrarConvidadoInput input, long timeout) {
+	public RetornoCadastroConvidado cadastrarConvidado(FieldCadastroConvidado input, long timeout) {
 		MyServiceValidator.validate(input);
 		
 		Message message = createMessage(input);
@@ -95,7 +95,7 @@ public class CadastrarConvidadoImpl {
 	* Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
 	* Cadastrar um novo convidado e acompanhantes
 	*/
-	public void cadastrarConvidado(CadastrarConvidadoInput input) {
+	public void cadastrarConvidado(FieldCadastroConvidado input) {
 		MyServiceValidator.validate(input);
 		
 		Message message = createMessage(input);
@@ -113,7 +113,7 @@ public class CadastrarConvidadoImpl {
 	* Cadastrar um novo convidado e acompanhantes
 	*/
 	@Deprecated
-	public CompletableFuture<RetornoCadastroConvidado> cadastrarConvidadoRequest(CadastrarConvidadoInput input) {
+	public CompletableFuture<RetornoCadastroConvidado> cadastrarConvidadoRequest(FieldCadastroConvidado input) {
 		MyServiceValidator.validate(input);
 	
 		if (ServiceContext.get() == null) {
@@ -130,7 +130,7 @@ public class CadastrarConvidadoImpl {
 	* Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
 	* Cadastrar um novo convidado e acompanhantes
 	*/
-	public CompletableFuture<RetornoCadastroConvidado> cadastrarConvidadoRequest(CadastrarConvidadoInput input, long timeout, TimeUnit unit) {
+	public CompletableFuture<RetornoCadastroConvidado> cadastrarConvidadoRequest(FieldCadastroConvidado input, long timeout, TimeUnit unit) {
 		MyServiceValidator.validate(input);
 	
 		if (ServiceContext.get() == null) {

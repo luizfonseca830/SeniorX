@@ -55,6 +55,30 @@
         	"required" : ["mensagemRetorno","codigoCadastrado","nome","lotacaoMaxima","data"]
         }
         ,
+        "fieldCadastroConvidado" : {
+        	"type" : "object",
+        	"id" : "fieldCadastroConvidado",
+        	"properties" : {
+            	"nome" : {
+            		"type": "string",
+            		"maxLength": 20
+            	},
+            	"nomeSocial" : {
+            		"type": "string"
+            	},
+            	"quantidadeAcompanhantes" : {
+            		"type": "integer",
+            		"minimum": 0,
+            		"maximum": 9
+            	},
+            	"resultado" : {
+            		"type": "string",
+            		"enum": ["CADASTRADO_NOVO","NAO_CADASTRADO_EXISTENTE","NAO_CADASTRADO_ERRO"]
+            	}
+        	},
+        	"required" : ["nome","quantidadeAcompanhantes","resultado"]
+        }
+        ,
         "retornoCadastroConvidado" : {
         	"type" : "object",
         	"id" : "retornoCadastroConvidado",
@@ -71,14 +95,15 @@
             	"nome" : {
             		"type": "string"
             	},
-            	"quantidadeAcompanhantes" : {
-            		"type": "integer"
-            	},
             	"nomeSocial" : {
             		"type": "string"
+            	},
+            	"resultado" : {
+            		"type": "string",
+            		"enum": ["CADASTRADO_NOVO","NAO_CADASTRADO_EXISTENTE","NAO_CADASTRADO_ERRO"]
             	}
         	},
-        	"required" : ["mensagemRetorno","codigoCadastrado","nome","quantidadeAcompanhantes"]
+        	"required" : ["mensagemRetorno","codigoCadastrado","nome","resultado"]
         }
         ,
         "notifyUserEventPayload" : {

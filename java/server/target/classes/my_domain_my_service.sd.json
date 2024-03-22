@@ -89,31 +89,7 @@
             "kind": "action",
             "priority" : "NORMAL",
             "documentation": "Cadastrar um novo convidado e acompanhantes",
-            "input" : {
-                "nome" : {
-                    "type": "string",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                ,
-                	"maxLength": 20
-                },
-                "quantidadeAcompanhantes" : {
-                    "type": "integer",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                ,
-                	"minValue": 0,
-                	"maxValue": 9
-                },
-                "nomeSocial" : {
-                    "type": "string",
-                    "optional": true,
-                    "multivalued": false,
-                    "readOnly": false
-                }
-            },
+            "input" : "fieldCadastroConvidado",
             "output" : {
                 "mensagemRetorno" : {
                     "type": "string",
@@ -139,15 +115,15 @@
                     "multivalued": false,
                     "readOnly": false
                 },
-                "quantidadeAcompanhantes" : {
-                    "type": "integer",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                },
                 "nomeSocial" : {
                     "type": "string",
                     "optional": true,
+                    "multivalued": false,
+                    "readOnly": false
+                },
+                "resultado" : {
+                    "type": "resultadoCadastradoConvidado",
+                    "optional": false,
                     "multivalued": false,
                     "readOnly": false
                 }
@@ -366,6 +342,37 @@
                 "readOnly": false
             }
         },
+        "fieldCadastroConvidado" : {
+            "nome" : {
+                "type": "string",
+                "optional": false,
+                "multivalued": false,
+                "readOnly": false
+            ,
+            	"maxLength": 20
+            },
+            "nomeSocial" : {
+                "type": "string",
+                "optional": true,
+                "multivalued": false,
+                "readOnly": false
+            },
+            "quantidadeAcompanhantes" : {
+                "type": "integer",
+                "optional": false,
+                "multivalued": false,
+                "readOnly": false
+            ,
+            	"minValue": 0,
+            	"maxValue": 9
+            },
+            "resultado" : {
+                "type": "resultadoCadastradoConvidado",
+                "optional": false,
+                "multivalued": false,
+                "readOnly": false
+            }
+        },
         "retornoCadastroConvidado" : {
             "mensagemRetorno" : {
                 "type": "string",
@@ -391,15 +398,15 @@
                 "multivalued": false,
                 "readOnly": false
             },
-            "quantidadeAcompanhantes" : {
-                "type": "integer",
-                "optional": false,
-                "multivalued": false,
-                "readOnly": false
-            },
             "nomeSocial" : {
                 "type": "string",
                 "optional": true,
+                "multivalued": false,
+                "readOnly": false
+            },
+            "resultado" : {
+                "type": "resultadoCadastradoConvidado",
+                "optional": false,
                 "multivalued": false,
                 "readOnly": false
             }
@@ -724,6 +731,11 @@
             "NO_LOCAL",
             "ANTECIPADO",
             "LISTA"
+        ],
+        "resultadoCadastradoConvidado" : [ 
+            "CADASTRADO_NOVO",
+            "NAO_CADASTRADO_EXISTENTE",
+            "NAO_CADASTRADO_ERRO"
         ],
         "userNotificationKind" : [ 
             "Operational",

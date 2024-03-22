@@ -33,11 +33,9 @@ service my_service {
 
         "Cadastrar um novo convidado e acompanhantes"
         action cadastrarConvidado{
-            in {
-                nome: string(20)
-                quantidadeAcompanhantes: integer minValue:0 maxValue:9
-                nomeSocial: string?
-            }
+
+            in fieldCadastroConvidado
+
             out retornoCadastroConvidado
 
         }
@@ -50,6 +48,12 @@ service my_service {
             NO_LOCAL
             ANTECIPADO
             LISTA
+        }
+
+        enumeration resultadoCadastradoConvidado {
+            CADASTRADO_NOVO
+            NAO_CADASTRADO_EXISTENTE
+            NAO_CADASTRADO_ERRO
         }
 
         record mensagemRetornoComCodigo{
@@ -68,11 +72,18 @@ service my_service {
             tipoEntradaEvento: tipoEntrada?*
         }
 
+        record fieldCadastroConvidado {
+            nome: string(20)
+            nomeSocial: string?
+            quantidadeAcompanhantes : integer minValue:0 maxValue:9
+            resultado : resultadoCadastradoConvidado
+        }
+
         record retornoCadastroConvidado extends mensagemRetornoComCodigo{
             //mensagem : mensagemRetornoComCodigo
             nome: string
-            quantidadeAcompanhantes: integer
             nomeSocial: string?
+            resultado : resultadoCadastradoConvidado
         }
 
     }

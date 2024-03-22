@@ -12,10 +12,10 @@ public class RetornoCadastroConvidado extends MensagemRetornoComCodigo {
     @NotNull(message = "nome is required")
     public String nome;
     
-    @NotNull(message = "quantidadeAcompanhantes is required")
-    public Long quantidadeAcompanhantes;
-    
     public String nomeSocial;
+    
+    @NotNull(message = "resultado is required")
+    public ResultadoCadastradoConvidado resultado;
     
     
     public RetornoCadastroConvidado() {
@@ -24,22 +24,22 @@ public class RetornoCadastroConvidado extends MensagemRetornoComCodigo {
     /** 
      * This constructor allows initialization of all fields, required and optional.
      */
-    public RetornoCadastroConvidado(String mensagemRetorno, String codigoCadastrado, Boolean contemErro, String nome, Long quantidadeAcompanhantes, String nomeSocial) {
+    public RetornoCadastroConvidado(String mensagemRetorno, String codigoCadastrado, Boolean contemErro, String nome, String nomeSocial, ResultadoCadastradoConvidado resultado) {
         this.mensagemRetorno = mensagemRetorno;
         this.codigoCadastrado = codigoCadastrado;
         this.contemErro = contemErro;
         this.nome = nome;
-        this.quantidadeAcompanhantes = quantidadeAcompanhantes;
         this.nomeSocial = nomeSocial;
+        this.resultado = resultado;
     }
     /** 
      * This convenience constructor allows initialization of all required fields.
      */
-    public RetornoCadastroConvidado(String mensagemRetorno, String codigoCadastrado, String nome, Long quantidadeAcompanhantes) {
+    public RetornoCadastroConvidado(String mensagemRetorno, String codigoCadastrado, String nome, ResultadoCadastradoConvidado resultado) {
         this.mensagemRetorno = mensagemRetorno;
         this.codigoCadastrado = codigoCadastrado;
         this.nome = nome;
-        this.quantidadeAcompanhantes = quantidadeAcompanhantes;
+        this.resultado = resultado;
     }
     
     public void validate() {
@@ -63,11 +63,11 @@ public class RetornoCadastroConvidado extends MensagemRetornoComCodigo {
         if (nome != null) {
             ret = 31 * ret + nome.hashCode();
         }
-        if (quantidadeAcompanhantes != null) {
-            ret = 31 * ret + quantidadeAcompanhantes.hashCode();
-        }
         if (nomeSocial != null) {
             ret = 31 * ret + nomeSocial.hashCode();
+        }
+        if (resultado != null) {
+            ret = 31 * ret + resultado.hashCode();
         }
         return ret;
     }
@@ -90,16 +90,16 @@ public class RetornoCadastroConvidado extends MensagemRetornoComCodigo {
         if ((nome != null) && !nome.equals(other.nome)) {
             return false;
         }
-        if ((quantidadeAcompanhantes == null) != (other.quantidadeAcompanhantes == null)) {
-            return false;
-        }
-        if ((quantidadeAcompanhantes != null) && !quantidadeAcompanhantes.equals(other.quantidadeAcompanhantes)) {
-            return false;
-        }
         if ((nomeSocial == null) != (other.nomeSocial == null)) {
             return false;
         }
         if ((nomeSocial != null) && !nomeSocial.equals(other.nomeSocial)) {
+            return false;
+        }
+        if ((resultado == null) != (other.resultado == null)) {
+            return false;
+        }
+        if ((resultado != null) && !resultado.equals(other.resultado)) {
             return false;
         }
         return true;

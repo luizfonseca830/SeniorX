@@ -280,23 +280,8 @@ paths:
           application/json:
             schema:
               type: object
-              required:
-                - nome
-                - quantidadeAcompanhantes
-              properties:
-                nome:
-                  type: string
-                  maxLength: 20
-                  description: ""
-                quantidadeAcompanhantes:
-                  type: integer
-                  format: int64
-                  description: ""
-                  minimum: 0
-                  maximum: 9
-                nomeSocial:
-                  type: string
-                  description: ""
+              allOf:
+                - $ref: '#/components/schemas/fieldCadastroConvidado'
       parameters:
         - in: header
           name: Accept
@@ -406,6 +391,15 @@ components:
         - LISTA
       
     
+    resultadoCadastradoConvidado:
+      description: ""
+      type: string
+      enum:
+        - CADASTRADO_NOVO
+        - NAO_CADASTRADO_EXISTENTE
+        - NAO_CADASTRADO_ERRO
+      
+    
     userNotificationKind:
       description: "User notification kind."
       type: string
@@ -487,6 +481,33 @@ components:
               - $ref: '#/components/schemas/tipoEntrada'
             description: ""
     
+    fieldCadastroConvidado:
+      description: ""
+      type: object
+      required:
+        - nome
+        - quantidadeAcompanhantes
+        - resultado
+      properties:
+        nome:
+          type: string
+          maxLength: 20
+          description: ""
+        nomeSocial:
+          type: string
+          description: ""
+        quantidadeAcompanhantes:
+          type: integer
+          format: int64
+          description: ""
+          minimum: 0
+          maximum: 9
+        resultado:
+          type: string
+          allOf:
+          - $ref: '#/components/schemas/resultadoCadastradoConvidado'
+          description: ""
+    
     retornoCadastroConvidado:
       description: ""
       allOf:
@@ -495,17 +516,18 @@ components:
         type: object
         required:
           - nome
-          - quantidadeAcompanhantes
+          - resultado
         properties:
           nome:
             type: string
             description: ""
-          quantidadeAcompanhantes:
-            type: integer
-            format: int64
-            description: ""
           nomeSocial:
             type: string
+            description: ""
+          resultado:
+            type: string
+            allOf:
+            - $ref: '#/components/schemas/resultadoCadastradoConvidado'
             description: ""
     
     notifyUserEventPayload:

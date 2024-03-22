@@ -39,6 +39,15 @@ definitions:
       - LISTA
     
   
+  resultadoCadastradoConvidado:
+    description: ""
+    type: string
+    enum:
+      - CADASTRADO_NOVO
+      - NAO_CADASTRADO_EXISTENTE
+      - NAO_CADASTRADO_ERRO
+    
+  
   userNotificationKind:
     description: "User notification kind."
     type: string
@@ -119,6 +128,33 @@ definitions:
             - $ref: '#/definitions/tipoEntrada'
           description: ""
   
+  fieldCadastroConvidado:
+    description: ""
+    type: object
+    required:
+      - nome
+      - quantidadeAcompanhantes
+      - resultado
+    properties:
+      nome:
+        type: string
+        maxLength: 20
+        description: ""
+      nomeSocial:
+        type: string
+        description: ""
+      quantidadeAcompanhantes:
+        type: integer
+        format: int64
+        description: ""
+        minimum: 0
+        maximum: 9
+      resultado:
+        type: string
+        allOf:
+        - $ref: '#/definitions/resultadoCadastradoConvidado'
+        description: ""
+  
   retornoCadastroConvidado:
     description: ""
     allOf:
@@ -127,17 +163,18 @@ definitions:
       type: object
       required:
         - nome
-        - quantidadeAcompanhantes
+        - resultado
       properties:
         nome:
           type: string
           description: ""
-        quantidadeAcompanhantes:
-          type: integer
-          format: int64
-          description: ""
         nomeSocial:
           type: string
+          description: ""
+        resultado:
+          type: string
+          allOf:
+          - $ref: '#/definitions/resultadoCadastradoConvidado'
           description: ""
   
   notifyUserEventPayload:

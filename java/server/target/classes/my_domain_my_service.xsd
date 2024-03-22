@@ -18,6 +18,13 @@
             <xsd:enumeration value="LISTA"/>
         </xsd:restriction>
      </xsd:simpleType>
+    <xsd:simpleType name="resultadoCadastradoConvidado">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="CADASTRADO_NOVO"/>
+            <xsd:enumeration value="NAO_CADASTRADO_EXISTENTE"/>
+            <xsd:enumeration value="NAO_CADASTRADO_ERRO"/>
+        </xsd:restriction>
+     </xsd:simpleType>
     <xsd:complexType name="mensagemRetornoComCodigo">
         <xsd:sequence>
             <xsd:element name="mensagemRetorno" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
@@ -52,15 +59,38 @@
             </xsd:extension>
         </xsd:complexContent>
     </xsd:complexType>
+    <xsd:complexType name="fieldCadastroConvidado">
+        <xsd:sequence>
+            <xsd:element name="nome"  minOccurs="1" maxOccurs="1"  readOnly="false">
+            <xsd:simpleType>
+            	<xsd:restriction base="xsd:string">
+            		<xsd:maxLength value="20" />
+            	</xsd:restriction>
+            </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="nomeSocial" type="xsd:string" minOccurs="0" maxOccurs="1"  readOnly="false">
+            </xsd:element>
+            <xsd:element name="quantidadeAcompanhantes"  minOccurs="1" maxOccurs="1"  readOnly="false">
+            <xsd:simpleType>
+            	<xsd:restriction base="xsd:long">
+            		<xsd:minInclusive value="0" />
+            		<xsd:maxInclusive value="9" />
+            	</xsd:restriction>
+            </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="resultado" type="resultadoCadastradoConvidado" minOccurs="1" maxOccurs="1"  readOnly="false">
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
     <xsd:complexType name="retornoCadastroConvidado">
         <xsd:complexContent>
             <xsd:extension base="mensagemRetornoComCodigo">
                 <xsd:sequence>
                     <xsd:element name="nome" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
                     </xsd:element>
-                    <xsd:element name="quantidadeAcompanhantes" type="xsd:long" minOccurs="1" maxOccurs="1"  readOnly="false">
-                    </xsd:element>
                     <xsd:element name="nomeSocial" type="xsd:string" minOccurs="0" maxOccurs="1"  readOnly="false">
+                    </xsd:element>
+                    <xsd:element name="resultado" type="resultadoCadastradoConvidado" minOccurs="1" maxOccurs="1"  readOnly="false">
                     </xsd:element>
                 </xsd:sequence>
             </xsd:extension>
@@ -223,29 +253,7 @@
             </xsd:sequence>
         </xsd:complexType>
     </xsd:element>
-    <xsd:element name="cadastrarConvidado">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="nome"  minOccurs="1" maxOccurs="1"  readOnly="false">
-                <xsd:simpleType>
-                	<xsd:restriction base="xsd:string">
-                		<xsd:maxLength value="20" />
-                	</xsd:restriction>
-                </xsd:simpleType>
-                </xsd:element>
-                <xsd:element name="quantidadeAcompanhantes"  minOccurs="1" maxOccurs="1"  readOnly="false">
-                <xsd:simpleType>
-                	<xsd:restriction base="xsd:long">
-                		<xsd:minInclusive value="0" />
-                		<xsd:maxInclusive value="9" />
-                	</xsd:restriction>
-                </xsd:simpleType>
-                </xsd:element>
-                <xsd:element name="nomeSocial" type="xsd:string" minOccurs="0" maxOccurs="1"  readOnly="false">
-                </xsd:element>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
+    <xsd:element name="cadastrarConvidado" type="fieldCadastroConvidado"/>
     <xsd:element name="cadastrarConvidadoOutput" type="retornoCadastroConvidado"/>
     <xsd:element name="cadastrarEvento">
         <xsd:complexType>

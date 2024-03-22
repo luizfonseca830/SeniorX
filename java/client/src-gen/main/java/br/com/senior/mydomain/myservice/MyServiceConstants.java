@@ -49,7 +49,7 @@ public interface MyServiceConstants {
     	String CADASTRAR_EVENTO_ERROR = "cadastrarEventoError";
     	/**
     	 * Cadastrar um novo convidado e acompanhantes
-    	 * @see CadastrarConvidadoInput the request payload
+    	 * @see fieldCadastroConvidado the request payload
     	 */
     	String CADASTRAR_CONVIDADO = "cadastrarConvidado";
     	/**

@@ -143,7 +143,7 @@ public class MyServiceStubImpl  implements MyServiceStub {
 	 * @throws MyServiceMessageException quando um erro com payload for retornado pela mensageria
 	 */
 	@Override
-	public RetornoCadastroConvidado cadastrarConvidado(CadastrarConvidadoInput input, long timeout) {
+	public RetornoCadastroConvidado cadastrarConvidado(FieldCadastroConvidado input, long timeout) {
 		br.com.senior.mydomain.myservice.impl.CadastrarConvidadoImpl impl = new br.com.senior.mydomain.myservice.impl.CadastrarConvidadoImpl(messengerSupplier, userId, messageSupplier);
 		return impl.cadastrarConvidado(input, timeout);
 	}
@@ -154,7 +154,7 @@ public class MyServiceStubImpl  implements MyServiceStub {
 	 * Cadastrar um novo convidado e acompanhantes
 	 */
 	@Override
-	public void cadastrarConvidado(CadastrarConvidadoInput input) {
+	public void cadastrarConvidado(FieldCadastroConvidado input) {
 		br.com.senior.mydomain.myservice.impl.CadastrarConvidadoImpl impl = new br.com.senior.mydomain.myservice.impl.CadastrarConvidadoImpl(messengerSupplier, userId, messageSupplier);
 		impl.cadastrarConvidado(input);
 	}
@@ -165,7 +165,7 @@ public class MyServiceStubImpl  implements MyServiceStub {
 	 * Cadastrar um novo convidado e acompanhantes
 	 */
 	@Override
-	public CompletableFuture<RetornoCadastroConvidado> cadastrarConvidadoRequest(CadastrarConvidadoInput input) {
+	public CompletableFuture<RetornoCadastroConvidado> cadastrarConvidadoRequest(FieldCadastroConvidado input) {
 		return this.cadastrarConvidadoRequest(input, 0l);
 	}
 	
@@ -175,7 +175,7 @@ public class MyServiceStubImpl  implements MyServiceStub {
 	 * Cadastrar um novo convidado e acompanhantes
 	*/
 	@Override
-	public CompletableFuture<RetornoCadastroConvidado> cadastrarConvidadoRequest(CadastrarConvidadoInput input, long timeout) {
+	public CompletableFuture<RetornoCadastroConvidado> cadastrarConvidadoRequest(FieldCadastroConvidado input, long timeout) {
 		br.com.senior.mydomain.myservice.impl.CadastrarConvidadoImpl impl = new br.com.senior.mydomain.myservice.impl.CadastrarConvidadoImpl(messengerSupplier, userId, messageSupplier);
 		return impl.cadastrarConvidadoRequest(input, timeout, TimeUnit.MILLISECONDS);
 	}

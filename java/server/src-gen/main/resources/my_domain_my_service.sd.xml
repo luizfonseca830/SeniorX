@@ -19,11 +19,7 @@
             <output type="retornoCadastrarEvento"/>
         </action>
         <action name="cadastrarConvidado" idempotent="false" extensionPoint="false" visibility="PRIVATE">
-            <input>
-                <slot name="nome" type="string" optional="false" multivalued="false" maxLength="20"/>
-                <slot name="quantidadeAcompanhantes" type="integer" optional="false" multivalued="false" minValue="0" maxValue="9"/>
-                <slot name="nomeSocial" type="string" optional="true" multivalued="false"/>
-            </input>
+            <input type="fieldCadastroConvidado"/>
             <output type="retornoCadastroConvidado"/>
         </action>
         <query name="getMetadata" idempotent="false" extensionPoint="false" visibility="PRIVATE">
@@ -69,13 +65,19 @@
             <slot name="data" type="date" optional="false" multivalued="false"/>
             <slot name="tipoEntradaEvento" type="tipoEntrada" optional="true" multivalued="true"/>
         </record>
+        <record name="fieldCadastroConvidado">
+            <slot name="nome" type="string" optional="false" multivalued="false" maxLength="20"/>
+            <slot name="nomeSocial" type="string" optional="true" multivalued="false"/>
+            <slot name="quantidadeAcompanhantes" type="integer" optional="false" multivalued="false" minValue="0" maxValue="9"/>
+            <slot name="resultado" type="resultadoCadastradoConvidado" optional="false" multivalued="false"/>
+        </record>
         <record name="retornoCadastroConvidado">
             <slot name="mensagemRetorno" type="string" optional="false" multivalued="false"/>
             <slot name="codigoCadastrado" type="string" optional="false" multivalued="false"/>
             <slot name="contemErro" type="boolean" optional="true" multivalued="false"/>
             <slot name="nome" type="string" optional="false" multivalued="false"/>
-            <slot name="quantidadeAcompanhantes" type="integer" optional="false" multivalued="false"/>
             <slot name="nomeSocial" type="string" optional="true" multivalued="false"/>
+            <slot name="resultado" type="resultadoCadastradoConvidado" optional="false" multivalued="false"/>
         </record>
         <record name="notifyUserEventPayload">
             <slot name="notificationClass" type="string" optional="true" multivalued="false"/>
@@ -139,6 +141,11 @@
             <value name="NO_LOCAL"/>
             <value name="ANTECIPADO"/>
             <value name="LISTA"/>
+        </enumeration>
+        <enumeration name="resultadoCadastradoConvidado">
+            <value name="CADASTRADO_NOVO"/>
+            <value name="NAO_CADASTRADO_EXISTENTE"/>
+            <value name="NAO_CADASTRADO_ERRO"/>
         </enumeration>
         <enumeration name="userNotificationKind">
             <value name="Operational"/>
