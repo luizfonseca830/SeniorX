@@ -327,7 +327,7 @@
             <xsd:element name="cadastrarEventoOutput" type="retornoCadastrarEvento"/>
         </xsd:schema>
     </wsdl:types>
-    
+
     <wsdl:message name="getMetadataRequest">
         <wsdl:part name="parameters" element="getMetadata"/>
     </wsdl:message>
@@ -367,63 +367,63 @@
     <wsdl:message name="cadastrarEventoResponse">
         <wsdl:part name="result" element="cadastrarEventoOutput"/>
     </wsdl:message>
-    
+
     <wsdl:portType name="my_servicePortType">
         <wsdl:operation name="getMetadata">
             <wsdl:documentation>
-            WARNING: THIS OPERATION IS PRIVATE AND MAY HAVE ITS BEHAVIOR CHANGED AT ANY TIME WITHOUT NOTICE. 
-            Default 'getMetadata' query. Every service must handle this command and return metadata in the format requested. 
+            WARNING: THIS OPERATION IS PRIVATE AND MAY HAVE ITS BEHAVIOR CHANGED AT ANY TIME WITHOUT NOTICE.
+            Default 'getMetadata' query. Every service must handle this command and return metadata in the format requested.
             </wsdl:documentation>
             <wsdl:input message="getMetadataRequest"/>
             <wsdl:output message="getMetadataResponse"/>
         </wsdl:operation>
         <wsdl:operation name="getDependencies">
             <wsdl:documentation>
-            WARNING: THIS OPERATION IS PRIVATE AND MAY HAVE ITS BEHAVIOR CHANGED AT ANY TIME WITHOUT NOTICE. 
-            Returns a list with all dependencies from this service, along with their respective versions 
+            WARNING: THIS OPERATION IS PRIVATE AND MAY HAVE ITS BEHAVIOR CHANGED AT ANY TIME WITHOUT NOTICE.
+            Returns a list with all dependencies from this service, along with their respective versions
             </wsdl:documentation>
             <wsdl:input message="getDependenciesRequest"/>
             <wsdl:output message="getDependenciesResponse"/>
         </wsdl:operation>
         <wsdl:operation name="comprarIngresso">
             <wsdl:documentation>
-            WARNING: THIS OPERATION IS PRIVATE AND MAY HAVE ITS BEHAVIOR CHANGED AT ANY TIME WITHOUT NOTICE. 
+            WARNING: THIS OPERATION IS PRIVATE AND MAY HAVE ITS BEHAVIOR CHANGED AT ANY TIME WITHOUT NOTICE.
             </wsdl:documentation>
             <wsdl:input message="comprarIngressoRequest"/>
             <wsdl:output message="comprarIngressoResponse"/>
         </wsdl:operation>
         <wsdl:operation name="helloWorld">
             <wsdl:documentation>
-            WARNING: THIS OPERATION IS PRIVATE AND MAY HAVE ITS BEHAVIOR CHANGED AT ANY TIME WITHOUT NOTICE. 
-             Primitiva que retorna uma mensagem de olá com o nome do requisitante Normalmente no campo who é informado seu próprio nome  
+            WARNING: THIS OPERATION IS PRIVATE AND MAY HAVE ITS BEHAVIOR CHANGED AT ANY TIME WITHOUT NOTICE.
+             Primitiva que retorna uma mensagem de olá com o nome do requisitante Normalmente no campo who é informado seu próprio nome
             </wsdl:documentation>
             <wsdl:input message="helloWorldRequest"/>
             <wsdl:output message="helloWorldResponse"/>
         </wsdl:operation>
         <wsdl:operation name="cancelarEvento">
             <wsdl:documentation>
-            WARNING: THIS OPERATION IS PRIVATE AND MAY HAVE ITS BEHAVIOR CHANGED AT ANY TIME WITHOUT NOTICE. 
+            WARNING: THIS OPERATION IS PRIVATE AND MAY HAVE ITS BEHAVIOR CHANGED AT ANY TIME WITHOUT NOTICE.
             </wsdl:documentation>
             <wsdl:input message="cancelarEventoSignal"/>
         </wsdl:operation>
         <wsdl:operation name="cadastrarConvidado">
             <wsdl:documentation>
-            WARNING: THIS OPERATION IS PRIVATE AND MAY HAVE ITS BEHAVIOR CHANGED AT ANY TIME WITHOUT NOTICE. 
-            Cadastrar um novo convidado e acompanhantes 
+            WARNING: THIS OPERATION IS PRIVATE AND MAY HAVE ITS BEHAVIOR CHANGED AT ANY TIME WITHOUT NOTICE.
+            Cadastrar um novo convidado e acompanhantes
             </wsdl:documentation>
             <wsdl:input message="cadastrarConvidadoRequest"/>
             <wsdl:output message="cadastrarConvidadoResponse"/>
         </wsdl:operation>
         <wsdl:operation name="cadastrarEvento">
             <wsdl:documentation>
-            WARNING: THIS OPERATION IS PRIVATE AND MAY HAVE ITS BEHAVIOR CHANGED AT ANY TIME WITHOUT NOTICE. 
-            Cadastra um novo evento (ex: SeniorTec, Casamento, Aniversário, etc) 
+            WARNING: THIS OPERATION IS PRIVATE AND MAY HAVE ITS BEHAVIOR CHANGED AT ANY TIME WITHOUT NOTICE.
+            Cadastra um novo evento (ex: SeniorTec, Casamento, Aniversário, etc)
             </wsdl:documentation>
             <wsdl:input message="cadastrarEventoRequest"/>
             <wsdl:output message="cadastrarEventoResponse"/>
         </wsdl:operation>
     </wsdl:portType>
-    
+
     <wsdl:binding name="my_serviceSoapBinding" type="my_servicePortType">
         <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
         <wsdl:operation name="getMetadata">

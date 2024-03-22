@@ -324,7 +324,7 @@ paths:
           description: Error response
           schema:
             $ref: '#/definitions/genericError'
-  
+
   /my_service/actions/comprarIngresso:
     post:
       description: ""
