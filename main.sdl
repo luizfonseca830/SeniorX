@@ -28,10 +28,11 @@ service my_service {
                 data : date
                 tipoEntradaEvento: tipoEntrada?*
             }
-            out{
-                retorno : string
+            out {
+                retorno : retornoCadastrarEvento
             }
         }
+
         "Cadastrar um novo convidado e acompanhantes"
         action cadastrarConvidado{
             in {
@@ -40,6 +41,7 @@ service my_service {
                 nomeSocial: string?
             }
             out{
+                mensagem : mensagemRetornoComCodigo
                 convidado : string
             }
         }
@@ -48,10 +50,26 @@ service my_service {
     types {
     // define records and enumerations here
         enumeration tipoEntrada {
-            livre
-            noLocal
-            antecipado
-            lista
+            LIVRE
+            NO_LOCAL
+            ANTECIPADO
+            LISTA
+        }
+
+        record mensagemRetornoComCodigo{
+            mensagemRetorno: string
+            codigoCadastrado: string //uuid
+            contemErro: boolean?
+
+        }
+
+        record retornoCadastrarEvento{
+            mensagem : mensagemRetornoComCodigo
+            nome: string
+            apenasColaboradores: boolean?
+            lotacaoMaxima: integer
+            data: date
+            tipoEntradaEvento: tipoEntrada?*
         }
 
     }

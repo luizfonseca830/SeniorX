@@ -311,8 +311,14 @@ paths:
               schema:
                 type: object
                 required:
+                  - mensagem
                   - convidado
                 properties:
+                  mensagem:
+                    type: object
+                    allOf:
+                      - $ref: '#/components/schemas/mensagemRetornoComCodigo'
+                    description: ""
                   convidado:
                     type: string
                     description: ""
@@ -386,7 +392,9 @@ paths:
                   - retorno
                 properties:
                   retorno:
-                    type: string
+                    type: object
+                    allOf:
+                      - $ref: '#/components/schemas/retornoCadastrarEvento'
                     description: ""
         401:
           description: "Invalid Credentials"
@@ -408,10 +416,10 @@ components:
       description: ""
       type: string
       enum:
-        - livre
-        - noLocal
-        - antecipado
-        - lista
+        - LIVRE
+        - NO_LOCAL
+        - ANTECIPADO
+        - LISTA
       
     
     userNotificationKind:
@@ -439,6 +447,59 @@ components:
         - HTML
         - PLAIN_TEXT
       
+    mensagemRetornoComCodigo:
+      description: ""
+      type: object
+      required:
+        - mensagemRetorno
+        - codigoCadastrado
+      properties:
+        mensagemRetorno:
+          type: string
+          description: ""
+        codigoCadastrado:
+          type: string
+          description: ""
+        contemErro:
+          type: boolean
+          description: ""
+    
+    retornoCadastrarEvento:
+      description: ""
+      type: object
+      required:
+        - mensagem
+        - nome
+        - lotacaoMaxima
+        - data
+      properties:
+        mensagem:
+          type: object
+          allOf:
+            - $ref: '#/components/schemas/mensagemRetornoComCodigo'
+          description: ""
+        nome:
+          type: string
+          description: ""
+        apenasColaboradores:
+          type: boolean
+          description: ""
+        lotacaoMaxima:
+          type: integer
+          format: int64
+          description: ""
+        data:
+          type: string
+          format: date
+          description: ""
+        tipoEntradaEvento:
+          type: array
+          items:
+            type: string
+            allOf:
+            - $ref: '#/components/schemas/tipoEntrada'
+          description: ""
+    
     notifyUserEventPayload:
       description: "Represents a regular user event notification payload"
       discriminator: 

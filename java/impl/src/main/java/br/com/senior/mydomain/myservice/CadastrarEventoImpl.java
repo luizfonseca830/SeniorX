@@ -8,16 +8,24 @@ import java.time.format.DateTimeFormatter;
 public class CadastrarEventoImpl implements CadastrarEvento {
     @Override
     public CadastrarEventoOutput cadastrarEvento(CadastrarEventoInput request) {
-        CadastrarEventoOutput cadastrarEventoOutput = new CadastrarEventoOutput();
-        String formattedDate = request.data.format(DateTimeFormatter.ofPattern("dd/MM/yy"));
-        String resposta = request.apenasColaboradores ? "sim" : "não";
-    /*    if (request.apenasColaboradores != null) {
-            resposta = request.apenasColaboradores ? "sim" : "não";
-        } else {
-            resposta = "não";
-        }*/
-        cadastrarEventoOutput.retorno = String.format("Evento cadastrado! Nome: %s, apenasColaboradores: %s, Limite de pessoas: %d, data: %s, o tipo de evento é %s",
-                request.nome, resposta, request.lotacaoMaxima, formattedDate, request.tipoEntradaEvento);
+
+        final CadastrarEventoOutput cadastrarEventoOutput = new CadastrarEventoOutput();
+
+        final RetornoCadastrarEvento recordCadastrarEvento = new RetornoCadastrarEvento();
+
+        final MensagemRetornoComCodigo recordMensagemComCodigo = new MensagemRetornoComCodigo();
+        recordMensagemComCodigo.codigoCadastrado = "1";
+        recordMensagemComCodigo.mensagemRetorno = "Evento cadastrado !";
+        recordMensagemComCodigo.contemErro = false;
+
+        recordCadastrarEvento.mensagem = recordMensagemComCodigo;
+        recordCadastrarEvento.nome = request.nome;
+        recordCadastrarEvento.apenasColaboradores = request.apenasColaboradores;
+        recordCadastrarEvento.lotacaoMaxima = request.lotacaoMaxima;
+        recordCadastrarEvento.data = request.data;
+        recordCadastrarEvento.tipoEntradaEvento = request.tipoEntradaEvento;
+
+        cadastrarEventoOutput.retorno = recordCadastrarEvento;
         return cadastrarEventoOutput;
     }
 }

@@ -1,6 +1,54 @@
 {
     "id": "my_domain.my_service",
     "properties": {
+        "mensagemRetornoComCodigo" : {
+        	"type" : "object",
+        	"id" : "mensagemRetornoComCodigo",
+        	"properties" : {
+            	"mensagemRetorno" : {
+            		"type": "string"
+            	},
+            	"codigoCadastrado" : {
+            		"type": "string"
+            	},
+            	"contemErro" : {
+            		"type": "boolean"
+            	}
+        	},
+        	"required" : ["mensagemRetorno","codigoCadastrado"]
+        }
+        ,
+        "retornoCadastrarEvento" : {
+        	"type" : "object",
+        	"id" : "retornoCadastrarEvento",
+        	"properties" : {
+            	"mensagem" : {
+            		"$ref": "#/properties/mensagemRetornoComCodigo"
+            	},
+            	"nome" : {
+            		"type": "string"
+            	},
+            	"apenasColaboradores" : {
+            		"type": "boolean"
+            	},
+            	"lotacaoMaxima" : {
+            		"type": "integer"
+            	},
+            	"data" : {
+            		"type": "string",
+            		"format": "date"
+            	},
+            	"tipoEntradaEvento" : {
+            		"type": "array",
+            		"items": {
+            		  "type": "string",
+            		  "enum": ["LIVRE","NO_LOCAL","ANTECIPADO","LISTA"]
+            		}
+            	}
+        	},
+        	"required" : ["mensagem","nome","lotacaoMaxima","data"]
+        }
+        ,
         "notifyUserEventPayload" : {
         	"type" : "object",
         	"id" : "notifyUserEventPayload",

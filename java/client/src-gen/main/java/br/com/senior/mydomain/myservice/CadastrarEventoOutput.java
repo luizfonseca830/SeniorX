@@ -5,12 +5,14 @@ import java.util.List;
 import java.util.Map;
 
 import javax.validation.constraints.NotNull;
+import javax.validation.Valid;
 
 
 public class CadastrarEventoOutput {
     
     @NotNull(message = "retorno is required")
-    public String retorno;
+    @Valid
+    public RetornoCadastrarEvento retorno;
     
     
     public CadastrarEventoOutput() {
@@ -19,7 +21,7 @@ public class CadastrarEventoOutput {
     /** 
      * This constructor allows initialization of all fields, required and optional.
      */
-    public CadastrarEventoOutput(String retorno) {
+    public CadastrarEventoOutput(RetornoCadastrarEvento retorno) {
         this.retorno = retorno;
     }
     

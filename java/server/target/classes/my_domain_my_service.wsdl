@@ -24,12 +24,44 @@
             <!-- Public types -->
             <xsd:simpleType name="tipoEntrada">
                 <xsd:restriction base="xsd:string">
-                    <xsd:enumeration value="livre"/>
-                    <xsd:enumeration value="noLocal"/>
-                    <xsd:enumeration value="antecipado"/>
-                    <xsd:enumeration value="lista"/>
+                    <xsd:enumeration value="LIVRE"/>
+                    <xsd:enumeration value="NO_LOCAL"/>
+                    <xsd:enumeration value="ANTECIPADO"/>
+                    <xsd:enumeration value="LISTA"/>
                 </xsd:restriction>
              </xsd:simpleType>
+            <xsd:complexType name="mensagemRetornoComCodigo">
+                <xsd:sequence>
+                    <xsd:element name="mensagemRetorno" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                    </xsd:element>
+                    <xsd:element name="codigoCadastrado" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                    </xsd:element>
+                    <xsd:element name="contemErro" type="xsd:boolean" minOccurs="0" maxOccurs="1"  readOnly="false">
+                    </xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="retornoCadastrarEvento">
+                <xsd:sequence>
+                    <xsd:element name="mensagem" type="mensagemRetornoComCodigo" minOccurs="1" maxOccurs="1"  readOnly="false">
+                    </xsd:element>
+                    <xsd:element name="nome" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                    </xsd:element>
+                    <xsd:element name="apenasColaboradores" type="xsd:boolean" minOccurs="0" maxOccurs="1"  readOnly="false">
+                    </xsd:element>
+                    <xsd:element name="lotacaoMaxima" type="xsd:long" minOccurs="1" maxOccurs="1"  readOnly="false">
+                    </xsd:element>
+                    <xsd:element name="data" type="xsd:date" minOccurs="1" maxOccurs="1"  readOnly="false">
+                    </xsd:element>
+                    <!-- collection wrapper for tipoEntradaEvento -->
+                    <xsd:element name="tipoEntradaEvento" minOccurs="0" maxOccurs="1">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="item" type="tipoEntrada" minOccurs="0" maxOccurs="unbounded"/>
+                            </xsd:sequence>
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
             <xsd:simpleType name="userNotificationKind">
                 <xsd:restriction base="xsd:string">
                     <xsd:enumeration value="Operational"/>
@@ -213,6 +245,8 @@
             <xsd:element name="cadastrarConvidadoOutput">
                 <xsd:complexType>
                     <xsd:sequence>
+                        <xsd:element name="mensagem" type="mensagemRetornoComCodigo" minOccurs="1" maxOccurs="1"  readOnly="false">
+                        </xsd:element>
                         <xsd:element name="convidado" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
                         </xsd:element>
                     </xsd:sequence>
@@ -254,7 +288,7 @@
             <xsd:element name="cadastrarEventoOutput">
                 <xsd:complexType>
                     <xsd:sequence>
-                        <xsd:element name="retorno" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                        <xsd:element name="retorno" type="retornoCadastrarEvento" minOccurs="1" maxOccurs="1"  readOnly="false">
                         </xsd:element>
                     </xsd:sequence>
                 </xsd:complexType>

@@ -17,7 +17,7 @@
                 <slot name="tipoEntradaEvento" type="tipoEntrada" optional="true" multivalued="true"/>
             </input>
             <output>
-                <slot name="retorno" type="string" optional="false" multivalued="false"/>
+                <slot name="retorno" type="retornoCadastrarEvento" optional="false" multivalued="false"/>
             </output>
         </action>
         <action name="cadastrarConvidado" idempotent="false" extensionPoint="false" visibility="PRIVATE">
@@ -27,6 +27,7 @@
                 <slot name="nomeSocial" type="string" optional="true" multivalued="false"/>
             </input>
             <output>
+                <slot name="mensagem" type="mensagemRetornoComCodigo" optional="false" multivalued="false"/>
                 <slot name="convidado" type="string" optional="false" multivalued="false"/>
             </output>
         </action>
@@ -58,6 +59,19 @@
         </event>
     </events>
     <records>
+        <record name="mensagemRetornoComCodigo">
+            <slot name="mensagemRetorno" type="string" optional="false" multivalued="false"/>
+            <slot name="codigoCadastrado" type="string" optional="false" multivalued="false"/>
+            <slot name="contemErro" type="boolean" optional="true" multivalued="false"/>
+        </record>
+        <record name="retornoCadastrarEvento">
+            <slot name="mensagem" type="mensagemRetornoComCodigo" optional="false" multivalued="false"/>
+            <slot name="nome" type="string" optional="false" multivalued="false"/>
+            <slot name="apenasColaboradores" type="boolean" optional="true" multivalued="false"/>
+            <slot name="lotacaoMaxima" type="integer" optional="false" multivalued="false"/>
+            <slot name="data" type="date" optional="false" multivalued="false"/>
+            <slot name="tipoEntradaEvento" type="tipoEntrada" optional="true" multivalued="true"/>
+        </record>
         <record name="notifyUserEventPayload">
             <slot name="notificationClass" type="string" optional="true" multivalued="false"/>
             <slot name="notificationOrigin" type="string" optional="true" multivalued="false"/>
@@ -116,10 +130,10 @@
     </records>
     <enumerations>
         <enumeration name="tipoEntrada">
-            <value name="livre"/>
-            <value name="noLocal"/>
-            <value name="antecipado"/>
-            <value name="lista"/>
+            <value name="LIVRE"/>
+            <value name="NO_LOCAL"/>
+            <value name="ANTECIPADO"/>
+            <value name="LISTA"/>
         </enumeration>
         <enumeration name="userNotificationKind">
             <value name="Operational"/>
