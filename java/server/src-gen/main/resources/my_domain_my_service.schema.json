@@ -70,29 +70,6 @@
         	"required" : ["nome"]
         }
         ,
-        "retornoCadastroConvidado" : {
-        	"type" : "object",
-        	"id" : "retornoCadastroConvidado",
-        	"properties" : {
-            	"mensagemRetorno" : {
-            		"type": "string"
-            	},
-            	"codigoCadastrado" : {
-            		"type": "string"
-            	},
-            	"contemErro" : {
-            		"type": "boolean"
-            	},
-            	"nome" : {
-            		"type": "string"
-            	},
-            	"nomeSocial" : {
-            		"type": "string"
-            	}
-        	},
-        	"required" : ["mensagemRetorno","codigoCadastrado","nome"]
-        }
-        ,
         "notifyUserEventPayload" : {
         	"type" : "object",
         	"id" : "notifyUserEventPayload",

@@ -27,6 +27,30 @@ consumes:
   - application/json
 
 paths:
+  /signals/cancelarEvento:
+    post:
+      description: ""
+      tags:
+      - Signals
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            type: object
+            required:
+              - codigoEvento
+            properties:
+              codigoEvento:
+                type: string
+                description: ""
+      responses:
+        202:
+          description: Accepted
+        default:
+          description: Error response
+          schema:
+            $ref: '#/definitions/genericError'
   
 definitions:
   tipoEntrada:
@@ -141,22 +165,6 @@ definitions:
       nomeSocial:
         type: string
         description: ""
-  
-  retornoCadastroConvidado:
-    description: ""
-    allOf:
-    - $ref: '#/definitions/mensagemRetornoComCodigo'
-    - 
-      type: object
-      required:
-        - nome
-      properties:
-        nome:
-          type: string
-          description: ""
-        nomeSocial:
-          type: string
-          description: ""
   
   notifyUserEventPayload:
     description: "Represents a regular user event notification payload"

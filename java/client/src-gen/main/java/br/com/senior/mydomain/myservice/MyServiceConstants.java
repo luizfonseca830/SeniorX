@@ -102,6 +102,10 @@ public interface MyServiceConstants {
     	String GET_DEPENDENCIES_ERROR = "getDependenciesError";
     }
     
+    interface Signals {
+    	String CANCELAR_EVENTO = "cancelarEvento";
+    }
+    
     interface Events {
     	/**
     	 * Default 'serviceStarted' event.

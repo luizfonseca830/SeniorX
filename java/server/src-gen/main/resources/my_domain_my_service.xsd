@@ -72,18 +72,6 @@
             </xsd:element>
         </xsd:sequence>
     </xsd:complexType>
-    <xsd:complexType name="retornoCadastroConvidado">
-        <xsd:complexContent>
-            <xsd:extension base="mensagemRetornoComCodigo">
-                <xsd:sequence>
-                    <xsd:element name="nome" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
-                    </xsd:element>
-                    <xsd:element name="nomeSocial" type="xsd:string" minOccurs="0" maxOccurs="1"  readOnly="false">
-                    </xsd:element>
-                </xsd:sequence>
-            </xsd:extension>
-        </xsd:complexContent>
-    </xsd:complexType>
     <xsd:simpleType name="userNotificationKind">
         <xsd:restriction base="xsd:string">
             <xsd:enumeration value="Operational"/>
@@ -190,6 +178,14 @@
     </xsd:complexType>
     
     <!-- Message payload elements for signals -->
+    <xsd:element name="cancelarEvento">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="codigoEvento" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
     
     <!-- Message input/output elements for commands -->
     <xsd:element name="getMetadata">

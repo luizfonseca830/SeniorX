@@ -43,6 +43,11 @@
         </query>
     </commands>
     <signals>
+        <inboundSignal name="cancelarEvento" extensionPoint="false" visibility="PRIVATE">
+            <payload>
+                <slot name="codigoEvento" type="string" optional="false" multivalued="false"/>
+            </payload>
+        </inboundSignal>
     </signals>
     <events>
         <event name="serviceStarted" extensionPoint="false" visibility="PRIVATE">
@@ -73,13 +78,6 @@
         </record>
         <record name="fieldCadastroConvidado">
             <slot name="nome" type="string" optional="false" multivalued="false" maxLength="20"/>
-            <slot name="nomeSocial" type="string" optional="true" multivalued="false"/>
-        </record>
-        <record name="retornoCadastroConvidado">
-            <slot name="mensagemRetorno" type="string" optional="false" multivalued="false"/>
-            <slot name="codigoCadastrado" type="string" optional="false" multivalued="false"/>
-            <slot name="contemErro" type="boolean" optional="true" multivalued="false"/>
-            <slot name="nome" type="string" optional="false" multivalued="false"/>
             <slot name="nomeSocial" type="string" optional="true" multivalued="false"/>
         </record>
         <record name="notifyUserEventPayload">

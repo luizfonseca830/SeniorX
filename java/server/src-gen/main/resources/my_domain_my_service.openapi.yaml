@@ -398,6 +398,40 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/genericError'
+  /my_service/signals/cancelarEvento:
+    post:
+      description: ""
+      tags:
+      - Signals
+      security :
+        - bearerAuth: []
+      parameters:
+        - in: header
+          name: Accept
+          description: 'Content types and endpoint version for the request. Example: application/json;seniorx.version=2'
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - codigoEvento
+              properties:
+                codigoEvento:
+                  type: string
+                  description: ""
+      responses:
+        202:
+          description: Accepted
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/genericError'
 
 components:
   securitySchemes:
@@ -519,22 +553,6 @@ components:
         nomeSocial:
           type: string
           description: ""
-    
-    retornoCadastroConvidado:
-      description: ""
-      allOf:
-      - $ref: '#/components/schemas/mensagemRetornoComCodigo'
-      - 
-        type: object
-        required:
-          - nome
-        properties:
-          nome:
-            type: string
-            description: ""
-          nomeSocial:
-            type: string
-            description: ""
     
     notifyUserEventPayload:
       description: "Represents a regular user event notification payload"

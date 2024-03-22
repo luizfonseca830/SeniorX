@@ -155,6 +155,11 @@ public interface MyServiceStub {
 	 */
 	CompletableFuture<GetDependenciesOutput> getDependenciesRequest(long timeout);
 
+	/**
+	 * Chamada assíncrona para o método cancelarEvento
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 */
+	void cancelarEvento(CancelarEventoInput input);
 
 	/**
 	 * Chamada assíncrona para o método publishServiceStarted 

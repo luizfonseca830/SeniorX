@@ -229,6 +229,21 @@
         }
     },
     "signals" : {
+        "cancelarEvento": {
+            "endpointType" : "signal",
+            "payload" : {
+                "codigoEvento" : {
+                    "type": "string",
+                    "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                }
+            },
+            "kind" : "Inbound",
+            "priority" : "LOW",
+            "extensionPoint" : false,
+            "visibility" : "PRIVATE"
+        }
     },
     "events" : {
         "serviceStarted": {
@@ -342,38 +357,6 @@
                 "readOnly": false
             ,
             	"maxLength": 20
-            },
-            "nomeSocial" : {
-                "type": "string",
-                "optional": true,
-                "multivalued": false,
-                "readOnly": false
-            }
-        },
-        "retornoCadastroConvidado" : {
-            "mensagemRetorno" : {
-                "type": "string",
-                "optional": false,
-                "multivalued": false,
-                "readOnly": false
-            },
-            "codigoCadastrado" : {
-                "type": "string",
-                "optional": false,
-                "multivalued": false,
-                "readOnly": false
-            },
-            "contemErro" : {
-                "type": "boolean",
-                "optional": true,
-                "multivalued": false,
-                "readOnly": false
-            },
-            "nome" : {
-                "type": "string",
-                "optional": false,
-                "multivalued": false,
-                "readOnly": false
             },
             "nomeSocial" : {
                 "type": "string",

@@ -46,6 +46,12 @@ service my_service {
 
         }
 
+        signal cancelarEvento{
+            in {
+                codigoEvento: string
+            }
+        }
+
     }
     types {
     // define records and enumerations here
