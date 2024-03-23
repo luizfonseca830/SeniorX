@@ -60,9 +60,6 @@ public class EventoDTOConverter {
 		if (dto.nome != null) {
 			entity.setNome(dto.nome);
 		}
-		if (dto.lotacaoMaxima != null) {
-			entity.setLotacaoMaxima(dto.lotacaoMaxima);
-		}
 		if (dto.dataHora != null) {
 			entity.setDataHora(dto.dataHora);
 		}
@@ -92,7 +89,6 @@ public class EventoDTOConverter {
 			entity.setId(java.util.UUID.fromString(dto.id));
 		}
 		entity.setNome(dto.nome);
-		entity.setLotacaoMaxima(dto.lotacaoMaxima);
 		entity.setDataHora(dto.dataHora);
 		entity.setEndereco(dto.endereco);
 		entity.setTipoEntradaEvento(dto.tipoEntradaEvento == null ? null : new java.util.HashSet<>(dto.tipoEntradaEvento));
@@ -131,7 +127,6 @@ public class EventoDTOConverter {
 
 		dto.id = entity.getId() != null ? entity.getId().toString() : null;
 		dto.nome = entity.getNome();
-		dto.lotacaoMaxima = entity.getLotacaoMaxima();
 		dto.dataHora = entity.getDataHora();
 		dto.endereco = entity.getEndereco();
 		dto.tipoEntradaEvento = entity.getTipoEntradaEvento() == null ? null : new java.util.ArrayList<>(entity.getTipoEntradaEvento());
@@ -163,10 +158,6 @@ public class EventoDTOConverter {
 		
 		if (displayFields.stream().anyMatch(displayField -> "nome".equals(displayField) || "*".equals(displayField))) {
 			dto.nome = entity.getNome();
-		}
-		
-		if (displayFields.stream().anyMatch(displayField -> "lotacaoMaxima".equals(displayField) || "*".equals(displayField))) {
-			dto.lotacaoMaxima = entity.getLotacaoMaxima();
 		}
 		
 		if (displayFields.stream().anyMatch(displayField -> "dataHora".equals(displayField) || "*".equals(displayField))) {
@@ -204,10 +195,6 @@ public class EventoDTOConverter {
 		
 		if (displayFields.stream().anyMatch(displayField -> "nome".equals(displayField) || "*".equals(displayField))) {
 			dto.nome = entity.getNome();
-		}
-		
-		if (displayFields.stream().anyMatch(displayField -> "lotacaoMaxima".equals(displayField) || "*".equals(displayField))) {
-			dto.lotacaoMaxima = entity.getLotacaoMaxima();
 		}
 		
 		if (displayFields.stream().anyMatch(displayField -> "dataHora".equals(displayField) || "*".equals(displayField))) {
@@ -273,9 +260,6 @@ public class EventoDTOConverter {
 		}
 		if("nome".equals(jsonPatch.getPath().replace("/", ""))) {
 			entity.setNome(null);
-		}
-		if("lotacaoMaxima".equals(jsonPatch.getPath().replace("/", ""))) {
-			entity.setLotacaoMaxima(null);
 		}
 		if("dataHora".equals(jsonPatch.getPath().replace("/", ""))) {
 			entity.setDataHora(null);

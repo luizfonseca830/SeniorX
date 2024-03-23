@@ -109,14 +109,6 @@
                     	</xsd:restriction>
                     </xsd:simpleType>
                     </xsd:element>
-                    <xsd:element name="lotacaoMaxima"  minOccurs="1" maxOccurs="1"  readOnly="false">
-                    <xsd:simpleType>
-                    	<xsd:restriction base="xsd:long">
-                    		<xsd:minInclusive value="1" />
-                    		<xsd:maxInclusive value="99999" />
-                    	</xsd:restriction>
-                    </xsd:simpleType>
-                    </xsd:element>
                     <xsd:element name="dataHora" type="xsd:dateTime" minOccurs="1" maxOccurs="1"  readOnly="false">
                     </xsd:element>
                     <xsd:element name="endereco"  minOccurs="1" maxOccurs="1"  readOnly="false">

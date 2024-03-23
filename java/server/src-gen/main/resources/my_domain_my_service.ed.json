@@ -162,17 +162,6 @@
 					"readOnly": false,
 					"maxLength": 30
 				},
-				"lotacaoMaxima": {
-					"name": "lotacaoMaxima",
-					"type": "integer",
-					"thousandSeparator": ".",
-					"optional": false,
-					"hidden": false,
-					"multivalued": false,
-					"readOnly": false,
-					"minValue": 1,
-					"maxValue": 99999
-				},
 				"dataHora": {
 					"name": "dataHora",
 					"type": "dateTime",
@@ -212,11 +201,6 @@
 						"multiple": false
 					},
 					{
-						"name": "lotacaoMaxima",
-						"optional": true,
-						"multiple": false
-					},
-					{
 						"name": "dataHora",
 						"optional": true,
 						"multiple": false
@@ -235,7 +219,6 @@
 				"displayFields": [
 					"id",
 					"nome",
-					"lotacaoMaxima",
 					"dataHora",
 					"endereco",
 					"tipoEntradaEvento"
@@ -254,11 +237,6 @@
 						"multiple": false
 					},
 					{
-						"name": "lotacaoMaxima",
-						"optional": true,
-						"multiple": false
-					},
-					{
 						"name": "dataHora",
 						"optional": true,
 						"multiple": false
@@ -277,7 +255,6 @@
 				"displayFields": [
 					"id",
 					"nome",
-					"lotacaoMaxima",
 					"dataHora",
 					"endereco",
 					"tipoEntradaEvento"
@@ -295,7 +272,6 @@
 		"my_domain.my_service.evento": "Entidade que representa o evento",
 		"my_domain.my_service.evento_id": "ID do evento",
 		"my_domain.my_service.evento_nome": "Nome do evento",
-		"my_domain.my_service.evento_lotacao_maxima": "Lotação máxima do evento",
 		"my_domain.my_service.evento_data_hora": "Data e hora do evento",
 		"my_domain.my_service.evento_endereco": "Enderenço do evento",
 		"my_domain.my_service.evento_tipo_entrada_evento": "Tipos de entrada permitidos no evento",

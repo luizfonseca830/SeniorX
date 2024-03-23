@@ -1350,7 +1350,6 @@ definitions:
     type: object
     required:
       - nome
-      - lotacaoMaxima
       - dataHora
       - endereco
     properties:
@@ -1362,12 +1361,6 @@ definitions:
         type: string
         maxLength: 30
         description: "Nome do evento"
-      lotacaoMaxima:
-        type: integer
-        format: int64
-        description: "Lotação máxima do evento"
-        minimum: 1
-        maximum: 99999
       dataHora:
         type: string
         format: date-time

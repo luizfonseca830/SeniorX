@@ -6,22 +6,13 @@ package br.com.senior.mydomain.myservice;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
+import javax.persistence.*;
+
 import org.hibernate.annotations.GenericGenerator;
 
 import br.com.senior.custom.CustomEntity;
 import br.com.senior.custom.odata.entity.ODataEntity;
 
-import javax.persistence.CollectionTable;
-import javax.persistence.JoinColumn;
-import javax.persistence.ElementCollection;
-import javax.persistence.Transient;
 import org.springframework.data.domain.Persistable;
 
 @Entity(name="my_domain.my_service.EventoEntity")
@@ -45,12 +36,6 @@ public class EventoEntity extends CustomEntity implements Persistable<java.util.
 	 */
 	@Column(name = "nome", length = 30)
 	private String nome;
-	
-	/**
-	 * Lotação máxima do evento
-	 */
-	@Column(name = "lotacao_maxima")
-	private Long lotacaoMaxima;
 	
 	/**
 	 * Data e hora do evento
@@ -94,10 +79,6 @@ public class EventoEntity extends CustomEntity implements Persistable<java.util.
 		return nome;
 	}
 	
-	public Long getLotacaoMaxima() {
-		return lotacaoMaxima;
-	}
-	
 	public java.time.Instant getDataHora() {
 		return dataHora;
 	}
@@ -116,10 +97,6 @@ public class EventoEntity extends CustomEntity implements Persistable<java.util.
 	
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-	
-	public void setLotacaoMaxima(Long lotacaoMaxima) {
-		this.lotacaoMaxima = lotacaoMaxima;
 	}
 	
 	public void setDataHora(java.time.Instant dataHora) {

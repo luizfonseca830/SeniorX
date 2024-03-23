@@ -1,4 +1,4 @@
-/* Database: Oracle. Generation date: 2024-03-23 14:22:36:829 */
+/* Database: Oracle. Generation date: 2024-03-23 14:35:09:333 */
 /* Entity Convidado */
 create table convidado (
 	id RAW(16) NOT NULL,
@@ -18,7 +18,6 @@ CREATE INDEX convidado_ext ON convidado (ext) INDEXTYPE IS CTXSYS.CONTEXT PARAME
 create table evento (
 	id RAW(16) NOT NULL,
 	nome VARCHAR(30) NOT NULL,
-	lotacao_maxima NUMBER(19) NOT NULL /* lotacaoMaxima */,
 	data_hora TIMESTAMP NOT NULL /* dataHora */,
 	endereco VARCHAR(50) NOT NULL,
 	ext CLOB,

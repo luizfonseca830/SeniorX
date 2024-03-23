@@ -259,7 +259,6 @@
         <record name="evento">
             <slot name="id" type="string" format="uuid" optional="true" multivalued="false"/>
             <slot name="nome" type="string" optional="false" multivalued="false" maxLength="30"/>
-            <slot name="lotacaoMaxima" type="integer" optional="false" multivalued="false" minValue="1" maxValue="99999"/>
             <slot name="dataHora" type="dateTime" optional="false" multivalued="false"/>
             <slot name="endereco" type="string" optional="false" multivalued="false" maxLength="50"/>
             <slot name="tipoEntradaEvento" type="tipoEntrada" optional="true" multivalued="true"/>

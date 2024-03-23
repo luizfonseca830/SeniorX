@@ -17,8 +17,6 @@ public class EventoStringSerializer {
 		sb.append(", ");
 		serializeNome(evento, sb);
 		sb.append(", ");
-		serializeLotacaoMaxima(evento, sb);
-		sb.append(", ");
 		serializeDataHora(evento, sb);
 		sb.append(", ");
 		serializeEndereco(evento, sb);
@@ -34,10 +32,6 @@ public class EventoStringSerializer {
 	
 	protected void serializeNome(Evento evento, StringBuilder sb) {
 		sb.append("nome=").append(evento.nome == null ? "null" : evento.nome);
-	}
-	
-	protected void serializeLotacaoMaxima(Evento evento, StringBuilder sb) {
-		sb.append("lotacaoMaxima=").append(evento.lotacaoMaxima == null ? "null" : evento.lotacaoMaxima);
 	}
 	
 	protected void serializeDataHora(Evento evento, StringBuilder sb) {

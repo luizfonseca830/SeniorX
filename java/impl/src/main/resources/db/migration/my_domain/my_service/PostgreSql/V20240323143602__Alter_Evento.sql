@@ -1,0 +1,1 @@
+ALTER TABLE evento DROP COLUMN lotacao_maxima

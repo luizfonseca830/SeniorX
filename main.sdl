@@ -141,8 +141,6 @@ service my_service {
             id: uuid?
             "Nome do evento"
             nome: string(30)
-            "Lotação máxima do evento"
-            lotacaoMaxima: integer minValue:1 maxValue: 99999
             "Data e hora do evento"
             dataHora: dateTime
             "Enderenço do evento"

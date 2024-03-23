@@ -20,8 +20,6 @@ public class EventoEntityStringSerializer {
 		sb.append(", ");
 		serializeNome(evento, sb);
 		sb.append(", ");
-		serializeLotacaoMaxima(evento, sb);
-		sb.append(", ");
 		serializeDataHora(evento, sb);
 		sb.append(", ");
 		serializeEndereco(evento, sb);
@@ -37,10 +35,6 @@ public class EventoEntityStringSerializer {
 	
 	protected void serializeNome(EventoEntity evento, StringBuilder sb) {
 		sb.append("nome=").append(evento.getNome() == null ? "null" : evento.getNome());
-	}
-	
-	protected void serializeLotacaoMaxima(EventoEntity evento, StringBuilder sb) {
-		sb.append("lotacaoMaxima=").append(evento.getLotacaoMaxima() == null ? "null" : evento.getLotacaoMaxima());
 	}
 	
 	protected void serializeDataHora(EventoEntity evento, StringBuilder sb) {

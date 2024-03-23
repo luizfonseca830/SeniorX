@@ -3,9 +3,7 @@ package br.com.senior.mydomain.myservice;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Max;
 import javax.validation.constraints.Size;
 
 import br.com.senior.messaging.model.EntityDescription;
@@ -127,14 +125,6 @@ public class Evento extends CustomDTO {
     public String nome;
     
     /**
-     * Lotação máxima do evento
-     */
-    @NotNull(message = "lotacaoMaxima is required")
-    @Min(value = 1L, message = "lotacaoMaxima min value is {value}")
-    @Max(value = 99999L, message = "lotacaoMaxima max value is {value}")
-    public Long lotacaoMaxima;
-    
-    /**
      * Data e hora do evento
      */
     @NotNull(message = "dataHora is required")
@@ -161,10 +151,9 @@ public class Evento extends CustomDTO {
     /** 
      * This constructor allows initialization of all fields, required and optional.
      */
-    public Evento(String id, String nome, Long lotacaoMaxima, java.time.Instant dataHora, String endereco, java.util.List<TipoEntrada> tipoEntradaEvento, List<JsonPatch> jsonPatches) {
+    public Evento(String id, String nome, java.time.Instant dataHora, String endereco, java.util.List<TipoEntrada> tipoEntradaEvento, List<JsonPatch> jsonPatches) {
         this.id = id;
         this.nome = nome;
-        this.lotacaoMaxima = lotacaoMaxima;
         this.dataHora = dataHora;
         this.endereco = endereco;
         this.tipoEntradaEvento = tipoEntradaEvento;
@@ -173,9 +162,8 @@ public class Evento extends CustomDTO {
     /** 
      * This convenience constructor allows initialization of all required fields.
      */
-    public Evento(String nome, Long lotacaoMaxima, java.time.Instant dataHora, String endereco) {
+    public Evento(String nome, java.time.Instant dataHora, String endereco) {
         this.nome = nome;
-        this.lotacaoMaxima = lotacaoMaxima;
         this.dataHora = dataHora;
         this.endereco = endereco;
     }

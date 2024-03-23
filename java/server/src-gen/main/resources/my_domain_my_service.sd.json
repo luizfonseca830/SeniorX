@@ -1008,16 +1008,6 @@
             ,
             	"maxLength": 30
             },
-            "lotacaoMaxima" : {
-                "type": "integer",
-                "optional": false,
-                "multivalued": false,
-                "documentation": "Lota\u00E7\u00E3o m\u00E1xima do evento",
-                "readOnly": false
-            ,
-            	"minValue": 1,
-            	"maxValue": 99999
-            },
             "dataHora" : {
                 "type": "dateTime",
                 "optional": false,
@@ -1819,16 +1809,6 @@
                     "readOnly": false
                 ,
                 	"maxLength": 30
-                },
-                "lotacaoMaxima" : {
-                    "type": "integer",
-                    "optional": false,
-                    "multivalued": false,
-                    "documentation": "Lota\u00E7\u00E3o m\u00E1xima do evento",
-                    "readOnly": false
-                ,
-                	"minValue": 1,
-                	"maxValue": 99999
                 },
                 "dataHora" : {
                     "type": "dateTime",

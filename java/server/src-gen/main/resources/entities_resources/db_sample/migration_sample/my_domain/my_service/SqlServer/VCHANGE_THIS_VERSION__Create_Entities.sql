@@ -1,4 +1,4 @@
-/* Database: SqlServer. Generation date: 2024-03-23 14:22:36:827 */
+/* Database: SqlServer. Generation date: 2024-03-23 14:35:09:331 */
 /* Entity Convidado */
 create table convidado (
 	id UNIQUEIDENTIFIER NOT NULL,
@@ -17,7 +17,6 @@ create table convidado (
 create table evento (
 	id UNIQUEIDENTIFIER NOT NULL,
 	nome VARCHAR(30) NOT NULL,
-	lotacao_maxima NUMERIC(19) NOT NULL /* lotacaoMaxima */,
 	data_hora DATETIME NOT NULL /* dataHora */,
 	endereco VARCHAR(50) NOT NULL,
 	ext VARCHAR(4000)
