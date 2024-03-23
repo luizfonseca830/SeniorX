@@ -332,6 +332,45 @@ definitions:
         format: date
         description: "Data de nascimento do convidado"
   
+  evento:
+    description: "Entidade que representa o evento"
+    type: object
+    required:
+      - nome
+      - lotacaoMaxima
+      - dataHora
+      - endereco
+    properties:
+      id:
+        type: string
+        format: uuid
+        description: "ID do evento"
+      nome:
+        type: string
+        maxLength: 30
+        description: "Nome do evento"
+      lotacaoMaxima:
+        type: integer
+        format: int64
+        description: "Lotação máxima do evento"
+        minimum: 1
+        maximum: 99999
+      dataHora:
+        type: string
+        format: date-time
+        description: "Data e hora do evento"
+      endereco:
+        type: string
+        maxLength: 50
+        description: "Enderenço do evento"
+      tipoEntradaEvento:
+        type: array
+        items:
+          type: string
+          allOf:
+          - $ref: '#/definitions/tipoEntrada'
+        description: "Tipos de entrada permitidos no evento"
+  
   notifyUserEventPayload:
     description: "Represents a regular user event notification payload"
     discriminator: _discriminator

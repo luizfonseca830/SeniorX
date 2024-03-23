@@ -95,6 +95,42 @@
         	"required" : ["nome","cpf","dataNascimneto"]
         }
         ,
+        "evento" : {
+        	"type" : "object",
+        	"id" : "evento",
+        	"properties" : {
+            	"id" : {
+            		"type": "string",
+            		"format": "uuid"
+            	},
+            	"nome" : {
+            		"type": "string",
+            		"maxLength": 30
+            	},
+            	"lotacaoMaxima" : {
+            		"type": "integer",
+            		"minimum": 1,
+            		"maximum": 99999
+            	},
+            	"dataHora" : {
+            		"type": "string",
+            		"format": "date-time"
+            	},
+            	"endereco" : {
+            		"type": "string",
+            		"maxLength": 50
+            	},
+            	"tipoEntradaEvento" : {
+            		"type": "array",
+            		"items": {
+            		  "type": "string",
+            		  "enum": ["LIVRE","NO_LOCAL","ANTECIPADO","LISTA"]
+            		}
+            	}
+        	},
+        	"required" : ["nome","lotacaoMaxima","dataHora","endereco"]
+        }
+        ,
         "notifyUserEventPayload" : {
         	"type" : "object",
         	"id" : "notifyUserEventPayload",

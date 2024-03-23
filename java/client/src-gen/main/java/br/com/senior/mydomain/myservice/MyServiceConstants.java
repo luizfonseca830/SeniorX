@@ -148,6 +148,40 @@ public interface MyServiceConstants {
     	 */
     	String EXPORT_CONVIDADO_ERROR = "exportConvidadoError";
     	/**
+    	 * @see ImportEventoInput the request payload
+    	 */
+    	String IMPORT_EVENTO = "importEvento";
+    	/**
+    	 * The success response primitive for importEvento.
+    	 *
+    	 * @see #IMPORT_EVENTO the request primitive
+    	 * @see ImportEventoOutput the response payload
+    	 */
+    	String IMPORT_EVENTO_RESPONSE = "importEventoResponse";
+    	/**
+    	 * An error response primitive for importEvento.
+    	 *
+    	 * @see #IMPORT_EVENTO the request primitive
+    	 */
+    	String IMPORT_EVENTO_ERROR = "importEventoError";
+    	/**
+    	 * @see ExportEventoInput the request payload
+    	 */
+    	String EXPORT_EVENTO = "exportEvento";
+    	/**
+    	 * The success response primitive for exportEvento.
+    	 *
+    	 * @see #EXPORT_EVENTO the request primitive
+    	 * @see ExportEventoOutput the response payload
+    	 */
+    	String EXPORT_EVENTO_RESPONSE = "exportEventoResponse";
+    	/**
+    	 * An error response primitive for exportEvento.
+    	 *
+    	 * @see #EXPORT_EVENTO the request primitive
+    	 */
+    	String EXPORT_EVENTO_ERROR = "exportEventoError";
+    	/**
     	 * Returns a list with all dependencies from this service, along with their respective versions
     	 */
     	String GET_DEPENDENCIES = "getDependencies";
@@ -302,6 +336,144 @@ public interface MyServiceConstants {
     	 * @see #DELETE_CONVIDADO the request primitive
     	 */
     	String DELETE_CONVIDADO_ERROR = "deleteConvidadoError";
+    	/**
+    	 * The 'create' request primitive for the Evento entity.
+    	 * @see Evento the request payload
+    	 */
+    	String CREATE_EVENTO = "createEvento";
+    	/**
+    	 * The success response primitive for createEvento.
+    	 *
+    	 * @see #CREATE_EVENTO the request primitive
+    	 */
+    	String CREATE_EVENTO_RESPONSE = "createEventoResponse";
+    	/**
+    	 * An error response primitive for createEvento.
+    	 *
+    	 * @see #CREATE_EVENTO the request primitive
+    	 */
+    	String CREATE_EVENTO_ERROR = "createEventoError";
+    	/**
+    	 * The 'createBulk' request primitive for the Evento entity.
+    	 * @see CreateBulkEventoInput the request payload
+    	 */
+    	String CREATE_BULK_EVENTO = "createBulkEvento";
+    	/**
+    	 * The success response primitive for createBulkEvento.
+    	 *
+    	 * @see #CREATE_BULK_EVENTO the request primitive
+    	 * @see CreateBulkEventoOutput the response payload
+    	 */
+    	String CREATE_BULK_EVENTO_RESPONSE = "createBulkEventoResponse";
+    	/**
+    	 * An error response primitive for createBulkEvento.
+    	 *
+    	 * @see #CREATE_BULK_EVENTO the request primitive
+    	 */
+    	String CREATE_BULK_EVENTO_ERROR = "createBulkEventoError";
+    	/**
+    	 * The 'createMerge' request primitive for the Evento entity.
+    	 * @see Evento the request payload
+    	 */
+    	String CREATE_MERGE_EVENTO = "createMergeEvento";
+    	/**
+    	 * The success response primitive for createMergeEvento.
+    	 *
+    	 * @see #CREATE_MERGE_EVENTO the request primitive
+    	 */
+    	String CREATE_MERGE_EVENTO_RESPONSE = "createMergeEventoResponse";
+    	/**
+    	 * An error response primitive for createMergeEvento.
+    	 *
+    	 * @see #CREATE_MERGE_EVENTO the request primitive
+    	 */
+    	String CREATE_MERGE_EVENTO_ERROR = "createMergeEventoError";
+    	/**
+    	 * The 'retrieve' request primitive for the Evento entity.
+    	 * @see Evento.GetRequest the request payload
+    	 */
+    	String RETRIEVE_EVENTO = "retrieveEvento";
+    	/**
+    	 * The success response primitive for retrieveEvento.
+    	 *
+    	 * @see #RETRIEVE_EVENTO the request primitive
+    	 */
+    	String RETRIEVE_EVENTO_RESPONSE = "retrieveEventoResponse";
+    	/**
+    	 * An error response primitive for retrieveEvento.
+    	 *
+    	 * @see #RETRIEVE_EVENTO the request primitive
+    	 */
+    	String RETRIEVE_EVENTO_ERROR = "retrieveEventoError";
+    	/**
+    	 * The 'list' request primitive for the Evento entity.
+    	 * @see evento.pageRequest the request payload
+    	 */
+    	String LIST_EVENTO = "listEvento";
+    	/**
+    	 * The success response primitive for listEvento.
+    	 *
+    	 * @see #LIST_EVENTO the request primitive
+    	 * @see Evento.PagedResults the response payload
+    	 */
+    	String LIST_EVENTO_RESPONSE = "listEventoResponse";
+    	/**
+    	 * An error response primitive for listEvento.
+    	 *
+    	 * @see #LIST_EVENTO the request primitive
+    	 */
+    	String LIST_EVENTO_ERROR = "listEventoError";
+    	/**
+    	 * The 'update' request primitive for the Evento entity.
+    	 * @see Evento the request payload
+    	 */
+    	String UPDATE_EVENTO = "updateEvento";
+    	/**
+    	 * The success response primitive for updateEvento.
+    	 *
+    	 * @see #UPDATE_EVENTO the request primitive
+    	 */
+    	String UPDATE_EVENTO_RESPONSE = "updateEventoResponse";
+    	/**
+    	 * An error response primitive for updateEvento.
+    	 *
+    	 * @see #UPDATE_EVENTO the request primitive
+    	 */
+    	String UPDATE_EVENTO_ERROR = "updateEventoError";
+    	/**
+    	 * The 'updateMerge' request primitive for the Evento entity.
+    	 * @see Evento the request payload
+    	 */
+    	String UPDATE_MERGE_EVENTO = "updateMergeEvento";
+    	/**
+    	 * The success response primitive for updateMergeEvento.
+    	 *
+    	 * @see #UPDATE_MERGE_EVENTO the request primitive
+    	 */
+    	String UPDATE_MERGE_EVENTO_RESPONSE = "updateMergeEventoResponse";
+    	/**
+    	 * An error response primitive for updateMergeEvento.
+    	 *
+    	 * @see #UPDATE_MERGE_EVENTO the request primitive
+    	 */
+    	String UPDATE_MERGE_EVENTO_ERROR = "updateMergeEventoError";
+    	/**
+    	 * The 'delete' request primitive for the Evento entity.
+    	 * @see Evento.Id the request payload
+    	 */
+    	String DELETE_EVENTO = "deleteEvento";
+    	/**
+    	 * The success response primitive for deleteEvento.
+    	 *
+    	 * @see #DELETE_EVENTO the request primitive
+    	 */
+    	String DELETE_EVENTO_RESPONSE = "deleteEventoResponse";
+    	/**
+    	 * An error response primitive for deleteEvento.
+    	 *
+    	 * @see #DELETE_EVENTO the request primitive
+    	 */
+    	String DELETE_EVENTO_ERROR = "deleteEventoError";
     }
     
     interface Signals {
@@ -322,6 +494,8 @@ public interface MyServiceConstants {
     	String NOTIFY_USER_EVENT = "notifyUserEvent";
     	String IMPORT_CONVIDADO_EVENT = "importConvidadoEvent";
     	String EXPORT_CONVIDADO_EVENT = "exportConvidadoEvent";
+    	String IMPORT_EVENTO_EVENT = "importEventoEvent";
+    	String EXPORT_EVENTO_EVENT = "exportEventoEvent";
     }
     
 }

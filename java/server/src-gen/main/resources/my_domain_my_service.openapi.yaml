@@ -223,6 +223,56 @@ paths:
               schema:
                 $ref: '#/components/schemas/genericError'
   
+  /rest/my_domain/my_service/queries/exportEvento:
+    post:
+      description: ""
+      tags:
+        - Queries
+      x-senior-visibility: PRIVATE
+      security :
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - config
+              properties:
+                config:
+                  type: object
+                  allOf:
+                    - $ref: '#/components/schemas/exportConfig'
+                  description: ""
+      parameters:
+        - in: header
+          name: Accept
+          description: 'Content types and endpoint version for the request. Example: application/json;seniorx.version=2'
+          schema:
+            type: string
+      responses:
+        200:
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - exportJobId
+                properties:
+                  exportJobId:
+                    type: string
+                    description: ""
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/genericError'
+  
   /rest/my_domain/my_service/queries/helloWorld:
     post:
       description: "
@@ -316,6 +366,82 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/genericError'
+  /rest/my_domain/my_service/actions/importEvento:
+    post:
+      description: ""
+      tags:
+        - Actions
+      x-senior-visibility: PRIVATE
+      security :
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - config
+              properties:
+                config:
+                  type: object
+                  allOf:
+                    - $ref: '#/components/schemas/importConfig'
+                  description: ""
+      parameters:
+        - in: header
+          name: Accept
+          description: 'Content types and endpoint version for the request. Example: application/json;seniorx.version=2'
+          schema:
+            type: string
+      responses:
+        200:
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - importJobId
+                properties:
+                  importJobId:
+                    type: string
+                    description: ""
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/genericError'
+  
+  /rest/my_domain/my_service/actions/odata:
+    post:
+      description: ""
+      tags:
+        - Actions
+      x-senior-visibility: PRIVATE
+      security :
+        - bearerAuth: []
+      parameters:
+        - in: header
+          name: Accept
+          description: 'Content types and endpoint version for the request. Example: application/json;seniorx.version=2'
+          schema:
+            type: string
+      responses:
+        204:
+          description: No response
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/genericError'
+  
   /rest/my_domain/my_service/actions/comprarIngresso:
     post:
       description: ""
@@ -405,32 +531,6 @@ paths:
                   importJobId:
                     type: string
                     description: ""
-        401:
-          description: "Invalid Credentials"
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/genericError'
-  
-  /rest/my_domain/my_service/actions/odata:
-    post:
-      description: ""
-      tags:
-        - Actions
-      x-senior-visibility: PRIVATE
-      security :
-        - bearerAuth: []
-      parameters:
-        - in: header
-          name: Accept
-          description: 'Content types and endpoint version for the request. Example: application/json;seniorx.version=2'
-          schema:
-            type: string
-      responses:
-        204:
-          description: No response
         401:
           description: "Invalid Credentials"
         default:
@@ -869,6 +969,231 @@ paths:
               schema:
                 $ref: '#/components/schemas/genericError'
   
+  /my_service/entities/evento:
+    post:
+      description: "Esta entidade pode ser customizada."
+      tags:
+        - CRUD
+      x-senior-visibility: PRIVATE
+      requestBody:
+        required: true
+        content:
+          applicaton/json:
+            schema:
+              type: object
+              allOf:
+                - $ref: '#/components/schemas/evento'
+      responses:
+        200:
+          description: 'The created resource'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/evento'
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/genericError'
+    patch:
+      description: "Esta entidade pode ser customizada."
+      tags:
+        - CRUD
+      x-senior-visibility: PRIVATE
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              allOf:
+                - $ref: '#/components/schemas/evento'
+      responses:
+        200:
+          description: 'The created resource'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/evento'
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/genericError'
+    get:
+      description: "Esta entidade pode ser customizada."
+      tags:
+        - CRUD
+      x-senior-visibility: PRIVATE
+      parameters:
+        - name: offset
+          in: query
+          schema:
+            type: number
+        - name: size
+          in: query
+          schema:
+            type: number
+      responses:
+        200:
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/evento'
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/genericError'
+  
+  /my_service/entities/evento/{id}:
+    put:
+      description: "Esta entidade pode ser customizada."
+      tags:
+        - CRUD
+      x-senior-visibility: PRIVATE
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/evento'
+      responses:
+        200:
+          description: Ok
+          content:
+            applicaton/json:
+              schema:
+                $ref: '#/components/schemas/evento'
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/genericError'
+    patch:
+      description: "Esta entidade pode ser customizada."
+      tags:
+        - CRUD
+      x-senior-visibility: PRIVATE
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/evento'
+      responses:
+        200:
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/evento'
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/genericError'
+    get:
+      description: "Esta entidade pode ser customizada."
+      tags:
+        - CRUD
+      x-senior-visibility: PRIVATE
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/evento'
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/genericError'
+    delete:
+      description: "Esta entidade pode ser customizada."
+      tags:
+        - CRUD
+      x-senior-visibility: PRIVATE
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Ok
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/genericError'
+  
+  /my_service/entities/evento/bulk:
+    post:
+      description: "Esta entidade pode ser customizada."
+      tags:
+        - Bulk
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                 $ref: '#/components/schemas/evento'
+      responses:
+        200:
+          description: 'The bulk creation has created resources'
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/genericError'
+  
 
 components:
   securitySchemes:
@@ -1093,6 +1418,45 @@ components:
           type: string
           format: date
           description: "Data de nascimento do convidado"
+    
+    evento:
+      description: "Entidade que representa o evento"
+      type: object
+      required:
+        - nome
+        - lotacaoMaxima
+        - dataHora
+        - endereco
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: "ID do evento"
+        nome:
+          type: string
+          maxLength: 30
+          description: "Nome do evento"
+        lotacaoMaxima:
+          type: integer
+          format: int64
+          description: "Lotação máxima do evento"
+          minimum: 1
+          maximum: 99999
+        dataHora:
+          type: string
+          format: date-time
+          description: "Data e hora do evento"
+        endereco:
+          type: string
+          maxLength: 50
+          description: "Enderenço do evento"
+        tipoEntradaEvento:
+          type: array
+          items:
+            type: string
+            allOf:
+            - $ref: '#/components/schemas/tipoEntrada'
+          description: "Tipos de entrada permitidos no evento"
     
     notifyUserEventPayload:
       description: "Represents a regular user event notification payload"

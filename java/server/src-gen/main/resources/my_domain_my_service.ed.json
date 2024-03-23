@@ -6,6 +6,15 @@
 	"service": "my_service",
 	"enumType": "string",
 	"enumerations": {
+		"tipoEntrada": {
+			"name": "tipoEntrada",
+			"values": [
+				"LIVRE",
+				"NO_LOCAL",
+				"ANTECIPADO",
+				"LISTA"
+			]
+		}
 	},
 	"entities": {
 		"convidado": {
@@ -128,6 +137,152 @@
 					"dataNascimneto"
 				]
 			}
+		},
+		"evento": {
+			"id": "id",
+			"name": "evento",
+			"customizable": true,
+			"external": false,
+			"slots": {
+				"id": {
+					"name": "id",
+					"type": "string",
+					"format": "uuid",
+					"optional": true,
+					"hidden": false,
+					"multivalued": false,
+					"readOnly": true
+				},
+				"nome": {
+					"name": "nome",
+					"type": "string",
+					"optional": false,
+					"hidden": false,
+					"multivalued": false,
+					"readOnly": false,
+					"maxLength": 30
+				},
+				"lotacaoMaxima": {
+					"name": "lotacaoMaxima",
+					"type": "integer",
+					"thousandSeparator": ".",
+					"optional": false,
+					"hidden": false,
+					"multivalued": false,
+					"readOnly": false,
+					"minValue": 1,
+					"maxValue": 99999
+				},
+				"dataHora": {
+					"name": "dataHora",
+					"type": "dateTime",
+					"optional": false,
+					"hidden": false,
+					"multivalued": false,
+					"readOnly": false
+				},
+				"endereco": {
+					"name": "endereco",
+					"type": "string",
+					"optional": false,
+					"hidden": false,
+					"multivalued": false,
+					"readOnly": false,
+					"maxLength": 50
+				},
+				"tipoEntradaEvento": {
+					"name": "tipoEntradaEvento",
+					"type": "tipoEntrada",
+					"optional": true,
+					"hidden": false,
+					"multivalued": true,
+					"readOnly": false
+				}
+			},
+			"lookup": {
+				"searchFields": [
+					{
+						"name": "id",
+						"optional": true,
+						"multiple": false
+					},
+					{
+						"name": "nome",
+						"optional": true,
+						"multiple": false
+					},
+					{
+						"name": "lotacaoMaxima",
+						"optional": true,
+						"multiple": false
+					},
+					{
+						"name": "dataHora",
+						"optional": true,
+						"multiple": false
+					},
+					{
+						"name": "endereco",
+						"optional": true,
+						"multiple": false
+					},
+					{
+						"name": "tipoEntradaEvento",
+						"optional": true,
+						"multiple": false
+					}
+				],
+				"displayFields": [
+					"id",
+					"nome",
+					"lotacaoMaxima",
+					"dataHora",
+					"endereco",
+					"tipoEntradaEvento"
+				]
+			},
+			"advancedSearch": {
+				"searchFields": [
+					{
+						"name": "id",
+						"optional": true,
+						"multiple": false
+					},
+					{
+						"name": "nome",
+						"optional": true,
+						"multiple": false
+					},
+					{
+						"name": "lotacaoMaxima",
+						"optional": true,
+						"multiple": false
+					},
+					{
+						"name": "dataHora",
+						"optional": true,
+						"multiple": false
+					},
+					{
+						"name": "endereco",
+						"optional": true,
+						"multiple": false
+					},
+					{
+						"name": "tipoEntradaEvento",
+						"optional": true,
+						"multiple": false
+					}
+				],
+				"displayFields": [
+					"id",
+					"nome",
+					"lotacaoMaxima",
+					"dataHora",
+					"endereco",
+					"tipoEntradaEvento"
+				]
+			}
 		}
 	},
 	"translations": {
@@ -136,6 +291,17 @@
 		"my_domain.my_service.convidado_nome": "Nome do convidado",
 		"my_domain.my_service.convidado_nome_social": "Nome social do convidado",
 		"my_domain.my_service.convidado_cpf": "CPF do convidado",
-		"my_domain.my_service.convidado_data_nascimneto": "Data de nascimento do convidado"
+		"my_domain.my_service.convidado_data_nascimneto": "Data de nascimento do convidado",
+		"my_domain.my_service.evento": "Entidade que representa o evento",
+		"my_domain.my_service.evento_id": "ID do evento",
+		"my_domain.my_service.evento_nome": "Nome do evento",
+		"my_domain.my_service.evento_lotacao_maxima": "Lotação máxima do evento",
+		"my_domain.my_service.evento_data_hora": "Data e hora do evento",
+		"my_domain.my_service.evento_endereco": "Enderenço do evento",
+		"my_domain.my_service.evento_tipo_entrada_evento": "Tipos de entrada permitidos no evento",
+		"my_domain.my_service.tipo_entrada_livre": "",
+		"my_domain.my_service.tipo_entrada_nolocal": "",
+		"my_domain.my_service.tipo_entrada_antecipado": "",
+		"my_domain.my_service.tipo_entrada_lista": ""
 	}
 }

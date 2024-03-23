@@ -34,5 +34,27 @@ public class MyServiceNormalizer {
     		}
     	}
     }
+    /**
+     * Normalizes the Evento payload.
+     */
+    public static void normalize(Evento toNormalize, Map<String, Object> headers) {
+    	if (headers != null) {
+    		String entityId = headers.containsKey(Message.ENTITY_ID_HEADER) ? headers.get(Message.ENTITY_ID_HEADER).toString() : null;
+    		if (entityId != null && toNormalize != null && toNormalize.id == null) {
+    			toNormalize.id = entityId;
+    		}
+    	}
+    }
+    /**
+     * Normalizes the Evento.Id payload.
+     */
+    public static void normalize(Evento.Id toNormalize, Map<String, Object> headers) {
+    	if (headers != null) {
+    		String entityId = headers.containsKey(Message.ENTITY_ID_HEADER) ? headers.get(Message.ENTITY_ID_HEADER).toString() : null;
+    		if (entityId != null && toNormalize != null && toNormalize.id == null) {
+    			toNormalize.id = entityId;
+    		}
+    	}
+    }
     
 }

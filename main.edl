@@ -14,5 +14,8 @@ service my_service {
 
 	    entity convidado{
 	    }
+
+	    entity evento{
+	    }
 	}
 }

@@ -210,6 +210,60 @@ public interface MyServiceStub {
 	CompletableFuture<ExportConvidadoOutput> exportConvidadoRequest(ExportConvidadoInput input, long timeout);
 	/**
 	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 * Chamada síncrona, o valor de timeout deve ser informado em ms 
+	 */
+	ImportEventoOutput importEvento(ImportEventoInput input, long timeout);
+	
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 * Chamada assíncrona
+	 */
+	void importEvento(ImportEventoInput input);
+	
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<ImportEventoOutput> importEventoRequest(ImportEventoInput input);
+	
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<ImportEventoOutput> importEventoRequest(ImportEventoInput input, long timeout);
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 * Chamada síncrona, o valor de timeout deve ser informado em ms 
+	 */
+	ExportEventoOutput exportEvento(ExportEventoInput input, long timeout);
+	
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 * Chamada assíncrona
+	 */
+	void exportEvento(ExportEventoInput input);
+	
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<ExportEventoOutput> exportEventoRequest(ExportEventoInput input);
+	
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<ExportEventoOutput> exportEventoRequest(ExportEventoInput input, long timeout);
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
 	 * Returns a list with all dependencies from this service, along with their respective versions
 	 * Chamada síncrona, o valor de timeout deve ser informado em ms 
 	 */
@@ -439,6 +493,210 @@ public interface MyServiceStub {
 	void deleteConvidado(Convidado.Id input);
 	
 	
+	/**
+	 * This is a public operation
+	 * The 'create' request primitive for the Evento entity.
+	 * Chamada síncrona, o valor de timeout deve ser informado em ms 
+	 */
+	Evento createEvento(Evento input, long timeout);
+	
+	/**
+	 * This is a public operation
+	 * The 'create' request primitive for the Evento entity.
+	 * Chamada assíncrona
+	 */
+	void createEvento(Evento input);
+	
+	/**
+	 * This is a public operation
+	 * The 'create' request primitive for the Evento entity.
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<Evento> createEventoRequest(Evento input);
+	
+	/**
+	 * This is a public operation
+	 * The 'create' request primitive for the Evento entity.
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<Evento> createEventoRequest(Evento input, long timeout);
+	/**
+	 * This is a public operation
+	 * The 'createBulk' request primitive for the Evento entity.
+	 * Chamada síncrona, o valor de timeout deve ser informado em ms 
+	 */
+	CreateBulkEventoOutput createBulkEvento(CreateBulkEventoInput input, long timeout);
+	
+	/**
+	 * This is a public operation
+	 * The 'createBulk' request primitive for the Evento entity.
+	 * Chamada assíncrona
+	 */
+	void createBulkEvento(CreateBulkEventoInput input);
+	
+	/**
+	 * This is a public operation
+	 * The 'createBulk' request primitive for the Evento entity.
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<CreateBulkEventoOutput> createBulkEventoRequest(CreateBulkEventoInput input);
+	
+	/**
+	 * This is a public operation
+	 * The 'createBulk' request primitive for the Evento entity.
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<CreateBulkEventoOutput> createBulkEventoRequest(CreateBulkEventoInput input, long timeout);
+	/**
+	 * This is a public operation
+	 * The 'createMerge' request primitive for the Evento entity.
+	 * Chamada síncrona, o valor de timeout deve ser informado em ms 
+	 */
+	Evento createMergeEvento(Evento input, long timeout);
+	
+	/**
+	 * This is a public operation
+	 * The 'createMerge' request primitive for the Evento entity.
+	 * Chamada assíncrona
+	 */
+	void createMergeEvento(Evento input);
+	
+	/**
+	 * This is a public operation
+	 * The 'createMerge' request primitive for the Evento entity.
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<Evento> createMergeEventoRequest(Evento input);
+	
+	/**
+	 * This is a public operation
+	 * The 'createMerge' request primitive for the Evento entity.
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<Evento> createMergeEventoRequest(Evento input, long timeout);
+	/**
+	 * This is a public operation
+	 * The 'retrieve' request primitive for the Evento entity.
+	 * Chamada síncrona, o valor de timeout deve ser informado em ms 
+	 */
+	Evento retrieveEvento(Evento.GetRequest input, long timeout);
+	
+	/**
+	 * This is a public operation
+	 * The 'retrieve' request primitive for the Evento entity.
+	 * Chamada assíncrona
+	 */
+	void retrieveEvento(Evento.GetRequest input);
+	
+	/**
+	 * This is a public operation
+	 * The 'retrieve' request primitive for the Evento entity.
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<Evento> retrieveEventoRequest(Evento.GetRequest input);
+	
+	/**
+	 * This is a public operation
+	 * The 'retrieve' request primitive for the Evento entity.
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<Evento> retrieveEventoRequest(Evento.GetRequest input, long timeout);
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'list' request primitive for the Evento entity.
+	 * Chamada síncrona, o valor de timeout deve ser informado em ms 
+	 */
+	Evento.PagedResults listEvento(Evento.PageRequest input, long timeout);
+	
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'list' request primitive for the Evento entity.
+	 * Chamada assíncrona
+	 */
+	void listEvento(Evento.PageRequest input);
+	
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'list' request primitive for the Evento entity.
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<Evento.PagedResults> listEventoRequest(Evento.PageRequest input);
+	
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'list' request primitive for the Evento entity.
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<Evento.PagedResults> listEventoRequest(Evento.PageRequest input, long timeout);
+	/**
+	 * This is a public operation
+	 * The 'update' request primitive for the Evento entity.
+	 * Chamada síncrona, o valor de timeout deve ser informado em ms 
+	 */
+	Evento updateEvento(Evento input, long timeout);
+	
+	/**
+	 * This is a public operation
+	 * The 'update' request primitive for the Evento entity.
+	 * Chamada assíncrona
+	 */
+	void updateEvento(Evento input);
+	
+	/**
+	 * This is a public operation
+	 * The 'update' request primitive for the Evento entity.
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<Evento> updateEventoRequest(Evento input);
+	
+	/**
+	 * This is a public operation
+	 * The 'update' request primitive for the Evento entity.
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<Evento> updateEventoRequest(Evento input, long timeout);
+	/**
+	 * This is a public operation
+	 * The 'updateMerge' request primitive for the Evento entity.
+	 * Chamada síncrona, o valor de timeout deve ser informado em ms 
+	 */
+	Evento updateMergeEvento(Evento input, long timeout);
+	
+	/**
+	 * This is a public operation
+	 * The 'updateMerge' request primitive for the Evento entity.
+	 * Chamada assíncrona
+	 */
+	void updateMergeEvento(Evento input);
+	
+	/**
+	 * This is a public operation
+	 * The 'updateMerge' request primitive for the Evento entity.
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<Evento> updateMergeEventoRequest(Evento input);
+	
+	/**
+	 * This is a public operation
+	 * The 'updateMerge' request primitive for the Evento entity.
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<Evento> updateMergeEventoRequest(Evento input, long timeout);
+	/**
+	 * This is a public operation
+	 * The 'delete' request primitive for the Evento entity.
+	 * Chamada síncrona, o valor de timeout deve ser informado em ms 
+	 */
+	void deleteEvento(Evento.Id input, long timeout);
+	
+	/**
+	 * This is a public operation
+	 * The 'delete' request primitive for the Evento entity.
+	 * Chamada assíncrona
+	 */
+	void deleteEvento(Evento.Id input);
+	
+	
 
 	/**
 	 * Chamada assíncrona para o método cancelarEvento
@@ -491,6 +749,20 @@ public interface MyServiceStub {
 	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
 	 */
 	void publishExportConvidadoEvent( ExportConvidadoEventPayload input );
+			
+	
+	/**
+	 * Chamada assíncrona para o método publishImportEventoEvent 
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 */
+	void publishImportEventoEvent( ImportEventoEventPayload input );
+			
+	
+	/**
+	 * Chamada assíncrona para o método publishExportEventoEvent 
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 */
+	void publishExportEventoEvent( ExportEventoEventPayload input );
 			
 	
 
