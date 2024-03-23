@@ -84,6 +84,20 @@
                     </xsd:element>
                 </xsd:sequence>
             </xsd:complexType>
+            <xsd:complexType name="convidado">
+                <xsd:sequence>
+                    <xsd:element name="id" type="xsd:uuid" minOccurs="0" maxOccurs="1"  readOnly="false">
+                    </xsd:element>
+                    <xsd:element name="nome" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                    </xsd:element>
+                    <xsd:element name="nomeSocial" type="xsd:string" minOccurs="0" maxOccurs="1"  readOnly="false">
+                    </xsd:element>
+                    <xsd:element name="cpf" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                    </xsd:element>
+                    <xsd:element name="dataNascimneto" type="xsd:date" minOccurs="1" maxOccurs="1"  readOnly="false">
+                    </xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
             <xsd:simpleType name="userNotificationKind">
                 <xsd:restriction base="xsd:string">
                     <xsd:enumeration value="Operational"/>
@@ -178,6 +192,225 @@
                     </xsd:element>
                 </xsd:sequence>
             </xsd:complexType>
+            <xsd:simpleType name="fieldType">
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="BINARY"/>
+                    <xsd:enumeration value="BOOLEAN"/>
+                    <xsd:enumeration value="DATE"/>
+                    <xsd:enumeration value="DATETIME"/>
+                    <xsd:enumeration value="LOCALDATETIME"/>
+                    <xsd:enumeration value="DOUBLE"/>
+                    <xsd:enumeration value="ENUM"/>
+                    <xsd:enumeration value="INTEGER"/>
+                    <xsd:enumeration value="MONEY"/>
+                    <xsd:enumeration value="STRING"/>
+                    <xsd:enumeration value="TIME"/>
+                </xsd:restriction>
+             </xsd:simpleType>
+            <xsd:simpleType name="fileFormat">
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="CSV"/>
+                    <xsd:enumeration value="FLAT"/>
+                    <xsd:enumeration value="JSON"/>
+                    <xsd:enumeration value="XML"/>
+                </xsd:restriction>
+             </xsd:simpleType>
+            <xsd:simpleType name="hookFunction">
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="BEFORE_PARSE"/>
+                    <xsd:enumeration value="BEFORE_CONVERSION"/>
+                    <xsd:enumeration value="ON_ERROR"/>
+                    <xsd:enumeration value="VALIDATE"/>
+                </xsd:restriction>
+             </xsd:simpleType>
+            <xsd:simpleType name="eventType">
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="CHUNK"/>
+                    <xsd:enumeration value="DOWNLOAD"/>
+                    <xsd:enumeration value="ERROR"/>
+                    <xsd:enumeration value="FINISH"/>
+                    <xsd:enumeration value="START"/>
+                </xsd:restriction>
+             </xsd:simpleType>
+            <xsd:simpleType name="errorStrategy">
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="CALL_SCRIPT"/>
+                    <xsd:enumeration value="IGNORE"/>
+                    <xsd:enumeration value="STOP"/>
+                </xsd:restriction>
+             </xsd:simpleType>
+            <xsd:simpleType name="status">
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="DONE"/>
+                    <xsd:enumeration value="DONE_WITH_ERRORS"/>
+                    <xsd:enumeration value="DOWNLOADING"/>
+                    <xsd:enumeration value="ERROR"/>
+                    <xsd:enumeration value="NOT_STARTED"/>
+                    <xsd:enumeration value="RUNNING"/>
+                </xsd:restriction>
+             </xsd:simpleType>
+            <xsd:simpleType name="errorType">
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="CONVERT_ERROR"/>
+                    <xsd:enumeration value="SERVICE_ERROR"/>
+                </xsd:restriction>
+             </xsd:simpleType>
+            <xsd:complexType name="importError">
+                <xsd:sequence>
+                    <xsd:element name="errorType" type="errorType" minOccurs="1" maxOccurs="1"  readOnly="false">
+                    </xsd:element>
+                    <xsd:element name="lineNumber" type="xsd:long" minOccurs="1" maxOccurs="1"  readOnly="false">
+                    </xsd:element>
+                    <xsd:element name="bean" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                    </xsd:element>
+                    <xsd:element name="message" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                    </xsd:element>
+                    <xsd:element name="exceptionClass" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                    </xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="fielddto">
+                <xsd:sequence>
+                    <xsd:element name="id" type="xsd:long" minOccurs="1" maxOccurs="1"  readOnly="false">
+                    </xsd:element>
+                    <xsd:element name="name" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                    </xsd:element>
+                    <xsd:element name="fieldType" type="fieldType" minOccurs="1" maxOccurs="1"  readOnly="false">
+                    </xsd:element>
+                    <xsd:element name="start" type="xsd:long" minOccurs="0" maxOccurs="1"  readOnly="false">
+                    </xsd:element>
+                    <xsd:element name="size" type="xsd:long" minOccurs="0" maxOccurs="1"  readOnly="false">
+                    </xsd:element>
+                    <xsd:element name="maskPattern" type="xsd:string" minOccurs="0" maxOccurs="1"  readOnly="false">
+                    </xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="hookdto">
+                <xsd:sequence>
+                    <xsd:element name="hookFunction" type="hookFunction" minOccurs="1" maxOccurs="1"  readOnly="false">
+                    </xsd:element>
+                    <xsd:element name="script" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                    </xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="layoutdto">
+                <xsd:sequence>
+                    <xsd:element name="id" type="xsd:long" minOccurs="1" maxOccurs="1"  readOnly="false">
+                    </xsd:element>
+                    <xsd:element name="description" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                    </xsd:element>
+                    <xsd:element name="fileFormat" type="fileFormat" minOccurs="1" maxOccurs="1"  readOnly="false">
+                    </xsd:element>
+                    <xsd:element name="errorStrategy" type="errorStrategy" minOccurs="1" maxOccurs="1"  readOnly="false">
+                    </xsd:element>
+                    <xsd:element name="delimiter" type="xsd:string" minOccurs="0" maxOccurs="1"  readOnly="false">
+                    </xsd:element>
+                    <xsd:element name="skipLines" type="xsd:long" minOccurs="1" maxOccurs="1"  readOnly="false">
+                    </xsd:element>
+                    <!-- collection wrapper for fields -->
+                    <xsd:element name="fields" minOccurs="1" maxOccurs="1">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="item" type="fielddto" minOccurs="1" maxOccurs="unbounded"/>
+                            </xsd:sequence>
+                        </xsd:complexType>
+                    </xsd:element>
+                    <!-- collection wrapper for hooks -->
+                    <xsd:element name="hooks" minOccurs="0" maxOccurs="1">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="item" type="hookdto" minOccurs="0" maxOccurs="unbounded"/>
+                            </xsd:sequence>
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="importReport">
+                <xsd:sequence>
+                    <xsd:element name="id" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                    </xsd:element>
+                    <xsd:element name="startTime" type="xsd:dateTime" minOccurs="1" maxOccurs="1"  readOnly="false">
+                    </xsd:element>
+                    <xsd:element name="endTime" type="xsd:dateTime" minOccurs="1" maxOccurs="1"  readOnly="false">
+                    </xsd:element>
+                    <xsd:element name="uri" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                    </xsd:element>
+                    <xsd:element name="beanClass" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                    </xsd:element>
+                    <xsd:element name="serviceClass" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                    </xsd:element>
+                    <xsd:element name="layout" type="layoutdto" minOccurs="1" maxOccurs="1"  readOnly="false">
+                    </xsd:element>
+                    <xsd:element name="sucessCount" type="xsd:long" minOccurs="1" maxOccurs="1"  readOnly="false">
+                    </xsd:element>
+                    <xsd:element name="errorsCount" type="xsd:long" minOccurs="1" maxOccurs="1"  readOnly="false">
+                    </xsd:element>
+                    <xsd:element name="filteredCount" type="xsd:long" minOccurs="1" maxOccurs="1"  readOnly="false">
+                    </xsd:element>
+                    <xsd:element name="skippedCount" type="xsd:long" minOccurs="1" maxOccurs="1"  readOnly="false">
+                    </xsd:element>
+                    <!-- collection wrapper for importErrors -->
+                    <xsd:element name="importErrors" minOccurs="0" maxOccurs="1">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="item" type="importError" minOccurs="0" maxOccurs="unbounded"/>
+                            </xsd:sequence>
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="exportEventStatus">
+                <xsd:sequence>
+                    <xsd:element name="importerId" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                    </xsd:element>
+                    <xsd:element name="eventType" type="eventType" minOccurs="1" maxOccurs="1"  readOnly="false">
+                    </xsd:element>
+                    <xsd:element name="recordCount" type="xsd:long" minOccurs="1" maxOccurs="1"  readOnly="false">
+                    </xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="importEventStatus">
+                <xsd:sequence>
+                    <xsd:element name="importerId" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                    </xsd:element>
+                    <xsd:element name="eventType" type="eventType" minOccurs="1" maxOccurs="1"  readOnly="false">
+                    </xsd:element>
+                    <xsd:element name="status" type="status" minOccurs="1" maxOccurs="1"  readOnly="false">
+                    </xsd:element>
+                    <xsd:element name="errorMessage" type="xsd:string" minOccurs="0" maxOccurs="1"  readOnly="false">
+                    </xsd:element>
+                    <xsd:element name="recordCount" type="xsd:long" minOccurs="1" maxOccurs="1"  readOnly="false">
+                    </xsd:element>
+                    <xsd:element name="importReport" type="importReport" minOccurs="0" maxOccurs="1"  readOnly="false">
+                    </xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="exportConfig">
+                <xsd:sequence>
+                    <xsd:element name="uri" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                    </xsd:element>
+                    <xsd:element name="layout" type="layoutdto" minOccurs="1" maxOccurs="1"  readOnly="false">
+                    </xsd:element>
+                    <xsd:element name="async" type="xsd:boolean" minOccurs="1" maxOccurs="1"  readOnly="false">
+                    </xsd:element>
+                    <xsd:element name="errorStrategy" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                    </xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="importConfig">
+                <xsd:sequence>
+                    <xsd:element name="uri" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                    </xsd:element>
+                    <xsd:element name="layout" type="layoutdto" minOccurs="1" maxOccurs="1"  readOnly="false">
+                    </xsd:element>
+                    <xsd:element name="async" type="xsd:boolean" minOccurs="1" maxOccurs="1"  readOnly="false">
+                    </xsd:element>
+                    <xsd:element name="batchSize" type="xsd:long" minOccurs="1" maxOccurs="1"  readOnly="false">
+                    </xsd:element>
+                    <xsd:element name="errorStrategy" type="errorStrategy" minOccurs="1" maxOccurs="1"  readOnly="false">
+                    </xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
             <xsd:complexType name="dependency">
                 <xsd:sequence>
                     <xsd:element name="domain" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
@@ -188,6 +421,11 @@
                     </xsd:element>
                 </xsd:sequence>
             </xsd:complexType>
+            <xsd:simpleType name="uuid">
+                <xsd:restriction base="xsd:string">
+                	<xsd:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" />
+                </xsd:restriction>
+             </xsd:simpleType>
             
             <!-- Message payload elements for signals -->
             <xsd:element name="estornarPagamentos">
@@ -214,6 +452,22 @@
             </xsd:element>
             
             <!-- Message input/output elements for commands -->
+            <xsd:element name="exportConvidado">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="config" type="exportConfig" minOccurs="1" maxOccurs="1"  readOnly="false">
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="exportConvidadoOutput">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="exportJobId" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
             <xsd:element name="getMetadata">
                 <xsd:complexType>
                     <xsd:sequence>
@@ -226,6 +480,17 @@
                 <xsd:complexType>
                     <xsd:sequence>
                         <xsd:element name="metadata" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="createConvidado">
+                <xsd:complexType/>
+            </xsd:element>
+            <xsd:element name="retrieveConvidado">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="id" type="xsd:uuid" minOccurs="1" maxOccurs="1"  readOnly="false">
                         </xsd:element>
                     </xsd:sequence>
                 </xsd:complexType>
@@ -263,6 +528,95 @@
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>
+            <xsd:element name="updateConvidado">
+                <xsd:complexType/>
+            </xsd:element>
+            <xsd:element name="importConvidado">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="config" type="importConfig" minOccurs="1" maxOccurs="1"  readOnly="false">
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="importConvidadoOutput">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="importJobId" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="deleteConvidado">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="id" type="xsd:uuid" minOccurs="1" maxOccurs="1"  readOnly="false">
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="listConvidado">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="offset" type="xsd:long" minOccurs="1" maxOccurs="1"  readOnly="false">
+                        </xsd:element>
+                        <xsd:element name="size" type="xsd:long" minOccurs="1" maxOccurs="1"  readOnly="false">
+                        </xsd:element>
+                        <xsd:element name="orderBy" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                        </xsd:element>
+                        <xsd:element name="filter" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                        </xsd:element>
+                        <!-- collection wrapper for displayFields -->
+                        <xsd:element name="displayFields" minOccurs="1" maxOccurs="1">
+                            <xsd:complexType>
+                                <xsd:sequence>
+                                    <xsd:element name="item" type="xsd:string" minOccurs="1" maxOccurs="unbounded"/>
+                                </xsd:sequence>
+                            </xsd:complexType>
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="listConvidadoOutput">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <!-- collection wrapper for contents -->
+                        <xsd:element name="contents" minOccurs="1" maxOccurs="1">
+                            <xsd:complexType>
+                                <xsd:sequence>
+                                    <xsd:element name="item" type="convidado" minOccurs="1" maxOccurs="unbounded"/>
+                                </xsd:sequence>
+                            </xsd:complexType>
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="createBulkConvidado">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <!-- collection wrapper for entities -->
+                        <xsd:element name="entities" minOccurs="1" maxOccurs="1">
+                            <xsd:complexType>
+                                <xsd:sequence>
+                                    <xsd:element name="item" type="convidado" minOccurs="1" maxOccurs="unbounded"/>
+                                </xsd:sequence>
+                            </xsd:complexType>
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="createBulkConvidadoOutput">
+                <xsd:complexType>
+                    <xsd:sequence>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="odata">
+                <xsd:complexType/>
+            </xsd:element>
+            <xsd:element name="createMergeConvidado">
+                <xsd:complexType/>
+            </xsd:element>
             <xsd:element name="helloWorld">
                 <xsd:complexType>
                     <xsd:sequence>
@@ -278,6 +632,9 @@
                         </xsd:element>
                     </xsd:sequence>
                 </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="updateMergeConvidado">
+                <xsd:complexType/>
             </xsd:element>
             <xsd:element name="cadastrarConvidado">
                 <xsd:complexType>
@@ -342,11 +699,29 @@
         </xsd:schema>
     </wsdl:types>
     
+    <wsdl:message name="exportConvidadoRequest">
+        <wsdl:part name="parameters" element="exportConvidado"/>
+    </wsdl:message>
+    <wsdl:message name="exportConvidadoResponse">
+        <wsdl:part name="result" element="exportConvidadoOutput"/>
+    </wsdl:message>
     <wsdl:message name="getMetadataRequest">
         <wsdl:part name="parameters" element="getMetadata"/>
     </wsdl:message>
     <wsdl:message name="getMetadataResponse">
         <wsdl:part name="result" element="getMetadataOutput"/>
+    </wsdl:message>
+    <wsdl:message name="createConvidadoRequest">
+        <wsdl:part name="toCreate" element="createConvidado"/>
+    </wsdl:message>
+    <wsdl:message name="createConvidadoResponse">
+        <wsdl:part name="created" element="createConvidadoOutput"/>
+    </wsdl:message>
+    <wsdl:message name="retrieveConvidadoRequest">
+        <wsdl:part name="toRetrieve" element="retrieveConvidado"/>
+    </wsdl:message>
+    <wsdl:message name="retrieveConvidadoResponse">
+        <wsdl:part name="retrieved" element="retrieveConvidadoOutput"/>
     </wsdl:message>
     <wsdl:message name="getDependenciesRequest">
         <wsdl:part name="parameters" element="getDependencies"/>
@@ -360,8 +735,50 @@
     <wsdl:message name="comprarIngressoResponse">
         <wsdl:part name="result" element="comprarIngressoOutput"/>
     </wsdl:message>
+    <wsdl:message name="updateConvidadoRequest">
+        <wsdl:part name="toUpdate" element="updateConvidado"/>
+    </wsdl:message>
+    <wsdl:message name="updateConvidadoResponse">
+        <wsdl:part name="updated" element="updateConvidadoOutput"/>
+    </wsdl:message>
+    <wsdl:message name="importConvidadoRequest">
+        <wsdl:part name="parameters" element="importConvidado"/>
+    </wsdl:message>
+    <wsdl:message name="importConvidadoResponse">
+        <wsdl:part name="result" element="importConvidadoOutput"/>
+    </wsdl:message>
     <wsdl:message name="estornarPagamentosSignal">
         <wsdl:part name="parameters" element="estornarPagamentos"/>
+    </wsdl:message>
+    <wsdl:message name="deleteConvidadoRequest">
+        <wsdl:part name="toDelete" element="deleteConvidado"/>
+    </wsdl:message>
+    <wsdl:message name="listConvidadoRequest">
+        <wsdl:part name="pageRequest" element="listConvidado"/>
+    </wsdl:message>
+    <wsdl:message name="listConvidadoResponse">
+        <wsdl:part name="pagedResults" element="listConvidadoOutput"/>
+    </wsdl:message>
+    <wsdl:message name="createBulkConvidadoRequest">
+        <wsdl:part name="parameters" element="createBulkConvidado"/>
+    </wsdl:message>
+    <wsdl:message name="createBulkConvidadoResponse">
+        <wsdl:part name="result" element="createBulkConvidadoOutput"/>
+    </wsdl:message>
+    <wsdl:message name="cancelarEventoSignal">
+        <wsdl:part name="parameters" element="cancelarEvento"/>
+    </wsdl:message>
+    <wsdl:message name="odataRequest">
+        <wsdl:part name="parameters" element="odata"/>
+    </wsdl:message>
+    <wsdl:message name="odataResponse">
+        <wsdl:part name="result" element="odataOutput"/>
+    </wsdl:message>
+    <wsdl:message name="createMergeConvidadoRequest">
+        <wsdl:part name="parameters" element="createMergeConvidado"/>
+    </wsdl:message>
+    <wsdl:message name="createMergeConvidadoResponse">
+        <wsdl:part name="result" element="createMergeConvidadoOutput"/>
     </wsdl:message>
     <wsdl:message name="helloWorldRequest">
         <wsdl:part name="parameters" element="helloWorld"/>
@@ -369,8 +786,11 @@
     <wsdl:message name="helloWorldResponse">
         <wsdl:part name="result" element="helloWorldOutput"/>
     </wsdl:message>
-    <wsdl:message name="cancelarEventoSignal">
-        <wsdl:part name="parameters" element="cancelarEvento"/>
+    <wsdl:message name="updateMergeConvidadoRequest">
+        <wsdl:part name="parameters" element="updateMergeConvidado"/>
+    </wsdl:message>
+    <wsdl:message name="updateMergeConvidadoResponse">
+        <wsdl:part name="result" element="updateMergeConvidadoOutput"/>
     </wsdl:message>
     <wsdl:message name="cadastrarConvidadoRequest">
         <wsdl:part name="parameters" element="cadastrarConvidado"/>
@@ -386,6 +806,13 @@
     </wsdl:message>
     
     <wsdl:portType name="my_servicePortType">
+        <wsdl:operation name="exportConvidado">
+            <wsdl:documentation>
+            WARNING: THIS OPERATION IS PRIVATE AND MAY HAVE ITS BEHAVIOR CHANGED AT ANY TIME WITHOUT NOTICE. 
+            </wsdl:documentation>
+            <wsdl:input message="exportConvidadoRequest"/>
+            <wsdl:output message="exportConvidadoResponse"/>
+        </wsdl:operation>
         <wsdl:operation name="getMetadata">
             <wsdl:documentation>
             WARNING: THIS OPERATION IS PRIVATE AND MAY HAVE ITS BEHAVIOR CHANGED AT ANY TIME WITHOUT NOTICE. 
@@ -393,6 +820,22 @@
             </wsdl:documentation>
             <wsdl:input message="getMetadataRequest"/>
             <wsdl:output message="getMetadataResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="createConvidado">
+            <wsdl:documentation>
+            THIS OPERATION IS PUBLIC. 
+            The 'create' request primitive for the Convidado entity. 
+            </wsdl:documentation>
+            <wsdl:input message="createConvidadoRequest"/>
+            <wsdl:output message="createConvidadoResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="retrieveConvidado">
+            <wsdl:documentation>
+            THIS OPERATION IS PUBLIC. 
+            The 'retrieve' request primitive for the Convidado entity. 
+            </wsdl:documentation>
+            <wsdl:input message="retrieveConvidadoRequest"/>
+            <wsdl:output message="retrieveConvidadoResponse"/>
         </wsdl:operation>
         <wsdl:operation name="getDependencies">
             <wsdl:documentation>
@@ -409,11 +852,71 @@
             <wsdl:input message="comprarIngressoRequest"/>
             <wsdl:output message="comprarIngressoResponse"/>
         </wsdl:operation>
+        <wsdl:operation name="updateConvidado">
+            <wsdl:documentation>
+            THIS OPERATION IS PUBLIC. 
+            The 'update' request primitive for the Convidado entity. 
+            </wsdl:documentation>
+            <wsdl:input message="updateConvidadoRequest"/>
+            <wsdl:output message="updateConvidadoResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="importConvidado">
+            <wsdl:documentation>
+            WARNING: THIS OPERATION IS PRIVATE AND MAY HAVE ITS BEHAVIOR CHANGED AT ANY TIME WITHOUT NOTICE. 
+            </wsdl:documentation>
+            <wsdl:input message="importConvidadoRequest"/>
+            <wsdl:output message="importConvidadoResponse"/>
+        </wsdl:operation>
         <wsdl:operation name="estornarPagamentos">
             <wsdl:documentation>
             WARNING: THIS OPERATION IS PRIVATE AND MAY HAVE ITS BEHAVIOR CHANGED AT ANY TIME WITHOUT NOTICE. 
             </wsdl:documentation>
             <wsdl:input message="estornarPagamentosSignal"/>
+        </wsdl:operation>
+        <wsdl:operation name="deleteConvidado">
+            <wsdl:documentation>
+            THIS OPERATION IS PUBLIC. 
+            The 'delete' request primitive for the Convidado entity. 
+            </wsdl:documentation>
+            <wsdl:input message="deleteConvidadoRequest"/>
+            <wsdl:output message="deleteConvidadoResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="listConvidado">
+            <wsdl:documentation>
+            WARNING: THIS OPERATION IS PRIVATE AND MAY HAVE ITS BEHAVIOR CHANGED AT ANY TIME WITHOUT NOTICE. 
+            The 'list' request primitive for the Convidado entity. 
+            </wsdl:documentation>
+            <wsdl:input message="listConvidadoRequest"/>
+            <wsdl:output message="listConvidadoResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="createBulkConvidado">
+            <wsdl:documentation>
+            THIS OPERATION IS PUBLIC. 
+            The 'createBulk' request primitive for the Convidado entity. 
+            </wsdl:documentation>
+            <wsdl:input message="createBulkConvidadoRequest"/>
+            <wsdl:output message="createBulkConvidadoResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="cancelarEvento">
+            <wsdl:documentation>
+            WARNING: THIS OPERATION IS PRIVATE AND MAY HAVE ITS BEHAVIOR CHANGED AT ANY TIME WITHOUT NOTICE. 
+            </wsdl:documentation>
+            <wsdl:input message="cancelarEventoSignal"/>
+        </wsdl:operation>
+        <wsdl:operation name="odata">
+            <wsdl:documentation>
+            WARNING: THIS OPERATION IS PRIVATE AND MAY HAVE ITS BEHAVIOR CHANGED AT ANY TIME WITHOUT NOTICE. 
+            </wsdl:documentation>
+            <wsdl:input message="odataRequest"/>
+            <wsdl:output message="odataResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="createMergeConvidado">
+            <wsdl:documentation>
+            THIS OPERATION IS PUBLIC. 
+            The 'createMerge' request primitive for the Convidado entity. 
+            </wsdl:documentation>
+            <wsdl:input message="createMergeConvidadoRequest"/>
+            <wsdl:output message="createMergeConvidadoResponse"/>
         </wsdl:operation>
         <wsdl:operation name="helloWorld">
             <wsdl:documentation>
@@ -423,11 +926,13 @@
             <wsdl:input message="helloWorldRequest"/>
             <wsdl:output message="helloWorldResponse"/>
         </wsdl:operation>
-        <wsdl:operation name="cancelarEvento">
+        <wsdl:operation name="updateMergeConvidado">
             <wsdl:documentation>
-            WARNING: THIS OPERATION IS PRIVATE AND MAY HAVE ITS BEHAVIOR CHANGED AT ANY TIME WITHOUT NOTICE. 
+            THIS OPERATION IS PUBLIC. 
+            The 'updateMerge' request primitive for the Convidado entity. 
             </wsdl:documentation>
-            <wsdl:input message="cancelarEventoSignal"/>
+            <wsdl:input message="updateMergeConvidadoRequest"/>
+            <wsdl:output message="updateMergeConvidadoResponse"/>
         </wsdl:operation>
         <wsdl:operation name="cadastrarConvidado">
             <wsdl:documentation>
@@ -449,8 +954,35 @@
     
     <wsdl:binding name="my_serviceSoapBinding" type="my_servicePortType">
         <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="exportConvidado">
+            <soap:operation soapAction="exportConvidado"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
         <wsdl:operation name="getMetadata">
             <soap:operation soapAction="getMetadata"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="createConvidado">
+            <soap:operation soapAction="createConvidado"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="retrieveConvidado">
+            <soap:operation soapAction="retrieveConvidado"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -476,14 +1008,50 @@
                 <soap:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
+        <wsdl:operation name="updateConvidado">
+            <soap:operation soapAction="updateConvidado"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="importConvidado">
+            <soap:operation soapAction="importConvidado"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
         <wsdl:operation name="estornarPagamentos">
             <soap:operation soapAction="estornarPagamentos"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
         </wsdl:operation>
-        <wsdl:operation name="helloWorld">
-            <soap:operation soapAction="helloWorld"/>
+        <wsdl:operation name="deleteConvidado">
+            <soap:operation soapAction="deleteConvidado"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="listConvidado">
+            <soap:operation soapAction="listConvidado"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="createBulkConvidado">
+            <soap:operation soapAction="createBulkConvidado"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -496,6 +1064,42 @@
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="odata">
+            <soap:operation soapAction="odata"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="createMergeConvidado">
+            <soap:operation soapAction="createMergeConvidado"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="helloWorld">
+            <soap:operation soapAction="helloWorld"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updateMergeConvidado">
+            <soap:operation soapAction="updateMergeConvidado"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
         </wsdl:operation>
         <wsdl:operation name="cadastrarConvidado">
             <soap:operation soapAction="cadastrarConvidado"/>

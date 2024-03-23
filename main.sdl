@@ -121,5 +121,19 @@ service my_service {
     entities {
     // define any entities here
 
+        "Entidade que representa o convidado de evento"
+        entity convidado {
+        "ID do convidado"
+        id: uuid?
+        "Nome do convidado"
+        nome: string
+        "Nome social do convidado"
+        nomeSocial : string?
+        "CPF do convidado"
+        cpf: string
+        "Data de nascimento do convidado"
+        dataNascimneto: date
+        }
+
     }
 }

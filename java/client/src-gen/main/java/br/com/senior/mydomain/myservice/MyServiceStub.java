@@ -156,6 +156,60 @@ public interface MyServiceStub {
 	CompletableFuture<GetMetadataOutput> getMetadataRequest(GetMetadataInput input, long timeout);
 	/**
 	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 * Chamada síncrona, o valor de timeout deve ser informado em ms 
+	 */
+	ImportConvidadoOutput importConvidado(ImportConvidadoInput input, long timeout);
+	
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 * Chamada assíncrona
+	 */
+	void importConvidado(ImportConvidadoInput input);
+	
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<ImportConvidadoOutput> importConvidadoRequest(ImportConvidadoInput input);
+	
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<ImportConvidadoOutput> importConvidadoRequest(ImportConvidadoInput input, long timeout);
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 * Chamada síncrona, o valor de timeout deve ser informado em ms 
+	 */
+	ExportConvidadoOutput exportConvidado(ExportConvidadoInput input, long timeout);
+	
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 * Chamada assíncrona
+	 */
+	void exportConvidado(ExportConvidadoInput input);
+	
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<ExportConvidadoOutput> exportConvidadoRequest(ExportConvidadoInput input);
+	
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<ExportConvidadoOutput> exportConvidadoRequest(ExportConvidadoInput input, long timeout);
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
 	 * Returns a list with all dependencies from this service, along with their respective versions
 	 * Chamada síncrona, o valor de timeout deve ser informado em ms 
 	 */
@@ -181,6 +235,210 @@ public interface MyServiceStub {
 	 * Chamada assíncrona utilizando request
 	 */
 	CompletableFuture<GetDependenciesOutput> getDependenciesRequest(long timeout);
+	/**
+	 * This is a public operation
+	 * The 'create' request primitive for the Convidado entity.
+	 * Chamada síncrona, o valor de timeout deve ser informado em ms 
+	 */
+	Convidado createConvidado(Convidado input, long timeout);
+	
+	/**
+	 * This is a public operation
+	 * The 'create' request primitive for the Convidado entity.
+	 * Chamada assíncrona
+	 */
+	void createConvidado(Convidado input);
+	
+	/**
+	 * This is a public operation
+	 * The 'create' request primitive for the Convidado entity.
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<Convidado> createConvidadoRequest(Convidado input);
+	
+	/**
+	 * This is a public operation
+	 * The 'create' request primitive for the Convidado entity.
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<Convidado> createConvidadoRequest(Convidado input, long timeout);
+	/**
+	 * This is a public operation
+	 * The 'createBulk' request primitive for the Convidado entity.
+	 * Chamada síncrona, o valor de timeout deve ser informado em ms 
+	 */
+	CreateBulkConvidadoOutput createBulkConvidado(CreateBulkConvidadoInput input, long timeout);
+	
+	/**
+	 * This is a public operation
+	 * The 'createBulk' request primitive for the Convidado entity.
+	 * Chamada assíncrona
+	 */
+	void createBulkConvidado(CreateBulkConvidadoInput input);
+	
+	/**
+	 * This is a public operation
+	 * The 'createBulk' request primitive for the Convidado entity.
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<CreateBulkConvidadoOutput> createBulkConvidadoRequest(CreateBulkConvidadoInput input);
+	
+	/**
+	 * This is a public operation
+	 * The 'createBulk' request primitive for the Convidado entity.
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<CreateBulkConvidadoOutput> createBulkConvidadoRequest(CreateBulkConvidadoInput input, long timeout);
+	/**
+	 * This is a public operation
+	 * The 'createMerge' request primitive for the Convidado entity.
+	 * Chamada síncrona, o valor de timeout deve ser informado em ms 
+	 */
+	Convidado createMergeConvidado(Convidado input, long timeout);
+	
+	/**
+	 * This is a public operation
+	 * The 'createMerge' request primitive for the Convidado entity.
+	 * Chamada assíncrona
+	 */
+	void createMergeConvidado(Convidado input);
+	
+	/**
+	 * This is a public operation
+	 * The 'createMerge' request primitive for the Convidado entity.
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<Convidado> createMergeConvidadoRequest(Convidado input);
+	
+	/**
+	 * This is a public operation
+	 * The 'createMerge' request primitive for the Convidado entity.
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<Convidado> createMergeConvidadoRequest(Convidado input, long timeout);
+	/**
+	 * This is a public operation
+	 * The 'retrieve' request primitive for the Convidado entity.
+	 * Chamada síncrona, o valor de timeout deve ser informado em ms 
+	 */
+	Convidado retrieveConvidado(Convidado.GetRequest input, long timeout);
+	
+	/**
+	 * This is a public operation
+	 * The 'retrieve' request primitive for the Convidado entity.
+	 * Chamada assíncrona
+	 */
+	void retrieveConvidado(Convidado.GetRequest input);
+	
+	/**
+	 * This is a public operation
+	 * The 'retrieve' request primitive for the Convidado entity.
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<Convidado> retrieveConvidadoRequest(Convidado.GetRequest input);
+	
+	/**
+	 * This is a public operation
+	 * The 'retrieve' request primitive for the Convidado entity.
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<Convidado> retrieveConvidadoRequest(Convidado.GetRequest input, long timeout);
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'list' request primitive for the Convidado entity.
+	 * Chamada síncrona, o valor de timeout deve ser informado em ms 
+	 */
+	Convidado.PagedResults listConvidado(Convidado.PageRequest input, long timeout);
+	
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'list' request primitive for the Convidado entity.
+	 * Chamada assíncrona
+	 */
+	void listConvidado(Convidado.PageRequest input);
+	
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'list' request primitive for the Convidado entity.
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<Convidado.PagedResults> listConvidadoRequest(Convidado.PageRequest input);
+	
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'list' request primitive for the Convidado entity.
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<Convidado.PagedResults> listConvidadoRequest(Convidado.PageRequest input, long timeout);
+	/**
+	 * This is a public operation
+	 * The 'update' request primitive for the Convidado entity.
+	 * Chamada síncrona, o valor de timeout deve ser informado em ms 
+	 */
+	Convidado updateConvidado(Convidado input, long timeout);
+	
+	/**
+	 * This is a public operation
+	 * The 'update' request primitive for the Convidado entity.
+	 * Chamada assíncrona
+	 */
+	void updateConvidado(Convidado input);
+	
+	/**
+	 * This is a public operation
+	 * The 'update' request primitive for the Convidado entity.
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<Convidado> updateConvidadoRequest(Convidado input);
+	
+	/**
+	 * This is a public operation
+	 * The 'update' request primitive for the Convidado entity.
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<Convidado> updateConvidadoRequest(Convidado input, long timeout);
+	/**
+	 * This is a public operation
+	 * The 'updateMerge' request primitive for the Convidado entity.
+	 * Chamada síncrona, o valor de timeout deve ser informado em ms 
+	 */
+	Convidado updateMergeConvidado(Convidado input, long timeout);
+	
+	/**
+	 * This is a public operation
+	 * The 'updateMerge' request primitive for the Convidado entity.
+	 * Chamada assíncrona
+	 */
+	void updateMergeConvidado(Convidado input);
+	
+	/**
+	 * This is a public operation
+	 * The 'updateMerge' request primitive for the Convidado entity.
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<Convidado> updateMergeConvidadoRequest(Convidado input);
+	
+	/**
+	 * This is a public operation
+	 * The 'updateMerge' request primitive for the Convidado entity.
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<Convidado> updateMergeConvidadoRequest(Convidado input, long timeout);
+	/**
+	 * This is a public operation
+	 * The 'delete' request primitive for the Convidado entity.
+	 * Chamada síncrona, o valor de timeout deve ser informado em ms 
+	 */
+	void deleteConvidado(Convidado.Id input, long timeout);
+	
+	/**
+	 * This is a public operation
+	 * The 'delete' request primitive for the Convidado entity.
+	 * Chamada assíncrona
+	 */
+	void deleteConvidado(Convidado.Id input);
+	
+	
 
 	/**
 	 * Chamada assíncrona para o método cancelarEvento
@@ -219,6 +477,20 @@ public interface MyServiceStub {
 	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
 	 */
 	void publishNotifyUserEvent( NotifyUserEventPayload input );
+			
+	
+	/**
+	 * Chamada assíncrona para o método publishImportConvidadoEvent 
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 */
+	void publishImportConvidadoEvent( ImportConvidadoEventPayload input );
+			
+	
+	/**
+	 * Chamada assíncrona para o método publishExportConvidadoEvent 
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 */
+	void publishExportConvidadoEvent( ExportConvidadoEventPayload input );
 			
 	
 

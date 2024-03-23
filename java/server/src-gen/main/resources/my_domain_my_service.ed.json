@@ -8,7 +8,134 @@
 	"enumerations": {
 	},
 	"entities": {
+		"convidado": {
+			"id": "id",
+			"name": "convidado",
+			"customizable": true,
+			"external": false,
+			"slots": {
+				"id": {
+					"name": "id",
+					"type": "string",
+					"format": "uuid",
+					"optional": true,
+					"hidden": false,
+					"multivalued": false,
+					"readOnly": true
+				},
+				"nome": {
+					"name": "nome",
+					"type": "string",
+					"optional": false,
+					"hidden": false,
+					"multivalued": false,
+					"readOnly": false
+				},
+				"nomeSocial": {
+					"name": "nomeSocial",
+					"type": "string",
+					"optional": true,
+					"hidden": false,
+					"multivalued": false,
+					"readOnly": false
+				},
+				"cpf": {
+					"name": "cpf",
+					"type": "string",
+					"optional": false,
+					"hidden": false,
+					"multivalued": false,
+					"readOnly": false
+				},
+				"dataNascimneto": {
+					"name": "dataNascimneto",
+					"type": "date",
+					"optional": false,
+					"hidden": false,
+					"multivalued": false,
+					"readOnly": false
+				}
+			},
+			"lookup": {
+				"searchFields": [
+					{
+						"name": "id",
+						"optional": true,
+						"multiple": false
+					},
+					{
+						"name": "nome",
+						"optional": true,
+						"multiple": false
+					},
+					{
+						"name": "nomeSocial",
+						"optional": true,
+						"multiple": false
+					},
+					{
+						"name": "cpf",
+						"optional": true,
+						"multiple": false
+					},
+					{
+						"name": "dataNascimneto",
+						"optional": true,
+						"multiple": false
+					}
+				],
+				"displayFields": [
+					"id",
+					"nome",
+					"nomeSocial",
+					"cpf",
+					"dataNascimneto"
+				]
+			},
+			"advancedSearch": {
+				"searchFields": [
+					{
+						"name": "id",
+						"optional": true,
+						"multiple": false
+					},
+					{
+						"name": "nome",
+						"optional": true,
+						"multiple": false
+					},
+					{
+						"name": "nomeSocial",
+						"optional": true,
+						"multiple": false
+					},
+					{
+						"name": "cpf",
+						"optional": true,
+						"multiple": false
+					},
+					{
+						"name": "dataNascimneto",
+						"optional": true,
+						"multiple": false
+					}
+				],
+				"displayFields": [
+					"id",
+					"nome",
+					"nomeSocial",
+					"cpf",
+					"dataNascimneto"
+				]
+			}
+		}
 	},
 	"translations": {
+		"my_domain.my_service.convidado": "Entidade que representa o convidado de evento",
+		"my_domain.my_service.convidado_id": "ID do convidado",
+		"my_domain.my_service.convidado_nome": "Nome do convidado",
+		"my_domain.my_service.convidado_nome_social": "Nome social do convidado",
+		"my_domain.my_service.convidado_cpf": "CPF do convidado",
+		"my_domain.my_service.convidado_data_nascimneto": "Data de nascimento do convidado"
 	}
 }

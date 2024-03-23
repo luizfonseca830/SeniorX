@@ -160,6 +160,83 @@ definitions:
       - HTML
       - PLAIN_TEXT
     
+  
+  fieldType:
+    description: ""
+    type: string
+    enum:
+      - BINARY
+      - BOOLEAN
+      - DATE
+      - DATETIME
+      - LOCALDATETIME
+      - DOUBLE
+      - ENUM
+      - INTEGER
+      - MONEY
+      - STRING
+      - TIME
+    
+  
+  fileFormat:
+    description: ""
+    type: string
+    enum:
+      - CSV
+      - FLAT
+      - JSON
+      - XML
+    
+  
+  hookFunction:
+    description: ""
+    type: string
+    enum:
+      - BEFORE_PARSE
+      - BEFORE_CONVERSION
+      - ON_ERROR
+      - VALIDATE
+    
+  
+  eventType:
+    description: ""
+    type: string
+    enum:
+      - CHUNK
+      - DOWNLOAD
+      - ERROR
+      - FINISH
+      - START
+    
+  
+  errorStrategy:
+    description: ""
+    type: string
+    enum:
+      - CALL_SCRIPT
+      - IGNORE
+      - STOP
+    
+  
+  status:
+    description: ""
+    type: string
+    enum:
+      - DONE
+      - DONE_WITH_ERRORS
+      - DOWNLOADING
+      - ERROR
+      - NOT_STARTED
+      - RUNNING
+    
+  
+  errorType:
+    description: ""
+    type: string
+    enum:
+      - CONVERT_ERROR
+      - SERVICE_ERROR
+    
   mensagemRetornoComCodigo:
     description: ""
     discriminator: _discriminator
@@ -228,6 +305,32 @@ definitions:
       nomeSocial:
         type: string
         description: ""
+  
+  convidado:
+    description: "Entidade que representa o convidado de evento"
+    type: object
+    required:
+      - nome
+      - cpf
+      - dataNascimneto
+    properties:
+      id:
+        type: string
+        format: uuid
+        description: "ID do convidado"
+      nome:
+        type: string
+        description: "Nome do convidado"
+      nomeSocial:
+        type: string
+        description: "Nome social do convidado"
+      cpf:
+        type: string
+        description: "CPF do convidado"
+      dataNascimneto:
+        type: string
+        format: date
+        description: "Data de nascimento do convidado"
   
   notifyUserEventPayload:
     description: "Represents a regular user event notification payload"
@@ -346,6 +449,310 @@ definitions:
       errorCode:
         type: string
         description: "The program-accessible (and service-specific) error code."
+  
+  importError:
+    description: ""
+    type: object
+    required:
+      - errorType
+      - lineNumber
+      - bean
+      - message
+      - exceptionClass
+    properties:
+      errorType:
+        type: string
+        allOf:
+        - $ref: '#/definitions/errorType'
+        description: ""
+      lineNumber:
+        type: integer
+        format: int64
+        description: ""
+      bean:
+        type: string
+        description: ""
+      message:
+        type: string
+        description: ""
+      exceptionClass:
+        type: string
+        description: ""
+  
+  fielddto:
+    description: ""
+    type: object
+    required:
+      - id
+      - name
+      - fieldType
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: ""
+      name:
+        type: string
+        description: ""
+      fieldType:
+        type: string
+        allOf:
+        - $ref: '#/definitions/fieldType'
+        description: ""
+      start:
+        type: integer
+        format: int64
+        description: ""
+      size:
+        type: integer
+        format: int64
+        description: ""
+      maskPattern:
+        type: string
+        description: ""
+  
+  hookdto:
+    description: ""
+    type: object
+    required:
+      - hookFunction
+      - script
+    properties:
+      hookFunction:
+        type: string
+        allOf:
+        - $ref: '#/definitions/hookFunction'
+        description: ""
+      script:
+        type: string
+        description: ""
+  
+  layoutdto:
+    description: ""
+    type: object
+    required:
+      - id
+      - description
+      - fileFormat
+      - errorStrategy
+      - skipLines
+      - fields
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: ""
+      description:
+        type: string
+        description: ""
+      fileFormat:
+        type: string
+        allOf:
+        - $ref: '#/definitions/fileFormat'
+        description: ""
+      errorStrategy:
+        type: string
+        allOf:
+        - $ref: '#/definitions/errorStrategy'
+        description: ""
+      delimiter:
+        type: string
+        description: ""
+      skipLines:
+        type: integer
+        format: int64
+        description: ""
+      fields:
+        type: array
+        items:
+          type: object
+          allOf:
+           - $ref: '#/definitions/fielddto'
+          minimum: 1
+        description: ""
+      hooks:
+        type: array
+        items:
+          type: object
+          allOf:
+           - $ref: '#/definitions/hookdto'
+        description: ""
+  
+  importReport:
+    description: ""
+    type: object
+    required:
+      - id
+      - startTime
+      - endTime
+      - uri
+      - beanClass
+      - serviceClass
+      - layout
+      - sucessCount
+      - errorsCount
+      - filteredCount
+      - skippedCount
+    properties:
+      id:
+        type: string
+        description: ""
+      startTime:
+        type: string
+        format: date-time
+        description: ""
+      endTime:
+        type: string
+        format: date-time
+        description: ""
+      uri:
+        type: string
+        description: ""
+      beanClass:
+        type: string
+        description: ""
+      serviceClass:
+        type: string
+        description: ""
+      layout:
+        type: object
+        allOf:
+         - $ref: '#/definitions/layoutdto'
+        description: ""
+      sucessCount:
+        type: integer
+        format: int64
+        description: ""
+      errorsCount:
+        type: integer
+        format: int64
+        description: ""
+      filteredCount:
+        type: integer
+        format: int64
+        description: ""
+      skippedCount:
+        type: integer
+        format: int64
+        description: ""
+      importErrors:
+        type: array
+        items:
+          type: object
+          allOf:
+           - $ref: '#/definitions/importError'
+        description: ""
+  
+  exportEventStatus:
+    description: ""
+    type: object
+    required:
+      - importerId
+      - eventType
+      - recordCount
+    properties:
+      importerId:
+        type: string
+        description: ""
+      eventType:
+        type: string
+        allOf:
+        - $ref: '#/definitions/eventType'
+        description: ""
+      recordCount:
+        type: integer
+        format: int64
+        description: ""
+  
+  importEventStatus:
+    description: ""
+    type: object
+    required:
+      - importerId
+      - eventType
+      - status
+      - recordCount
+    properties:
+      importerId:
+        type: string
+        description: ""
+      eventType:
+        type: string
+        allOf:
+        - $ref: '#/definitions/eventType'
+        description: ""
+      status:
+        type: string
+        allOf:
+        - $ref: '#/definitions/status'
+        description: ""
+      errorMessage:
+        type: string
+        description: ""
+      recordCount:
+        type: integer
+        format: int64
+        description: ""
+      importReport:
+        type: object
+        allOf:
+         - $ref: '#/definitions/importReport'
+        description: ""
+  
+  exportConfig:
+    description: ""
+    type: object
+    required:
+      - uri
+      - layout
+      - async
+      - errorStrategy
+    properties:
+      uri:
+        type: string
+        description: ""
+      layout:
+        type: object
+        allOf:
+         - $ref: '#/definitions/layoutdto'
+        description: ""
+      async:
+        type: boolean
+        description: ""
+      errorStrategy:
+        type: string
+        description: ""
+  
+  importConfig:
+    description: ""
+    type: object
+    required:
+      - uri
+      - layout
+      - async
+      - batchSize
+      - errorStrategy
+    properties:
+      uri:
+        type: string
+        description: ""
+      layout:
+        type: object
+        allOf:
+         - $ref: '#/definitions/layoutdto'
+        description: ""
+      async:
+        type: boolean
+        description: ""
+      batchSize:
+        type: integer
+        format: int64
+        description: ""
+      errorStrategy:
+        type: string
+        allOf:
+        - $ref: '#/definitions/errorStrategy'
+        description: ""
   
   dependency:
     description: "Represents a service dependency"

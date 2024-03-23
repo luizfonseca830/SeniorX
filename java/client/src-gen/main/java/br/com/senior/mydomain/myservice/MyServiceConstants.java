@@ -100,6 +100,53 @@ public interface MyServiceConstants {
     	 * @see #GET_METADATA the request primitive
     	 */
     	String GET_METADATA_ERROR = "getMetadataError";
+    	String ODATA = "odata";
+    	/**
+    	 * The success response primitive for odata.
+    	 *
+    	 * @see #ODATA the request primitive
+    	 */
+    	String ODATA_RESPONSE = "odataResponse";
+    	/**
+    	 * An error response primitive for odata.
+    	 *
+    	 * @see #ODATA the request primitive
+    	 */
+    	String ODATA_ERROR = "odataError";
+    	/**
+    	 * @see ImportConvidadoInput the request payload
+    	 */
+    	String IMPORT_CONVIDADO = "importConvidado";
+    	/**
+    	 * The success response primitive for importConvidado.
+    	 *
+    	 * @see #IMPORT_CONVIDADO the request primitive
+    	 * @see ImportConvidadoOutput the response payload
+    	 */
+    	String IMPORT_CONVIDADO_RESPONSE = "importConvidadoResponse";
+    	/**
+    	 * An error response primitive for importConvidado.
+    	 *
+    	 * @see #IMPORT_CONVIDADO the request primitive
+    	 */
+    	String IMPORT_CONVIDADO_ERROR = "importConvidadoError";
+    	/**
+    	 * @see ExportConvidadoInput the request payload
+    	 */
+    	String EXPORT_CONVIDADO = "exportConvidado";
+    	/**
+    	 * The success response primitive for exportConvidado.
+    	 *
+    	 * @see #EXPORT_CONVIDADO the request primitive
+    	 * @see ExportConvidadoOutput the response payload
+    	 */
+    	String EXPORT_CONVIDADO_RESPONSE = "exportConvidadoResponse";
+    	/**
+    	 * An error response primitive for exportConvidado.
+    	 *
+    	 * @see #EXPORT_CONVIDADO the request primitive
+    	 */
+    	String EXPORT_CONVIDADO_ERROR = "exportConvidadoError";
     	/**
     	 * Returns a list with all dependencies from this service, along with their respective versions
     	 */
@@ -117,6 +164,144 @@ public interface MyServiceConstants {
     	 * @see #GET_DEPENDENCIES the request primitive
     	 */
     	String GET_DEPENDENCIES_ERROR = "getDependenciesError";
+    	/**
+    	 * The 'create' request primitive for the Convidado entity.
+    	 * @see Convidado the request payload
+    	 */
+    	String CREATE_CONVIDADO = "createConvidado";
+    	/**
+    	 * The success response primitive for createConvidado.
+    	 *
+    	 * @see #CREATE_CONVIDADO the request primitive
+    	 */
+    	String CREATE_CONVIDADO_RESPONSE = "createConvidadoResponse";
+    	/**
+    	 * An error response primitive for createConvidado.
+    	 *
+    	 * @see #CREATE_CONVIDADO the request primitive
+    	 */
+    	String CREATE_CONVIDADO_ERROR = "createConvidadoError";
+    	/**
+    	 * The 'createBulk' request primitive for the Convidado entity.
+    	 * @see CreateBulkConvidadoInput the request payload
+    	 */
+    	String CREATE_BULK_CONVIDADO = "createBulkConvidado";
+    	/**
+    	 * The success response primitive for createBulkConvidado.
+    	 *
+    	 * @see #CREATE_BULK_CONVIDADO the request primitive
+    	 * @see CreateBulkConvidadoOutput the response payload
+    	 */
+    	String CREATE_BULK_CONVIDADO_RESPONSE = "createBulkConvidadoResponse";
+    	/**
+    	 * An error response primitive for createBulkConvidado.
+    	 *
+    	 * @see #CREATE_BULK_CONVIDADO the request primitive
+    	 */
+    	String CREATE_BULK_CONVIDADO_ERROR = "createBulkConvidadoError";
+    	/**
+    	 * The 'createMerge' request primitive for the Convidado entity.
+    	 * @see Convidado the request payload
+    	 */
+    	String CREATE_MERGE_CONVIDADO = "createMergeConvidado";
+    	/**
+    	 * The success response primitive for createMergeConvidado.
+    	 *
+    	 * @see #CREATE_MERGE_CONVIDADO the request primitive
+    	 */
+    	String CREATE_MERGE_CONVIDADO_RESPONSE = "createMergeConvidadoResponse";
+    	/**
+    	 * An error response primitive for createMergeConvidado.
+    	 *
+    	 * @see #CREATE_MERGE_CONVIDADO the request primitive
+    	 */
+    	String CREATE_MERGE_CONVIDADO_ERROR = "createMergeConvidadoError";
+    	/**
+    	 * The 'retrieve' request primitive for the Convidado entity.
+    	 * @see Convidado.GetRequest the request payload
+    	 */
+    	String RETRIEVE_CONVIDADO = "retrieveConvidado";
+    	/**
+    	 * The success response primitive for retrieveConvidado.
+    	 *
+    	 * @see #RETRIEVE_CONVIDADO the request primitive
+    	 */
+    	String RETRIEVE_CONVIDADO_RESPONSE = "retrieveConvidadoResponse";
+    	/**
+    	 * An error response primitive for retrieveConvidado.
+    	 *
+    	 * @see #RETRIEVE_CONVIDADO the request primitive
+    	 */
+    	String RETRIEVE_CONVIDADO_ERROR = "retrieveConvidadoError";
+    	/**
+    	 * The 'list' request primitive for the Convidado entity.
+    	 * @see convidado.pageRequest the request payload
+    	 */
+    	String LIST_CONVIDADO = "listConvidado";
+    	/**
+    	 * The success response primitive for listConvidado.
+    	 *
+    	 * @see #LIST_CONVIDADO the request primitive
+    	 * @see Convidado.PagedResults the response payload
+    	 */
+    	String LIST_CONVIDADO_RESPONSE = "listConvidadoResponse";
+    	/**
+    	 * An error response primitive for listConvidado.
+    	 *
+    	 * @see #LIST_CONVIDADO the request primitive
+    	 */
+    	String LIST_CONVIDADO_ERROR = "listConvidadoError";
+    	/**
+    	 * The 'update' request primitive for the Convidado entity.
+    	 * @see Convidado the request payload
+    	 */
+    	String UPDATE_CONVIDADO = "updateConvidado";
+    	/**
+    	 * The success response primitive for updateConvidado.
+    	 *
+    	 * @see #UPDATE_CONVIDADO the request primitive
+    	 */
+    	String UPDATE_CONVIDADO_RESPONSE = "updateConvidadoResponse";
+    	/**
+    	 * An error response primitive for updateConvidado.
+    	 *
+    	 * @see #UPDATE_CONVIDADO the request primitive
+    	 */
+    	String UPDATE_CONVIDADO_ERROR = "updateConvidadoError";
+    	/**
+    	 * The 'updateMerge' request primitive for the Convidado entity.
+    	 * @see Convidado the request payload
+    	 */
+    	String UPDATE_MERGE_CONVIDADO = "updateMergeConvidado";
+    	/**
+    	 * The success response primitive for updateMergeConvidado.
+    	 *
+    	 * @see #UPDATE_MERGE_CONVIDADO the request primitive
+    	 */
+    	String UPDATE_MERGE_CONVIDADO_RESPONSE = "updateMergeConvidadoResponse";
+    	/**
+    	 * An error response primitive for updateMergeConvidado.
+    	 *
+    	 * @see #UPDATE_MERGE_CONVIDADO the request primitive
+    	 */
+    	String UPDATE_MERGE_CONVIDADO_ERROR = "updateMergeConvidadoError";
+    	/**
+    	 * The 'delete' request primitive for the Convidado entity.
+    	 * @see Convidado.Id the request payload
+    	 */
+    	String DELETE_CONVIDADO = "deleteConvidado";
+    	/**
+    	 * The success response primitive for deleteConvidado.
+    	 *
+    	 * @see #DELETE_CONVIDADO the request primitive
+    	 */
+    	String DELETE_CONVIDADO_RESPONSE = "deleteConvidadoResponse";
+    	/**
+    	 * An error response primitive for deleteConvidado.
+    	 *
+    	 * @see #DELETE_CONVIDADO the request primitive
+    	 */
+    	String DELETE_CONVIDADO_ERROR = "deleteConvidadoError";
     }
     
     interface Signals {
@@ -135,6 +320,8 @@ public interface MyServiceConstants {
     	 * Default 'notifyUser' event.
     	 */
     	String NOTIFY_USER_EVENT = "notifyUserEvent";
+    	String IMPORT_CONVIDADO_EVENT = "importConvidadoEvent";
+    	String EXPORT_CONVIDADO_EVENT = "exportConvidadoEvent";
     }
     
 }

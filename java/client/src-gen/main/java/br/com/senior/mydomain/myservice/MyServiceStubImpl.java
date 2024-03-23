@@ -266,6 +266,92 @@ public class MyServiceStubImpl  implements MyServiceStub {
 		return impl.getMetadataRequest(input, timeout, TimeUnit.MILLISECONDS);
 	}
 	/**
+	 * Chamada síncrona para o método importConvidado
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 * @throws MyServiceMessageException quando um erro com payload for retornado pela mensageria
+	 */
+	@Override
+	public ImportConvidadoOutput importConvidado(ImportConvidadoInput input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.ImportConvidadoImpl impl = new br.com.senior.mydomain.myservice.impl.ImportConvidadoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.importConvidado(input, timeout);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método importConvidado
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 */
+	@Override
+	public void importConvidado(ImportConvidadoInput input) {
+		br.com.senior.mydomain.myservice.impl.ImportConvidadoImpl impl = new br.com.senior.mydomain.myservice.impl.ImportConvidadoImpl(messengerSupplier, userId, messageSupplier);
+		impl.importConvidado(input);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método importConvidado
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 */
+	@Override
+	public CompletableFuture<ImportConvidadoOutput> importConvidadoRequest(ImportConvidadoInput input) {
+		return this.importConvidadoRequest(input, 0l);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método importConvidado
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	*/
+	@Override
+	public CompletableFuture<ImportConvidadoOutput> importConvidadoRequest(ImportConvidadoInput input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.ImportConvidadoImpl impl = new br.com.senior.mydomain.myservice.impl.ImportConvidadoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.importConvidadoRequest(input, timeout, TimeUnit.MILLISECONDS);
+	}
+	/**
+	 * Chamada síncrona para o método exportConvidado
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 * @throws MyServiceMessageException quando um erro com payload for retornado pela mensageria
+	 */
+	@Override
+	public ExportConvidadoOutput exportConvidado(ExportConvidadoInput input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.ExportConvidadoImpl impl = new br.com.senior.mydomain.myservice.impl.ExportConvidadoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.exportConvidado(input, timeout);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método exportConvidado
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 */
+	@Override
+	public void exportConvidado(ExportConvidadoInput input) {
+		br.com.senior.mydomain.myservice.impl.ExportConvidadoImpl impl = new br.com.senior.mydomain.myservice.impl.ExportConvidadoImpl(messengerSupplier, userId, messageSupplier);
+		impl.exportConvidado(input);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método exportConvidado
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 */
+	@Override
+	public CompletableFuture<ExportConvidadoOutput> exportConvidadoRequest(ExportConvidadoInput input) {
+		return this.exportConvidadoRequest(input, 0l);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método exportConvidado
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	*/
+	@Override
+	public CompletableFuture<ExportConvidadoOutput> exportConvidadoRequest(ExportConvidadoInput input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.ExportConvidadoImpl impl = new br.com.senior.mydomain.myservice.impl.ExportConvidadoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.exportConvidadoRequest(input, timeout, TimeUnit.MILLISECONDS);
+	}
+	/**
 	 * Chamada síncrona para o método getDependencies
 	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
 	 * Returns a list with all dependencies from this service, along with their respective versions
@@ -308,6 +394,331 @@ public class MyServiceStubImpl  implements MyServiceStub {
 		br.com.senior.mydomain.myservice.impl.GetDependenciesImpl impl = new br.com.senior.mydomain.myservice.impl.GetDependenciesImpl(messengerSupplier, userId, messageSupplier);
 		return impl.getDependenciesRequest(timeout, TimeUnit.MILLISECONDS);
 	}
+	/**
+	 * Chamada síncrona para o método createConvidado
+	 * This is a public operation
+	 * The 'create' request primitive for the Convidado entity.
+	 * @throws MyServiceMessageException quando um erro com payload for retornado pela mensageria
+	 */
+	@Override
+	public Convidado createConvidado(Convidado input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.CreateConvidadoImpl impl = new br.com.senior.mydomain.myservice.impl.CreateConvidadoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.createConvidado(input, timeout);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método createConvidado
+	 * This is a public operation
+	 * The 'create' request primitive for the Convidado entity.
+	 */
+	@Override
+	public void createConvidado(Convidado input) {
+		br.com.senior.mydomain.myservice.impl.CreateConvidadoImpl impl = new br.com.senior.mydomain.myservice.impl.CreateConvidadoImpl(messengerSupplier, userId, messageSupplier);
+		impl.createConvidado(input);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método createConvidado
+	 * This is a public operation
+	 * The 'create' request primitive for the Convidado entity.
+	 */
+	@Override
+	public CompletableFuture<Convidado> createConvidadoRequest(Convidado input) {
+		return this.createConvidadoRequest(input, 0l);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método createConvidado
+	 * This is a public operation
+	 * The 'create' request primitive for the Convidado entity.
+	*/
+	@Override
+	public CompletableFuture<Convidado> createConvidadoRequest(Convidado input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.CreateConvidadoImpl impl = new br.com.senior.mydomain.myservice.impl.CreateConvidadoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.createConvidadoRequest(input, timeout, TimeUnit.MILLISECONDS);
+	}
+	/**
+	 * Chamada síncrona para o método createBulkConvidado
+	 * This is a public operation
+	 * The 'createBulk' request primitive for the Convidado entity.
+	 * @throws MyServiceMessageException quando um erro com payload for retornado pela mensageria
+	 */
+	@Override
+	public CreateBulkConvidadoOutput createBulkConvidado(CreateBulkConvidadoInput input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.CreateBulkConvidadoImpl impl = new br.com.senior.mydomain.myservice.impl.CreateBulkConvidadoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.createBulkConvidado(input, timeout);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método createBulkConvidado
+	 * This is a public operation
+	 * The 'createBulk' request primitive for the Convidado entity.
+	 */
+	@Override
+	public void createBulkConvidado(CreateBulkConvidadoInput input) {
+		br.com.senior.mydomain.myservice.impl.CreateBulkConvidadoImpl impl = new br.com.senior.mydomain.myservice.impl.CreateBulkConvidadoImpl(messengerSupplier, userId, messageSupplier);
+		impl.createBulkConvidado(input);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método createBulkConvidado
+	 * This is a public operation
+	 * The 'createBulk' request primitive for the Convidado entity.
+	 */
+	@Override
+	public CompletableFuture<CreateBulkConvidadoOutput> createBulkConvidadoRequest(CreateBulkConvidadoInput input) {
+		return this.createBulkConvidadoRequest(input, 0l);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método createBulkConvidado
+	 * This is a public operation
+	 * The 'createBulk' request primitive for the Convidado entity.
+	*/
+	@Override
+	public CompletableFuture<CreateBulkConvidadoOutput> createBulkConvidadoRequest(CreateBulkConvidadoInput input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.CreateBulkConvidadoImpl impl = new br.com.senior.mydomain.myservice.impl.CreateBulkConvidadoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.createBulkConvidadoRequest(input, timeout, TimeUnit.MILLISECONDS);
+	}
+	/**
+	 * Chamada síncrona para o método createMergeConvidado
+	 * This is a public operation
+	 * The 'createMerge' request primitive for the Convidado entity.
+	 * @throws MyServiceMessageException quando um erro com payload for retornado pela mensageria
+	 */
+	@Override
+	public Convidado createMergeConvidado(Convidado input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.CreateMergeConvidadoImpl impl = new br.com.senior.mydomain.myservice.impl.CreateMergeConvidadoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.createMergeConvidado(input, timeout);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método createMergeConvidado
+	 * This is a public operation
+	 * The 'createMerge' request primitive for the Convidado entity.
+	 */
+	@Override
+	public void createMergeConvidado(Convidado input) {
+		br.com.senior.mydomain.myservice.impl.CreateMergeConvidadoImpl impl = new br.com.senior.mydomain.myservice.impl.CreateMergeConvidadoImpl(messengerSupplier, userId, messageSupplier);
+		impl.createMergeConvidado(input);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método createMergeConvidado
+	 * This is a public operation
+	 * The 'createMerge' request primitive for the Convidado entity.
+	 */
+	@Override
+	public CompletableFuture<Convidado> createMergeConvidadoRequest(Convidado input) {
+		return this.createMergeConvidadoRequest(input, 0l);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método createMergeConvidado
+	 * This is a public operation
+	 * The 'createMerge' request primitive for the Convidado entity.
+	*/
+	@Override
+	public CompletableFuture<Convidado> createMergeConvidadoRequest(Convidado input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.CreateMergeConvidadoImpl impl = new br.com.senior.mydomain.myservice.impl.CreateMergeConvidadoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.createMergeConvidadoRequest(input, timeout, TimeUnit.MILLISECONDS);
+	}
+	/**
+	 * Chamada síncrona para o método retrieveConvidado
+	 * This is a public operation
+	 * The 'retrieve' request primitive for the Convidado entity.
+	 * @throws MyServiceMessageException quando um erro com payload for retornado pela mensageria
+	 */
+	@Override
+	public Convidado retrieveConvidado(Convidado.GetRequest input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.RetrieveConvidadoImpl impl = new br.com.senior.mydomain.myservice.impl.RetrieveConvidadoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.retrieveConvidado(input, timeout);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método retrieveConvidado
+	 * This is a public operation
+	 * The 'retrieve' request primitive for the Convidado entity.
+	 */
+	@Override
+	public void retrieveConvidado(Convidado.GetRequest input) {
+		br.com.senior.mydomain.myservice.impl.RetrieveConvidadoImpl impl = new br.com.senior.mydomain.myservice.impl.RetrieveConvidadoImpl(messengerSupplier, userId, messageSupplier);
+		impl.retrieveConvidado(input);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método retrieveConvidado
+	 * This is a public operation
+	 * The 'retrieve' request primitive for the Convidado entity.
+	 */
+	@Override
+	public CompletableFuture<Convidado> retrieveConvidadoRequest(Convidado.GetRequest input) {
+		return this.retrieveConvidadoRequest(input, 0l);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método retrieveConvidado
+	 * This is a public operation
+	 * The 'retrieve' request primitive for the Convidado entity.
+	*/
+	@Override
+	public CompletableFuture<Convidado> retrieveConvidadoRequest(Convidado.GetRequest input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.RetrieveConvidadoImpl impl = new br.com.senior.mydomain.myservice.impl.RetrieveConvidadoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.retrieveConvidadoRequest(input, timeout, TimeUnit.MILLISECONDS);
+	}
+	/**
+	 * Chamada síncrona para o método listConvidado
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'list' request primitive for the Convidado entity.
+	 * @throws MyServiceMessageException quando um erro com payload for retornado pela mensageria
+	 */
+	@Override
+	public Convidado.PagedResults listConvidado(Convidado.PageRequest input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.ListConvidadoImpl impl = new br.com.senior.mydomain.myservice.impl.ListConvidadoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.listConvidado(input, timeout);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método listConvidado
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'list' request primitive for the Convidado entity.
+	 */
+	@Override
+	public void listConvidado(Convidado.PageRequest input) {
+		br.com.senior.mydomain.myservice.impl.ListConvidadoImpl impl = new br.com.senior.mydomain.myservice.impl.ListConvidadoImpl(messengerSupplier, userId, messageSupplier);
+		impl.listConvidado(input);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método listConvidado
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'list' request primitive for the Convidado entity.
+	 */
+	@Override
+	public CompletableFuture<Convidado.PagedResults> listConvidadoRequest(Convidado.PageRequest input) {
+		return this.listConvidadoRequest(input, 0l);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método listConvidado
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'list' request primitive for the Convidado entity.
+	*/
+	@Override
+	public CompletableFuture<Convidado.PagedResults> listConvidadoRequest(Convidado.PageRequest input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.ListConvidadoImpl impl = new br.com.senior.mydomain.myservice.impl.ListConvidadoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.listConvidadoRequest(input, timeout, TimeUnit.MILLISECONDS);
+	}
+	/**
+	 * Chamada síncrona para o método updateConvidado
+	 * This is a public operation
+	 * The 'update' request primitive for the Convidado entity.
+	 * @throws MyServiceMessageException quando um erro com payload for retornado pela mensageria
+	 */
+	@Override
+	public Convidado updateConvidado(Convidado input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.UpdateConvidadoImpl impl = new br.com.senior.mydomain.myservice.impl.UpdateConvidadoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.updateConvidado(input, timeout);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método updateConvidado
+	 * This is a public operation
+	 * The 'update' request primitive for the Convidado entity.
+	 */
+	@Override
+	public void updateConvidado(Convidado input) {
+		br.com.senior.mydomain.myservice.impl.UpdateConvidadoImpl impl = new br.com.senior.mydomain.myservice.impl.UpdateConvidadoImpl(messengerSupplier, userId, messageSupplier);
+		impl.updateConvidado(input);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método updateConvidado
+	 * This is a public operation
+	 * The 'update' request primitive for the Convidado entity.
+	 */
+	@Override
+	public CompletableFuture<Convidado> updateConvidadoRequest(Convidado input) {
+		return this.updateConvidadoRequest(input, 0l);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método updateConvidado
+	 * This is a public operation
+	 * The 'update' request primitive for the Convidado entity.
+	*/
+	@Override
+	public CompletableFuture<Convidado> updateConvidadoRequest(Convidado input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.UpdateConvidadoImpl impl = new br.com.senior.mydomain.myservice.impl.UpdateConvidadoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.updateConvidadoRequest(input, timeout, TimeUnit.MILLISECONDS);
+	}
+	/**
+	 * Chamada síncrona para o método updateMergeConvidado
+	 * This is a public operation
+	 * The 'updateMerge' request primitive for the Convidado entity.
+	 * @throws MyServiceMessageException quando um erro com payload for retornado pela mensageria
+	 */
+	@Override
+	public Convidado updateMergeConvidado(Convidado input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.UpdateMergeConvidadoImpl impl = new br.com.senior.mydomain.myservice.impl.UpdateMergeConvidadoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.updateMergeConvidado(input, timeout);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método updateMergeConvidado
+	 * This is a public operation
+	 * The 'updateMerge' request primitive for the Convidado entity.
+	 */
+	@Override
+	public void updateMergeConvidado(Convidado input) {
+		br.com.senior.mydomain.myservice.impl.UpdateMergeConvidadoImpl impl = new br.com.senior.mydomain.myservice.impl.UpdateMergeConvidadoImpl(messengerSupplier, userId, messageSupplier);
+		impl.updateMergeConvidado(input);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método updateMergeConvidado
+	 * This is a public operation
+	 * The 'updateMerge' request primitive for the Convidado entity.
+	 */
+	@Override
+	public CompletableFuture<Convidado> updateMergeConvidadoRequest(Convidado input) {
+		return this.updateMergeConvidadoRequest(input, 0l);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método updateMergeConvidado
+	 * This is a public operation
+	 * The 'updateMerge' request primitive for the Convidado entity.
+	*/
+	@Override
+	public CompletableFuture<Convidado> updateMergeConvidadoRequest(Convidado input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.UpdateMergeConvidadoImpl impl = new br.com.senior.mydomain.myservice.impl.UpdateMergeConvidadoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.updateMergeConvidadoRequest(input, timeout, TimeUnit.MILLISECONDS);
+	}
+	/**
+	 * Chamada síncrona para o método deleteConvidado
+	 * This is a public operation
+	 * The 'delete' request primitive for the Convidado entity.
+	 * @throws MyServiceMessageException quando um erro com payload for retornado pela mensageria
+	 */
+	@Override
+	public void deleteConvidado(Convidado.Id input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.DeleteConvidadoImpl impl = new br.com.senior.mydomain.myservice.impl.DeleteConvidadoImpl(messengerSupplier, userId, messageSupplier);
+		impl.deleteConvidado(input, timeout);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método deleteConvidado
+	 * This is a public operation
+	 * The 'delete' request primitive for the Convidado entity.
+	 */
+	@Override
+	public void deleteConvidado(Convidado.Id input) {
+		br.com.senior.mydomain.myservice.impl.DeleteConvidadoImpl impl = new br.com.senior.mydomain.myservice.impl.DeleteConvidadoImpl(messengerSupplier, userId, messageSupplier);
+		impl.deleteConvidado(input);
+	}
+	
+	
 
 	/**
 	 * Chamada assíncrona para o método cancelarEvento
@@ -426,7 +837,39 @@ public class MyServiceStubImpl  implements MyServiceStub {
 			DtoJsonConverter.toJSON(input));
 	}
 	
+	private Message createMessage(ExportConvidadoEventPayload input, String requestName) {
+		if (messageSupplier != null && messageSupplier.get() != null) {
+			return messageSupplier.get().followUp( //
+				userId.getTenant(), //
+				MyServiceConstants.DOMAIN, //
+				MyServiceConstants.SERVICE, //
+				requestName, //
+				DtoJsonConverter.toJSON(input));
+		}
+		return  new Message(userId.getTenant(), // 
+			MyServiceConstants.DOMAIN, // 
+			MyServiceConstants.SERVICE, //
+			requestName, // 
+			DtoJsonConverter.toJSON(input));
+	}
+	
 	private Message createMessage(NotifyUserEventPayload input, String requestName) {
+		if (messageSupplier != null && messageSupplier.get() != null) {
+			return messageSupplier.get().followUp( //
+				userId.getTenant(), //
+				MyServiceConstants.DOMAIN, //
+				MyServiceConstants.SERVICE, //
+				requestName, //
+				DtoJsonConverter.toJSON(input));
+		}
+		return  new Message(userId.getTenant(), // 
+			MyServiceConstants.DOMAIN, // 
+			MyServiceConstants.SERVICE, //
+			requestName, // 
+			DtoJsonConverter.toJSON(input));
+	}
+	
+	private Message createMessage(ImportConvidadoEventPayload input, String requestName) {
 		if (messageSupplier != null && messageSupplier.get() != null) {
 			return messageSupplier.get().followUp( //
 				userId.getTenant(), //
@@ -491,6 +934,34 @@ public class MyServiceStubImpl  implements MyServiceStub {
 	 */
 	public void publishNotifyUserEvent( NotifyUserEventPayload input ) {
 		Message message = createMessage(input, MyServiceConstants.Events.NOTIFY_USER_EVENT);
+		try {
+			addMessageHeaders(message);
+			messengerSupplier.get().publish(message);
+		} catch (Exception e) {
+			throw new MyServiceException("Erro ao enviar a mensagem", e);
+		}
+	}
+	
+	/**
+	 * Chamada assíncrona para o método publishImportConvidadoEvent
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 */
+	public void publishImportConvidadoEvent( ImportConvidadoEventPayload input ) {
+		Message message = createMessage(input, MyServiceConstants.Events.IMPORT_CONVIDADO_EVENT);
+		try {
+			addMessageHeaders(message);
+			messengerSupplier.get().publish(message);
+		} catch (Exception e) {
+			throw new MyServiceException("Erro ao enviar a mensagem", e);
+		}
+	}
+	
+	/**
+	 * Chamada assíncrona para o método publishExportConvidadoEvent
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 */
+	public void publishExportConvidadoEvent( ExportConvidadoEventPayload input ) {
+		Message message = createMessage(input, MyServiceConstants.Events.EXPORT_CONVIDADO_EVENT);
 		try {
 			addMessageHeaders(message);
 			messengerSupplier.get().publish(message);

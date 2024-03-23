@@ -2,8 +2,17 @@ domain my_domain
 
 entities {
 	//define global properties here
+	generateExtraResources : true
+	securityType : secure
+	enumType : string
 }
 
 service my_service {
 	//define entities properties here
+
+	entities {
+
+	    entity convidado{
+	    }
+	}
 }
