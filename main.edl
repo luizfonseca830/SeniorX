@@ -12,10 +12,28 @@ service my_service {
 
 	entities {
 
-	    entity convidado{
+	    entity convidado {
 	    }
 
-	    entity evento{
+	    entity evento {
+	        relationships {
+	            OneToMany(ingressos) {
+	                type: composition
+	                opposite: evento
+	            }
+	        }
 	    }
+
+	    entity ingresso {
+	        relationships {
+	            ManyToOne(convidado) {
+	                type: aggregation
+	            }
+	            ManyToOne(evento) {
+	                type: aggregation
+	            }
+	        }
+	    }
+
 	}
 }

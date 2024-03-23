@@ -1,4 +1,4 @@
-/* Database: Oracle. Generation date: 2024-03-23 14:35:09:333 */
+/* Database: Oracle. Generation date: 2024-03-23 16:00:57:768 */
 /* Entity Convidado */
 create table convidado (
 	id RAW(16) NOT NULL,
@@ -18,6 +18,7 @@ CREATE INDEX convidado_ext ON convidado (ext) INDEXTYPE IS CTXSYS.CONTEXT PARAME
 create table evento (
 	id RAW(16) NOT NULL,
 	nome VARCHAR(30) NOT NULL,
+	lotacao_maxima NUMBER(19) NOT NULL /* lotacaoMaxima */,
 	data_hora TIMESTAMP NOT NULL /* dataHora */,
 	endereco VARCHAR(50) NOT NULL,
 	ext CLOB,
@@ -25,21 +26,39 @@ create table evento (
 );
 
 
-/* Enum List tipoEntradaEvento table */
-create table tipoEntradaEvento_evento (
+/* Enum List tipoentradaevento table */
+create table tipoentradaevento_evento (
 	evento_id RAW(16) NOT NULL,
-	tipoEntradaEvento VARCHAR(255) NOT NULL
+	tipoentradaevento VARCHAR(255) NOT NULL
 );
 /* Creating index for customization column */
 CREATE INDEX evento_ext ON evento (ext) INDEXTYPE IS CTXSYS.CONTEXT PARAMETERS ('section group CTXSYS.JSON_SECTION_GROUP SYNC (ON COMMIT)');
+
+/* Entity Ingresso */
+create table ingresso (
+	id RAW(16) NOT NULL,
+	data_hora TIMESTAMP /* dataHora */,
+	convidado RAW(16),
+	quantidade_acompanhantes NUMBER(19) NOT NULL /* quantidadeAcompanhantes */,
+	evento RAW(16) NOT NULL,
+	ext CLOB,
+	CONSTRAINT ingresso_JSON_ext CHECK (ext IS JSON)
+);
+
+
+/* Creating index for customization column */
+CREATE INDEX ingresso_ext ON ingresso (ext) INDEXTYPE IS CTXSYS.CONTEXT PARAMETERS ('section group CTXSYS.JSON_SECTION_GROUP SYNC (ON COMMIT)');
 
 /* Join Tables */
 
 /* Primary Key Constraints */
 alter table convidado add constraint pk_convidado_id primary key(id);
 alter table evento add constraint pk_evento_id primary key(id);
+alter table ingresso add constraint pk_ingresso_id primary key(id);
 
 /* Foreign Key Constraints */
+alter table ingresso add constraint fklh7qzwmne9jtkjqj37xzfkqnlicg foreign key (convidado) references convidado (id);
+alter table ingresso add constraint fk4r8s5mgnhdtiehzsvurfzkd1ium7 foreign key (evento) references evento (id);
 
 /* Unique Key Constraints */
 

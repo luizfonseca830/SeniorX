@@ -697,6 +697,387 @@ public interface MyServiceStub {
 	void deleteEvento(Evento.Id input);
 	
 	
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'create' request primitive for the ingressos attribute of evento entity.\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity.
+	 * Chamada síncrona, o valor de timeout deve ser informado em ms 
+	 */
+	Ingresso createEvento_Ingressos(Evento.Id parentId, Ingresso input, long timeout);
+	
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'create' request primitive for the ingressos attribute of evento entity.\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity.
+	 * Chamada assíncrona
+	 */
+	void createEvento_Ingressos(Evento.Id parentId, Ingresso input);
+	
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'create' request primitive for the ingressos attribute of evento entity.\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity.
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<Ingresso> createEvento_IngressosRequest(Evento.Id parentId, Ingresso input);
+	
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'create' request primitive for the ingressos attribute of evento entity.\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity.
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<Ingresso> createEvento_IngressosRequest(Evento.Id parentId, Ingresso input, long timeout);
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'createMerge' request primitive for the ingressos attribute of evento entity.\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity.
+	 * Chamada síncrona, o valor de timeout deve ser informado em ms 
+	 */
+	Ingresso createMergeEvento_Ingressos(Evento.Id parentId, Ingresso input, long timeout);
+	
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'createMerge' request primitive for the ingressos attribute of evento entity.\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity.
+	 * Chamada assíncrona
+	 */
+	void createMergeEvento_Ingressos(Evento.Id parentId, Ingresso input);
+	
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'createMerge' request primitive for the ingressos attribute of evento entity.\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity.
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<Ingresso> createMergeEvento_IngressosRequest(Evento.Id parentId, Ingresso input);
+	
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'createMerge' request primitive for the ingressos attribute of evento entity.\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity.
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<Ingresso> createMergeEvento_IngressosRequest(Evento.Id parentId, Ingresso input, long timeout);
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'update' request primitive for the ingressos attribute of evento entity.\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity.
+	 * Chamada síncrona, o valor de timeout deve ser informado em ms 
+	 */
+	Ingresso updateEvento_Ingressos(Evento.Id parentId, Ingresso input, long timeout);
+	
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'update' request primitive for the ingressos attribute of evento entity.\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity.
+	 * Chamada assíncrona
+	 */
+	void updateEvento_Ingressos(Evento.Id parentId, Ingresso input);
+	
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'update' request primitive for the ingressos attribute of evento entity.\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity.
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<Ingresso> updateEvento_IngressosRequest(Evento.Id parentId, Ingresso input);
+	
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'update' request primitive for the ingressos attribute of evento entity.\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity.
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<Ingresso> updateEvento_IngressosRequest(Evento.Id parentId, Ingresso input, long timeout);
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'updateMerge' request primitive for the ingressos attribute of evento entity.\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity.
+	 * Chamada síncrona, o valor de timeout deve ser informado em ms 
+	 */
+	Ingresso updateMergeEvento_Ingressos(Evento.Id parentId, Ingresso input, long timeout);
+	
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'updateMerge' request primitive for the ingressos attribute of evento entity.\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity.
+	 * Chamada assíncrona
+	 */
+	void updateMergeEvento_Ingressos(Evento.Id parentId, Ingresso input);
+	
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'updateMerge' request primitive for the ingressos attribute of evento entity.\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity.
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<Ingresso> updateMergeEvento_IngressosRequest(Evento.Id parentId, Ingresso input);
+	
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'updateMerge' request primitive for the ingressos attribute of evento entity.\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity.
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<Ingresso> updateMergeEvento_IngressosRequest(Evento.Id parentId, Ingresso input, long timeout);
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'retrieve' request primitive for the ingressos attribute of evento entity.\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity.
+	 * Chamada síncrona, o valor de timeout deve ser informado em ms 
+	 */
+	Ingresso retrieveEvento_Ingressos(Evento.Id parentId, Ingresso.GetRequest input, long timeout);
+	
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'retrieve' request primitive for the ingressos attribute of evento entity.\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity.
+	 * Chamada assíncrona
+	 */
+	void retrieveEvento_Ingressos(Evento.Id parentId, Ingresso.GetRequest input);
+	
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'retrieve' request primitive for the ingressos attribute of evento entity.\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity.
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<Ingresso> retrieveEvento_IngressosRequest(Evento.Id parentId, Ingresso.GetRequest input);
+	
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'retrieve' request primitive for the ingressos attribute of evento entity.\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity.
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<Ingresso> retrieveEvento_IngressosRequest(Evento.Id parentId, Ingresso.GetRequest input, long timeout);
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'delete' request primitive for the ingressos attribute of evento entity.\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity.
+	 * Chamada síncrona, o valor de timeout deve ser informado em ms 
+	 */
+	void deleteEvento_Ingressos(Evento.Id parentId, Ingresso.Id input, long timeout);
+	
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'delete' request primitive for the ingressos attribute of evento entity.\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity.
+	 * Chamada assíncrona
+	 */
+	void deleteEvento_Ingressos(Evento.Id parentId, Ingresso.Id input);
+	
+	
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'list' request primitive for the ingressos attribute of evento entity.\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity.
+	 * Chamada síncrona, o valor de timeout deve ser informado em ms 
+	 */
+	Ingresso.PagedResults listEvento_Ingressos(Evento.Id parentId, Ingresso.PageRequest input, long timeout);
+	
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'list' request primitive for the ingressos attribute of evento entity.\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity.
+	 * Chamada assíncrona
+	 */
+	void listEvento_Ingressos(Evento.Id parentId, Ingresso.PageRequest input);
+	
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'list' request primitive for the ingressos attribute of evento entity.\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity.
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<Ingresso.PagedResults> listEvento_IngressosRequest(Evento.Id parentId, Ingresso.PageRequest input);
+	
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'list' request primitive for the ingressos attribute of evento entity.\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity.
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<Ingresso.PagedResults> listEvento_IngressosRequest(Evento.Id parentId, Ingresso.PageRequest input, long timeout);
+	/**
+	 * This is a public operation
+	 * The 'create' request primitive for the Ingresso entity.
+	 * Chamada síncrona, o valor de timeout deve ser informado em ms 
+	 */
+	Ingresso createIngresso(Ingresso input, long timeout);
+	
+	/**
+	 * This is a public operation
+	 * The 'create' request primitive for the Ingresso entity.
+	 * Chamada assíncrona
+	 */
+	void createIngresso(Ingresso input);
+	
+	/**
+	 * This is a public operation
+	 * The 'create' request primitive for the Ingresso entity.
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<Ingresso> createIngressoRequest(Ingresso input);
+	
+	/**
+	 * This is a public operation
+	 * The 'create' request primitive for the Ingresso entity.
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<Ingresso> createIngressoRequest(Ingresso input, long timeout);
+	/**
+	 * This is a public operation
+	 * The 'createBulk' request primitive for the Ingresso entity.
+	 * Chamada síncrona, o valor de timeout deve ser informado em ms 
+	 */
+	CreateBulkIngressoOutput createBulkIngresso(CreateBulkIngressoInput input, long timeout);
+	
+	/**
+	 * This is a public operation
+	 * The 'createBulk' request primitive for the Ingresso entity.
+	 * Chamada assíncrona
+	 */
+	void createBulkIngresso(CreateBulkIngressoInput input);
+	
+	/**
+	 * This is a public operation
+	 * The 'createBulk' request primitive for the Ingresso entity.
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<CreateBulkIngressoOutput> createBulkIngressoRequest(CreateBulkIngressoInput input);
+	
+	/**
+	 * This is a public operation
+	 * The 'createBulk' request primitive for the Ingresso entity.
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<CreateBulkIngressoOutput> createBulkIngressoRequest(CreateBulkIngressoInput input, long timeout);
+	/**
+	 * This is a public operation
+	 * The 'createMerge' request primitive for the Ingresso entity.
+	 * Chamada síncrona, o valor de timeout deve ser informado em ms 
+	 */
+	Ingresso createMergeIngresso(Ingresso input, long timeout);
+	
+	/**
+	 * This is a public operation
+	 * The 'createMerge' request primitive for the Ingresso entity.
+	 * Chamada assíncrona
+	 */
+	void createMergeIngresso(Ingresso input);
+	
+	/**
+	 * This is a public operation
+	 * The 'createMerge' request primitive for the Ingresso entity.
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<Ingresso> createMergeIngressoRequest(Ingresso input);
+	
+	/**
+	 * This is a public operation
+	 * The 'createMerge' request primitive for the Ingresso entity.
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<Ingresso> createMergeIngressoRequest(Ingresso input, long timeout);
+	/**
+	 * This is a public operation
+	 * The 'retrieve' request primitive for the Ingresso entity.
+	 * Chamada síncrona, o valor de timeout deve ser informado em ms 
+	 */
+	Ingresso retrieveIngresso(Ingresso.GetRequest input, long timeout);
+	
+	/**
+	 * This is a public operation
+	 * The 'retrieve' request primitive for the Ingresso entity.
+	 * Chamada assíncrona
+	 */
+	void retrieveIngresso(Ingresso.GetRequest input);
+	
+	/**
+	 * This is a public operation
+	 * The 'retrieve' request primitive for the Ingresso entity.
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<Ingresso> retrieveIngressoRequest(Ingresso.GetRequest input);
+	
+	/**
+	 * This is a public operation
+	 * The 'retrieve' request primitive for the Ingresso entity.
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<Ingresso> retrieveIngressoRequest(Ingresso.GetRequest input, long timeout);
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'list' request primitive for the Ingresso entity.
+	 * Chamada síncrona, o valor de timeout deve ser informado em ms 
+	 */
+	Ingresso.PagedResults listIngresso(Ingresso.PageRequest input, long timeout);
+	
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'list' request primitive for the Ingresso entity.
+	 * Chamada assíncrona
+	 */
+	void listIngresso(Ingresso.PageRequest input);
+	
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'list' request primitive for the Ingresso entity.
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<Ingresso.PagedResults> listIngressoRequest(Ingresso.PageRequest input);
+	
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'list' request primitive for the Ingresso entity.
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<Ingresso.PagedResults> listIngressoRequest(Ingresso.PageRequest input, long timeout);
+	/**
+	 * This is a public operation
+	 * The 'update' request primitive for the Ingresso entity.
+	 * Chamada síncrona, o valor de timeout deve ser informado em ms 
+	 */
+	Ingresso updateIngresso(Ingresso input, long timeout);
+	
+	/**
+	 * This is a public operation
+	 * The 'update' request primitive for the Ingresso entity.
+	 * Chamada assíncrona
+	 */
+	void updateIngresso(Ingresso input);
+	
+	/**
+	 * This is a public operation
+	 * The 'update' request primitive for the Ingresso entity.
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<Ingresso> updateIngressoRequest(Ingresso input);
+	
+	/**
+	 * This is a public operation
+	 * The 'update' request primitive for the Ingresso entity.
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<Ingresso> updateIngressoRequest(Ingresso input, long timeout);
+	/**
+	 * This is a public operation
+	 * The 'updateMerge' request primitive for the Ingresso entity.
+	 * Chamada síncrona, o valor de timeout deve ser informado em ms 
+	 */
+	Ingresso updateMergeIngresso(Ingresso input, long timeout);
+	
+	/**
+	 * This is a public operation
+	 * The 'updateMerge' request primitive for the Ingresso entity.
+	 * Chamada assíncrona
+	 */
+	void updateMergeIngresso(Ingresso input);
+	
+	/**
+	 * This is a public operation
+	 * The 'updateMerge' request primitive for the Ingresso entity.
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<Ingresso> updateMergeIngressoRequest(Ingresso input);
+	
+	/**
+	 * This is a public operation
+	 * The 'updateMerge' request primitive for the Ingresso entity.
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<Ingresso> updateMergeIngressoRequest(Ingresso input, long timeout);
+	/**
+	 * This is a public operation
+	 * The 'delete' request primitive for the Ingresso entity.
+	 * Chamada síncrona, o valor de timeout deve ser informado em ms 
+	 */
+	void deleteIngresso(Ingresso.Id input, long timeout);
+	
+	/**
+	 * This is a public operation
+	 * The 'delete' request primitive for the Ingresso entity.
+	 * Chamada assíncrona
+	 */
+	void deleteIngresso(Ingresso.Id input);
+	
+	
 
 	/**
 	 * Chamada assíncrona para o método cancelarEvento
@@ -763,6 +1144,20 @@ public interface MyServiceStub {
 	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
 	 */
 	void publishExportEventoEvent( ExportEventoEventPayload input );
+			
+	
+	/**
+	 * Chamada assíncrona para o método publishImportIngressoEvent 
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 */
+	void publishImportIngressoEvent( ImportIngressoEventPayload input );
+			
+	
+	/**
+	 * Chamada assíncrona para o método publishExportIngressoEvent 
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 */
+	void publishExportIngressoEvent( ExportIngressoEventPayload input );
 			
 	
 

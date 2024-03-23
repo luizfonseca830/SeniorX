@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.Map;
 import java.util.stream.Collectors;
+import javax.inject.Inject;
 import javax.persistence.Id;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,6 +24,12 @@ public class EventoDTOConverter {
 	
 	static final Logger logger = LoggerFactory.getLogger(EventoDTOConverter.class);
 	
+	private IngressoDTOConverter ingressoDTOConverter;
+	
+	@Inject
+	public void setIngressoDTOConverter(IngressoDTOConverter ingressoDTOConverter) {
+		this.ingressoDTOConverter = ingressoDTOConverter;
+	}
 	
 	public EventoEntity toEntity(Evento dto, boolean createMethod) {
 		EventoEntity ret = toEntity(dto, new HashMap<>());
@@ -60,14 +67,31 @@ public class EventoDTOConverter {
 		if (dto.nome != null) {
 			entity.setNome(dto.nome);
 		}
+		if (dto.lotacaoMaxima != null) {
+			entity.setLotacaoMaxima(dto.lotacaoMaxima);
+		}
 		if (dto.dataHora != null) {
 			entity.setDataHora(dto.dataHora);
 		}
 		if (dto.endereco != null) {
 			entity.setEndereco(dto.endereco);
 		}
-		if (dto.tipoEntradaEvento != null) {
-			entity.setTipoEntradaEvento(new java.util.HashSet<>(dto.tipoEntradaEvento));
+		if (dto.tipoentradaevento != null) {
+			entity.setTipoentradaevento(new java.util.HashSet<>(dto.tipoentradaevento));
+		}
+		// For composition attributes only not null attributes will be set to parent. You should use PUT/PATCH parent/{id}/child/{id} instead.
+		if (dto.ingressos != null) {
+			if (dto.ingressos.isEmpty()) {
+				final java.util.List<IngressoEntity> listIngressos = new java.util.ArrayList<>();
+				listIngressos.addAll(entity.getIngressos());
+				for (IngressoEntity detail : listIngressos) {
+					entity.removeFromIngressos(detail);
+				}
+			} else {
+				for (IngressoEntity detail : ingressoDTOConverter.toEntityList(dto.ingressos, converted)) {
+					entity.addToIngressos(detail);
+				}
+			}
 		}
 		for (Map.Entry<String, Object> entry : dto.getCustom().entrySet()) {
 			entity.setCustom(entry.getKey(), entry.getValue());
@@ -89,9 +113,24 @@ public class EventoDTOConverter {
 			entity.setId(java.util.UUID.fromString(dto.id));
 		}
 		entity.setNome(dto.nome);
+		entity.setLotacaoMaxima(dto.lotacaoMaxima);
 		entity.setDataHora(dto.dataHora);
 		entity.setEndereco(dto.endereco);
-		entity.setTipoEntradaEvento(dto.tipoEntradaEvento == null ? null : new java.util.HashSet<>(dto.tipoEntradaEvento));
+		entity.setTipoentradaevento(dto.tipoentradaevento == null ? null : new java.util.HashSet<>(dto.tipoentradaevento));
+		// For composition attributes only not null attributes will be set to parent. You should use PUT/PATCH parent/{id}/child/{id} instead.
+		if (dto.ingressos != null) {
+			if (dto.ingressos.isEmpty()) {
+				final java.util.List<IngressoEntity> listIngressos = new java.util.ArrayList<>();
+				listIngressos.addAll(entity.getIngressos());
+				for (IngressoEntity detail : listIngressos) {
+					entity.removeFromIngressos(detail);
+				}
+			} else {
+				for (IngressoEntity detail : ingressoDTOConverter.toEntityList(dto.ingressos, converted)) {
+					entity.addToIngressos(detail);
+				}
+			}
+		}
 		for (Map.Entry<String, Object> entry : dto.getCustom().entrySet()) {
 			entity.setCustom(entry.getKey(), entry.getValue());
 		}
@@ -127,9 +166,11 @@ public class EventoDTOConverter {
 
 		dto.id = entity.getId() != null ? entity.getId().toString() : null;
 		dto.nome = entity.getNome();
+		dto.lotacaoMaxima = entity.getLotacaoMaxima();
 		dto.dataHora = entity.getDataHora();
 		dto.endereco = entity.getEndereco();
-		dto.tipoEntradaEvento = entity.getTipoEntradaEvento() == null ? null : new java.util.ArrayList<>(entity.getTipoEntradaEvento());
+		dto.tipoentradaevento = entity.getTipoentradaevento() == null ? null : new java.util.ArrayList<>(entity.getTipoentradaevento());
+		dto.ingressos = ingressoDTOConverter.toDTOList(entity.getIngressos(), converted);
 		for(String customField : entity.getCustomFields()) {
 			dto.setCustom(customField, entity.getCustom(customField));
 		}
@@ -160,6 +201,10 @@ public class EventoDTOConverter {
 			dto.nome = entity.getNome();
 		}
 		
+		if (displayFields.stream().anyMatch(displayField -> "lotacaoMaxima".equals(displayField) || "*".equals(displayField))) {
+			dto.lotacaoMaxima = entity.getLotacaoMaxima();
+		}
+		
 		if (displayFields.stream().anyMatch(displayField -> "dataHora".equals(displayField) || "*".equals(displayField))) {
 			dto.dataHora = entity.getDataHora();
 		}
@@ -168,8 +213,17 @@ public class EventoDTOConverter {
 			dto.endereco = entity.getEndereco();
 		}
 		
-		if (displayFields.stream().anyMatch(displayField -> "tipoEntradaEvento".equals(displayField) || "*".equals(displayField))) {
-			dto.tipoEntradaEvento = entity.getTipoEntradaEvento() == null ? null : new java.util.ArrayList<>(entity.getTipoEntradaEvento());
+		if (displayFields.stream().anyMatch(displayField -> "tipoentradaevento".equals(displayField) || "*".equals(displayField))) {
+			dto.tipoentradaevento = entity.getTipoentradaevento() == null ? null : new java.util.ArrayList<>(entity.getTipoentradaevento());
+		}
+		
+		List<String> ingressosDisplayFields = displayFields.stream()
+			.filter(displayField -> displayField.trim().startsWith("ingressos.")).map(f -> f.substring("ingressos.".length() + f.indexOf("ingressos.")).trim()).collect(Collectors.toList());
+		if (!ingressosDisplayFields.isEmpty()) {
+			dto.ingressos = new java.util.ArrayList<>();
+			for (IngressoEntity ingressoEntity : entity.getIngressos()) {
+				dto.ingressos.add(ingressoDTOConverter.toDTO(ingressoEntity, ingressosDisplayFields, converted));
+			}
 		}
 		for(String customField : entity.getCustomFields()) {
 			dto.setCustom(customField, entity.getCustom(customField));
@@ -197,6 +251,10 @@ public class EventoDTOConverter {
 			dto.nome = entity.getNome();
 		}
 		
+		if (displayFields.stream().anyMatch(displayField -> "lotacaoMaxima".equals(displayField) || "*".equals(displayField))) {
+			dto.lotacaoMaxima = entity.getLotacaoMaxima();
+		}
+		
 		if (displayFields.stream().anyMatch(displayField -> "dataHora".equals(displayField) || "*".equals(displayField))) {
 			dto.dataHora = entity.getDataHora();
 		}
@@ -205,9 +263,10 @@ public class EventoDTOConverter {
 			dto.endereco = entity.getEndereco();
 		}
 		
-		if (displayFields.stream().anyMatch(displayField -> "tipoEntradaEvento".equals(displayField) || "*".equals(displayField))) {
-			dto.tipoEntradaEvento = entity.getTipoEntradaEvento() == null ? null : new java.util.ArrayList<>(entity.getTipoEntradaEvento());
+		if (displayFields.stream().anyMatch(displayField -> "tipoentradaevento".equals(displayField) || "*".equals(displayField))) {
+			dto.tipoentradaevento = entity.getTipoentradaevento() == null ? null : new java.util.ArrayList<>(entity.getTipoentradaevento());
 		}
+		
         return dto;
     }
     
@@ -261,14 +320,22 @@ public class EventoDTOConverter {
 		if("nome".equals(jsonPatch.getPath().replace("/", ""))) {
 			entity.setNome(null);
 		}
+		if("lotacaoMaxima".equals(jsonPatch.getPath().replace("/", ""))) {
+			entity.setLotacaoMaxima(null);
+		}
 		if("dataHora".equals(jsonPatch.getPath().replace("/", ""))) {
 			entity.setDataHora(null);
 		}
 		if("endereco".equals(jsonPatch.getPath().replace("/", ""))) {
 			entity.setEndereco(null);
 		}
-		if("tipoEntradaEvento".equals(jsonPatch.getPath().replace("/", ""))) {
-			entity.setTipoEntradaEvento(null);
+		if("tipoentradaevento".equals(jsonPatch.getPath().replace("/", ""))) {
+			entity.setTipoentradaevento(null);
+		}
+		if("ingressos".equals(jsonPatch.getPath().replace("/", ""))) {
+			for (IngressoEntity e : new java.util.ArrayList<>(entity.getIngressos())) {
+				entity.removeFromIngressos(e);
+			}
 		}
 	}
 }

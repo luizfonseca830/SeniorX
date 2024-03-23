@@ -743,6 +743,62 @@ paths:
           description: Error response
           schema:
             $ref: '#/definitions/genericError'
+  
+  /my_service/events/importIngressoEvent:
+    post:
+      description: ""
+      x-senior-event: true
+      tags:
+        - Events
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            type: object
+            required:
+              - eventpl
+            properties:
+              eventpl:
+                type: object
+                allOf:
+                 - $ref: '#/definitions/importEventStatus'
+                description: ""
+      responses:
+        200:
+          description: OK
+        default:
+          description: Error response
+          schema:
+            $ref: '#/definitions/genericError'
+  
+  /my_service/events/exportIngressoEvent:
+    post:
+      description: ""
+      x-senior-event: true
+      tags:
+        - Events
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            type: object
+            required:
+              - eventpl
+            properties:
+              eventpl:
+                type: object
+                allOf:
+                 - $ref: '#/definitions/exportEventStatus'
+                description: ""
+      responses:
+        200:
+          description: OK
+        default:
+          description: Error response
+          schema:
+            $ref: '#/definitions/genericError'
   /my_service/entities/convidado:
     post:
       description: "Esta entidade pode ser customizada."
@@ -1127,6 +1183,399 @@ paths:
           schema:
             $ref: '#/definitions/genericError'
   
+  /my_service/entities/ingresso:
+    post:
+      description: "Esta entidade pode ser customizada."
+      tags:
+        - CRUD
+      x-senior-visibility: PRIVATE
+      parameters:
+        - name: entity
+          in: body
+          required: true
+          schema:
+            type: object
+            allOf:
+             - $ref: '#/definitions/ingresso'
+      responses:
+        200:
+          description: 'The created resource'
+          schema:
+            $ref: '#/definitions/ingresso'
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          schema:
+            $ref: '#/definitions/genericError'
+    patch:
+      description: "Esta entidade pode ser customizada."
+      tags:
+        - CRUD
+      x-senior-visibility: PRIVATE
+      parameters:
+        - name: entity
+          in: body
+          required: true
+          schema:
+            type: object
+            allOf:
+             - $ref: '#/definitions/ingresso'
+      responses:
+        200:
+          description: 'The created resource'
+          schema:
+            $ref: '#/definitions/ingresso'
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          schema:
+            $ref: '#/definitions/genericError'
+    get:
+      description: "Esta entidade pode ser customizada."
+      tags:
+        - CRUD
+      x-senior-visibility: PRIVATE
+      parameters:
+        - name: offset
+          in: query
+          type: number
+        - name: size
+          in: query
+          type: number
+      responses:
+        200:
+          description: Ok
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ingresso'
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          schema:
+            $ref: '#/definitions/genericError'
+  
+  /my_service/entities/ingresso/{id}:
+    put:
+      description: "Esta entidade pode ser customizada."
+      tags:
+        - CRUD
+      x-senior-visibility: PRIVATE
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+        - name: entity
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/ingresso'
+      responses:
+        200:
+          description: Ok
+          schema:
+            $ref: '#/definitions/ingresso'
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          schema:
+            $ref: '#/definitions/genericError'
+    patch:
+      description: "Esta entidade pode ser customizada."
+      tags:
+        - CRUD
+      x-senior-visibility: PRIVATE
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+        - name: entity
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/ingresso'
+      responses:
+        200:
+          description: Ok
+          schema:
+            $ref: '#/definitions/ingresso'
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          schema:
+            $ref: '#/definitions/genericError'
+    get:
+      description: "Esta entidade pode ser customizada."
+      tags:
+        - CRUD
+      x-senior-visibility: PRIVATE
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        200:
+          description: Ok
+          schema:
+            $ref: '#/definitions/ingresso'
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          schema:
+            $ref: '#/definitions/genericError'
+    delete:
+      description: "Esta entidade pode ser customizada."
+      tags:
+        - CRUD
+      x-senior-visibility: PRIVATE
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        200:
+          description: Ok
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          schema:
+            $ref: '#/definitions/genericError'
+  
+  /my_service/entities/evento/{parentId}/ingressos:
+    post:
+      description: "Esta entidade pode ser customizada."
+      tags:
+        - CRUD
+      x-senior-visibility: PRIVATE
+      parameters:
+        - name: parentId
+          in: path
+          required: true
+          type: string
+        - name: entity
+          in: body
+          required: true
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ingresso'
+      responses:
+        200:
+          description: 'The created resources'
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ingresso'
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          schema:
+            $ref: '#/definitions/genericError'
+    patch:
+      description: "Esta entidade pode ser customizada."
+      tags:
+        - CRUD
+      x-senior-visibility: PRIVATE
+      parameters:
+        - name: parentId
+          in: path
+          required: true
+          type: string
+        - name: entity
+          in: body
+          required: true
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ingresso'
+      responses:
+        200:
+          description: 'The created resources'
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ingresso'
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          schema:
+            $ref: '#/definitions/genericError'
+    get:
+      description: "Esta entidade pode ser customizada."
+      tags:
+        - CRUD
+      x-senior-visibility: PRIVATE
+      parameters:
+        - name: parentId
+          in: path
+          required: true
+          type: string
+        - name: offset
+          in: query
+          type: number
+        - name: size
+          in: query
+          type: number
+      responses:
+        200:
+          description: Ok
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ingresso'
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          schema:
+            $ref: '#/definitions/genericError'
+  
+  /my_service/entities/evento/{parentId}/ingressos/{id}:
+    put:
+      description: "Esta entidade pode ser customizada."
+      tags:
+        - CRUD
+      x-senior-visibility: PRIVATE
+      parameters:
+        - name: parentId
+          in: path
+          required: true
+          type: string
+        - name: id
+          in: path
+          required: true
+          type: string
+        - name: entity
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/ingresso'
+      responses:
+        200:
+          description: Ok
+          schema:
+            $ref: '#/definitions/ingresso'
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          schema:
+            $ref: '#/definitions/genericError'
+    patch:
+      description: "Esta entidade pode ser customizada."
+      tags:
+        - CRUD
+      x-senior-visibility: PRIVATE
+      parameters:
+        - name: parentId
+          in: path
+          required: true
+          type: string
+        - name: id
+          in: path
+          required: true
+          type: string
+        - name: entity
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/ingresso'
+      responses:
+        200:
+          description: Ok
+          schema:
+            $ref: '#/definitions/ingresso'
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          schema:
+            $ref: '#/definitions/genericError'
+    get:
+      description: "Esta entidade pode ser customizada."
+      tags:
+        - CRUD
+      x-senior-visibility: PRIVATE
+      parameters:
+        - name: parentId
+          in: path
+          required: true
+          type: string
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        200:
+          description: Ok
+          schema:
+            $ref: '#/definitions/ingresso'
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          schema:
+            $ref: '#/definitions/genericError'
+    delete:
+      description: "Esta entidade pode ser customizada."
+      tags:
+        - CRUD
+      x-senior-visibility: PRIVATE
+      parameters:
+        - name: parentId
+          in: path
+          required: true
+          type: string
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        200:
+          description: Ok
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          schema:
+            $ref: '#/definitions/genericError'
+  
+  /my_service/entities/ingresso/bulk:
+    post:
+      description: "Esta entidade pode ser customizada."
+      tags:
+        - Bulk
+      parameters:
+        - name: entities
+          in: body
+          required: true
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ingresso'
+      responses:
+        200:
+          description: 'The bulk creation has created resources'
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          schema:
+            $ref: '#/definitions/genericError'
+  
 
 definitions:
   tipoEntrada:
@@ -1350,6 +1799,7 @@ definitions:
     type: object
     required:
       - nome
+      - lotacaoMaxima
       - dataHora
       - endereco
     properties:
@@ -1361,6 +1811,12 @@ definitions:
         type: string
         maxLength: 30
         description: "Nome do evento"
+      lotacaoMaxima:
+        type: integer
+        format: int64
+        description: ""
+        minimum: 1
+        maximum: 99999
       dataHora:
         type: string
         format: date-time
@@ -1369,13 +1825,51 @@ definitions:
         type: string
         maxLength: 50
         description: "Enderenço do evento"
-      tipoEntradaEvento:
+      tipoentradaevento:
         type: array
         items:
           type: string
           allOf:
           - $ref: '#/definitions/tipoEntrada'
         description: "Tipos de entrada permitidos no evento"
+      ingressos:
+        type: array
+        items:
+          type: object
+          allOf:
+           - $ref: '#/definitions/ingresso'
+        description: "Ingressos do evento"
+  
+  ingresso:
+    description: "Entidade que representa o ingresso"
+    type: object
+    required:
+      - quantidadeAcompanhantes
+    properties:
+      id:
+        type: string
+        format: uuid
+        description: "ID do ingresso"
+      dataHora:
+        type: string
+        format: date-time
+        description: "Data e hora do evento. Opcional, pois a data e hora estão no evento"
+      convidado:
+        type: object
+        allOf:
+         - $ref: '#/definitions/convidado'
+        description: "Convidado dono do ingresso"
+      quantidadeAcompanhantes:
+        type: integer
+        format: int64
+        description: "Quantidade de acompanhantes do ingresso"
+        minimum: 0
+        maximum: 9
+      evento:
+        type: object
+        allOf:
+         - $ref: '#/definitions/evento'
+        description: "Evento que o ingresso pertence"
   
   notifyUserEventPayload:
     description: "Represents a regular user event notification payload"

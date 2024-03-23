@@ -3,7 +3,10 @@ package br.com.senior.mydomain.myservice;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Max;
+import javax.validation.Valid;
 import javax.validation.constraints.Size;
 
 import br.com.senior.messaging.model.EntityDescription;
@@ -124,6 +127,11 @@ public class Evento extends CustomDTO {
     @Size(max = 30, message = "nome max length is {max}")
     public String nome;
     
+    @NotNull(message = "lotacaoMaxima is required")
+    @Min(value = 1L, message = "lotacaoMaxima min value is {value}")
+    @Max(value = 99999L, message = "lotacaoMaxima max value is {value}")
+    public Long lotacaoMaxima;
+    
     /**
      * Data e hora do evento
      */
@@ -140,7 +148,13 @@ public class Evento extends CustomDTO {
     /**
      * Tipos de entrada permitidos no evento
      */
-    public java.util.List<TipoEntrada> tipoEntradaEvento;
+    public java.util.List<TipoEntrada> tipoentradaevento;
+    
+    /**
+     * Ingressos do evento
+     */
+    @Valid
+    public java.util.List<Ingresso> ingressos;
     
     
 	private List<JsonPatch> jsonPatches;
@@ -151,19 +165,22 @@ public class Evento extends CustomDTO {
     /** 
      * This constructor allows initialization of all fields, required and optional.
      */
-    public Evento(String id, String nome, java.time.Instant dataHora, String endereco, java.util.List<TipoEntrada> tipoEntradaEvento, List<JsonPatch> jsonPatches) {
+    public Evento(String id, String nome, Long lotacaoMaxima, java.time.Instant dataHora, String endereco, java.util.List<TipoEntrada> tipoentradaevento, java.util.List<Ingresso> ingressos, List<JsonPatch> jsonPatches) {
         this.id = id;
         this.nome = nome;
+        this.lotacaoMaxima = lotacaoMaxima;
         this.dataHora = dataHora;
         this.endereco = endereco;
-        this.tipoEntradaEvento = tipoEntradaEvento;
+        this.tipoentradaevento = tipoentradaevento;
+        this.ingressos = ingressos;
         this.jsonPatches = jsonPatches;
     }
     /** 
      * This convenience constructor allows initialization of all required fields.
      */
-    public Evento(String nome, java.time.Instant dataHora, String endereco) {
+    public Evento(String nome, Long lotacaoMaxima, java.time.Instant dataHora, String endereco) {
         this.nome = nome;
+        this.lotacaoMaxima = lotacaoMaxima;
         this.dataHora = dataHora;
         this.endereco = endereco;
     }

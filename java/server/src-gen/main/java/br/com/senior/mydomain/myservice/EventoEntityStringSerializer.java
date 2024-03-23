@@ -20,11 +20,15 @@ public class EventoEntityStringSerializer {
 		sb.append(", ");
 		serializeNome(evento, sb);
 		sb.append(", ");
+		serializeLotacaoMaxima(evento, sb);
+		sb.append(", ");
 		serializeDataHora(evento, sb);
 		sb.append(", ");
 		serializeEndereco(evento, sb);
 		sb.append(", ");
-		serializeTipoEntradaEvento(evento, sb);
+		serializeTipoentradaevento(evento, sb);
+		sb.append(", ");
+		serializeIngressos(evento, sb, appended);
 		sb.append(", ").append(", ");
 		sb.append(']');
 	}
@@ -37,6 +41,10 @@ public class EventoEntityStringSerializer {
 		sb.append("nome=").append(evento.getNome() == null ? "null" : evento.getNome());
 	}
 	
+	protected void serializeLotacaoMaxima(EventoEntity evento, StringBuilder sb) {
+		sb.append("lotacaoMaxima=").append(evento.getLotacaoMaxima() == null ? "null" : evento.getLotacaoMaxima());
+	}
+	
 	protected void serializeDataHora(EventoEntity evento, StringBuilder sb) {
 		sb.append("dataHora=").append(evento.getDataHora() == null ? "null" : evento.getDataHora());
 	}
@@ -45,7 +53,27 @@ public class EventoEntityStringSerializer {
 		sb.append("endereco=").append(evento.getEndereco() == null ? "null" : evento.getEndereco());
 	}
 	
-	protected void serializeTipoEntradaEvento(EventoEntity evento, StringBuilder sb) {
-		sb.append("tipoEntradaEvento=").append(evento.getTipoEntradaEvento() == null ? "null" : evento.getTipoEntradaEvento());
+	protected void serializeTipoentradaevento(EventoEntity evento, StringBuilder sb) {
+		sb.append("tipoentradaevento=").append(evento.getTipoentradaevento() == null ? "null" : evento.getTipoentradaevento());
+	}
+	
+	protected void serializeIngressos(EventoEntity evento, StringBuilder sb, List<Object> appended) {
+		sb.append("ingressos=<");
+		if (evento.getIngressos() == null) {
+			sb.append("null");
+		} else {
+			sb.append('[');
+			int last = evento.getIngressos().size() - 1;
+			int i = 0;
+			for (IngressoEntity item : evento.getIngressos()) {
+				item.toString(sb, appended);
+				if (i < last) {
+					sb.append(", ");
+				}
+				i++;
+			}
+			sb.append(']');
+		}
+		sb.append('>');
 	}
 }

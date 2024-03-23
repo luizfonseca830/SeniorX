@@ -6,6 +6,140 @@
     "name": "my_service",
     "version": "${version}",
     "commands" : {
+        "deleteIngresso": {
+            "endpointType" : "command",
+            "kind": "delete",
+            "priority" : "NORMAL",
+            "documentation": "The 'delete' request primitive for the Ingresso entity.",
+            "input" : {
+                "id" : {
+                    "type": "string",
+                    "format": "uuid",
+                    "optional": false,
+                    "multivalued": false,
+                	"readOnly": true
+                }
+            },
+            "extensionPoint" : false,
+            "responses" : {
+            },
+            "visibility" : "PRIVATE",
+            "version": "0"
+        },
+        "listIngresso": {
+            "endpointType" : "command",
+            "kind": "list",
+            "priority" : "NORMAL",
+            "documentation": "The 'list' request primitive for the Ingresso entity.",
+            "input" : {
+                "offset" : {
+                    "type": "integer",
+                    "optional": false,
+                    "multivalued": false,
+                    "documentation": "Offset to first result entity",
+                    "readOnly": false
+                },
+                "size" : {
+                    "type": "integer",
+                    "optional": false,
+                    "multivalued": false,
+                    "documentation": "Expected size of result list",
+                    "readOnly": false
+                },
+                "orderBy" : {
+                    "type": "string",
+                    "optional": false,
+                    "multivalued": false,
+                    "documentation": "Expected result order",
+                    "readOnly": false
+                },
+                "filter" : {
+                    "type": "string",
+                    "optional": false,
+                    "multivalued": false,
+                    "documentation": "Request filter",
+                    "readOnly": false
+                },
+                "displayFields" : {
+                    "type": "string",
+                    "optional": false,
+                    "multivalued": true,
+                    "documentation": "Expected result fields",
+                    "readOnly": false
+                }
+            },
+            "output" : {
+                "contents" : {
+                    "type": "ingresso",
+                    "optional": false,
+                    "multivalued": true,
+                    "documentation": "Result entities",
+                    "readOnly": false
+                }
+            },
+            "extensionPoint" : false,
+            "responses" : {
+            },
+            "visibility" : "PRIVATE",
+            "version": "0"
+        },
+        "listEvento_Ingressos": {
+            "endpointType" : "command",
+            "kind": "list",
+            "priority" : "NORMAL",
+            "documentation": "The 'list' request primitive for the ingressos attribute of evento entity.\\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity.",
+            "input" : {
+                "offset" : {
+                    "type": "integer",
+                    "optional": false,
+                    "multivalued": false,
+                    "documentation": "Offset to first result entity",
+                    "readOnly": false
+                },
+                "size" : {
+                    "type": "integer",
+                    "optional": false,
+                    "multivalued": false,
+                    "documentation": "Expected size of result list",
+                    "readOnly": false
+                },
+                "orderBy" : {
+                    "type": "string",
+                    "optional": false,
+                    "multivalued": false,
+                    "documentation": "Expected result order",
+                    "readOnly": false
+                },
+                "filter" : {
+                    "type": "string",
+                    "optional": false,
+                    "multivalued": false,
+                    "documentation": "Request filter",
+                    "readOnly": false
+                },
+                "displayFields" : {
+                    "type": "string",
+                    "optional": false,
+                    "multivalued": true,
+                    "documentation": "Expected result fields",
+                    "readOnly": false
+                }
+            },
+            "output" : {
+                "contents" : {
+                    "type": "ingresso",
+                    "optional": false,
+                    "multivalued": true,
+                    "documentation": "Result entities",
+                    "readOnly": false
+                }
+            },
+            "extensionPoint" : false,
+            "responses" : {
+            },
+            "visibility" : "PRIVATE",
+            "version": "0"
+        },
         "deleteEvento": {
             "endpointType" : "command",
             "kind": "delete",
@@ -47,6 +181,19 @@
             "visibility" : "PRIVATE",
             "version": "0"
         },
+        "createMergeIngresso": {
+            "endpointType" : "command",
+            "kind": "createMerge",
+            "priority" : "NORMAL",
+            "documentation": "The 'createMerge' request primitive for the Ingresso entity.",
+            "input" : "ingresso",
+            "output" : "ingresso",
+            "extensionPoint" : false,
+            "responses" : {
+            },
+            "visibility" : "PRIVATE",
+            "version": "0"
+        },
         "retrieveEvento": {
             "endpointType" : "command",
             "kind": "retrieve",
@@ -75,6 +222,31 @@
             "documentation": "The 'update' request primitive for the Convidado entity.",
             "input" : "convidado",
             "output" : "convidado",
+            "extensionPoint" : false,
+            "responses" : {
+            },
+            "visibility" : "PRIVATE",
+            "version": "0"
+        },
+        "deleteEvento_Ingressos": {
+            "endpointType" : "command",
+            "kind": "delete",
+            "priority" : "NORMAL",
+            "documentation": "The 'delete' request primitive for the ingressos attribute of evento entity.\\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity.",
+            "input" : "string",
+            "extensionPoint" : false,
+            "responses" : {
+            },
+            "visibility" : "PRIVATE",
+            "version": "0"
+        },
+        "createIngresso": {
+            "endpointType" : "command",
+            "kind": "create",
+            "priority" : "NORMAL",
+            "documentation": "The 'create' request primitive for the Ingresso entity.",
+            "input" : "ingresso",
+            "output" : "ingresso",
             "extensionPoint" : false,
             "responses" : {
             },
@@ -177,10 +349,36 @@
             "visibility" : "PRIVATE",
             "version": "0"
         },
+        "createEvento_Ingressos": {
+            "endpointType" : "command",
+            "kind": "create",
+            "priority" : "NORMAL",
+            "documentation": "The 'create' request primitive for the ingressos attribute of evento entity.\\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity.",
+            "input" : "ingresso",
+            "output" : "ingresso",
+            "extensionPoint" : false,
+            "responses" : {
+            },
+            "visibility" : "PRIVATE",
+            "version": "0"
+        },
         "odata": {
             "endpointType" : "command",
             "kind": "action",
             "priority" : "NORMAL",
+            "extensionPoint" : false,
+            "responses" : {
+            },
+            "visibility" : "PRIVATE",
+            "version": "0"
+        },
+        "updateMergeIngresso": {
+            "endpointType" : "command",
+            "kind": "updateMerge",
+            "priority" : "NORMAL",
+            "documentation": "The 'updateMerge' request primitive for the Ingresso entity.",
+            "input" : "ingresso",
+            "output" : "ingresso",
             "extensionPoint" : false,
             "responses" : {
             },
@@ -194,6 +392,19 @@
             "documentation": "The 'createMerge' request primitive for the Convidado entity.",
             "input" : "convidado",
             "output" : "convidado",
+            "extensionPoint" : false,
+            "responses" : {
+            },
+            "visibility" : "PRIVATE",
+            "version": "0"
+        },
+        "createMergeEvento_Ingressos": {
+            "endpointType" : "command",
+            "kind": "createMerge",
+            "priority" : "NORMAL",
+            "documentation": "The 'createMerge' request primitive for the ingressos attribute of evento entity.\\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity.",
+            "input" : "ingresso",
+            "output" : "ingresso",
             "extensionPoint" : false,
             "responses" : {
             },
@@ -226,6 +437,19 @@
             "visibility" : "PRIVATE",
             "version": "0"
         },
+        "updateIngresso": {
+            "endpointType" : "command",
+            "kind": "update",
+            "priority" : "NORMAL",
+            "documentation": "The 'update' request primitive for the Ingresso entity.",
+            "input" : "ingresso",
+            "output" : "ingresso",
+            "extensionPoint" : false,
+            "responses" : {
+            },
+            "visibility" : "PRIVATE",
+            "version": "0"
+        },
         "createMergeEvento": {
             "endpointType" : "command",
             "kind": "createMerge",
@@ -239,6 +463,48 @@
             "visibility" : "PRIVATE",
             "version": "0"
         },
+        "retrieveIngresso": {
+            "endpointType" : "command",
+            "kind": "retrieve",
+            "priority" : "NORMAL",
+            "documentation": "The 'retrieve' request primitive for the Ingresso entity.",
+            "input" : {
+                "id" : {
+                    "type": "string",
+                    "format": "uuid",
+                    "optional": false,
+                    "multivalued": false,
+                	"readOnly": true
+                }
+            },
+            "output" : "ingresso",
+            "extensionPoint" : false,
+            "responses" : {
+            },
+            "visibility" : "PRIVATE",
+            "version": "0"
+        },
+        "createBulkIngresso": {
+            "endpointType" : "command",
+            "kind": "createBulk",
+            "priority" : "NORMAL",
+            "documentation": "The 'createBulk' request primitive for the Ingresso entity.",
+            "input" : {
+                "entities" : {
+                    "type": "ingresso",
+                    "optional": false,
+                    "multivalued": true,
+                    "readOnly": false
+                }
+            },
+            "output" : {
+            },
+            "extensionPoint" : false,
+            "responses" : {
+            },
+            "visibility" : "PRIVATE",
+            "version": "0"
+        },
         "updateMergeConvidado": {
             "endpointType" : "command",
             "kind": "updateMerge",
@@ -246,6 +512,19 @@
             "documentation": "The 'updateMerge' request primitive for the Convidado entity.",
             "input" : "convidado",
             "output" : "convidado",
+            "extensionPoint" : false,
+            "responses" : {
+            },
+            "visibility" : "PRIVATE",
+            "version": "0"
+        },
+        "retrieveEvento_Ingressos": {
+            "endpointType" : "command",
+            "kind": "retrieve",
+            "priority" : "NORMAL",
+            "documentation": "The 'retrieve' request primitive for the ingressos attribute of evento entity.\\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity.",
+            "input" : "string",
+            "output" : "ingresso",
             "extensionPoint" : false,
             "responses" : {
             },
@@ -518,6 +797,19 @@
             "visibility" : "PRIVATE",
             "version": "0"
         },
+        "updateEvento_Ingressos": {
+            "endpointType" : "command",
+            "kind": "update",
+            "priority" : "NORMAL",
+            "documentation": "The 'update' request primitive for the ingressos attribute of evento entity.\\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity.",
+            "input" : "ingresso",
+            "output" : "ingresso",
+            "extensionPoint" : false,
+            "responses" : {
+            },
+            "visibility" : "PRIVATE",
+            "version": "0"
+        },
         "createBulkEvento": {
             "endpointType" : "command",
             "kind": "createBulk",
@@ -533,6 +825,19 @@
             },
             "output" : {
             },
+            "extensionPoint" : false,
+            "responses" : {
+            },
+            "visibility" : "PRIVATE",
+            "version": "0"
+        },
+        "updateMergeEvento_Ingressos": {
+            "endpointType" : "command",
+            "kind": "updateMerge",
+            "priority" : "NORMAL",
+            "documentation": "The 'updateMerge' request primitive for the ingressos attribute of evento entity.\\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity.",
+            "input" : "ingresso",
+            "output" : "ingresso",
             "extensionPoint" : false,
             "responses" : {
             },
@@ -865,6 +1170,36 @@
             "priority" : "LOW",
             "extensionPoint" : false,
             "visibility" : "PRIVATE"
+        },
+        "importIngressoEvent": {
+            "endpointType" : "event",
+            "payload" : {
+                "eventpl" : {
+                    "type": "importEventStatus",
+                    "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                }
+            },
+            "kind" : "Event",
+            "priority" : "LOW",
+            "extensionPoint" : false,
+            "visibility" : "PRIVATE"
+        },
+        "exportIngressoEvent": {
+            "endpointType" : "event",
+            "payload" : {
+                "eventpl" : {
+                    "type": "exportEventStatus",
+                    "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                }
+            },
+            "kind" : "Event",
+            "priority" : "LOW",
+            "extensionPoint" : false,
+            "visibility" : "PRIVATE"
         }
     },
     "records": {
@@ -1008,6 +1343,15 @@
             ,
             	"maxLength": 30
             },
+            "lotacaoMaxima" : {
+                "type": "integer",
+                "optional": false,
+                "multivalued": false,
+                "readOnly": false
+            ,
+            	"minValue": 1,
+            	"maxValue": 99999
+            },
             "dataHora" : {
                 "type": "dateTime",
                 "optional": false,
@@ -1024,11 +1368,58 @@
             ,
             	"maxLength": 50
             },
-            "tipoEntradaEvento" : {
+            "tipoentradaevento" : {
                 "type": "tipoEntrada",
                 "optional": true,
                 "multivalued": true,
                 "documentation": "Tipos de entrada permitidos no evento",
+                "readOnly": false
+            },
+            "ingressos" : {
+                "type": "ingresso",
+                "optional": true,
+                "multivalued": true,
+                "documentation": "Ingressos do evento",
+                "readOnly": false
+            }
+        },
+        "ingresso" : {
+            "id" : {
+                "type": "string",
+                "format": "uuid",
+                "optional": true,
+                "multivalued": false,
+            	"readOnly": true
+            },
+            "dataHora" : {
+                "type": "dateTime",
+                "optional": true,
+                "multivalued": false,
+                "documentation": "Data e hora do evento. Opcional, pois a data e hora est\u00E3o no evento",
+                "readOnly": false
+            },
+            "convidado" : {
+                "type": "convidado",
+                "optional": true,
+                "multivalued": false,
+                "documentation": "Convidado dono do ingresso",
+                "readOnly": false
+            },
+            "quantidadeAcompanhantes" : {
+                "type": "integer",
+                "optional": false,
+                "multivalued": false,
+                "documentation": "Quantidade de acompanhantes do ingresso",
+                "readOnly": false
+            ,
+            	"minValue": 0,
+            	"maxValue": 9
+            },
+            "evento" : {
+                "type": "evento",
+                "optional": true,
+                "multivalued": false,
+                "documentation": "Evento que o ingresso pertence",
                 "readOnly": false
             }
         },
@@ -1810,6 +2201,15 @@
                 ,
                 	"maxLength": 30
                 },
+                "lotacaoMaxima" : {
+                    "type": "integer",
+                    "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                ,
+                	"minValue": 1,
+                	"maxValue": 99999
+                },
                 "dataHora" : {
                     "type": "dateTime",
                     "optional": false,
@@ -1826,11 +2226,63 @@
                 ,
                 	"maxLength": 50
                 },
-                "tipoEntradaEvento" : {
+                "tipoentradaevento" : {
                     "type": "tipoEntrada",
                     "optional": true,
                     "multivalued": true,
                     "documentation": "Tipos de entrada permitidos no evento",
+                    "readOnly": false
+                },
+                "ingressos" : {
+                    "type": "ingresso",
+                    "optional": true,
+                    "multivalued": true,
+                    "documentation": "Ingressos do evento",
+                    "readOnly": false
+                }
+            }    
+        },
+        "ingresso" : {
+            "id": "id",
+            "documentation": "Entidade que representa o ingresso",
+            "customizable": true,
+            "slots": { 
+                "id" : {
+                    "type": "string",
+                    "format": "uuid",
+                    "optional": true,
+                    "multivalued": false,
+                	"readOnly": true
+                },
+                "dataHora" : {
+                    "type": "dateTime",
+                    "optional": true,
+                    "multivalued": false,
+                    "documentation": "Data e hora do evento. Opcional, pois a data e hora est\u00E3o no evento",
+                    "readOnly": false
+                },
+                "convidado" : {
+                    "type": "convidado",
+                    "optional": true,
+                    "multivalued": false,
+                    "documentation": "Convidado dono do ingresso",
+                    "readOnly": false
+                },
+                "quantidadeAcompanhantes" : {
+                    "type": "integer",
+                    "optional": false,
+                    "multivalued": false,
+                    "documentation": "Quantidade de acompanhantes do ingresso",
+                    "readOnly": false
+                ,
+                	"minValue": 0,
+                	"maxValue": 9
+                },
+                "evento" : {
+                    "type": "evento",
+                    "optional": true,
+                    "multivalued": false,
+                    "documentation": "Evento que o ingresso pertence",
                     "readOnly": false
                 }
             }    

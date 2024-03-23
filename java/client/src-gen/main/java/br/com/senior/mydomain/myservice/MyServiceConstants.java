@@ -474,6 +474,264 @@ public interface MyServiceConstants {
     	 * @see #DELETE_EVENTO the request primitive
     	 */
     	String DELETE_EVENTO_ERROR = "deleteEventoError";
+    	/**
+    	 * The 'create' request primitive for the ingressos attribute of evento entity.\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity.
+    	 * @see Ingresso the request payload
+    	 */
+    	String CREATE_EVENTO_INGRESSOS = "createEvento_Ingressos";
+    	/**
+    	 * The success response primitive for createEvento_Ingressos.
+    	 *
+    	 * @see #CREATE_EVENTO_INGRESSOS the request primitive
+    	 */
+    	String CREATE_EVENTO_INGRESSOS_RESPONSE = "createEvento_IngressosResponse";
+    	/**
+    	 * An error response primitive for createEvento_Ingressos.
+    	 *
+    	 * @see #CREATE_EVENTO_INGRESSOS the request primitive
+    	 */
+    	String CREATE_EVENTO_INGRESSOS_ERROR = "createEvento_IngressosError";
+    	/**
+    	 * The 'createMerge' request primitive for the ingressos attribute of evento entity.\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity.
+    	 * @see Ingresso the request payload
+    	 */
+    	String CREATE_MERGE_EVENTO_INGRESSOS = "createMergeEvento_Ingressos";
+    	/**
+    	 * The success response primitive for createMergeEvento_Ingressos.
+    	 *
+    	 * @see #CREATE_MERGE_EVENTO_INGRESSOS the request primitive
+    	 */
+    	String CREATE_MERGE_EVENTO_INGRESSOS_RESPONSE = "createMergeEvento_IngressosResponse";
+    	/**
+    	 * An error response primitive for createMergeEvento_Ingressos.
+    	 *
+    	 * @see #CREATE_MERGE_EVENTO_INGRESSOS the request primitive
+    	 */
+    	String CREATE_MERGE_EVENTO_INGRESSOS_ERROR = "createMergeEvento_IngressosError";
+    	/**
+    	 * The 'update' request primitive for the ingressos attribute of evento entity.\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity.
+    	 * @see Ingresso the request payload
+    	 */
+    	String UPDATE_EVENTO_INGRESSOS = "updateEvento_Ingressos";
+    	/**
+    	 * The success response primitive for updateEvento_Ingressos.
+    	 *
+    	 * @see #UPDATE_EVENTO_INGRESSOS the request primitive
+    	 */
+    	String UPDATE_EVENTO_INGRESSOS_RESPONSE = "updateEvento_IngressosResponse";
+    	/**
+    	 * An error response primitive for updateEvento_Ingressos.
+    	 *
+    	 * @see #UPDATE_EVENTO_INGRESSOS the request primitive
+    	 */
+    	String UPDATE_EVENTO_INGRESSOS_ERROR = "updateEvento_IngressosError";
+    	/**
+    	 * The 'updateMerge' request primitive for the ingressos attribute of evento entity.\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity.
+    	 * @see Ingresso the request payload
+    	 */
+    	String UPDATE_MERGE_EVENTO_INGRESSOS = "updateMergeEvento_Ingressos";
+    	/**
+    	 * The success response primitive for updateMergeEvento_Ingressos.
+    	 *
+    	 * @see #UPDATE_MERGE_EVENTO_INGRESSOS the request primitive
+    	 */
+    	String UPDATE_MERGE_EVENTO_INGRESSOS_RESPONSE = "updateMergeEvento_IngressosResponse";
+    	/**
+    	 * An error response primitive for updateMergeEvento_Ingressos.
+    	 *
+    	 * @see #UPDATE_MERGE_EVENTO_INGRESSOS the request primitive
+    	 */
+    	String UPDATE_MERGE_EVENTO_INGRESSOS_ERROR = "updateMergeEvento_IngressosError";
+    	/**
+    	 * The 'retrieve' request primitive for the ingressos attribute of evento entity.\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity.
+    	 * @see Ingresso.GetRequest the request payload
+    	 */
+    	String RETRIEVE_EVENTO_INGRESSOS = "retrieveEvento_Ingressos";
+    	/**
+    	 * The success response primitive for retrieveEvento_Ingressos.
+    	 *
+    	 * @see #RETRIEVE_EVENTO_INGRESSOS the request primitive
+    	 */
+    	String RETRIEVE_EVENTO_INGRESSOS_RESPONSE = "retrieveEvento_IngressosResponse";
+    	/**
+    	 * An error response primitive for retrieveEvento_Ingressos.
+    	 *
+    	 * @see #RETRIEVE_EVENTO_INGRESSOS the request primitive
+    	 */
+    	String RETRIEVE_EVENTO_INGRESSOS_ERROR = "retrieveEvento_IngressosError";
+    	/**
+    	 * The 'delete' request primitive for the ingressos attribute of evento entity.\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity.
+    	 * @see Ingresso.Id the request payload
+    	 */
+    	String DELETE_EVENTO_INGRESSOS = "deleteEvento_Ingressos";
+    	/**
+    	 * The success response primitive for deleteEvento_Ingressos.
+    	 *
+    	 * @see #DELETE_EVENTO_INGRESSOS the request primitive
+    	 */
+    	String DELETE_EVENTO_INGRESSOS_RESPONSE = "deleteEvento_IngressosResponse";
+    	/**
+    	 * An error response primitive for deleteEvento_Ingressos.
+    	 *
+    	 * @see #DELETE_EVENTO_INGRESSOS the request primitive
+    	 */
+    	String DELETE_EVENTO_INGRESSOS_ERROR = "deleteEvento_IngressosError";
+    	/**
+    	 * The 'list' request primitive for the ingressos attribute of evento entity.\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity.
+    	 * @see ingresso.pageRequest the request payload
+    	 */
+    	String LIST_EVENTO_INGRESSOS = "listEvento_Ingressos";
+    	/**
+    	 * The success response primitive for listEvento_Ingressos.
+    	 *
+    	 * @see #LIST_EVENTO_INGRESSOS the request primitive
+    	 * @see Ingresso.PagedResults the response payload
+    	 */
+    	String LIST_EVENTO_INGRESSOS_RESPONSE = "listEvento_IngressosResponse";
+    	/**
+    	 * An error response primitive for listEvento_Ingressos.
+    	 *
+    	 * @see #LIST_EVENTO_INGRESSOS the request primitive
+    	 */
+    	String LIST_EVENTO_INGRESSOS_ERROR = "listEvento_IngressosError";
+    	/**
+    	 * The 'create' request primitive for the Ingresso entity.
+    	 * @see Ingresso the request payload
+    	 */
+    	String CREATE_INGRESSO = "createIngresso";
+    	/**
+    	 * The success response primitive for createIngresso.
+    	 *
+    	 * @see #CREATE_INGRESSO the request primitive
+    	 */
+    	String CREATE_INGRESSO_RESPONSE = "createIngressoResponse";
+    	/**
+    	 * An error response primitive for createIngresso.
+    	 *
+    	 * @see #CREATE_INGRESSO the request primitive
+    	 */
+    	String CREATE_INGRESSO_ERROR = "createIngressoError";
+    	/**
+    	 * The 'createBulk' request primitive for the Ingresso entity.
+    	 * @see CreateBulkIngressoInput the request payload
+    	 */
+    	String CREATE_BULK_INGRESSO = "createBulkIngresso";
+    	/**
+    	 * The success response primitive for createBulkIngresso.
+    	 *
+    	 * @see #CREATE_BULK_INGRESSO the request primitive
+    	 * @see CreateBulkIngressoOutput the response payload
+    	 */
+    	String CREATE_BULK_INGRESSO_RESPONSE = "createBulkIngressoResponse";
+    	/**
+    	 * An error response primitive for createBulkIngresso.
+    	 *
+    	 * @see #CREATE_BULK_INGRESSO the request primitive
+    	 */
+    	String CREATE_BULK_INGRESSO_ERROR = "createBulkIngressoError";
+    	/**
+    	 * The 'createMerge' request primitive for the Ingresso entity.
+    	 * @see Ingresso the request payload
+    	 */
+    	String CREATE_MERGE_INGRESSO = "createMergeIngresso";
+    	/**
+    	 * The success response primitive for createMergeIngresso.
+    	 *
+    	 * @see #CREATE_MERGE_INGRESSO the request primitive
+    	 */
+    	String CREATE_MERGE_INGRESSO_RESPONSE = "createMergeIngressoResponse";
+    	/**
+    	 * An error response primitive for createMergeIngresso.
+    	 *
+    	 * @see #CREATE_MERGE_INGRESSO the request primitive
+    	 */
+    	String CREATE_MERGE_INGRESSO_ERROR = "createMergeIngressoError";
+    	/**
+    	 * The 'retrieve' request primitive for the Ingresso entity.
+    	 * @see Ingresso.GetRequest the request payload
+    	 */
+    	String RETRIEVE_INGRESSO = "retrieveIngresso";
+    	/**
+    	 * The success response primitive for retrieveIngresso.
+    	 *
+    	 * @see #RETRIEVE_INGRESSO the request primitive
+    	 */
+    	String RETRIEVE_INGRESSO_RESPONSE = "retrieveIngressoResponse";
+    	/**
+    	 * An error response primitive for retrieveIngresso.
+    	 *
+    	 * @see #RETRIEVE_INGRESSO the request primitive
+    	 */
+    	String RETRIEVE_INGRESSO_ERROR = "retrieveIngressoError";
+    	/**
+    	 * The 'list' request primitive for the Ingresso entity.
+    	 * @see ingresso.pageRequest the request payload
+    	 */
+    	String LIST_INGRESSO = "listIngresso";
+    	/**
+    	 * The success response primitive for listIngresso.
+    	 *
+    	 * @see #LIST_INGRESSO the request primitive
+    	 * @see Ingresso.PagedResults the response payload
+    	 */
+    	String LIST_INGRESSO_RESPONSE = "listIngressoResponse";
+    	/**
+    	 * An error response primitive for listIngresso.
+    	 *
+    	 * @see #LIST_INGRESSO the request primitive
+    	 */
+    	String LIST_INGRESSO_ERROR = "listIngressoError";
+    	/**
+    	 * The 'update' request primitive for the Ingresso entity.
+    	 * @see Ingresso the request payload
+    	 */
+    	String UPDATE_INGRESSO = "updateIngresso";
+    	/**
+    	 * The success response primitive for updateIngresso.
+    	 *
+    	 * @see #UPDATE_INGRESSO the request primitive
+    	 */
+    	String UPDATE_INGRESSO_RESPONSE = "updateIngressoResponse";
+    	/**
+    	 * An error response primitive for updateIngresso.
+    	 *
+    	 * @see #UPDATE_INGRESSO the request primitive
+    	 */
+    	String UPDATE_INGRESSO_ERROR = "updateIngressoError";
+    	/**
+    	 * The 'updateMerge' request primitive for the Ingresso entity.
+    	 * @see Ingresso the request payload
+    	 */
+    	String UPDATE_MERGE_INGRESSO = "updateMergeIngresso";
+    	/**
+    	 * The success response primitive for updateMergeIngresso.
+    	 *
+    	 * @see #UPDATE_MERGE_INGRESSO the request primitive
+    	 */
+    	String UPDATE_MERGE_INGRESSO_RESPONSE = "updateMergeIngressoResponse";
+    	/**
+    	 * An error response primitive for updateMergeIngresso.
+    	 *
+    	 * @see #UPDATE_MERGE_INGRESSO the request primitive
+    	 */
+    	String UPDATE_MERGE_INGRESSO_ERROR = "updateMergeIngressoError";
+    	/**
+    	 * The 'delete' request primitive for the Ingresso entity.
+    	 * @see Ingresso.Id the request payload
+    	 */
+    	String DELETE_INGRESSO = "deleteIngresso";
+    	/**
+    	 * The success response primitive for deleteIngresso.
+    	 *
+    	 * @see #DELETE_INGRESSO the request primitive
+    	 */
+    	String DELETE_INGRESSO_RESPONSE = "deleteIngressoResponse";
+    	/**
+    	 * An error response primitive for deleteIngresso.
+    	 *
+    	 * @see #DELETE_INGRESSO the request primitive
+    	 */
+    	String DELETE_INGRESSO_ERROR = "deleteIngressoError";
     }
     
     interface Signals {
@@ -496,6 +754,8 @@ public interface MyServiceConstants {
     	String EXPORT_CONVIDADO_EVENT = "exportConvidadoEvent";
     	String IMPORT_EVENTO_EVENT = "importEventoEvent";
     	String EXPORT_EVENTO_EVENT = "exportEventoEvent";
+    	String IMPORT_INGRESSO_EVENT = "importIngressoEvent";
+    	String EXPORT_INGRESSO_EVENT = "exportIngressoEvent";
     }
     
 }

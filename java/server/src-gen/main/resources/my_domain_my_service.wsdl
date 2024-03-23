@@ -109,6 +109,14 @@
                     	</xsd:restriction>
                     </xsd:simpleType>
                     </xsd:element>
+                    <xsd:element name="lotacaoMaxima"  minOccurs="1" maxOccurs="1"  readOnly="false">
+                    <xsd:simpleType>
+                    	<xsd:restriction base="xsd:long">
+                    		<xsd:minInclusive value="1" />
+                    		<xsd:maxInclusive value="99999" />
+                    	</xsd:restriction>
+                    </xsd:simpleType>
+                    </xsd:element>
                     <xsd:element name="dataHora" type="xsd:dateTime" minOccurs="1" maxOccurs="1"  readOnly="false">
                     </xsd:element>
                     <xsd:element name="endereco"  minOccurs="1" maxOccurs="1"  readOnly="false">
@@ -118,13 +126,41 @@
                     	</xsd:restriction>
                     </xsd:simpleType>
                     </xsd:element>
-                    <!-- collection wrapper for tipoEntradaEvento -->
-                    <xsd:element name="tipoEntradaEvento" minOccurs="0" maxOccurs="1">
+                    <!-- collection wrapper for tipoentradaevento -->
+                    <xsd:element name="tipoentradaevento" minOccurs="0" maxOccurs="1">
                         <xsd:complexType>
                             <xsd:sequence>
                                 <xsd:element name="item" type="tipoEntrada" minOccurs="0" maxOccurs="unbounded"/>
                             </xsd:sequence>
                         </xsd:complexType>
+                    </xsd:element>
+                    <!-- collection wrapper for ingressos -->
+                    <xsd:element name="ingressos" minOccurs="0" maxOccurs="1">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="item" type="ingresso" minOccurs="0" maxOccurs="unbounded"/>
+                            </xsd:sequence>
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ingresso">
+                <xsd:sequence>
+                    <xsd:element name="id" type="xsd:uuid" minOccurs="0" maxOccurs="1"  readOnly="false">
+                    </xsd:element>
+                    <xsd:element name="dataHora" type="xsd:dateTime" minOccurs="0" maxOccurs="1"  readOnly="false">
+                    </xsd:element>
+                    <xsd:element name="convidado" type="convidado" minOccurs="0" maxOccurs="1"  readOnly="false">
+                    </xsd:element>
+                    <xsd:element name="quantidadeAcompanhantes"  minOccurs="1" maxOccurs="1"  readOnly="false">
+                    <xsd:simpleType>
+                    	<xsd:restriction base="xsd:long">
+                    		<xsd:minInclusive value="0" />
+                    		<xsd:maxInclusive value="9" />
+                    	</xsd:restriction>
+                    </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element name="evento" type="evento" minOccurs="0" maxOccurs="1"  readOnly="false">
                     </xsd:element>
                 </xsd:sequence>
             </xsd:complexType>
@@ -482,6 +518,86 @@
             </xsd:element>
             
             <!-- Message input/output elements for commands -->
+            <xsd:element name="deleteIngresso">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="id" type="xsd:uuid" minOccurs="1" maxOccurs="1"  readOnly="false">
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="listIngresso">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="offset" type="xsd:long" minOccurs="1" maxOccurs="1"  readOnly="false">
+                        </xsd:element>
+                        <xsd:element name="size" type="xsd:long" minOccurs="1" maxOccurs="1"  readOnly="false">
+                        </xsd:element>
+                        <xsd:element name="orderBy" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                        </xsd:element>
+                        <xsd:element name="filter" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                        </xsd:element>
+                        <!-- collection wrapper for displayFields -->
+                        <xsd:element name="displayFields" minOccurs="1" maxOccurs="1">
+                            <xsd:complexType>
+                                <xsd:sequence>
+                                    <xsd:element name="item" type="xsd:string" minOccurs="1" maxOccurs="unbounded"/>
+                                </xsd:sequence>
+                            </xsd:complexType>
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="listIngressoOutput">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <!-- collection wrapper for contents -->
+                        <xsd:element name="contents" minOccurs="1" maxOccurs="1">
+                            <xsd:complexType>
+                                <xsd:sequence>
+                                    <xsd:element name="item" type="ingresso" minOccurs="1" maxOccurs="unbounded"/>
+                                </xsd:sequence>
+                            </xsd:complexType>
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="listEvento_Ingressos">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="offset" type="xsd:long" minOccurs="1" maxOccurs="1"  readOnly="false">
+                        </xsd:element>
+                        <xsd:element name="size" type="xsd:long" minOccurs="1" maxOccurs="1"  readOnly="false">
+                        </xsd:element>
+                        <xsd:element name="orderBy" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                        </xsd:element>
+                        <xsd:element name="filter" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                        </xsd:element>
+                        <!-- collection wrapper for displayFields -->
+                        <xsd:element name="displayFields" minOccurs="1" maxOccurs="1">
+                            <xsd:complexType>
+                                <xsd:sequence>
+                                    <xsd:element name="item" type="xsd:string" minOccurs="1" maxOccurs="unbounded"/>
+                                </xsd:sequence>
+                            </xsd:complexType>
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="listEvento_IngressosOutput">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <!-- collection wrapper for contents -->
+                        <xsd:element name="contents" minOccurs="1" maxOccurs="1">
+                            <xsd:complexType>
+                                <xsd:sequence>
+                                    <xsd:element name="item" type="ingresso" minOccurs="1" maxOccurs="unbounded"/>
+                                </xsd:sequence>
+                            </xsd:complexType>
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
             <xsd:element name="deleteEvento">
                 <xsd:complexType>
                     <xsd:sequence>
@@ -498,6 +614,9 @@
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>
+            <xsd:element name="createMergeIngresso">
+                <xsd:complexType/>
+            </xsd:element>
             <xsd:element name="retrieveEvento">
                 <xsd:complexType>
                     <xsd:sequence>
@@ -507,6 +626,10 @@
                 </xsd:complexType>
             </xsd:element>
             <xsd:element name="updateConvidado">
+                <xsd:complexType/>
+            </xsd:element>
+            <xsd:element name="deleteEvento_Ingressos" type="uuid"/>
+            <xsd:element name="createIngresso">
                 <xsd:complexType/>
             </xsd:element>
             <xsd:element name="importEvento">
@@ -564,10 +687,19 @@
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>
+            <xsd:element name="createEvento_Ingressos">
+                <xsd:complexType/>
+            </xsd:element>
             <xsd:element name="odata">
                 <xsd:complexType/>
             </xsd:element>
+            <xsd:element name="updateMergeIngresso">
+                <xsd:complexType/>
+            </xsd:element>
             <xsd:element name="createMergeConvidado">
+                <xsd:complexType/>
+            </xsd:element>
+            <xsd:element name="createMergeEvento_Ingressos">
                 <xsd:complexType/>
             </xsd:element>
             <xsd:element name="updateEvento">
@@ -576,12 +708,44 @@
             <xsd:element name="updateMergeEvento">
                 <xsd:complexType/>
             </xsd:element>
+            <xsd:element name="updateIngresso">
+                <xsd:complexType/>
+            </xsd:element>
             <xsd:element name="createMergeEvento">
                 <xsd:complexType/>
+            </xsd:element>
+            <xsd:element name="retrieveIngresso">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="id" type="xsd:uuid" minOccurs="1" maxOccurs="1"  readOnly="false">
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="createBulkIngresso">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <!-- collection wrapper for entities -->
+                        <xsd:element name="entities" minOccurs="1" maxOccurs="1">
+                            <xsd:complexType>
+                                <xsd:sequence>
+                                    <xsd:element name="item" type="ingresso" minOccurs="1" maxOccurs="unbounded"/>
+                                </xsd:sequence>
+                            </xsd:complexType>
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="createBulkIngressoOutput">
+                <xsd:complexType>
+                    <xsd:sequence>
+                    </xsd:sequence>
+                </xsd:complexType>
             </xsd:element>
             <xsd:element name="updateMergeConvidado">
                 <xsd:complexType/>
             </xsd:element>
+            <xsd:element name="retrieveEvento_Ingressos" type="uuid"/>
             <xsd:element name="exportConvidado">
                 <xsd:complexType>
                     <xsd:sequence>
@@ -746,6 +910,9 @@
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>
+            <xsd:element name="updateEvento_Ingressos">
+                <xsd:complexType/>
+            </xsd:element>
             <xsd:element name="createBulkEvento">
                 <xsd:complexType>
                     <xsd:sequence>
@@ -765,6 +932,9 @@
                     <xsd:sequence>
                     </xsd:sequence>
                 </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="updateMergeEvento_Ingressos">
+                <xsd:complexType/>
             </xsd:element>
             <xsd:element name="helloWorld">
                 <xsd:complexType>
@@ -845,14 +1015,14 @@
         </xsd:schema>
     </wsdl:types>
     
-    <wsdl:message name="deleteEventoRequest">
-        <wsdl:part name="toDelete" element="deleteEvento"/>
+    <wsdl:message name="deleteIngressoRequest">
+        <wsdl:part name="toDelete" element="deleteIngresso"/>
     </wsdl:message>
-    <wsdl:message name="retrieveConvidadoRequest">
-        <wsdl:part name="toRetrieve" element="retrieveConvidado"/>
+    <wsdl:message name="listIngressoRequest">
+        <wsdl:part name="pageRequest" element="listIngresso"/>
     </wsdl:message>
-    <wsdl:message name="retrieveConvidadoResponse">
-        <wsdl:part name="retrieved" element="retrieveConvidadoOutput"/>
+    <wsdl:message name="listIngressoResponse">
+        <wsdl:part name="pagedResults" element="listIngressoOutput"/>
     </wsdl:message>
     <wsdl:message name="retrieveEventoRequest">
         <wsdl:part name="toRetrieve" element="retrieveEvento"/>
@@ -865,6 +1035,12 @@
     </wsdl:message>
     <wsdl:message name="updateConvidadoResponse">
         <wsdl:part name="updated" element="updateConvidadoOutput"/>
+    </wsdl:message>
+    <wsdl:message name="createIngressoRequest">
+        <wsdl:part name="toCreate" element="createIngresso"/>
+    </wsdl:message>
+    <wsdl:message name="createIngressoResponse">
+        <wsdl:part name="created" element="createIngressoOutput"/>
     </wsdl:message>
     <wsdl:message name="estornarPagamentosSignal">
         <wsdl:part name="parameters" element="estornarPagamentos"/>
@@ -887,11 +1063,17 @@
     <wsdl:message name="listConvidadoResponse">
         <wsdl:part name="pagedResults" element="listConvidadoOutput"/>
     </wsdl:message>
-    <wsdl:message name="odataRequest">
-        <wsdl:part name="parameters" element="odata"/>
+    <wsdl:message name="createEvento_IngressosRequest">
+        <wsdl:part name="toCreate" element="createEvento_Ingressos"/>
     </wsdl:message>
-    <wsdl:message name="odataResponse">
-        <wsdl:part name="result" element="odataOutput"/>
+    <wsdl:message name="createEvento_IngressosResponse">
+        <wsdl:part name="created" element="createEvento_IngressosOutput"/>
+    </wsdl:message>
+    <wsdl:message name="updateMergeIngressoRequest">
+        <wsdl:part name="parameters" element="updateMergeIngresso"/>
+    </wsdl:message>
+    <wsdl:message name="updateMergeIngressoResponse">
+        <wsdl:part name="result" element="updateMergeIngressoOutput"/>
     </wsdl:message>
     <wsdl:message name="createMergeConvidadoRequest">
         <wsdl:part name="parameters" element="createMergeConvidado"/>
@@ -899,17 +1081,23 @@
     <wsdl:message name="createMergeConvidadoResponse">
         <wsdl:part name="result" element="createMergeConvidadoOutput"/>
     </wsdl:message>
+    <wsdl:message name="createMergeEvento_IngressosRequest">
+        <wsdl:part name="parameters" element="createMergeEvento_Ingressos"/>
+    </wsdl:message>
+    <wsdl:message name="createMergeEvento_IngressosResponse">
+        <wsdl:part name="result" element="createMergeEvento_IngressosOutput"/>
+    </wsdl:message>
     <wsdl:message name="updateEventoRequest">
         <wsdl:part name="toUpdate" element="updateEvento"/>
     </wsdl:message>
     <wsdl:message name="updateEventoResponse">
         <wsdl:part name="updated" element="updateEventoOutput"/>
     </wsdl:message>
-    <wsdl:message name="updateMergeEventoRequest">
-        <wsdl:part name="parameters" element="updateMergeEvento"/>
+    <wsdl:message name="updateIngressoRequest">
+        <wsdl:part name="toUpdate" element="updateIngresso"/>
     </wsdl:message>
-    <wsdl:message name="updateMergeEventoResponse">
-        <wsdl:part name="result" element="updateMergeEventoOutput"/>
+    <wsdl:message name="updateIngressoResponse">
+        <wsdl:part name="updated" element="updateIngressoOutput"/>
     </wsdl:message>
     <wsdl:message name="createMergeEventoRequest">
         <wsdl:part name="parameters" element="createMergeEvento"/>
@@ -917,35 +1105,29 @@
     <wsdl:message name="createMergeEventoResponse">
         <wsdl:part name="result" element="createMergeEventoOutput"/>
     </wsdl:message>
+    <wsdl:message name="retrieveIngressoRequest">
+        <wsdl:part name="toRetrieve" element="retrieveIngresso"/>
+    </wsdl:message>
+    <wsdl:message name="retrieveIngressoResponse">
+        <wsdl:part name="retrieved" element="retrieveIngressoOutput"/>
+    </wsdl:message>
+    <wsdl:message name="createBulkIngressoRequest">
+        <wsdl:part name="parameters" element="createBulkIngresso"/>
+    </wsdl:message>
+    <wsdl:message name="createBulkIngressoResponse">
+        <wsdl:part name="result" element="createBulkIngressoOutput"/>
+    </wsdl:message>
     <wsdl:message name="updateMergeConvidadoRequest">
         <wsdl:part name="parameters" element="updateMergeConvidado"/>
     </wsdl:message>
     <wsdl:message name="updateMergeConvidadoResponse">
         <wsdl:part name="result" element="updateMergeConvidadoOutput"/>
     </wsdl:message>
-    <wsdl:message name="exportConvidadoRequest">
-        <wsdl:part name="parameters" element="exportConvidado"/>
-    </wsdl:message>
-    <wsdl:message name="exportConvidadoResponse">
-        <wsdl:part name="result" element="exportConvidadoOutput"/>
-    </wsdl:message>
     <wsdl:message name="getMetadataRequest">
         <wsdl:part name="parameters" element="getMetadata"/>
     </wsdl:message>
     <wsdl:message name="getMetadataResponse">
         <wsdl:part name="result" element="getMetadataOutput"/>
-    </wsdl:message>
-    <wsdl:message name="createConvidadoRequest">
-        <wsdl:part name="toCreate" element="createConvidado"/>
-    </wsdl:message>
-    <wsdl:message name="createConvidadoResponse">
-        <wsdl:part name="created" element="createConvidadoOutput"/>
-    </wsdl:message>
-    <wsdl:message name="getDependenciesRequest">
-        <wsdl:part name="parameters" element="getDependencies"/>
-    </wsdl:message>
-    <wsdl:message name="getDependenciesResponse">
-        <wsdl:part name="result" element="getDependenciesOutput"/>
     </wsdl:message>
     <wsdl:message name="comprarIngressoRequest">
         <wsdl:part name="parameters" element="comprarIngresso"/>
@@ -958,6 +1140,102 @@
     </wsdl:message>
     <wsdl:message name="listEventoResponse">
         <wsdl:part name="pagedResults" element="listEventoOutput"/>
+    </wsdl:message>
+    <wsdl:message name="updateEvento_IngressosRequest">
+        <wsdl:part name="toUpdate" element="updateEvento_Ingressos"/>
+    </wsdl:message>
+    <wsdl:message name="updateEvento_IngressosResponse">
+        <wsdl:part name="updated" element="updateEvento_IngressosOutput"/>
+    </wsdl:message>
+    <wsdl:message name="createBulkEventoRequest">
+        <wsdl:part name="parameters" element="createBulkEvento"/>
+    </wsdl:message>
+    <wsdl:message name="createBulkEventoResponse">
+        <wsdl:part name="result" element="createBulkEventoOutput"/>
+    </wsdl:message>
+    <wsdl:message name="updateMergeEvento_IngressosRequest">
+        <wsdl:part name="parameters" element="updateMergeEvento_Ingressos"/>
+    </wsdl:message>
+    <wsdl:message name="updateMergeEvento_IngressosResponse">
+        <wsdl:part name="result" element="updateMergeEvento_IngressosOutput"/>
+    </wsdl:message>
+    <wsdl:message name="helloWorldRequest">
+        <wsdl:part name="parameters" element="helloWorld"/>
+    </wsdl:message>
+    <wsdl:message name="helloWorldResponse">
+        <wsdl:part name="result" element="helloWorldOutput"/>
+    </wsdl:message>
+    <wsdl:message name="cadastrarConvidadoRequest">
+        <wsdl:part name="parameters" element="cadastrarConvidado"/>
+    </wsdl:message>
+    <wsdl:message name="cadastrarConvidadoResponse">
+        <wsdl:part name="result" element="cadastrarConvidadoOutput"/>
+    </wsdl:message>
+    <wsdl:message name="cadastrarEventoRequest">
+        <wsdl:part name="parameters" element="cadastrarEvento"/>
+    </wsdl:message>
+    <wsdl:message name="cadastrarEventoResponse">
+        <wsdl:part name="result" element="cadastrarEventoOutput"/>
+    </wsdl:message>
+    <wsdl:message name="listEvento_IngressosRequest">
+        <wsdl:part name="pageRequest" element="listEvento_Ingressos"/>
+    </wsdl:message>
+    <wsdl:message name="listEvento_IngressosResponse">
+        <wsdl:part name="pagedResults" element="listEvento_IngressosOutput"/>
+    </wsdl:message>
+    <wsdl:message name="deleteEventoRequest">
+        <wsdl:part name="toDelete" element="deleteEvento"/>
+    </wsdl:message>
+    <wsdl:message name="retrieveConvidadoRequest">
+        <wsdl:part name="toRetrieve" element="retrieveConvidado"/>
+    </wsdl:message>
+    <wsdl:message name="retrieveConvidadoResponse">
+        <wsdl:part name="retrieved" element="retrieveConvidadoOutput"/>
+    </wsdl:message>
+    <wsdl:message name="createMergeIngressoRequest">
+        <wsdl:part name="parameters" element="createMergeIngresso"/>
+    </wsdl:message>
+    <wsdl:message name="createMergeIngressoResponse">
+        <wsdl:part name="result" element="createMergeIngressoOutput"/>
+    </wsdl:message>
+    <wsdl:message name="deleteEvento_IngressosRequest">
+        <wsdl:part name="toDelete" element="deleteEvento_Ingressos"/>
+    </wsdl:message>
+    <wsdl:message name="odataRequest">
+        <wsdl:part name="parameters" element="odata"/>
+    </wsdl:message>
+    <wsdl:message name="odataResponse">
+        <wsdl:part name="result" element="odataOutput"/>
+    </wsdl:message>
+    <wsdl:message name="updateMergeEventoRequest">
+        <wsdl:part name="parameters" element="updateMergeEvento"/>
+    </wsdl:message>
+    <wsdl:message name="updateMergeEventoResponse">
+        <wsdl:part name="result" element="updateMergeEventoOutput"/>
+    </wsdl:message>
+    <wsdl:message name="retrieveEvento_IngressosRequest">
+        <wsdl:part name="toRetrieve" element="retrieveEvento_Ingressos"/>
+    </wsdl:message>
+    <wsdl:message name="retrieveEvento_IngressosResponse">
+        <wsdl:part name="retrieved" element="retrieveEvento_IngressosOutput"/>
+    </wsdl:message>
+    <wsdl:message name="exportConvidadoRequest">
+        <wsdl:part name="parameters" element="exportConvidado"/>
+    </wsdl:message>
+    <wsdl:message name="exportConvidadoResponse">
+        <wsdl:part name="result" element="exportConvidadoOutput"/>
+    </wsdl:message>
+    <wsdl:message name="createConvidadoRequest">
+        <wsdl:part name="toCreate" element="createConvidado"/>
+    </wsdl:message>
+    <wsdl:message name="createConvidadoResponse">
+        <wsdl:part name="created" element="createConvidadoOutput"/>
+    </wsdl:message>
+    <wsdl:message name="getDependenciesRequest">
+        <wsdl:part name="parameters" element="getDependencies"/>
+    </wsdl:message>
+    <wsdl:message name="getDependenciesResponse">
+        <wsdl:part name="result" element="getDependenciesOutput"/>
     </wsdl:message>
     <wsdl:message name="importConvidadoRequest">
         <wsdl:part name="parameters" element="importConvidado"/>
@@ -983,47 +1261,23 @@
     <wsdl:message name="exportEventoResponse">
         <wsdl:part name="result" element="exportEventoOutput"/>
     </wsdl:message>
-    <wsdl:message name="createBulkEventoRequest">
-        <wsdl:part name="parameters" element="createBulkEvento"/>
-    </wsdl:message>
-    <wsdl:message name="createBulkEventoResponse">
-        <wsdl:part name="result" element="createBulkEventoOutput"/>
-    </wsdl:message>
-    <wsdl:message name="helloWorldRequest">
-        <wsdl:part name="parameters" element="helloWorld"/>
-    </wsdl:message>
-    <wsdl:message name="helloWorldResponse">
-        <wsdl:part name="result" element="helloWorldOutput"/>
-    </wsdl:message>
-    <wsdl:message name="cadastrarConvidadoRequest">
-        <wsdl:part name="parameters" element="cadastrarConvidado"/>
-    </wsdl:message>
-    <wsdl:message name="cadastrarConvidadoResponse">
-        <wsdl:part name="result" element="cadastrarConvidadoOutput"/>
-    </wsdl:message>
-    <wsdl:message name="cadastrarEventoRequest">
-        <wsdl:part name="parameters" element="cadastrarEvento"/>
-    </wsdl:message>
-    <wsdl:message name="cadastrarEventoResponse">
-        <wsdl:part name="result" element="cadastrarEventoOutput"/>
-    </wsdl:message>
     
     <wsdl:portType name="my_servicePortType">
-        <wsdl:operation name="deleteEvento">
+        <wsdl:operation name="deleteIngresso">
             <wsdl:documentation>
             THIS OPERATION IS PUBLIC. 
-            The 'delete' request primitive for the Evento entity. 
+            The 'delete' request primitive for the Ingresso entity. 
             </wsdl:documentation>
-            <wsdl:input message="deleteEventoRequest"/>
-            <wsdl:output message="deleteEventoResponse"/>
+            <wsdl:input message="deleteIngressoRequest"/>
+            <wsdl:output message="deleteIngressoResponse"/>
         </wsdl:operation>
-        <wsdl:operation name="retrieveConvidado">
+        <wsdl:operation name="listIngresso">
             <wsdl:documentation>
-            THIS OPERATION IS PUBLIC. 
-            The 'retrieve' request primitive for the Convidado entity. 
+            WARNING: THIS OPERATION IS PRIVATE AND MAY HAVE ITS BEHAVIOR CHANGED AT ANY TIME WITHOUT NOTICE. 
+            The 'list' request primitive for the Ingresso entity. 
             </wsdl:documentation>
-            <wsdl:input message="retrieveConvidadoRequest"/>
-            <wsdl:output message="retrieveConvidadoResponse"/>
+            <wsdl:input message="listIngressoRequest"/>
+            <wsdl:output message="listIngressoResponse"/>
         </wsdl:operation>
         <wsdl:operation name="retrieveEvento">
             <wsdl:documentation>
@@ -1040,6 +1294,14 @@
             </wsdl:documentation>
             <wsdl:input message="updateConvidadoRequest"/>
             <wsdl:output message="updateConvidadoResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="createIngresso">
+            <wsdl:documentation>
+            THIS OPERATION IS PUBLIC. 
+            The 'create' request primitive for the Ingresso entity. 
+            </wsdl:documentation>
+            <wsdl:input message="createIngressoRequest"/>
+            <wsdl:output message="createIngressoResponse"/>
         </wsdl:operation>
         <wsdl:operation name="estornarPagamentos">
             <wsdl:documentation>
@@ -1070,12 +1332,21 @@
             <wsdl:input message="listConvidadoRequest"/>
             <wsdl:output message="listConvidadoResponse"/>
         </wsdl:operation>
-        <wsdl:operation name="odata">
+        <wsdl:operation name="createEvento_Ingressos">
             <wsdl:documentation>
             WARNING: THIS OPERATION IS PRIVATE AND MAY HAVE ITS BEHAVIOR CHANGED AT ANY TIME WITHOUT NOTICE. 
+            The 'create' request primitive for the ingressos attribute of evento entity.\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity. 
             </wsdl:documentation>
-            <wsdl:input message="odataRequest"/>
-            <wsdl:output message="odataResponse"/>
+            <wsdl:input message="createEvento_IngressosRequest"/>
+            <wsdl:output message="createEvento_IngressosResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="updateMergeIngresso">
+            <wsdl:documentation>
+            THIS OPERATION IS PUBLIC. 
+            The 'updateMerge' request primitive for the Ingresso entity. 
+            </wsdl:documentation>
+            <wsdl:input message="updateMergeIngressoRequest"/>
+            <wsdl:output message="updateMergeIngressoResponse"/>
         </wsdl:operation>
         <wsdl:operation name="createMergeConvidado">
             <wsdl:documentation>
@@ -1085,6 +1356,14 @@
             <wsdl:input message="createMergeConvidadoRequest"/>
             <wsdl:output message="createMergeConvidadoResponse"/>
         </wsdl:operation>
+        <wsdl:operation name="createMergeEvento_Ingressos">
+            <wsdl:documentation>
+            WARNING: THIS OPERATION IS PRIVATE AND MAY HAVE ITS BEHAVIOR CHANGED AT ANY TIME WITHOUT NOTICE. 
+            The 'createMerge' request primitive for the ingressos attribute of evento entity.\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity. 
+            </wsdl:documentation>
+            <wsdl:input message="createMergeEvento_IngressosRequest"/>
+            <wsdl:output message="createMergeEvento_IngressosResponse"/>
+        </wsdl:operation>
         <wsdl:operation name="updateEvento">
             <wsdl:documentation>
             THIS OPERATION IS PUBLIC. 
@@ -1093,13 +1372,13 @@
             <wsdl:input message="updateEventoRequest"/>
             <wsdl:output message="updateEventoResponse"/>
         </wsdl:operation>
-        <wsdl:operation name="updateMergeEvento">
+        <wsdl:operation name="updateIngresso">
             <wsdl:documentation>
             THIS OPERATION IS PUBLIC. 
-            The 'updateMerge' request primitive for the Evento entity. 
+            The 'update' request primitive for the Ingresso entity. 
             </wsdl:documentation>
-            <wsdl:input message="updateMergeEventoRequest"/>
-            <wsdl:output message="updateMergeEventoResponse"/>
+            <wsdl:input message="updateIngressoRequest"/>
+            <wsdl:output message="updateIngressoResponse"/>
         </wsdl:operation>
         <wsdl:operation name="createMergeEvento">
             <wsdl:documentation>
@@ -1109,6 +1388,22 @@
             <wsdl:input message="createMergeEventoRequest"/>
             <wsdl:output message="createMergeEventoResponse"/>
         </wsdl:operation>
+        <wsdl:operation name="retrieveIngresso">
+            <wsdl:documentation>
+            THIS OPERATION IS PUBLIC. 
+            The 'retrieve' request primitive for the Ingresso entity. 
+            </wsdl:documentation>
+            <wsdl:input message="retrieveIngressoRequest"/>
+            <wsdl:output message="retrieveIngressoResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="createBulkIngresso">
+            <wsdl:documentation>
+            THIS OPERATION IS PUBLIC. 
+            The 'createBulk' request primitive for the Ingresso entity. 
+            </wsdl:documentation>
+            <wsdl:input message="createBulkIngressoRequest"/>
+            <wsdl:output message="createBulkIngressoResponse"/>
+        </wsdl:operation>
         <wsdl:operation name="updateMergeConvidado">
             <wsdl:documentation>
             THIS OPERATION IS PUBLIC. 
@@ -1117,13 +1412,6 @@
             <wsdl:input message="updateMergeConvidadoRequest"/>
             <wsdl:output message="updateMergeConvidadoResponse"/>
         </wsdl:operation>
-        <wsdl:operation name="exportConvidado">
-            <wsdl:documentation>
-            WARNING: THIS OPERATION IS PRIVATE AND MAY HAVE ITS BEHAVIOR CHANGED AT ANY TIME WITHOUT NOTICE. 
-            </wsdl:documentation>
-            <wsdl:input message="exportConvidadoRequest"/>
-            <wsdl:output message="exportConvidadoResponse"/>
-        </wsdl:operation>
         <wsdl:operation name="getMetadata">
             <wsdl:documentation>
             WARNING: THIS OPERATION IS PRIVATE AND MAY HAVE ITS BEHAVIOR CHANGED AT ANY TIME WITHOUT NOTICE. 
@@ -1131,6 +1419,139 @@
             </wsdl:documentation>
             <wsdl:input message="getMetadataRequest"/>
             <wsdl:output message="getMetadataResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="comprarIngresso">
+            <wsdl:documentation>
+            WARNING: THIS OPERATION IS PRIVATE AND MAY HAVE ITS BEHAVIOR CHANGED AT ANY TIME WITHOUT NOTICE. 
+            </wsdl:documentation>
+            <wsdl:input message="comprarIngressoRequest"/>
+            <wsdl:output message="comprarIngressoResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="listEvento">
+            <wsdl:documentation>
+            WARNING: THIS OPERATION IS PRIVATE AND MAY HAVE ITS BEHAVIOR CHANGED AT ANY TIME WITHOUT NOTICE. 
+            The 'list' request primitive for the Evento entity. 
+            </wsdl:documentation>
+            <wsdl:input message="listEventoRequest"/>
+            <wsdl:output message="listEventoResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="updateEvento_Ingressos">
+            <wsdl:documentation>
+            WARNING: THIS OPERATION IS PRIVATE AND MAY HAVE ITS BEHAVIOR CHANGED AT ANY TIME WITHOUT NOTICE. 
+            The 'update' request primitive for the ingressos attribute of evento entity.\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity. 
+            </wsdl:documentation>
+            <wsdl:input message="updateEvento_IngressosRequest"/>
+            <wsdl:output message="updateEvento_IngressosResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="createBulkEvento">
+            <wsdl:documentation>
+            THIS OPERATION IS PUBLIC. 
+            The 'createBulk' request primitive for the Evento entity. 
+            </wsdl:documentation>
+            <wsdl:input message="createBulkEventoRequest"/>
+            <wsdl:output message="createBulkEventoResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="updateMergeEvento_Ingressos">
+            <wsdl:documentation>
+            WARNING: THIS OPERATION IS PRIVATE AND MAY HAVE ITS BEHAVIOR CHANGED AT ANY TIME WITHOUT NOTICE. 
+            The 'updateMerge' request primitive for the ingressos attribute of evento entity.\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity. 
+            </wsdl:documentation>
+            <wsdl:input message="updateMergeEvento_IngressosRequest"/>
+            <wsdl:output message="updateMergeEvento_IngressosResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="helloWorld">
+            <wsdl:documentation>
+            THIS OPERATION IS PUBLIC. 
+             Primitiva que retorna uma mensagem de olá com o nome do requisitante Normalmente no campo who é informado seu próprio nome  
+            </wsdl:documentation>
+            <wsdl:input message="helloWorldRequest"/>
+            <wsdl:output message="helloWorldResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="cadastrarConvidado">
+            <wsdl:documentation>
+            WARNING: THIS OPERATION IS PRIVATE AND MAY HAVE ITS BEHAVIOR CHANGED AT ANY TIME WITHOUT NOTICE. 
+            Cadastrar um novo convidado e acompanhantes 
+            </wsdl:documentation>
+            <wsdl:input message="cadastrarConvidadoRequest"/>
+            <wsdl:output message="cadastrarConvidadoResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="cadastrarEvento">
+            <wsdl:documentation>
+            WARNING: THIS OPERATION IS PRIVATE AND MAY HAVE ITS BEHAVIOR CHANGED AT ANY TIME WITHOUT NOTICE. 
+            Cadastra um novo evento (ex: SeniorTec, Casamento, Aniversário, etc) 
+            </wsdl:documentation>
+            <wsdl:input message="cadastrarEventoRequest"/>
+            <wsdl:output message="cadastrarEventoResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="listEvento_Ingressos">
+            <wsdl:documentation>
+            WARNING: THIS OPERATION IS PRIVATE AND MAY HAVE ITS BEHAVIOR CHANGED AT ANY TIME WITHOUT NOTICE. 
+            The 'list' request primitive for the ingressos attribute of evento entity.\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity. 
+            </wsdl:documentation>
+            <wsdl:input message="listEvento_IngressosRequest"/>
+            <wsdl:output message="listEvento_IngressosResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="deleteEvento">
+            <wsdl:documentation>
+            THIS OPERATION IS PUBLIC. 
+            The 'delete' request primitive for the Evento entity. 
+            </wsdl:documentation>
+            <wsdl:input message="deleteEventoRequest"/>
+            <wsdl:output message="deleteEventoResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="retrieveConvidado">
+            <wsdl:documentation>
+            THIS OPERATION IS PUBLIC. 
+            The 'retrieve' request primitive for the Convidado entity. 
+            </wsdl:documentation>
+            <wsdl:input message="retrieveConvidadoRequest"/>
+            <wsdl:output message="retrieveConvidadoResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="createMergeIngresso">
+            <wsdl:documentation>
+            THIS OPERATION IS PUBLIC. 
+            The 'createMerge' request primitive for the Ingresso entity. 
+            </wsdl:documentation>
+            <wsdl:input message="createMergeIngressoRequest"/>
+            <wsdl:output message="createMergeIngressoResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="deleteEvento_Ingressos">
+            <wsdl:documentation>
+            WARNING: THIS OPERATION IS PRIVATE AND MAY HAVE ITS BEHAVIOR CHANGED AT ANY TIME WITHOUT NOTICE. 
+            The 'delete' request primitive for the ingressos attribute of evento entity.\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity. 
+            </wsdl:documentation>
+            <wsdl:input message="deleteEvento_IngressosRequest"/>
+            <wsdl:output message="deleteEvento_IngressosResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="odata">
+            <wsdl:documentation>
+            WARNING: THIS OPERATION IS PRIVATE AND MAY HAVE ITS BEHAVIOR CHANGED AT ANY TIME WITHOUT NOTICE. 
+            </wsdl:documentation>
+            <wsdl:input message="odataRequest"/>
+            <wsdl:output message="odataResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="updateMergeEvento">
+            <wsdl:documentation>
+            THIS OPERATION IS PUBLIC. 
+            The 'updateMerge' request primitive for the Evento entity. 
+            </wsdl:documentation>
+            <wsdl:input message="updateMergeEventoRequest"/>
+            <wsdl:output message="updateMergeEventoResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="retrieveEvento_Ingressos">
+            <wsdl:documentation>
+            WARNING: THIS OPERATION IS PRIVATE AND MAY HAVE ITS BEHAVIOR CHANGED AT ANY TIME WITHOUT NOTICE. 
+            The 'retrieve' request primitive for the ingressos attribute of evento entity.\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity. 
+            </wsdl:documentation>
+            <wsdl:input message="retrieveEvento_IngressosRequest"/>
+            <wsdl:output message="retrieveEvento_IngressosResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="exportConvidado">
+            <wsdl:documentation>
+            WARNING: THIS OPERATION IS PRIVATE AND MAY HAVE ITS BEHAVIOR CHANGED AT ANY TIME WITHOUT NOTICE. 
+            </wsdl:documentation>
+            <wsdl:input message="exportConvidadoRequest"/>
+            <wsdl:output message="exportConvidadoResponse"/>
         </wsdl:operation>
         <wsdl:operation name="createConvidado">
             <wsdl:documentation>
@@ -1147,21 +1568,6 @@
             </wsdl:documentation>
             <wsdl:input message="getDependenciesRequest"/>
             <wsdl:output message="getDependenciesResponse"/>
-        </wsdl:operation>
-        <wsdl:operation name="comprarIngresso">
-            <wsdl:documentation>
-            WARNING: THIS OPERATION IS PRIVATE AND MAY HAVE ITS BEHAVIOR CHANGED AT ANY TIME WITHOUT NOTICE. 
-            </wsdl:documentation>
-            <wsdl:input message="comprarIngressoRequest"/>
-            <wsdl:output message="comprarIngressoResponse"/>
-        </wsdl:operation>
-        <wsdl:operation name="listEvento">
-            <wsdl:documentation>
-            WARNING: THIS OPERATION IS PRIVATE AND MAY HAVE ITS BEHAVIOR CHANGED AT ANY TIME WITHOUT NOTICE. 
-            The 'list' request primitive for the Evento entity. 
-            </wsdl:documentation>
-            <wsdl:input message="listEventoRequest"/>
-            <wsdl:output message="listEventoResponse"/>
         </wsdl:operation>
         <wsdl:operation name="importConvidado">
             <wsdl:documentation>
@@ -1199,44 +1605,12 @@
             <wsdl:input message="exportEventoRequest"/>
             <wsdl:output message="exportEventoResponse"/>
         </wsdl:operation>
-        <wsdl:operation name="createBulkEvento">
-            <wsdl:documentation>
-            THIS OPERATION IS PUBLIC. 
-            The 'createBulk' request primitive for the Evento entity. 
-            </wsdl:documentation>
-            <wsdl:input message="createBulkEventoRequest"/>
-            <wsdl:output message="createBulkEventoResponse"/>
-        </wsdl:operation>
-        <wsdl:operation name="helloWorld">
-            <wsdl:documentation>
-            THIS OPERATION IS PUBLIC. 
-             Primitiva que retorna uma mensagem de olá com o nome do requisitante Normalmente no campo who é informado seu próprio nome  
-            </wsdl:documentation>
-            <wsdl:input message="helloWorldRequest"/>
-            <wsdl:output message="helloWorldResponse"/>
-        </wsdl:operation>
-        <wsdl:operation name="cadastrarConvidado">
-            <wsdl:documentation>
-            WARNING: THIS OPERATION IS PRIVATE AND MAY HAVE ITS BEHAVIOR CHANGED AT ANY TIME WITHOUT NOTICE. 
-            Cadastrar um novo convidado e acompanhantes 
-            </wsdl:documentation>
-            <wsdl:input message="cadastrarConvidadoRequest"/>
-            <wsdl:output message="cadastrarConvidadoResponse"/>
-        </wsdl:operation>
-        <wsdl:operation name="cadastrarEvento">
-            <wsdl:documentation>
-            WARNING: THIS OPERATION IS PRIVATE AND MAY HAVE ITS BEHAVIOR CHANGED AT ANY TIME WITHOUT NOTICE. 
-            Cadastra um novo evento (ex: SeniorTec, Casamento, Aniversário, etc) 
-            </wsdl:documentation>
-            <wsdl:input message="cadastrarEventoRequest"/>
-            <wsdl:output message="cadastrarEventoResponse"/>
-        </wsdl:operation>
     </wsdl:portType>
     
     <wsdl:binding name="my_serviceSoapBinding" type="my_servicePortType">
         <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
-        <wsdl:operation name="deleteEvento">
-            <soap:operation soapAction="deleteEvento"/>
+        <wsdl:operation name="deleteIngresso">
+            <soap:operation soapAction="deleteIngresso"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -1244,8 +1618,8 @@
                 <soap:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="retrieveConvidado">
-            <soap:operation soapAction="retrieveConvidado"/>
+        <wsdl:operation name="listIngresso">
+            <soap:operation soapAction="listIngresso"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -1264,6 +1638,15 @@
         </wsdl:operation>
         <wsdl:operation name="updateConvidado">
             <soap:operation soapAction="updateConvidado"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="createIngresso">
+            <soap:operation soapAction="createIngresso"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -1304,8 +1687,17 @@
                 <soap:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="odata">
-            <soap:operation soapAction="odata"/>
+        <wsdl:operation name="createEvento_Ingressos">
+            <soap:operation soapAction="createEvento_Ingressos"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updateMergeIngresso">
+            <soap:operation soapAction="updateMergeIngresso"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -1322,6 +1714,15 @@
                 <soap:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
+        <wsdl:operation name="createMergeEvento_Ingressos">
+            <soap:operation soapAction="createMergeEvento_Ingressos"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
         <wsdl:operation name="updateEvento">
             <soap:operation soapAction="updateEvento"/>
             <wsdl:input>
@@ -1331,8 +1732,8 @@
                 <soap:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="updateMergeEvento">
-            <soap:operation soapAction="updateMergeEvento"/>
+        <wsdl:operation name="updateIngresso">
+            <soap:operation soapAction="updateIngresso"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -1349,6 +1750,24 @@
                 <soap:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
+        <wsdl:operation name="retrieveIngresso">
+            <soap:operation soapAction="retrieveIngresso"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="createBulkIngresso">
+            <soap:operation soapAction="createBulkIngresso"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
         <wsdl:operation name="updateMergeConvidado">
             <soap:operation soapAction="updateMergeConvidado"/>
             <wsdl:input>
@@ -1358,35 +1777,8 @@
                 <soap:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="exportConvidado">
-            <soap:operation soapAction="exportConvidado"/>
-            <wsdl:input>
-                <soap:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
         <wsdl:operation name="getMetadata">
             <soap:operation soapAction="getMetadata"/>
-            <wsdl:input>
-                <soap:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="createConvidado">
-            <soap:operation soapAction="createConvidado"/>
-            <wsdl:input>
-                <soap:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="getDependencies">
-            <soap:operation soapAction="getDependencies"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -1405,6 +1797,159 @@
         </wsdl:operation>
         <wsdl:operation name="listEvento">
             <soap:operation soapAction="listEvento"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updateEvento_Ingressos">
+            <soap:operation soapAction="updateEvento_Ingressos"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="createBulkEvento">
+            <soap:operation soapAction="createBulkEvento"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updateMergeEvento_Ingressos">
+            <soap:operation soapAction="updateMergeEvento_Ingressos"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="helloWorld">
+            <soap:operation soapAction="helloWorld"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="cadastrarConvidado">
+            <soap:operation soapAction="cadastrarConvidado"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="cadastrarEvento">
+            <soap:operation soapAction="cadastrarEvento"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="listEvento_Ingressos">
+            <soap:operation soapAction="listEvento_Ingressos"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="deleteEvento">
+            <soap:operation soapAction="deleteEvento"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="retrieveConvidado">
+            <soap:operation soapAction="retrieveConvidado"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="createMergeIngresso">
+            <soap:operation soapAction="createMergeIngresso"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="deleteEvento_Ingressos">
+            <soap:operation soapAction="deleteEvento_Ingressos"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="odata">
+            <soap:operation soapAction="odata"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updateMergeEvento">
+            <soap:operation soapAction="updateMergeEvento"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="retrieveEvento_Ingressos">
+            <soap:operation soapAction="retrieveEvento_Ingressos"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="exportConvidado">
+            <soap:operation soapAction="exportConvidado"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="createConvidado">
+            <soap:operation soapAction="createConvidado"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getDependencies">
+            <soap:operation soapAction="getDependencies"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -1447,42 +1992,6 @@
         </wsdl:operation>
         <wsdl:operation name="exportEvento">
             <soap:operation soapAction="exportEvento"/>
-            <wsdl:input>
-                <soap:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="createBulkEvento">
-            <soap:operation soapAction="createBulkEvento"/>
-            <wsdl:input>
-                <soap:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="helloWorld">
-            <soap:operation soapAction="helloWorld"/>
-            <wsdl:input>
-                <soap:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="cadastrarConvidado">
-            <soap:operation soapAction="cadastrarConvidado"/>
-            <wsdl:input>
-                <soap:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="cadastrarEvento">
-            <soap:operation soapAction="cadastrarEvento"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>

@@ -337,6 +337,7 @@ definitions:
     type: object
     required:
       - nome
+      - lotacaoMaxima
       - dataHora
       - endereco
     properties:
@@ -348,6 +349,12 @@ definitions:
         type: string
         maxLength: 30
         description: "Nome do evento"
+      lotacaoMaxima:
+        type: integer
+        format: int64
+        description: ""
+        minimum: 1
+        maximum: 99999
       dataHora:
         type: string
         format: date-time
@@ -356,13 +363,51 @@ definitions:
         type: string
         maxLength: 50
         description: "Enderenço do evento"
-      tipoEntradaEvento:
+      tipoentradaevento:
         type: array
         items:
           type: string
           allOf:
           - $ref: '#/definitions/tipoEntrada'
         description: "Tipos de entrada permitidos no evento"
+      ingressos:
+        type: array
+        items:
+          type: object
+          allOf:
+           - $ref: '#/definitions/ingresso'
+        description: "Ingressos do evento"
+  
+  ingresso:
+    description: "Entidade que representa o ingresso"
+    type: object
+    required:
+      - quantidadeAcompanhantes
+    properties:
+      id:
+        type: string
+        format: uuid
+        description: "ID do ingresso"
+      dataHora:
+        type: string
+        format: date-time
+        description: "Data e hora do evento. Opcional, pois a data e hora estão no evento"
+      convidado:
+        type: object
+        allOf:
+         - $ref: '#/definitions/convidado'
+        description: "Convidado dono do ingresso"
+      quantidadeAcompanhantes:
+        type: integer
+        format: int64
+        description: "Quantidade de acompanhantes do ingresso"
+        minimum: 0
+        maximum: 9
+      evento:
+        type: object
+        allOf:
+         - $ref: '#/definitions/evento'
+        description: "Evento que o ingresso pertence"
   
   notifyUserEventPayload:
     description: "Represents a regular user event notification payload"

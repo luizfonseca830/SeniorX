@@ -162,6 +162,17 @@
 					"readOnly": false,
 					"maxLength": 30
 				},
+				"lotacaoMaxima": {
+					"name": "lotacaoMaxima",
+					"type": "integer",
+					"thousandSeparator": ".",
+					"optional": false,
+					"hidden": false,
+					"multivalued": false,
+					"readOnly": false,
+					"minValue": 1,
+					"maxValue": 99999
+				},
 				"dataHora": {
 					"name": "dataHora",
 					"type": "dateTime",
@@ -179,9 +190,17 @@
 					"readOnly": false,
 					"maxLength": 50
 				},
-				"tipoEntradaEvento": {
-					"name": "tipoEntradaEvento",
+				"tipoentradaevento": {
+					"name": "tipoentradaevento",
 					"type": "tipoEntrada",
+					"optional": true,
+					"hidden": false,
+					"multivalued": true,
+					"readOnly": false
+				},
+				"ingressos": {
+					"name": "ingressos",
+					"type": "ingresso",
 					"optional": true,
 					"hidden": false,
 					"multivalued": true,
@@ -201,6 +220,11 @@
 						"multiple": false
 					},
 					{
+						"name": "lotacaoMaxima",
+						"optional": true,
+						"multiple": false
+					},
+					{
 						"name": "dataHora",
 						"optional": true,
 						"multiple": false
@@ -211,7 +235,7 @@
 						"multiple": false
 					},
 					{
-						"name": "tipoEntradaEvento",
+						"name": "tipoentradaevento",
 						"optional": true,
 						"multiple": false
 					}
@@ -219,9 +243,10 @@
 				"displayFields": [
 					"id",
 					"nome",
+					"lotacaoMaxima",
 					"dataHora",
 					"endereco",
-					"tipoEntradaEvento"
+					"tipoentradaevento"
 				]
 			},
 			"advancedSearch": {
@@ -237,6 +262,11 @@
 						"multiple": false
 					},
 					{
+						"name": "lotacaoMaxima",
+						"optional": true,
+						"multiple": false
+					},
+					{
 						"name": "dataHora",
 						"optional": true,
 						"multiple": false
@@ -247,7 +277,7 @@
 						"multiple": false
 					},
 					{
-						"name": "tipoEntradaEvento",
+						"name": "tipoentradaevento",
 						"optional": true,
 						"multiple": false
 					}
@@ -255,9 +285,256 @@
 				"displayFields": [
 					"id",
 					"nome",
+					"lotacaoMaxima",
 					"dataHora",
 					"endereco",
-					"tipoEntradaEvento"
+					"tipoentradaevento"
+				]
+			},
+			"relationships": {
+				"ingresso": [
+					{
+						"type": "composition",
+						"attribute": "ingressos",
+						"ownerEntity": "evento",
+						"entityName": "ingresso",
+						"optional": true,
+						"filterDependent": false,
+						"multivalued": true,
+						"lookup": {
+							"searchFields": [
+								{
+									"name": "id",
+									"optional": true,
+									"multiple": false
+								},
+								{
+									"name": "dataHora",
+									"optional": true,
+									"multiple": false
+								},
+								{
+									"name": "quantidadeAcompanhantes",
+									"optional": true,
+									"multiple": false
+								}
+							],
+							"displayFields": [
+								"id",
+								"dataHora",
+								"quantidadeAcompanhantes"
+							]
+						},
+						"advancedSearch": {
+							"searchFields": [
+								{
+									"name": "id",
+									"optional": true,
+									"multiple": false
+								},
+								{
+									"name": "dataHora",
+									"optional": true,
+									"multiple": false
+								},
+								{
+									"name": "quantidadeAcompanhantes",
+									"optional": true,
+									"multiple": false
+								}
+							],
+							"displayFields": [
+								"id",
+								"dataHora",
+								"quantidadeAcompanhantes"
+							]
+						}
+					}
+				]
+			}
+		},
+		"ingresso": {
+			"id": "id",
+			"name": "ingresso",
+			"customizable": true,
+			"external": false,
+			"slots": {
+				"id": {
+					"name": "id",
+					"type": "string",
+					"format": "uuid",
+					"optional": true,
+					"hidden": false,
+					"multivalued": false,
+					"readOnly": true
+				},
+				"dataHora": {
+					"name": "dataHora",
+					"type": "dateTime",
+					"optional": true,
+					"hidden": false,
+					"multivalued": false,
+					"readOnly": false
+				},
+				"convidado": {
+					"name": "convidado",
+					"type": "convidado",
+					"optional": true,
+					"hidden": false,
+					"multivalued": false,
+					"readOnly": false
+				},
+				"quantidadeAcompanhantes": {
+					"name": "quantidadeAcompanhantes",
+					"type": "integer",
+					"thousandSeparator": ".",
+					"optional": false,
+					"hidden": false,
+					"multivalued": false,
+					"readOnly": false,
+					"minValue": 0,
+					"maxValue": 9
+				},
+				"evento": {
+					"name": "evento",
+					"type": "evento",
+					"optional": true,
+					"hidden": false,
+					"multivalued": false,
+					"readOnly": false
+				}
+			},
+			"lookup": {
+				"searchFields": [
+					{
+						"name": "id",
+						"optional": true,
+						"multiple": false
+					},
+					{
+						"name": "dataHora",
+						"optional": true,
+						"multiple": false
+					},
+					{
+						"name": "quantidadeAcompanhantes",
+						"optional": true,
+						"multiple": false
+					}
+				],
+				"displayFields": [
+					"id",
+					"dataHora",
+					"quantidadeAcompanhantes"
+				]
+			},
+			"advancedSearch": {
+				"searchFields": [
+					{
+						"name": "id",
+						"optional": true,
+						"multiple": false
+					},
+					{
+						"name": "dataHora",
+						"optional": true,
+						"multiple": false
+					},
+					{
+						"name": "quantidadeAcompanhantes",
+						"optional": true,
+						"multiple": false
+					}
+				],
+				"displayFields": [
+					"id",
+					"dataHora",
+					"quantidadeAcompanhantes"
+				]
+			},
+			"relationships": {
+				"convidado": [
+					{
+						"type": "aggregation",
+						"attribute": "convidado",
+						"ownerEntity": "ingresso",
+						"entityName": "convidado",
+						"optional": true,
+						"filterDependent": false,
+						"multivalued": false,
+						"lookup": {
+							"searchFields": [
+								{
+									"name": "id",
+									"optional": true,
+									"multiple": false
+								},
+								{
+									"name": "nome",
+									"optional": true,
+									"multiple": false
+								},
+								{
+									"name": "nomeSocial",
+									"optional": true,
+									"multiple": false
+								},
+								{
+									"name": "cpf",
+									"optional": true,
+									"multiple": false
+								},
+								{
+									"name": "dataNascimneto",
+									"optional": true,
+									"multiple": false
+								}
+							],
+							"displayFields": [
+								"id",
+								"nome",
+								"nomeSocial",
+								"cpf",
+								"dataNascimneto"
+							]
+						},
+						"advancedSearch": {
+							"searchFields": [
+								{
+									"name": "id",
+									"optional": true,
+									"multiple": false
+								},
+								{
+									"name": "nome",
+									"optional": true,
+									"multiple": false
+								},
+								{
+									"name": "nomeSocial",
+									"optional": true,
+									"multiple": false
+								},
+								{
+									"name": "cpf",
+									"optional": true,
+									"multiple": false
+								},
+								{
+									"name": "dataNascimneto",
+									"optional": true,
+									"multiple": false
+								}
+							],
+							"displayFields": [
+								"id",
+								"nome",
+								"nomeSocial",
+								"cpf",
+								"dataNascimneto"
+							]
+						}
+					}
 				]
 			}
 		}
@@ -272,9 +549,17 @@
 		"my_domain.my_service.evento": "Entidade que representa o evento",
 		"my_domain.my_service.evento_id": "ID do evento",
 		"my_domain.my_service.evento_nome": "Nome do evento",
+		"my_domain.my_service.evento_lotacao_maxima": "",
 		"my_domain.my_service.evento_data_hora": "Data e hora do evento",
 		"my_domain.my_service.evento_endereco": "Enderenço do evento",
-		"my_domain.my_service.evento_tipo_entrada_evento": "Tipos de entrada permitidos no evento",
+		"my_domain.my_service.evento_tipoentradaevento": "Tipos de entrada permitidos no evento",
+		"my_domain.my_service.evento_ingressos": "Ingressos do evento",
+		"my_domain.my_service.ingresso": "Entidade que representa o ingresso",
+		"my_domain.my_service.ingresso_id": "ID do ingresso",
+		"my_domain.my_service.ingresso_data_hora": "Data e hora do evento. Opcional, pois a data e hora estão no evento",
+		"my_domain.my_service.ingresso_convidado": "Convidado dono do ingresso",
+		"my_domain.my_service.ingresso_quantidade_acompanhantes": "Quantidade de acompanhantes do ingresso",
+		"my_domain.my_service.ingresso_evento": "Evento que o ingresso pertence",
 		"my_domain.my_service.tipo_entrada_livre": "",
 		"my_domain.my_service.tipo_entrada_nolocal": "",
 		"my_domain.my_service.tipo_entrada_antecipado": "",

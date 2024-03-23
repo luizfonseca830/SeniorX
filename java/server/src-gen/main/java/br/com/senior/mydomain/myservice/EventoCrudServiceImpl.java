@@ -49,6 +49,9 @@ public class EventoCrudServiceImpl implements EventoCrudService {
 	
 	@Inject
 	private TranslationHubApi translationHubApi;
+	
+	@Inject
+	private IngressoCrudService ingressoCrudService;
 
 	@Inject
 	private SessionInitializer sessionInitializer;
@@ -226,11 +229,22 @@ public class EventoCrudServiceImpl implements EventoCrudService {
 	
 	@Override
 	public void validateFilterColumns(Set<String> columns, List<Join> joinFields, String lastPath) {
+		validateChildJoinFields(joinFields, lastPath);
+		if(lastPath != null && !lastPath.isEmpty()){
+			return;
+		}
 		validateCurrentEntityFields(columns, lastPath);
 	}
 	
 	@Override
 	public void validateCustomOrders(List<CustomOrder> customOrders){
+		if(customOrders.stream().filter(co -> co.getField().startsWith("ingressos.")).count() > 0) {
+			ingressoCrudService.validateCustomOrders(customOrders.stream().filter(co -> co.getField().startsWith("ingressos.")).map(co -> {
+				CustomOrder customOrder = new CustomOrder();
+				customOrder.setField(co.getField().replace("ingressos.", ""));
+				return customOrder;
+			}).collect(Collectors.toList()));
+		}
 		Set<String> entityFieldNames = IntrospectorUtil.getAllEntityFieldNamesByClass(EventoEntity.class);
 		for(CustomOrder order : customOrders.stream().filter(c-> !c.getField().contains(".")).collect(Collectors.toList())) {
 			// The orderby must not contain custom fields.
@@ -249,6 +263,16 @@ public class EventoCrudServiceImpl implements EventoCrudService {
 					throw new ServiceException(ErrorCategory.BAD_REQUEST, "Invalid filter argument: " + filterFieldName);
 				}
 			});
+		}
+	}
+	
+	private void validateChildJoinFields(List<Join> joinFields, String lastPath){
+		for(Join join : joinFields){
+			String currentPath = lastPath == null ? join.getFullRelationshipName() : lastPath;
+			if(currentPath.startsWith("ingressos") && join.getFields().size() > 0){
+				currentPath = currentPath.replace("ingressos" + (currentPath.contains(".") ? "." : ""), "");
+				ingressoCrudService.validateFilterColumns(join.getFields(), List.of(join), currentPath);
+			}
 		}
 	}
 	protected void prepareSession(){

@@ -1130,6 +1130,613 @@ public class MyServiceStubImpl  implements MyServiceStub {
 	}
 	
 	
+	/**
+	 * Chamada síncrona para o método createEvento_Ingressos
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'create' request primitive for the ingressos attribute of evento entity.\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity.
+	 * @throws MyServiceMessageException quando um erro com payload for retornado pela mensageria
+	 */
+	@Override
+	public Ingresso createEvento_Ingressos(Evento.Id parentId, Ingresso input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.CreateEvento_IngressosImpl impl = new br.com.senior.mydomain.myservice.impl.CreateEvento_IngressosImpl(messengerSupplier, userId, messageSupplier);
+		return impl.createEvento_Ingressos(parentId, input, timeout);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método createEvento_Ingressos
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'create' request primitive for the ingressos attribute of evento entity.\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity.
+	 */
+	@Override
+	public void createEvento_Ingressos(Evento.Id parentId, Ingresso input) {
+		br.com.senior.mydomain.myservice.impl.CreateEvento_IngressosImpl impl = new br.com.senior.mydomain.myservice.impl.CreateEvento_IngressosImpl(messengerSupplier, userId, messageSupplier);
+		impl.createEvento_Ingressos(parentId, input);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método createEvento_Ingressos
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'create' request primitive for the ingressos attribute of evento entity.\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity.
+	 */
+	@Override
+	public CompletableFuture<Ingresso> createEvento_IngressosRequest(Evento.Id parentId, Ingresso input) {
+		return this.createEvento_IngressosRequest(parentId, input, 0l);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método createEvento_Ingressos
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'create' request primitive for the ingressos attribute of evento entity.\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity.
+	*/
+	@Override
+	public CompletableFuture<Ingresso> createEvento_IngressosRequest(Evento.Id parentId, Ingresso input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.CreateEvento_IngressosImpl impl = new br.com.senior.mydomain.myservice.impl.CreateEvento_IngressosImpl(messengerSupplier, userId, messageSupplier);
+		return impl.createEvento_IngressosRequest(parentId, input, timeout, TimeUnit.MILLISECONDS);
+	}
+	/**
+	 * Chamada síncrona para o método createMergeEvento_Ingressos
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'createMerge' request primitive for the ingressos attribute of evento entity.\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity.
+	 * @throws MyServiceMessageException quando um erro com payload for retornado pela mensageria
+	 */
+	@Override
+	public Ingresso createMergeEvento_Ingressos(Evento.Id parentId, Ingresso input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.CreateMergeEvento_IngressosImpl impl = new br.com.senior.mydomain.myservice.impl.CreateMergeEvento_IngressosImpl(messengerSupplier, userId, messageSupplier);
+		return impl.createMergeEvento_Ingressos(parentId, input, timeout);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método createMergeEvento_Ingressos
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'createMerge' request primitive for the ingressos attribute of evento entity.\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity.
+	 */
+	@Override
+	public void createMergeEvento_Ingressos(Evento.Id parentId, Ingresso input) {
+		br.com.senior.mydomain.myservice.impl.CreateMergeEvento_IngressosImpl impl = new br.com.senior.mydomain.myservice.impl.CreateMergeEvento_IngressosImpl(messengerSupplier, userId, messageSupplier);
+		impl.createMergeEvento_Ingressos(parentId, input);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método createMergeEvento_Ingressos
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'createMerge' request primitive for the ingressos attribute of evento entity.\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity.
+	 */
+	@Override
+	public CompletableFuture<Ingresso> createMergeEvento_IngressosRequest(Evento.Id parentId, Ingresso input) {
+		return this.createMergeEvento_IngressosRequest(parentId, input, 0l);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método createMergeEvento_Ingressos
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'createMerge' request primitive for the ingressos attribute of evento entity.\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity.
+	*/
+	@Override
+	public CompletableFuture<Ingresso> createMergeEvento_IngressosRequest(Evento.Id parentId, Ingresso input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.CreateMergeEvento_IngressosImpl impl = new br.com.senior.mydomain.myservice.impl.CreateMergeEvento_IngressosImpl(messengerSupplier, userId, messageSupplier);
+		return impl.createMergeEvento_IngressosRequest(parentId, input, timeout, TimeUnit.MILLISECONDS);
+	}
+	/**
+	 * Chamada síncrona para o método updateEvento_Ingressos
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'update' request primitive for the ingressos attribute of evento entity.\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity.
+	 * @throws MyServiceMessageException quando um erro com payload for retornado pela mensageria
+	 */
+	@Override
+	public Ingresso updateEvento_Ingressos(Evento.Id parentId, Ingresso input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.UpdateEvento_IngressosImpl impl = new br.com.senior.mydomain.myservice.impl.UpdateEvento_IngressosImpl(messengerSupplier, userId, messageSupplier);
+		return impl.updateEvento_Ingressos(parentId, input, timeout);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método updateEvento_Ingressos
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'update' request primitive for the ingressos attribute of evento entity.\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity.
+	 */
+	@Override
+	public void updateEvento_Ingressos(Evento.Id parentId, Ingresso input) {
+		br.com.senior.mydomain.myservice.impl.UpdateEvento_IngressosImpl impl = new br.com.senior.mydomain.myservice.impl.UpdateEvento_IngressosImpl(messengerSupplier, userId, messageSupplier);
+		impl.updateEvento_Ingressos(parentId, input);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método updateEvento_Ingressos
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'update' request primitive for the ingressos attribute of evento entity.\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity.
+	 */
+	@Override
+	public CompletableFuture<Ingresso> updateEvento_IngressosRequest(Evento.Id parentId, Ingresso input) {
+		return this.updateEvento_IngressosRequest(parentId, input, 0l);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método updateEvento_Ingressos
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'update' request primitive for the ingressos attribute of evento entity.\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity.
+	*/
+	@Override
+	public CompletableFuture<Ingresso> updateEvento_IngressosRequest(Evento.Id parentId, Ingresso input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.UpdateEvento_IngressosImpl impl = new br.com.senior.mydomain.myservice.impl.UpdateEvento_IngressosImpl(messengerSupplier, userId, messageSupplier);
+		return impl.updateEvento_IngressosRequest(parentId, input, timeout, TimeUnit.MILLISECONDS);
+	}
+	/**
+	 * Chamada síncrona para o método updateMergeEvento_Ingressos
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'updateMerge' request primitive for the ingressos attribute of evento entity.\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity.
+	 * @throws MyServiceMessageException quando um erro com payload for retornado pela mensageria
+	 */
+	@Override
+	public Ingresso updateMergeEvento_Ingressos(Evento.Id parentId, Ingresso input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.UpdateMergeEvento_IngressosImpl impl = new br.com.senior.mydomain.myservice.impl.UpdateMergeEvento_IngressosImpl(messengerSupplier, userId, messageSupplier);
+		return impl.updateMergeEvento_Ingressos(parentId, input, timeout);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método updateMergeEvento_Ingressos
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'updateMerge' request primitive for the ingressos attribute of evento entity.\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity.
+	 */
+	@Override
+	public void updateMergeEvento_Ingressos(Evento.Id parentId, Ingresso input) {
+		br.com.senior.mydomain.myservice.impl.UpdateMergeEvento_IngressosImpl impl = new br.com.senior.mydomain.myservice.impl.UpdateMergeEvento_IngressosImpl(messengerSupplier, userId, messageSupplier);
+		impl.updateMergeEvento_Ingressos(parentId, input);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método updateMergeEvento_Ingressos
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'updateMerge' request primitive for the ingressos attribute of evento entity.\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity.
+	 */
+	@Override
+	public CompletableFuture<Ingresso> updateMergeEvento_IngressosRequest(Evento.Id parentId, Ingresso input) {
+		return this.updateMergeEvento_IngressosRequest(parentId, input, 0l);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método updateMergeEvento_Ingressos
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'updateMerge' request primitive for the ingressos attribute of evento entity.\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity.
+	*/
+	@Override
+	public CompletableFuture<Ingresso> updateMergeEvento_IngressosRequest(Evento.Id parentId, Ingresso input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.UpdateMergeEvento_IngressosImpl impl = new br.com.senior.mydomain.myservice.impl.UpdateMergeEvento_IngressosImpl(messengerSupplier, userId, messageSupplier);
+		return impl.updateMergeEvento_IngressosRequest(parentId, input, timeout, TimeUnit.MILLISECONDS);
+	}
+	/**
+	 * Chamada síncrona para o método retrieveEvento_Ingressos
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'retrieve' request primitive for the ingressos attribute of evento entity.\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity.
+	 * @throws MyServiceMessageException quando um erro com payload for retornado pela mensageria
+	 */
+	@Override
+	public Ingresso retrieveEvento_Ingressos(Evento.Id parentId, Ingresso.GetRequest input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.RetrieveEvento_IngressosImpl impl = new br.com.senior.mydomain.myservice.impl.RetrieveEvento_IngressosImpl(messengerSupplier, userId, messageSupplier);
+		return impl.retrieveEvento_Ingressos(parentId, input, timeout);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método retrieveEvento_Ingressos
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'retrieve' request primitive for the ingressos attribute of evento entity.\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity.
+	 */
+	@Override
+	public void retrieveEvento_Ingressos(Evento.Id parentId, Ingresso.GetRequest input) {
+		br.com.senior.mydomain.myservice.impl.RetrieveEvento_IngressosImpl impl = new br.com.senior.mydomain.myservice.impl.RetrieveEvento_IngressosImpl(messengerSupplier, userId, messageSupplier);
+		impl.retrieveEvento_Ingressos(parentId, input);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método retrieveEvento_Ingressos
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'retrieve' request primitive for the ingressos attribute of evento entity.\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity.
+	 */
+	@Override
+	public CompletableFuture<Ingresso> retrieveEvento_IngressosRequest(Evento.Id parentId, Ingresso.GetRequest input) {
+		return this.retrieveEvento_IngressosRequest(parentId, input, 0l);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método retrieveEvento_Ingressos
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'retrieve' request primitive for the ingressos attribute of evento entity.\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity.
+	*/
+	@Override
+	public CompletableFuture<Ingresso> retrieveEvento_IngressosRequest(Evento.Id parentId, Ingresso.GetRequest input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.RetrieveEvento_IngressosImpl impl = new br.com.senior.mydomain.myservice.impl.RetrieveEvento_IngressosImpl(messengerSupplier, userId, messageSupplier);
+		return impl.retrieveEvento_IngressosRequest(parentId, input, timeout, TimeUnit.MILLISECONDS);
+	}
+	/**
+	 * Chamada síncrona para o método deleteEvento_Ingressos
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'delete' request primitive for the ingressos attribute of evento entity.\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity.
+	 * @throws MyServiceMessageException quando um erro com payload for retornado pela mensageria
+	 */
+	@Override
+	public void deleteEvento_Ingressos(Evento.Id parentId, Ingresso.Id input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.DeleteEvento_IngressosImpl impl = new br.com.senior.mydomain.myservice.impl.DeleteEvento_IngressosImpl(messengerSupplier, userId, messageSupplier);
+		impl.deleteEvento_Ingressos(parentId, input, timeout);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método deleteEvento_Ingressos
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'delete' request primitive for the ingressos attribute of evento entity.\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity.
+	 */
+	@Override
+	public void deleteEvento_Ingressos(Evento.Id parentId, Ingresso.Id input) {
+		br.com.senior.mydomain.myservice.impl.DeleteEvento_IngressosImpl impl = new br.com.senior.mydomain.myservice.impl.DeleteEvento_IngressosImpl(messengerSupplier, userId, messageSupplier);
+		impl.deleteEvento_Ingressos(parentId, input);
+	}
+	
+	
+	/**
+	 * Chamada síncrona para o método listEvento_Ingressos
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'list' request primitive for the ingressos attribute of evento entity.\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity.
+	 * @throws MyServiceMessageException quando um erro com payload for retornado pela mensageria
+	 */
+	@Override
+	public Ingresso.PagedResults listEvento_Ingressos(Evento.Id parentId, Ingresso.PageRequest input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.ListEvento_IngressosImpl impl = new br.com.senior.mydomain.myservice.impl.ListEvento_IngressosImpl(messengerSupplier, userId, messageSupplier);
+		return impl.listEvento_Ingressos(parentId, input, timeout);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método listEvento_Ingressos
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'list' request primitive for the ingressos attribute of evento entity.\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity.
+	 */
+	@Override
+	public void listEvento_Ingressos(Evento.Id parentId, Ingresso.PageRequest input) {
+		br.com.senior.mydomain.myservice.impl.ListEvento_IngressosImpl impl = new br.com.senior.mydomain.myservice.impl.ListEvento_IngressosImpl(messengerSupplier, userId, messageSupplier);
+		impl.listEvento_Ingressos(parentId, input);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método listEvento_Ingressos
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'list' request primitive for the ingressos attribute of evento entity.\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity.
+	 */
+	@Override
+	public CompletableFuture<Ingresso.PagedResults> listEvento_IngressosRequest(Evento.Id parentId, Ingresso.PageRequest input) {
+		return this.listEvento_IngressosRequest(parentId, input, 0l);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método listEvento_Ingressos
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'list' request primitive for the ingressos attribute of evento entity.\nThis primitive requires the header 'entity_parent_id' with id of parent evento entity.
+	*/
+	@Override
+	public CompletableFuture<Ingresso.PagedResults> listEvento_IngressosRequest(Evento.Id parentId, Ingresso.PageRequest input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.ListEvento_IngressosImpl impl = new br.com.senior.mydomain.myservice.impl.ListEvento_IngressosImpl(messengerSupplier, userId, messageSupplier);
+		return impl.listEvento_IngressosRequest(parentId, input, timeout, TimeUnit.MILLISECONDS);
+	}
+	/**
+	 * Chamada síncrona para o método createIngresso
+	 * This is a public operation
+	 * The 'create' request primitive for the Ingresso entity.
+	 * @throws MyServiceMessageException quando um erro com payload for retornado pela mensageria
+	 */
+	@Override
+	public Ingresso createIngresso(Ingresso input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.CreateIngressoImpl impl = new br.com.senior.mydomain.myservice.impl.CreateIngressoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.createIngresso(input, timeout);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método createIngresso
+	 * This is a public operation
+	 * The 'create' request primitive for the Ingresso entity.
+	 */
+	@Override
+	public void createIngresso(Ingresso input) {
+		br.com.senior.mydomain.myservice.impl.CreateIngressoImpl impl = new br.com.senior.mydomain.myservice.impl.CreateIngressoImpl(messengerSupplier, userId, messageSupplier);
+		impl.createIngresso(input);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método createIngresso
+	 * This is a public operation
+	 * The 'create' request primitive for the Ingresso entity.
+	 */
+	@Override
+	public CompletableFuture<Ingresso> createIngressoRequest(Ingresso input) {
+		return this.createIngressoRequest(input, 0l);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método createIngresso
+	 * This is a public operation
+	 * The 'create' request primitive for the Ingresso entity.
+	*/
+	@Override
+	public CompletableFuture<Ingresso> createIngressoRequest(Ingresso input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.CreateIngressoImpl impl = new br.com.senior.mydomain.myservice.impl.CreateIngressoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.createIngressoRequest(input, timeout, TimeUnit.MILLISECONDS);
+	}
+	/**
+	 * Chamada síncrona para o método createBulkIngresso
+	 * This is a public operation
+	 * The 'createBulk' request primitive for the Ingresso entity.
+	 * @throws MyServiceMessageException quando um erro com payload for retornado pela mensageria
+	 */
+	@Override
+	public CreateBulkIngressoOutput createBulkIngresso(CreateBulkIngressoInput input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.CreateBulkIngressoImpl impl = new br.com.senior.mydomain.myservice.impl.CreateBulkIngressoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.createBulkIngresso(input, timeout);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método createBulkIngresso
+	 * This is a public operation
+	 * The 'createBulk' request primitive for the Ingresso entity.
+	 */
+	@Override
+	public void createBulkIngresso(CreateBulkIngressoInput input) {
+		br.com.senior.mydomain.myservice.impl.CreateBulkIngressoImpl impl = new br.com.senior.mydomain.myservice.impl.CreateBulkIngressoImpl(messengerSupplier, userId, messageSupplier);
+		impl.createBulkIngresso(input);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método createBulkIngresso
+	 * This is a public operation
+	 * The 'createBulk' request primitive for the Ingresso entity.
+	 */
+	@Override
+	public CompletableFuture<CreateBulkIngressoOutput> createBulkIngressoRequest(CreateBulkIngressoInput input) {
+		return this.createBulkIngressoRequest(input, 0l);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método createBulkIngresso
+	 * This is a public operation
+	 * The 'createBulk' request primitive for the Ingresso entity.
+	*/
+	@Override
+	public CompletableFuture<CreateBulkIngressoOutput> createBulkIngressoRequest(CreateBulkIngressoInput input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.CreateBulkIngressoImpl impl = new br.com.senior.mydomain.myservice.impl.CreateBulkIngressoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.createBulkIngressoRequest(input, timeout, TimeUnit.MILLISECONDS);
+	}
+	/**
+	 * Chamada síncrona para o método createMergeIngresso
+	 * This is a public operation
+	 * The 'createMerge' request primitive for the Ingresso entity.
+	 * @throws MyServiceMessageException quando um erro com payload for retornado pela mensageria
+	 */
+	@Override
+	public Ingresso createMergeIngresso(Ingresso input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.CreateMergeIngressoImpl impl = new br.com.senior.mydomain.myservice.impl.CreateMergeIngressoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.createMergeIngresso(input, timeout);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método createMergeIngresso
+	 * This is a public operation
+	 * The 'createMerge' request primitive for the Ingresso entity.
+	 */
+	@Override
+	public void createMergeIngresso(Ingresso input) {
+		br.com.senior.mydomain.myservice.impl.CreateMergeIngressoImpl impl = new br.com.senior.mydomain.myservice.impl.CreateMergeIngressoImpl(messengerSupplier, userId, messageSupplier);
+		impl.createMergeIngresso(input);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método createMergeIngresso
+	 * This is a public operation
+	 * The 'createMerge' request primitive for the Ingresso entity.
+	 */
+	@Override
+	public CompletableFuture<Ingresso> createMergeIngressoRequest(Ingresso input) {
+		return this.createMergeIngressoRequest(input, 0l);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método createMergeIngresso
+	 * This is a public operation
+	 * The 'createMerge' request primitive for the Ingresso entity.
+	*/
+	@Override
+	public CompletableFuture<Ingresso> createMergeIngressoRequest(Ingresso input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.CreateMergeIngressoImpl impl = new br.com.senior.mydomain.myservice.impl.CreateMergeIngressoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.createMergeIngressoRequest(input, timeout, TimeUnit.MILLISECONDS);
+	}
+	/**
+	 * Chamada síncrona para o método retrieveIngresso
+	 * This is a public operation
+	 * The 'retrieve' request primitive for the Ingresso entity.
+	 * @throws MyServiceMessageException quando um erro com payload for retornado pela mensageria
+	 */
+	@Override
+	public Ingresso retrieveIngresso(Ingresso.GetRequest input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.RetrieveIngressoImpl impl = new br.com.senior.mydomain.myservice.impl.RetrieveIngressoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.retrieveIngresso(input, timeout);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método retrieveIngresso
+	 * This is a public operation
+	 * The 'retrieve' request primitive for the Ingresso entity.
+	 */
+	@Override
+	public void retrieveIngresso(Ingresso.GetRequest input) {
+		br.com.senior.mydomain.myservice.impl.RetrieveIngressoImpl impl = new br.com.senior.mydomain.myservice.impl.RetrieveIngressoImpl(messengerSupplier, userId, messageSupplier);
+		impl.retrieveIngresso(input);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método retrieveIngresso
+	 * This is a public operation
+	 * The 'retrieve' request primitive for the Ingresso entity.
+	 */
+	@Override
+	public CompletableFuture<Ingresso> retrieveIngressoRequest(Ingresso.GetRequest input) {
+		return this.retrieveIngressoRequest(input, 0l);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método retrieveIngresso
+	 * This is a public operation
+	 * The 'retrieve' request primitive for the Ingresso entity.
+	*/
+	@Override
+	public CompletableFuture<Ingresso> retrieveIngressoRequest(Ingresso.GetRequest input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.RetrieveIngressoImpl impl = new br.com.senior.mydomain.myservice.impl.RetrieveIngressoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.retrieveIngressoRequest(input, timeout, TimeUnit.MILLISECONDS);
+	}
+	/**
+	 * Chamada síncrona para o método listIngresso
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'list' request primitive for the Ingresso entity.
+	 * @throws MyServiceMessageException quando um erro com payload for retornado pela mensageria
+	 */
+	@Override
+	public Ingresso.PagedResults listIngresso(Ingresso.PageRequest input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.ListIngressoImpl impl = new br.com.senior.mydomain.myservice.impl.ListIngressoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.listIngresso(input, timeout);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método listIngresso
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'list' request primitive for the Ingresso entity.
+	 */
+	@Override
+	public void listIngresso(Ingresso.PageRequest input) {
+		br.com.senior.mydomain.myservice.impl.ListIngressoImpl impl = new br.com.senior.mydomain.myservice.impl.ListIngressoImpl(messengerSupplier, userId, messageSupplier);
+		impl.listIngresso(input);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método listIngresso
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'list' request primitive for the Ingresso entity.
+	 */
+	@Override
+	public CompletableFuture<Ingresso.PagedResults> listIngressoRequest(Ingresso.PageRequest input) {
+		return this.listIngressoRequest(input, 0l);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método listIngresso
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'list' request primitive for the Ingresso entity.
+	*/
+	@Override
+	public CompletableFuture<Ingresso.PagedResults> listIngressoRequest(Ingresso.PageRequest input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.ListIngressoImpl impl = new br.com.senior.mydomain.myservice.impl.ListIngressoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.listIngressoRequest(input, timeout, TimeUnit.MILLISECONDS);
+	}
+	/**
+	 * Chamada síncrona para o método updateIngresso
+	 * This is a public operation
+	 * The 'update' request primitive for the Ingresso entity.
+	 * @throws MyServiceMessageException quando um erro com payload for retornado pela mensageria
+	 */
+	@Override
+	public Ingresso updateIngresso(Ingresso input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.UpdateIngressoImpl impl = new br.com.senior.mydomain.myservice.impl.UpdateIngressoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.updateIngresso(input, timeout);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método updateIngresso
+	 * This is a public operation
+	 * The 'update' request primitive for the Ingresso entity.
+	 */
+	@Override
+	public void updateIngresso(Ingresso input) {
+		br.com.senior.mydomain.myservice.impl.UpdateIngressoImpl impl = new br.com.senior.mydomain.myservice.impl.UpdateIngressoImpl(messengerSupplier, userId, messageSupplier);
+		impl.updateIngresso(input);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método updateIngresso
+	 * This is a public operation
+	 * The 'update' request primitive for the Ingresso entity.
+	 */
+	@Override
+	public CompletableFuture<Ingresso> updateIngressoRequest(Ingresso input) {
+		return this.updateIngressoRequest(input, 0l);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método updateIngresso
+	 * This is a public operation
+	 * The 'update' request primitive for the Ingresso entity.
+	*/
+	@Override
+	public CompletableFuture<Ingresso> updateIngressoRequest(Ingresso input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.UpdateIngressoImpl impl = new br.com.senior.mydomain.myservice.impl.UpdateIngressoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.updateIngressoRequest(input, timeout, TimeUnit.MILLISECONDS);
+	}
+	/**
+	 * Chamada síncrona para o método updateMergeIngresso
+	 * This is a public operation
+	 * The 'updateMerge' request primitive for the Ingresso entity.
+	 * @throws MyServiceMessageException quando um erro com payload for retornado pela mensageria
+	 */
+	@Override
+	public Ingresso updateMergeIngresso(Ingresso input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.UpdateMergeIngressoImpl impl = new br.com.senior.mydomain.myservice.impl.UpdateMergeIngressoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.updateMergeIngresso(input, timeout);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método updateMergeIngresso
+	 * This is a public operation
+	 * The 'updateMerge' request primitive for the Ingresso entity.
+	 */
+	@Override
+	public void updateMergeIngresso(Ingresso input) {
+		br.com.senior.mydomain.myservice.impl.UpdateMergeIngressoImpl impl = new br.com.senior.mydomain.myservice.impl.UpdateMergeIngressoImpl(messengerSupplier, userId, messageSupplier);
+		impl.updateMergeIngresso(input);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método updateMergeIngresso
+	 * This is a public operation
+	 * The 'updateMerge' request primitive for the Ingresso entity.
+	 */
+	@Override
+	public CompletableFuture<Ingresso> updateMergeIngressoRequest(Ingresso input) {
+		return this.updateMergeIngressoRequest(input, 0l);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método updateMergeIngresso
+	 * This is a public operation
+	 * The 'updateMerge' request primitive for the Ingresso entity.
+	*/
+	@Override
+	public CompletableFuture<Ingresso> updateMergeIngressoRequest(Ingresso input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.UpdateMergeIngressoImpl impl = new br.com.senior.mydomain.myservice.impl.UpdateMergeIngressoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.updateMergeIngressoRequest(input, timeout, TimeUnit.MILLISECONDS);
+	}
+	/**
+	 * Chamada síncrona para o método deleteIngresso
+	 * This is a public operation
+	 * The 'delete' request primitive for the Ingresso entity.
+	 * @throws MyServiceMessageException quando um erro com payload for retornado pela mensageria
+	 */
+	@Override
+	public void deleteIngresso(Ingresso.Id input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.DeleteIngressoImpl impl = new br.com.senior.mydomain.myservice.impl.DeleteIngressoImpl(messengerSupplier, userId, messageSupplier);
+		impl.deleteIngresso(input, timeout);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método deleteIngresso
+	 * This is a public operation
+	 * The 'delete' request primitive for the Ingresso entity.
+	 */
+	@Override
+	public void deleteIngresso(Ingresso.Id input) {
+		br.com.senior.mydomain.myservice.impl.DeleteIngressoImpl impl = new br.com.senior.mydomain.myservice.impl.DeleteIngressoImpl(messengerSupplier, userId, messageSupplier);
+		impl.deleteIngresso(input);
+	}
+	
+	
 
 	/**
 	 * Chamada assíncrona para o método cancelarEvento
@@ -1199,6 +1806,22 @@ public class MyServiceStubImpl  implements MyServiceStub {
 		}
 	}
 	
+	
+	private Message createMessage(ImportIngressoEventPayload input, String requestName) {
+		if (messageSupplier != null && messageSupplier.get() != null) {
+			return messageSupplier.get().followUp( //
+				userId.getTenant(), //
+				MyServiceConstants.DOMAIN, //
+				MyServiceConstants.SERVICE, //
+				requestName, //
+				DtoJsonConverter.toJSON(input));
+		}
+		return  new Message(userId.getTenant(), // 
+			MyServiceConstants.DOMAIN, // 
+			MyServiceConstants.SERVICE, //
+			requestName, // 
+			DtoJsonConverter.toJSON(input));
+	}
 	
 	private Message createMessage(PagamentoEstornadoPayload input, String requestName) {
 		if (messageSupplier != null && messageSupplier.get() != null) {
@@ -1297,6 +1920,22 @@ public class MyServiceStubImpl  implements MyServiceStub {
 	}
 	
 	private Message createMessage(ExportEventoEventPayload input, String requestName) {
+		if (messageSupplier != null && messageSupplier.get() != null) {
+			return messageSupplier.get().followUp( //
+				userId.getTenant(), //
+				MyServiceConstants.DOMAIN, //
+				MyServiceConstants.SERVICE, //
+				requestName, //
+				DtoJsonConverter.toJSON(input));
+		}
+		return  new Message(userId.getTenant(), // 
+			MyServiceConstants.DOMAIN, // 
+			MyServiceConstants.SERVICE, //
+			requestName, // 
+			DtoJsonConverter.toJSON(input));
+	}
+	
+	private Message createMessage(ExportIngressoEventPayload input, String requestName) {
 		if (messageSupplier != null && messageSupplier.get() != null) {
 			return messageSupplier.get().followUp( //
 				userId.getTenant(), //
@@ -1433,6 +2072,34 @@ public class MyServiceStubImpl  implements MyServiceStub {
 	 */
 	public void publishExportEventoEvent( ExportEventoEventPayload input ) {
 		Message message = createMessage(input, MyServiceConstants.Events.EXPORT_EVENTO_EVENT);
+		try {
+			addMessageHeaders(message);
+			messengerSupplier.get().publish(message);
+		} catch (Exception e) {
+			throw new MyServiceException("Erro ao enviar a mensagem", e);
+		}
+	}
+	
+	/**
+	 * Chamada assíncrona para o método publishImportIngressoEvent
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 */
+	public void publishImportIngressoEvent( ImportIngressoEventPayload input ) {
+		Message message = createMessage(input, MyServiceConstants.Events.IMPORT_INGRESSO_EVENT);
+		try {
+			addMessageHeaders(message);
+			messengerSupplier.get().publish(message);
+		} catch (Exception e) {
+			throw new MyServiceException("Erro ao enviar a mensagem", e);
+		}
+	}
+	
+	/**
+	 * Chamada assíncrona para o método publishExportIngressoEvent
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 */
+	public void publishExportIngressoEvent( ExportIngressoEventPayload input ) {
+		Message message = createMessage(input, MyServiceConstants.Events.EXPORT_INGRESSO_EVENT);
 		try {
 			addMessageHeaders(message);
 			messengerSupplier.get().publish(message);

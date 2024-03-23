@@ -6,13 +6,26 @@ package br.com.senior.mydomain.myservice;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.*;
-
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
 import org.hibernate.annotations.GenericGenerator;
 
 import br.com.senior.custom.CustomEntity;
 import br.com.senior.custom.odata.entity.ODataEntity;
 
+import javax.persistence.CollectionTable;
+import javax.persistence.JoinColumn;
+import javax.persistence.ElementCollection;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
+import javax.persistence.CascadeType;
+import java.util.Optional;
+import javax.persistence.Transient;
 import org.springframework.data.domain.Persistable;
 
 @Entity(name="my_domain.my_service.EventoEntity")
@@ -37,6 +50,9 @@ public class EventoEntity extends CustomEntity implements Persistable<java.util.
 	@Column(name = "nome", length = 30)
 	private String nome;
 	
+	@Column(name = "lotacao_maxima")
+	private Long lotacaoMaxima;
+	
 	/**
 	 * Data e hora do evento
 	 */
@@ -54,9 +70,15 @@ public class EventoEntity extends CustomEntity implements Persistable<java.util.
 	 */
 	@Enumerated(EnumType.STRING)
 	@ElementCollection(targetClass = TipoEntrada.class, fetch = FetchType.EAGER)
-	@CollectionTable(name="tipoEntradaEvento_evento", joinColumns = {@JoinColumn(name="evento_id")})
-	@Column(name = "tipo_entrada_evento")
-	private java.util.Set<TipoEntrada> tipoEntradaEvento = new java.util.HashSet<>();
+	@CollectionTable(name="tipoentradaevento_evento", joinColumns = {@JoinColumn(name="evento_id")})
+	@Column(name = "tipoentradaevento")
+	private java.util.Set<TipoEntrada> tipoentradaevento = new java.util.HashSet<>();
+	
+	/**
+	 * Ingressos do evento
+	 */
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "evento", cascade = CascadeType.ALL, orphanRemoval = true)
+	private java.util.List<IngressoEntity> ingressos = new ArrayList<>();
 	
 	@Transient
 	private boolean _newEntity;
@@ -79,6 +101,10 @@ public class EventoEntity extends CustomEntity implements Persistable<java.util.
 		return nome;
 	}
 	
+	public Long getLotacaoMaxima() {
+		return lotacaoMaxima;
+	}
+	
 	public java.time.Instant getDataHora() {
 		return dataHora;
 	}
@@ -87,8 +113,12 @@ public class EventoEntity extends CustomEntity implements Persistable<java.util.
 		return endereco;
 	}
 	
-	public java.util.Set<TipoEntrada> getTipoEntradaEvento() {
-		return tipoEntradaEvento;
+	public java.util.Set<TipoEntrada> getTipoentradaevento() {
+		return tipoentradaevento;
+	}
+	
+	public java.util.List<IngressoEntity> getIngressos() {
+		return ingressos;
 	}
 	
 	public void setId(java.util.UUID id) {
@@ -99,6 +129,10 @@ public class EventoEntity extends CustomEntity implements Persistable<java.util.
 		this.nome = nome;
 	}
 	
+	public void setLotacaoMaxima(Long lotacaoMaxima) {
+		this.lotacaoMaxima = lotacaoMaxima;
+	}
+	
 	public void setDataHora(java.time.Instant dataHora) {
 		this.dataHora = dataHora;
 	}
@@ -107,8 +141,43 @@ public class EventoEntity extends CustomEntity implements Persistable<java.util.
 		this.endereco = endereco;
 	}
 	
-	public void setTipoEntradaEvento(java.util.Set<TipoEntrada> tipoEntradaEvento) {
-		this.tipoEntradaEvento = tipoEntradaEvento;
+	public void setTipoentradaevento(java.util.Set<TipoEntrada> tipoentradaevento) {
+		this.tipoentradaevento = tipoentradaevento;
+	}
+	
+	public void setIngressos(List<IngressoEntity> ingressos) {
+		if (ingressos != null) {
+			ingressos.forEach(this::addToIngressos);
+		} else {
+			final List<IngressoEntity> current = new ArrayList<IngressoEntity>();
+			current.addAll(this.ingressos);
+			current.forEach(this::removeFromIngressos);
+		}
+	}
+	
+	public void addToIngressos(IngressoEntity ingressoEntity) {
+		if (ingressoEntity.getId() == null || !ingressos.contains(ingressoEntity)) {
+			ingressos.add(ingressoEntity);
+			ingressoEntity.setEvento(this);
+		} else {
+			//required for merge operations
+			ingressos.remove(ingressos.indexOf(ingressoEntity));
+			ingressos.add(ingressoEntity);
+			ingressoEntity.setEvento(this);
+		}
+	}
+	
+	public IngressoEntity getFromIngressos(java.util.UUID ingressoEntityId) {
+		Optional<IngressoEntity> entity = ingressos.stream().filter(e -> e.getId().equals(ingressoEntityId)).findFirst();
+		if (entity.isPresent()) {
+			return entity.get();
+		}
+		return null;
+	}
+	
+	public void removeFromIngressos(IngressoEntity ingressoEntity) {
+		ingressos.remove(ingressoEntity);
+		ingressoEntity.setEvento(null);
 	}
 	
 	@Override

@@ -17,11 +17,15 @@ public class EventoStringSerializer {
 		sb.append(", ");
 		serializeNome(evento, sb);
 		sb.append(", ");
+		serializeLotacaoMaxima(evento, sb);
+		sb.append(", ");
 		serializeDataHora(evento, sb);
 		sb.append(", ");
 		serializeEndereco(evento, sb);
 		sb.append(", ");
-		serializeTipoEntradaEvento(evento, sb);
+		serializeTipoentradaevento(evento, sb);
+		sb.append(", ");
+		serializeIngressos(evento, sb, appended);
 		sb.append(", ");
 		sb.append(']');
 	}
@@ -34,6 +38,10 @@ public class EventoStringSerializer {
 		sb.append("nome=").append(evento.nome == null ? "null" : evento.nome);
 	}
 	
+	protected void serializeLotacaoMaxima(Evento evento, StringBuilder sb) {
+		sb.append("lotacaoMaxima=").append(evento.lotacaoMaxima == null ? "null" : evento.lotacaoMaxima);
+	}
+	
 	protected void serializeDataHora(Evento evento, StringBuilder sb) {
 		sb.append("dataHora=").append(evento.dataHora == null ? "null" : evento.dataHora);
 	}
@@ -42,7 +50,25 @@ public class EventoStringSerializer {
 		sb.append("endereco=").append(evento.endereco == null ? "null" : evento.endereco);
 	}
 	
-	protected void serializeTipoEntradaEvento(Evento evento, StringBuilder sb) {
-		sb.append("tipoEntradaEvento=").append(evento.tipoEntradaEvento == null ? "null" : evento.tipoEntradaEvento);
+	protected void serializeTipoentradaevento(Evento evento, StringBuilder sb) {
+		sb.append("tipoentradaevento=").append(evento.tipoentradaevento == null ? "null" : evento.tipoentradaevento);
+	}
+	
+	protected void serializeIngressos(Evento evento, StringBuilder sb, List<Object> appended) {
+		sb.append("ingressos=<");
+		if (evento.ingressos == null) {
+			sb.append("null");
+		} else {
+			sb.append('[');
+			int last = evento.ingressos.size() - 1;
+			for (int i = 0; i <= last; i++) {
+				evento.ingressos.get(i).toString(sb, appended);
+				if (i < last) {
+					sb.append(", ");
+				}
+			}
+			sb.append(']');
+		}
+		sb.append('>');
 	}
 }

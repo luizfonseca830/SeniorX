@@ -178,6 +178,9 @@ public class EventoHandler implements CreateEvento, CreateMergeEvento, UpdateEve
 		
 		EventoEntity entity = optionalEntity.get();
 		
+		if(toUpdate.ingressos != null)
+			entity.getIngressos().clear();
+		
 		dtoConverter.updateEntity(entity, toUpdate);
 		return doUpdate(entity);
 	}

@@ -4,6 +4,7 @@
     <persistence-unit name="service" transaction-type="RESOURCE_LOCAL">
         <class>br.com.senior.mydomain.myservice.ConvidadoEntity</class>
         <class>br.com.senior.mydomain.myservice.EventoEntity</class>
+        <class>br.com.senior.mydomain.myservice.IngressoEntity</class>
         <properties>
             <property name="hibernate.show_sql" value="false"/>
         </properties>

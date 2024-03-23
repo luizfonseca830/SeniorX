@@ -141,12 +141,29 @@ service my_service {
             id: uuid?
             "Nome do evento"
             nome: string(30)
+            lotacaoMaxima: integer minValue:1 maxValue:99999
             "Data e hora do evento"
             dataHora: dateTime
             "Enderenço do evento"
             endereco: string(50)
             "Tipos de entrada permitidos no evento"
-            tipoEntradaEvento: tipoEntrada?*
+            tipoentradaevento: tipoEntrada?*
+            "Ingressos do evento"
+            ingressos: ingresso?*
+        }
+
+        "Entidade que representa o ingresso"
+        entity ingresso{
+            "ID do ingresso"
+            id: uuid?
+            "Data e hora do evento. Opcional, pois a data e hora estão no evento"
+            dataHora: dateTime?
+            "Convidado dono do ingresso"
+            convidado: convidado?
+            "Quantidade de acompanhantes do ingresso"
+            quantidadeAcompanhantes: integer minValue:0 maxValue:9
+            "Evento que o ingresso pertence"
+            evento: evento?
         }
     }
 }
