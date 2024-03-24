@@ -182,6 +182,40 @@ public interface MyServiceConstants {
     	 */
     	String EXPORT_EVENTO_ERROR = "exportEventoError";
     	/**
+    	 * @see ImportAtracaoInput the request payload
+    	 */
+    	String IMPORT_ATRACAO = "importAtracao";
+    	/**
+    	 * The success response primitive for importAtracao.
+    	 *
+    	 * @see #IMPORT_ATRACAO the request primitive
+    	 * @see ImportAtracaoOutput the response payload
+    	 */
+    	String IMPORT_ATRACAO_RESPONSE = "importAtracaoResponse";
+    	/**
+    	 * An error response primitive for importAtracao.
+    	 *
+    	 * @see #IMPORT_ATRACAO the request primitive
+    	 */
+    	String IMPORT_ATRACAO_ERROR = "importAtracaoError";
+    	/**
+    	 * @see ExportAtracaoInput the request payload
+    	 */
+    	String EXPORT_ATRACAO = "exportAtracao";
+    	/**
+    	 * The success response primitive for exportAtracao.
+    	 *
+    	 * @see #EXPORT_ATRACAO the request primitive
+    	 * @see ExportAtracaoOutput the response payload
+    	 */
+    	String EXPORT_ATRACAO_RESPONSE = "exportAtracaoResponse";
+    	/**
+    	 * An error response primitive for exportAtracao.
+    	 *
+    	 * @see #EXPORT_ATRACAO the request primitive
+    	 */
+    	String EXPORT_ATRACAO_ERROR = "exportAtracaoError";
+    	/**
     	 * Returns a list with all dependencies from this service, along with their respective versions
     	 */
     	String GET_DEPENDENCIES = "getDependencies";
@@ -732,6 +766,144 @@ public interface MyServiceConstants {
     	 * @see #DELETE_INGRESSO the request primitive
     	 */
     	String DELETE_INGRESSO_ERROR = "deleteIngressoError";
+    	/**
+    	 * The 'create' request primitive for the Atracao entity.
+    	 * @see Atracao the request payload
+    	 */
+    	String CREATE_ATRACAO = "createAtracao";
+    	/**
+    	 * The success response primitive for createAtracao.
+    	 *
+    	 * @see #CREATE_ATRACAO the request primitive
+    	 */
+    	String CREATE_ATRACAO_RESPONSE = "createAtracaoResponse";
+    	/**
+    	 * An error response primitive for createAtracao.
+    	 *
+    	 * @see #CREATE_ATRACAO the request primitive
+    	 */
+    	String CREATE_ATRACAO_ERROR = "createAtracaoError";
+    	/**
+    	 * The 'createBulk' request primitive for the Atracao entity.
+    	 * @see CreateBulkAtracaoInput the request payload
+    	 */
+    	String CREATE_BULK_ATRACAO = "createBulkAtracao";
+    	/**
+    	 * The success response primitive for createBulkAtracao.
+    	 *
+    	 * @see #CREATE_BULK_ATRACAO the request primitive
+    	 * @see CreateBulkAtracaoOutput the response payload
+    	 */
+    	String CREATE_BULK_ATRACAO_RESPONSE = "createBulkAtracaoResponse";
+    	/**
+    	 * An error response primitive for createBulkAtracao.
+    	 *
+    	 * @see #CREATE_BULK_ATRACAO the request primitive
+    	 */
+    	String CREATE_BULK_ATRACAO_ERROR = "createBulkAtracaoError";
+    	/**
+    	 * The 'createMerge' request primitive for the Atracao entity.
+    	 * @see Atracao the request payload
+    	 */
+    	String CREATE_MERGE_ATRACAO = "createMergeAtracao";
+    	/**
+    	 * The success response primitive for createMergeAtracao.
+    	 *
+    	 * @see #CREATE_MERGE_ATRACAO the request primitive
+    	 */
+    	String CREATE_MERGE_ATRACAO_RESPONSE = "createMergeAtracaoResponse";
+    	/**
+    	 * An error response primitive for createMergeAtracao.
+    	 *
+    	 * @see #CREATE_MERGE_ATRACAO the request primitive
+    	 */
+    	String CREATE_MERGE_ATRACAO_ERROR = "createMergeAtracaoError";
+    	/**
+    	 * The 'retrieve' request primitive for the Atracao entity.
+    	 * @see Atracao.GetRequest the request payload
+    	 */
+    	String RETRIEVE_ATRACAO = "retrieveAtracao";
+    	/**
+    	 * The success response primitive for retrieveAtracao.
+    	 *
+    	 * @see #RETRIEVE_ATRACAO the request primitive
+    	 */
+    	String RETRIEVE_ATRACAO_RESPONSE = "retrieveAtracaoResponse";
+    	/**
+    	 * An error response primitive for retrieveAtracao.
+    	 *
+    	 * @see #RETRIEVE_ATRACAO the request primitive
+    	 */
+    	String RETRIEVE_ATRACAO_ERROR = "retrieveAtracaoError";
+    	/**
+    	 * The 'list' request primitive for the Atracao entity.
+    	 * @see atracao.pageRequest the request payload
+    	 */
+    	String LIST_ATRACAO = "listAtracao";
+    	/**
+    	 * The success response primitive for listAtracao.
+    	 *
+    	 * @see #LIST_ATRACAO the request primitive
+    	 * @see Atracao.PagedResults the response payload
+    	 */
+    	String LIST_ATRACAO_RESPONSE = "listAtracaoResponse";
+    	/**
+    	 * An error response primitive for listAtracao.
+    	 *
+    	 * @see #LIST_ATRACAO the request primitive
+    	 */
+    	String LIST_ATRACAO_ERROR = "listAtracaoError";
+    	/**
+    	 * The 'update' request primitive for the Atracao entity.
+    	 * @see Atracao the request payload
+    	 */
+    	String UPDATE_ATRACAO = "updateAtracao";
+    	/**
+    	 * The success response primitive for updateAtracao.
+    	 *
+    	 * @see #UPDATE_ATRACAO the request primitive
+    	 */
+    	String UPDATE_ATRACAO_RESPONSE = "updateAtracaoResponse";
+    	/**
+    	 * An error response primitive for updateAtracao.
+    	 *
+    	 * @see #UPDATE_ATRACAO the request primitive
+    	 */
+    	String UPDATE_ATRACAO_ERROR = "updateAtracaoError";
+    	/**
+    	 * The 'updateMerge' request primitive for the Atracao entity.
+    	 * @see Atracao the request payload
+    	 */
+    	String UPDATE_MERGE_ATRACAO = "updateMergeAtracao";
+    	/**
+    	 * The success response primitive for updateMergeAtracao.
+    	 *
+    	 * @see #UPDATE_MERGE_ATRACAO the request primitive
+    	 */
+    	String UPDATE_MERGE_ATRACAO_RESPONSE = "updateMergeAtracaoResponse";
+    	/**
+    	 * An error response primitive for updateMergeAtracao.
+    	 *
+    	 * @see #UPDATE_MERGE_ATRACAO the request primitive
+    	 */
+    	String UPDATE_MERGE_ATRACAO_ERROR = "updateMergeAtracaoError";
+    	/**
+    	 * The 'delete' request primitive for the Atracao entity.
+    	 * @see Atracao.Id the request payload
+    	 */
+    	String DELETE_ATRACAO = "deleteAtracao";
+    	/**
+    	 * The success response primitive for deleteAtracao.
+    	 *
+    	 * @see #DELETE_ATRACAO the request primitive
+    	 */
+    	String DELETE_ATRACAO_RESPONSE = "deleteAtracaoResponse";
+    	/**
+    	 * An error response primitive for deleteAtracao.
+    	 *
+    	 * @see #DELETE_ATRACAO the request primitive
+    	 */
+    	String DELETE_ATRACAO_ERROR = "deleteAtracaoError";
     }
     
     interface Signals {
@@ -756,6 +928,8 @@ public interface MyServiceConstants {
     	String EXPORT_EVENTO_EVENT = "exportEventoEvent";
     	String IMPORT_INGRESSO_EVENT = "importIngressoEvent";
     	String EXPORT_INGRESSO_EVENT = "exportIngressoEvent";
+    	String IMPORT_ATRACAO_EVENT = "importAtracaoEvent";
+    	String EXPORT_ATRACAO_EVENT = "exportAtracaoEvent";
     }
     
 }

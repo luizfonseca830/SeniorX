@@ -83,5 +83,27 @@ public class MyServiceNormalizer {
     		}
     	}
     }
+    /**
+     * Normalizes the Atracao payload.
+     */
+    public static void normalize(Atracao toNormalize, Map<String, Object> headers) {
+    	if (headers != null) {
+    		String entityId = headers.containsKey(Message.ENTITY_ID_HEADER) ? headers.get(Message.ENTITY_ID_HEADER).toString() : null;
+    		if (entityId != null && toNormalize != null && toNormalize.id == null) {
+    			toNormalize.id = entityId;
+    		}
+    	}
+    }
+    /**
+     * Normalizes the Atracao.Id payload.
+     */
+    public static void normalize(Atracao.Id toNormalize, Map<String, Object> headers) {
+    	if (headers != null) {
+    		String entityId = headers.containsKey(Message.ENTITY_ID_HEADER) ? headers.get(Message.ENTITY_ID_HEADER).toString() : null;
+    		if (entityId != null && toNormalize != null && toNormalize.id == null) {
+    			toNormalize.id = entityId;
+    		}
+    	}
+    }
     
 }

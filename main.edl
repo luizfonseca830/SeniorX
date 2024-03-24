@@ -35,5 +35,13 @@ service my_service {
 	        }
 	    }
 
+	    entity atracao {
+	        relationships{
+	            OneToOne(evento){
+	                type: aggregation
+	            }
+	        }
+	    }
+
 	}
 }

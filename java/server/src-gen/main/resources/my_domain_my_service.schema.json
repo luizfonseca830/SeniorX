@@ -164,6 +164,32 @@
         	"required" : ["quantidadeAcompanhantes"]
         }
         ,
+        "atracao" : {
+        	"type" : "object",
+        	"id" : "atracao",
+        	"properties" : {
+            	"id" : {
+            		"type": "string",
+            		"format": "uuid"
+            	},
+            	"nome" : {
+            		"type": "string"
+            	},
+            	"dataHora" : {
+            		"type": "string",
+            		"format": "date-time"
+            	},
+            	"local" : {
+            		"type": "string",
+            		"maxLength": 30
+            	},
+            	"evento" : {
+            		"$ref": "#/properties/evento"
+            	}
+        	},
+        	"required" : ["nome","local"]
+        }
+        ,
         "notifyUserEventPayload" : {
         	"type" : "object",
         	"id" : "notifyUserEventPayload",

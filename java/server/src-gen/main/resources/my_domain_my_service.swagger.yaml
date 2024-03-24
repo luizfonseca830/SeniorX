@@ -237,6 +237,44 @@ paths:
           schema:
             $ref: '#/definitions/genericError'
   
+  /my_service/queries/exportAtracao:
+    post:
+      description: ""
+      tags:
+        - Queries
+      x-senior-visibility: PRIVATE
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            type: object
+            required:
+              - config
+            properties:
+              config:
+                type: object
+                allOf:
+                 - $ref: '#/definitions/exportConfig'
+                description: ""
+      responses:
+        200:
+          description: Ok
+          schema:
+            type: object
+            required:
+              - exportJobId
+            properties:
+              exportJobId:
+                type: string
+                description: ""
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          schema:
+            $ref: '#/definitions/genericError'
+  
   /my_service/queries/getDependencies:
     post:
       description: "Returns a list with all dependencies from this service, along with their respective versions"
@@ -528,6 +566,44 @@ paths:
           description: Error response
           schema:
             $ref: '#/definitions/genericError'
+  
+  /my_service/actions/importAtracao:
+    post:
+      description: ""
+      tags:
+        - Actions
+      x-senior-visibility: PRIVATE
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            type: object
+            required:
+              - config
+            properties:
+              config:
+                type: object
+                allOf:
+                 - $ref: '#/definitions/importConfig'
+                description: ""
+      responses:
+        200:
+          description: Ok
+          schema:
+            type: object
+            required:
+              - importJobId
+            properties:
+              importJobId:
+                type: string
+                description: ""
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          schema:
+            $ref: '#/definitions/genericError'
   /my_service/signals/cancelarEvento:
     post:
       description: ""
@@ -773,6 +849,62 @@ paths:
             $ref: '#/definitions/genericError'
   
   /my_service/events/exportIngressoEvent:
+    post:
+      description: ""
+      x-senior-event: true
+      tags:
+        - Events
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            type: object
+            required:
+              - eventpl
+            properties:
+              eventpl:
+                type: object
+                allOf:
+                 - $ref: '#/definitions/exportEventStatus'
+                description: ""
+      responses:
+        200:
+          description: OK
+        default:
+          description: Error response
+          schema:
+            $ref: '#/definitions/genericError'
+  
+  /my_service/events/importAtracaoEvent:
+    post:
+      description: ""
+      x-senior-event: true
+      tags:
+        - Events
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            type: object
+            required:
+              - eventpl
+            properties:
+              eventpl:
+                type: object
+                allOf:
+                 - $ref: '#/definitions/importEventStatus'
+                description: ""
+      responses:
+        200:
+          description: OK
+        default:
+          description: Error response
+          schema:
+            $ref: '#/definitions/genericError'
+  
+  /my_service/events/exportAtracaoEvent:
     post:
       description: ""
       x-senior-event: true
@@ -1576,6 +1708,198 @@ paths:
           schema:
             $ref: '#/definitions/genericError'
   
+  /my_service/entities/atracao:
+    post:
+      description: "Esta entidade pode ser customizada."
+      tags:
+        - CRUD
+      x-senior-visibility: PRIVATE
+      parameters:
+        - name: entity
+          in: body
+          required: true
+          schema:
+            type: object
+            allOf:
+             - $ref: '#/definitions/atracao'
+      responses:
+        200:
+          description: 'The created resource'
+          schema:
+            $ref: '#/definitions/atracao'
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          schema:
+            $ref: '#/definitions/genericError'
+    patch:
+      description: "Esta entidade pode ser customizada."
+      tags:
+        - CRUD
+      x-senior-visibility: PRIVATE
+      parameters:
+        - name: entity
+          in: body
+          required: true
+          schema:
+            type: object
+            allOf:
+             - $ref: '#/definitions/atracao'
+      responses:
+        200:
+          description: 'The created resource'
+          schema:
+            $ref: '#/definitions/atracao'
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          schema:
+            $ref: '#/definitions/genericError'
+    get:
+      description: "Esta entidade pode ser customizada."
+      tags:
+        - CRUD
+      x-senior-visibility: PRIVATE
+      parameters:
+        - name: offset
+          in: query
+          type: number
+        - name: size
+          in: query
+          type: number
+      responses:
+        200:
+          description: Ok
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/atracao'
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          schema:
+            $ref: '#/definitions/genericError'
+  
+  /my_service/entities/atracao/{id}:
+    put:
+      description: "Esta entidade pode ser customizada."
+      tags:
+        - CRUD
+      x-senior-visibility: PRIVATE
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+        - name: entity
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/atracao'
+      responses:
+        200:
+          description: Ok
+          schema:
+            $ref: '#/definitions/atracao'
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          schema:
+            $ref: '#/definitions/genericError'
+    patch:
+      description: "Esta entidade pode ser customizada."
+      tags:
+        - CRUD
+      x-senior-visibility: PRIVATE
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+        - name: entity
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/atracao'
+      responses:
+        200:
+          description: Ok
+          schema:
+            $ref: '#/definitions/atracao'
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          schema:
+            $ref: '#/definitions/genericError'
+    get:
+      description: "Esta entidade pode ser customizada."
+      tags:
+        - CRUD
+      x-senior-visibility: PRIVATE
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        200:
+          description: Ok
+          schema:
+            $ref: '#/definitions/atracao'
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          schema:
+            $ref: '#/definitions/genericError'
+    delete:
+      description: "Esta entidade pode ser customizada."
+      tags:
+        - CRUD
+      x-senior-visibility: PRIVATE
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        200:
+          description: Ok
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          schema:
+            $ref: '#/definitions/genericError'
+  
+  /my_service/entities/atracao/bulk:
+    post:
+      description: "Esta entidade pode ser customizada."
+      tags:
+        - Bulk
+      parameters:
+        - name: entities
+          in: body
+          required: true
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/atracao'
+      responses:
+        200:
+          description: 'The bulk creation has created resources'
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          schema:
+            $ref: '#/definitions/genericError'
+  
 
 definitions:
   tipoEntrada:
@@ -1870,6 +2194,34 @@ definitions:
         allOf:
          - $ref: '#/definitions/evento'
         description: "Evento que o ingresso pertence"
+  
+  atracao:
+    description: "Entidade que representa a atração do evento"
+    type: object
+    required:
+      - nome
+      - local
+    properties:
+      id:
+        type: string
+        format: uuid
+        description: "ID da atracao"
+      nome:
+        type: string
+        description: "nome da atracao"
+      dataHora:
+        type: string
+        format: date-time
+        description: "data e hora da atracao"
+      local:
+        type: string
+        maxLength: 30
+        description: "local da atracao"
+      evento:
+        type: object
+        allOf:
+         - $ref: '#/definitions/evento'
+        description: "Evento que a atracao pertence"
   
   notifyUserEventPayload:
     description: "Represents a regular user event notification payload"

@@ -165,5 +165,19 @@ service my_service {
             "Evento que o ingresso pertence"
             evento: evento?
         }
+
+        "Entidade que representa a atração do evento"
+        entity atracao{
+            "ID da atracao"
+            id: uuid?
+            "nome da atracao"
+            nome: string
+            "data e hora da atracao"
+            dataHora: dateTime?
+            "local da atracao"
+            local: string(30)
+            "Evento que a atracao pertence"
+            evento: evento?
+        }
     }
 }

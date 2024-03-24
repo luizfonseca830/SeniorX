@@ -1,4 +1,4 @@
-/* Database: Oracle. Generation date: 2024-03-23 16:00:57:768 */
+/* Database: Oracle. Generation date: 2024-03-24 15:09:14:921 */
 /* Entity Convidado */
 create table convidado (
 	id RAW(16) NOT NULL,
@@ -49,16 +49,33 @@ create table ingresso (
 /* Creating index for customization column */
 CREATE INDEX ingresso_ext ON ingresso (ext) INDEXTYPE IS CTXSYS.CONTEXT PARAMETERS ('section group CTXSYS.JSON_SECTION_GROUP SYNC (ON COMMIT)');
 
+/* Entity Atracao */
+create table atracao (
+	id RAW(16) NOT NULL,
+	nome VARCHAR(255) NOT NULL,
+	data_hora TIMESTAMP /* dataHora */,
+	local VARCHAR(30) NOT NULL,
+	evento RAW(16),
+	ext CLOB,
+	CONSTRAINT atracao_JSON_ext CHECK (ext IS JSON)
+);
+
+
+/* Creating index for customization column */
+CREATE INDEX atracao_ext ON atracao (ext) INDEXTYPE IS CTXSYS.CONTEXT PARAMETERS ('section group CTXSYS.JSON_SECTION_GROUP SYNC (ON COMMIT)');
+
 /* Join Tables */
 
 /* Primary Key Constraints */
 alter table convidado add constraint pk_convidado_id primary key(id);
 alter table evento add constraint pk_evento_id primary key(id);
 alter table ingresso add constraint pk_ingresso_id primary key(id);
+alter table atracao add constraint pk_atracao_id primary key(id);
 
 /* Foreign Key Constraints */
-alter table ingresso add constraint fklh7qzwmne9jtkjqj37xzfkqnlicg foreign key (convidado) references convidado (id);
-alter table ingresso add constraint fk4r8s5mgnhdtiehzsvurfzkd1ium7 foreign key (evento) references evento (id);
+alter table ingresso add constraint fkvkyur0pspaoehg7rwyiaxyzaoxeu foreign key (convidado) references convidado (id);
+alter table ingresso add constraint fkp1kabf8jnwx6z4eadxchue8s0uzw foreign key (evento) references evento (id);
+alter table atracao add constraint fkd0jg4aea65tuifywhw6i7m40f5sb foreign key (evento) references evento (id);
 
 /* Unique Key Constraints */
 

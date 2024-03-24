@@ -78,6 +78,22 @@
                 <slot name="exportJobId" type="string" optional="false" multivalued="false"/>
             </output>
         </query>
+        <action name="importAtracao" idempotent="false" extensionPoint="false" visibility="PRIVATE">
+            <input>
+                <slot name="config" type="importConfig" optional="false" multivalued="false"/>
+            </input>
+            <output>
+                <slot name="importJobId" type="string" optional="false" multivalued="false"/>
+            </output>
+        </action>
+        <query name="exportAtracao" idempotent="false" extensionPoint="false" visibility="PRIVATE">
+            <input>
+                <slot name="config" type="exportConfig" optional="false" multivalued="false"/>
+            </input>
+            <output>
+                <slot name="exportJobId" type="string" optional="false" multivalued="false"/>
+            </output>
+        </query>
         <query name="getDependencies" idempotent="false" extensionPoint="false" visibility="PRIVATE">
             <output>
                 <slot name="dependencies" type="dependency" optional="false" multivalued="true"/>
@@ -256,6 +272,52 @@
                 <slot name="id" type="string" format="uuid" optional="false" multivalued="false"/>
             </input>
         </delete>
+        <create name="createAtracao" idempotent="false" extensionPoint="false" visibility="PUBLIC">
+            <input type="atracao"/>
+            <output type="atracao"/>
+        </create>
+        <createBulk name="createBulkAtracao" idempotent="false" extensionPoint="false" visibility="PUBLIC">
+            <input>
+                <slot name="entities" type="atracao" optional="false" multivalued="true"/>
+            </input>
+            <output>
+            </output>
+        </createBulk>
+        <createMerge name="createMergeAtracao" idempotent="false" extensionPoint="false" visibility="PUBLIC">
+            <input type="atracao"/>
+            <output type="atracao"/>
+        </createMerge>
+        <retrieve name="retrieveAtracao" idempotent="false" extensionPoint="false" visibility="PUBLIC">
+            <input>
+                <slot name="id" type="string" format="uuid" optional="false" multivalued="false"/>
+            </input>
+            <output type="atracao"/>
+        </retrieve>
+        <list name="listAtracao" idempotent="false" extensionPoint="false" visibility="PRIVATE">
+            <input>
+                <slot name="offset" type="integer" optional="false" multivalued="false"/>
+                <slot name="size" type="integer" optional="false" multivalued="false"/>
+                <slot name="orderBy" type="string" optional="false" multivalued="false"/>
+                <slot name="filter" type="string" optional="false" multivalued="false"/>
+                <slot name="displayFields" type="string" optional="false" multivalued="true"/>
+            </input>
+            <output>
+                <slot name="contents" type="atracao" optional="false" multivalued="true"/>
+            </output>
+        </list>
+        <update name="updateAtracao" idempotent="false" extensionPoint="false" visibility="PUBLIC">
+            <input type="atracao"/>
+            <output type="atracao"/>
+        </update>
+        <updateMerge name="updateMergeAtracao" idempotent="false" extensionPoint="false" visibility="PUBLIC">
+            <input type="atracao"/>
+            <output type="atracao"/>
+        </updateMerge>
+        <delete name="deleteAtracao" idempotent="false" extensionPoint="false" visibility="PUBLIC">
+            <input>
+                <slot name="id" type="string" format="uuid" optional="false" multivalued="false"/>
+            </input>
+        </delete>
     </commands>
     <signals>
         <inboundSignal name="cancelarEvento" extensionPoint="false" visibility="PRIVATE">
@@ -319,6 +381,16 @@
                 <slot name="eventpl" type="exportEventStatus" optional="false" multivalued="false"/>
             </payload>
         </event>
+        <event name="importAtracaoEvent" extensionPoint="false" visibility="PRIVATE">
+            <payload>
+                <slot name="eventpl" type="importEventStatus" optional="false" multivalued="false"/>
+            </payload>
+        </event>
+        <event name="exportAtracaoEvent" extensionPoint="false" visibility="PRIVATE">
+            <payload>
+                <slot name="eventpl" type="exportEventStatus" optional="false" multivalued="false"/>
+            </payload>
+        </event>
     </events>
     <records>
         <record name="mensagemRetornoComCodigo">
@@ -361,6 +433,13 @@
             <slot name="dataHora" type="dateTime" optional="true" multivalued="false"/>
             <slot name="convidado" type="convidado" optional="true" multivalued="false"/>
             <slot name="quantidadeAcompanhantes" type="integer" optional="false" multivalued="false" minValue="0" maxValue="9"/>
+            <slot name="evento" type="evento" optional="true" multivalued="false"/>
+        </record>
+        <record name="atracao">
+            <slot name="id" type="string" format="uuid" optional="true" multivalued="false"/>
+            <slot name="nome" type="string" optional="false" multivalued="false"/>
+            <slot name="dataHora" type="dateTime" optional="true" multivalued="false"/>
+            <slot name="local" type="string" optional="false" multivalued="false" maxLength="30"/>
             <slot name="evento" type="evento" optional="true" multivalued="false"/>
         </record>
         <record name="notifyUserEventPayload">

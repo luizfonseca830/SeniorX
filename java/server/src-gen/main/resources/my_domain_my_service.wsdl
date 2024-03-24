@@ -164,6 +164,25 @@
                     </xsd:element>
                 </xsd:sequence>
             </xsd:complexType>
+            <xsd:complexType name="atracao">
+                <xsd:sequence>
+                    <xsd:element name="id" type="xsd:uuid" minOccurs="0" maxOccurs="1"  readOnly="false">
+                    </xsd:element>
+                    <xsd:element name="nome" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                    </xsd:element>
+                    <xsd:element name="dataHora" type="xsd:dateTime" minOccurs="0" maxOccurs="1"  readOnly="false">
+                    </xsd:element>
+                    <xsd:element name="local"  minOccurs="1" maxOccurs="1"  readOnly="false">
+                    <xsd:simpleType>
+                    	<xsd:restriction base="xsd:string">
+                    		<xsd:maxLength value="30" />
+                    	</xsd:restriction>
+                    </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element name="evento" type="evento" minOccurs="0" maxOccurs="1"  readOnly="false">
+                    </xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
             <xsd:simpleType name="userNotificationKind">
                 <xsd:restriction base="xsd:string">
                     <xsd:enumeration value="Operational"/>
@@ -562,61 +581,6 @@
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>
-            <xsd:element name="listEvento_Ingressos">
-                <xsd:complexType>
-                    <xsd:sequence>
-                        <xsd:element name="offset" type="xsd:long" minOccurs="1" maxOccurs="1"  readOnly="false">
-                        </xsd:element>
-                        <xsd:element name="size" type="xsd:long" minOccurs="1" maxOccurs="1"  readOnly="false">
-                        </xsd:element>
-                        <xsd:element name="orderBy" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
-                        </xsd:element>
-                        <xsd:element name="filter" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
-                        </xsd:element>
-                        <!-- collection wrapper for displayFields -->
-                        <xsd:element name="displayFields" minOccurs="1" maxOccurs="1">
-                            <xsd:complexType>
-                                <xsd:sequence>
-                                    <xsd:element name="item" type="xsd:string" minOccurs="1" maxOccurs="unbounded"/>
-                                </xsd:sequence>
-                            </xsd:complexType>
-                        </xsd:element>
-                    </xsd:sequence>
-                </xsd:complexType>
-            </xsd:element>
-            <xsd:element name="listEvento_IngressosOutput">
-                <xsd:complexType>
-                    <xsd:sequence>
-                        <!-- collection wrapper for contents -->
-                        <xsd:element name="contents" minOccurs="1" maxOccurs="1">
-                            <xsd:complexType>
-                                <xsd:sequence>
-                                    <xsd:element name="item" type="ingresso" minOccurs="1" maxOccurs="unbounded"/>
-                                </xsd:sequence>
-                            </xsd:complexType>
-                        </xsd:element>
-                    </xsd:sequence>
-                </xsd:complexType>
-            </xsd:element>
-            <xsd:element name="deleteEvento">
-                <xsd:complexType>
-                    <xsd:sequence>
-                        <xsd:element name="id" type="xsd:uuid" minOccurs="1" maxOccurs="1"  readOnly="false">
-                        </xsd:element>
-                    </xsd:sequence>
-                </xsd:complexType>
-            </xsd:element>
-            <xsd:element name="retrieveConvidado">
-                <xsd:complexType>
-                    <xsd:sequence>
-                        <xsd:element name="id" type="xsd:uuid" minOccurs="1" maxOccurs="1"  readOnly="false">
-                        </xsd:element>
-                    </xsd:sequence>
-                </xsd:complexType>
-            </xsd:element>
-            <xsd:element name="createMergeIngresso">
-                <xsd:complexType/>
-            </xsd:element>
             <xsd:element name="retrieveEvento">
                 <xsd:complexType>
                     <xsd:sequence>
@@ -628,7 +592,6 @@
             <xsd:element name="updateConvidado">
                 <xsd:complexType/>
             </xsd:element>
-            <xsd:element name="deleteEvento_Ingressos" type="uuid"/>
             <xsd:element name="createIngresso">
                 <xsd:complexType/>
             </xsd:element>
@@ -690,9 +653,6 @@
             <xsd:element name="createEvento_Ingressos">
                 <xsd:complexType/>
             </xsd:element>
-            <xsd:element name="odata">
-                <xsd:complexType/>
-            </xsd:element>
             <xsd:element name="updateMergeIngresso">
                 <xsd:complexType/>
             </xsd:element>
@@ -703,9 +663,6 @@
                 <xsd:complexType/>
             </xsd:element>
             <xsd:element name="updateEvento">
-                <xsd:complexType/>
-            </xsd:element>
-            <xsd:element name="updateMergeEvento">
                 <xsd:complexType/>
             </xsd:element>
             <xsd:element name="updateIngresso">
@@ -742,11 +699,13 @@
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>
+            <xsd:element name="updateAtracao">
+                <xsd:complexType/>
+            </xsd:element>
             <xsd:element name="updateMergeConvidado">
                 <xsd:complexType/>
             </xsd:element>
-            <xsd:element name="retrieveEvento_Ingressos" type="uuid"/>
-            <xsd:element name="exportConvidado">
+            <xsd:element name="exportAtracao">
                 <xsd:complexType>
                     <xsd:sequence>
                         <xsd:element name="config" type="exportConfig" minOccurs="1" maxOccurs="1"  readOnly="false">
@@ -754,7 +713,7 @@
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>
-            <xsd:element name="exportConvidadoOutput">
+            <xsd:element name="exportAtracaoOutput">
                 <xsd:complexType>
                     <xsd:sequence>
                         <xsd:element name="exportJobId" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
@@ -778,26 +737,6 @@
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>
-            <xsd:element name="createConvidado">
-                <xsd:complexType/>
-            </xsd:element>
-            <xsd:element name="getDependencies">
-                <xsd:complexType/>
-            </xsd:element>
-            <xsd:element name="getDependenciesOutput">
-                <xsd:complexType>
-                    <xsd:sequence>
-                        <!-- collection wrapper for dependencies -->
-                        <xsd:element name="dependencies" minOccurs="1" maxOccurs="1">
-                            <xsd:complexType>
-                                <xsd:sequence>
-                                    <xsd:element name="item" type="dependency" minOccurs="1" maxOccurs="unbounded"/>
-                                </xsd:sequence>
-                            </xsd:complexType>
-                        </xsd:element>
-                    </xsd:sequence>
-                </xsd:complexType>
-            </xsd:element>
             <xsd:element name="comprarIngresso">
                 <xsd:complexType>
                     <xsd:sequence>
@@ -810,6 +749,14 @@
                 <xsd:complexType>
                     <xsd:sequence>
                         <xsd:element name="codigoIngresso" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="retrieveAtracao">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="id" type="xsd:uuid" minOccurs="1" maxOccurs="1"  readOnly="false">
                         </xsd:element>
                     </xsd:sequence>
                 </xsd:complexType>
@@ -850,23 +797,7 @@
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>
-            <xsd:element name="importConvidado">
-                <xsd:complexType>
-                    <xsd:sequence>
-                        <xsd:element name="config" type="importConfig" minOccurs="1" maxOccurs="1"  readOnly="false">
-                        </xsd:element>
-                    </xsd:sequence>
-                </xsd:complexType>
-            </xsd:element>
-            <xsd:element name="importConvidadoOutput">
-                <xsd:complexType>
-                    <xsd:sequence>
-                        <xsd:element name="importJobId" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
-                        </xsd:element>
-                    </xsd:sequence>
-                </xsd:complexType>
-            </xsd:element>
-            <xsd:element name="deleteConvidado">
+            <xsd:element name="deleteAtracao">
                 <xsd:complexType>
                     <xsd:sequence>
                         <xsd:element name="id" type="xsd:uuid" minOccurs="1" maxOccurs="1"  readOnly="false">
@@ -874,38 +805,18 @@
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>
-            <xsd:element name="createBulkConvidado">
+            <xsd:element name="importAtracao">
                 <xsd:complexType>
                     <xsd:sequence>
-                        <!-- collection wrapper for entities -->
-                        <xsd:element name="entities" minOccurs="1" maxOccurs="1">
-                            <xsd:complexType>
-                                <xsd:sequence>
-                                    <xsd:element name="item" type="convidado" minOccurs="1" maxOccurs="unbounded"/>
-                                </xsd:sequence>
-                            </xsd:complexType>
+                        <xsd:element name="config" type="importConfig" minOccurs="1" maxOccurs="1"  readOnly="false">
                         </xsd:element>
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>
-            <xsd:element name="createBulkConvidadoOutput">
+            <xsd:element name="importAtracaoOutput">
                 <xsd:complexType>
                     <xsd:sequence>
-                    </xsd:sequence>
-                </xsd:complexType>
-            </xsd:element>
-            <xsd:element name="exportEvento">
-                <xsd:complexType>
-                    <xsd:sequence>
-                        <xsd:element name="config" type="exportConfig" minOccurs="1" maxOccurs="1"  readOnly="false">
-                        </xsd:element>
-                    </xsd:sequence>
-                </xsd:complexType>
-            </xsd:element>
-            <xsd:element name="exportEventoOutput">
-                <xsd:complexType>
-                    <xsd:sequence>
-                        <xsd:element name="exportJobId" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                        <xsd:element name="importJobId" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
                         </xsd:element>
                     </xsd:sequence>
                 </xsd:complexType>
@@ -932,6 +843,9 @@
                     <xsd:sequence>
                     </xsd:sequence>
                 </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="createMergeAtracao">
+                <xsd:complexType/>
             </xsd:element>
             <xsd:element name="updateMergeEvento_Ingressos">
                 <xsd:complexType/>
@@ -1012,6 +926,227 @@
                 </xsd:complexType>
             </xsd:element>
             <xsd:element name="cadastrarEventoOutput" type="retornoCadastrarEvento"/>
+            <xsd:element name="listEvento_Ingressos">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="offset" type="xsd:long" minOccurs="1" maxOccurs="1"  readOnly="false">
+                        </xsd:element>
+                        <xsd:element name="size" type="xsd:long" minOccurs="1" maxOccurs="1"  readOnly="false">
+                        </xsd:element>
+                        <xsd:element name="orderBy" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                        </xsd:element>
+                        <xsd:element name="filter" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                        </xsd:element>
+                        <!-- collection wrapper for displayFields -->
+                        <xsd:element name="displayFields" minOccurs="1" maxOccurs="1">
+                            <xsd:complexType>
+                                <xsd:sequence>
+                                    <xsd:element name="item" type="xsd:string" minOccurs="1" maxOccurs="unbounded"/>
+                                </xsd:sequence>
+                            </xsd:complexType>
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="listEvento_IngressosOutput">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <!-- collection wrapper for contents -->
+                        <xsd:element name="contents" minOccurs="1" maxOccurs="1">
+                            <xsd:complexType>
+                                <xsd:sequence>
+                                    <xsd:element name="item" type="ingresso" minOccurs="1" maxOccurs="unbounded"/>
+                                </xsd:sequence>
+                            </xsd:complexType>
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="deleteEvento">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="id" type="xsd:uuid" minOccurs="1" maxOccurs="1"  readOnly="false">
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="retrieveConvidado">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="id" type="xsd:uuid" minOccurs="1" maxOccurs="1"  readOnly="false">
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="createMergeIngresso">
+                <xsd:complexType/>
+            </xsd:element>
+            <xsd:element name="deleteEvento_Ingressos" type="uuid"/>
+            <xsd:element name="listAtracao">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="offset" type="xsd:long" minOccurs="1" maxOccurs="1"  readOnly="false">
+                        </xsd:element>
+                        <xsd:element name="size" type="xsd:long" minOccurs="1" maxOccurs="1"  readOnly="false">
+                        </xsd:element>
+                        <xsd:element name="orderBy" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                        </xsd:element>
+                        <xsd:element name="filter" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                        </xsd:element>
+                        <!-- collection wrapper for displayFields -->
+                        <xsd:element name="displayFields" minOccurs="1" maxOccurs="1">
+                            <xsd:complexType>
+                                <xsd:sequence>
+                                    <xsd:element name="item" type="xsd:string" minOccurs="1" maxOccurs="unbounded"/>
+                                </xsd:sequence>
+                            </xsd:complexType>
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="listAtracaoOutput">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <!-- collection wrapper for contents -->
+                        <xsd:element name="contents" minOccurs="1" maxOccurs="1">
+                            <xsd:complexType>
+                                <xsd:sequence>
+                                    <xsd:element name="item" type="atracao" minOccurs="1" maxOccurs="unbounded"/>
+                                </xsd:sequence>
+                            </xsd:complexType>
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="odata">
+                <xsd:complexType/>
+            </xsd:element>
+            <xsd:element name="createAtracao">
+                <xsd:complexType/>
+            </xsd:element>
+            <xsd:element name="updateMergeEvento">
+                <xsd:complexType/>
+            </xsd:element>
+            <xsd:element name="retrieveEvento_Ingressos" type="uuid"/>
+            <xsd:element name="exportConvidado">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="config" type="exportConfig" minOccurs="1" maxOccurs="1"  readOnly="false">
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="exportConvidadoOutput">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="exportJobId" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="updateMergeAtracao">
+                <xsd:complexType/>
+            </xsd:element>
+            <xsd:element name="createConvidado">
+                <xsd:complexType/>
+            </xsd:element>
+            <xsd:element name="getDependencies">
+                <xsd:complexType/>
+            </xsd:element>
+            <xsd:element name="getDependenciesOutput">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <!-- collection wrapper for dependencies -->
+                        <xsd:element name="dependencies" minOccurs="1" maxOccurs="1">
+                            <xsd:complexType>
+                                <xsd:sequence>
+                                    <xsd:element name="item" type="dependency" minOccurs="1" maxOccurs="unbounded"/>
+                                </xsd:sequence>
+                            </xsd:complexType>
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="importConvidado">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="config" type="importConfig" minOccurs="1" maxOccurs="1"  readOnly="false">
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="importConvidadoOutput">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="importJobId" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="deleteConvidado">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="id" type="xsd:uuid" minOccurs="1" maxOccurs="1"  readOnly="false">
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="createBulkConvidado">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <!-- collection wrapper for entities -->
+                        <xsd:element name="entities" minOccurs="1" maxOccurs="1">
+                            <xsd:complexType>
+                                <xsd:sequence>
+                                    <xsd:element name="item" type="convidado" minOccurs="1" maxOccurs="unbounded"/>
+                                </xsd:sequence>
+                            </xsd:complexType>
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="createBulkConvidadoOutput">
+                <xsd:complexType>
+                    <xsd:sequence>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="createBulkAtracao">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <!-- collection wrapper for entities -->
+                        <xsd:element name="entities" minOccurs="1" maxOccurs="1">
+                            <xsd:complexType>
+                                <xsd:sequence>
+                                    <xsd:element name="item" type="atracao" minOccurs="1" maxOccurs="unbounded"/>
+                                </xsd:sequence>
+                            </xsd:complexType>
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="createBulkAtracaoOutput">
+                <xsd:complexType>
+                    <xsd:sequence>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="exportEvento">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="config" type="exportConfig" minOccurs="1" maxOccurs="1"  readOnly="false">
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="exportEventoOutput">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="exportJobId" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
         </xsd:schema>
     </wsdl:types>
     
@@ -1117,11 +1252,23 @@
     <wsdl:message name="createBulkIngressoResponse">
         <wsdl:part name="result" element="createBulkIngressoOutput"/>
     </wsdl:message>
+    <wsdl:message name="updateAtracaoRequest">
+        <wsdl:part name="toUpdate" element="updateAtracao"/>
+    </wsdl:message>
+    <wsdl:message name="updateAtracaoResponse">
+        <wsdl:part name="updated" element="updateAtracaoOutput"/>
+    </wsdl:message>
     <wsdl:message name="updateMergeConvidadoRequest">
         <wsdl:part name="parameters" element="updateMergeConvidado"/>
     </wsdl:message>
     <wsdl:message name="updateMergeConvidadoResponse">
         <wsdl:part name="result" element="updateMergeConvidadoOutput"/>
+    </wsdl:message>
+    <wsdl:message name="exportAtracaoRequest">
+        <wsdl:part name="parameters" element="exportAtracao"/>
+    </wsdl:message>
+    <wsdl:message name="exportAtracaoResponse">
+        <wsdl:part name="result" element="exportAtracaoOutput"/>
     </wsdl:message>
     <wsdl:message name="getMetadataRequest">
         <wsdl:part name="parameters" element="getMetadata"/>
@@ -1135,11 +1282,26 @@
     <wsdl:message name="comprarIngressoResponse">
         <wsdl:part name="result" element="comprarIngressoOutput"/>
     </wsdl:message>
+    <wsdl:message name="retrieveAtracaoRequest">
+        <wsdl:part name="toRetrieve" element="retrieveAtracao"/>
+    </wsdl:message>
+    <wsdl:message name="retrieveAtracaoResponse">
+        <wsdl:part name="retrieved" element="retrieveAtracaoOutput"/>
+    </wsdl:message>
     <wsdl:message name="listEventoRequest">
         <wsdl:part name="pageRequest" element="listEvento"/>
     </wsdl:message>
     <wsdl:message name="listEventoResponse">
         <wsdl:part name="pagedResults" element="listEventoOutput"/>
+    </wsdl:message>
+    <wsdl:message name="deleteAtracaoRequest">
+        <wsdl:part name="toDelete" element="deleteAtracao"/>
+    </wsdl:message>
+    <wsdl:message name="importAtracaoRequest">
+        <wsdl:part name="parameters" element="importAtracao"/>
+    </wsdl:message>
+    <wsdl:message name="importAtracaoResponse">
+        <wsdl:part name="result" element="importAtracaoOutput"/>
     </wsdl:message>
     <wsdl:message name="updateEvento_IngressosRequest">
         <wsdl:part name="toUpdate" element="updateEvento_Ingressos"/>
@@ -1152,6 +1314,12 @@
     </wsdl:message>
     <wsdl:message name="createBulkEventoResponse">
         <wsdl:part name="result" element="createBulkEventoOutput"/>
+    </wsdl:message>
+    <wsdl:message name="createMergeAtracaoRequest">
+        <wsdl:part name="parameters" element="createMergeAtracao"/>
+    </wsdl:message>
+    <wsdl:message name="createMergeAtracaoResponse">
+        <wsdl:part name="result" element="createMergeAtracaoOutput"/>
     </wsdl:message>
     <wsdl:message name="updateMergeEvento_IngressosRequest">
         <wsdl:part name="parameters" element="updateMergeEvento_Ingressos"/>
@@ -1201,11 +1369,23 @@
     <wsdl:message name="deleteEvento_IngressosRequest">
         <wsdl:part name="toDelete" element="deleteEvento_Ingressos"/>
     </wsdl:message>
+    <wsdl:message name="listAtracaoRequest">
+        <wsdl:part name="pageRequest" element="listAtracao"/>
+    </wsdl:message>
+    <wsdl:message name="listAtracaoResponse">
+        <wsdl:part name="pagedResults" element="listAtracaoOutput"/>
+    </wsdl:message>
     <wsdl:message name="odataRequest">
         <wsdl:part name="parameters" element="odata"/>
     </wsdl:message>
     <wsdl:message name="odataResponse">
         <wsdl:part name="result" element="odataOutput"/>
+    </wsdl:message>
+    <wsdl:message name="createAtracaoRequest">
+        <wsdl:part name="toCreate" element="createAtracao"/>
+    </wsdl:message>
+    <wsdl:message name="createAtracaoResponse">
+        <wsdl:part name="created" element="createAtracaoOutput"/>
     </wsdl:message>
     <wsdl:message name="updateMergeEventoRequest">
         <wsdl:part name="parameters" element="updateMergeEvento"/>
@@ -1224,6 +1404,12 @@
     </wsdl:message>
     <wsdl:message name="exportConvidadoResponse">
         <wsdl:part name="result" element="exportConvidadoOutput"/>
+    </wsdl:message>
+    <wsdl:message name="updateMergeAtracaoRequest">
+        <wsdl:part name="parameters" element="updateMergeAtracao"/>
+    </wsdl:message>
+    <wsdl:message name="updateMergeAtracaoResponse">
+        <wsdl:part name="result" element="updateMergeAtracaoOutput"/>
     </wsdl:message>
     <wsdl:message name="createConvidadoRequest">
         <wsdl:part name="toCreate" element="createConvidado"/>
@@ -1254,6 +1440,12 @@
     </wsdl:message>
     <wsdl:message name="cancelarEventoSignal">
         <wsdl:part name="parameters" element="cancelarEvento"/>
+    </wsdl:message>
+    <wsdl:message name="createBulkAtracaoRequest">
+        <wsdl:part name="parameters" element="createBulkAtracao"/>
+    </wsdl:message>
+    <wsdl:message name="createBulkAtracaoResponse">
+        <wsdl:part name="result" element="createBulkAtracaoOutput"/>
     </wsdl:message>
     <wsdl:message name="exportEventoRequest">
         <wsdl:part name="parameters" element="exportEvento"/>
@@ -1404,6 +1596,14 @@
             <wsdl:input message="createBulkIngressoRequest"/>
             <wsdl:output message="createBulkIngressoResponse"/>
         </wsdl:operation>
+        <wsdl:operation name="updateAtracao">
+            <wsdl:documentation>
+            THIS OPERATION IS PUBLIC. 
+            The 'update' request primitive for the Atracao entity. 
+            </wsdl:documentation>
+            <wsdl:input message="updateAtracaoRequest"/>
+            <wsdl:output message="updateAtracaoResponse"/>
+        </wsdl:operation>
         <wsdl:operation name="updateMergeConvidado">
             <wsdl:documentation>
             THIS OPERATION IS PUBLIC. 
@@ -1411,6 +1611,13 @@
             </wsdl:documentation>
             <wsdl:input message="updateMergeConvidadoRequest"/>
             <wsdl:output message="updateMergeConvidadoResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="exportAtracao">
+            <wsdl:documentation>
+            WARNING: THIS OPERATION IS PRIVATE AND MAY HAVE ITS BEHAVIOR CHANGED AT ANY TIME WITHOUT NOTICE. 
+            </wsdl:documentation>
+            <wsdl:input message="exportAtracaoRequest"/>
+            <wsdl:output message="exportAtracaoResponse"/>
         </wsdl:operation>
         <wsdl:operation name="getMetadata">
             <wsdl:documentation>
@@ -1427,6 +1634,14 @@
             <wsdl:input message="comprarIngressoRequest"/>
             <wsdl:output message="comprarIngressoResponse"/>
         </wsdl:operation>
+        <wsdl:operation name="retrieveAtracao">
+            <wsdl:documentation>
+            THIS OPERATION IS PUBLIC. 
+            The 'retrieve' request primitive for the Atracao entity. 
+            </wsdl:documentation>
+            <wsdl:input message="retrieveAtracaoRequest"/>
+            <wsdl:output message="retrieveAtracaoResponse"/>
+        </wsdl:operation>
         <wsdl:operation name="listEvento">
             <wsdl:documentation>
             WARNING: THIS OPERATION IS PRIVATE AND MAY HAVE ITS BEHAVIOR CHANGED AT ANY TIME WITHOUT NOTICE. 
@@ -1434,6 +1649,21 @@
             </wsdl:documentation>
             <wsdl:input message="listEventoRequest"/>
             <wsdl:output message="listEventoResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="deleteAtracao">
+            <wsdl:documentation>
+            THIS OPERATION IS PUBLIC. 
+            The 'delete' request primitive for the Atracao entity. 
+            </wsdl:documentation>
+            <wsdl:input message="deleteAtracaoRequest"/>
+            <wsdl:output message="deleteAtracaoResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="importAtracao">
+            <wsdl:documentation>
+            WARNING: THIS OPERATION IS PRIVATE AND MAY HAVE ITS BEHAVIOR CHANGED AT ANY TIME WITHOUT NOTICE. 
+            </wsdl:documentation>
+            <wsdl:input message="importAtracaoRequest"/>
+            <wsdl:output message="importAtracaoResponse"/>
         </wsdl:operation>
         <wsdl:operation name="updateEvento_Ingressos">
             <wsdl:documentation>
@@ -1450,6 +1680,14 @@
             </wsdl:documentation>
             <wsdl:input message="createBulkEventoRequest"/>
             <wsdl:output message="createBulkEventoResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="createMergeAtracao">
+            <wsdl:documentation>
+            THIS OPERATION IS PUBLIC. 
+            The 'createMerge' request primitive for the Atracao entity. 
+            </wsdl:documentation>
+            <wsdl:input message="createMergeAtracaoRequest"/>
+            <wsdl:output message="createMergeAtracaoResponse"/>
         </wsdl:operation>
         <wsdl:operation name="updateMergeEvento_Ingressos">
             <wsdl:documentation>
@@ -1523,12 +1761,28 @@
             <wsdl:input message="deleteEvento_IngressosRequest"/>
             <wsdl:output message="deleteEvento_IngressosResponse"/>
         </wsdl:operation>
+        <wsdl:operation name="listAtracao">
+            <wsdl:documentation>
+            WARNING: THIS OPERATION IS PRIVATE AND MAY HAVE ITS BEHAVIOR CHANGED AT ANY TIME WITHOUT NOTICE. 
+            The 'list' request primitive for the Atracao entity. 
+            </wsdl:documentation>
+            <wsdl:input message="listAtracaoRequest"/>
+            <wsdl:output message="listAtracaoResponse"/>
+        </wsdl:operation>
         <wsdl:operation name="odata">
             <wsdl:documentation>
             WARNING: THIS OPERATION IS PRIVATE AND MAY HAVE ITS BEHAVIOR CHANGED AT ANY TIME WITHOUT NOTICE. 
             </wsdl:documentation>
             <wsdl:input message="odataRequest"/>
             <wsdl:output message="odataResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="createAtracao">
+            <wsdl:documentation>
+            THIS OPERATION IS PUBLIC. 
+            The 'create' request primitive for the Atracao entity. 
+            </wsdl:documentation>
+            <wsdl:input message="createAtracaoRequest"/>
+            <wsdl:output message="createAtracaoResponse"/>
         </wsdl:operation>
         <wsdl:operation name="updateMergeEvento">
             <wsdl:documentation>
@@ -1552,6 +1806,14 @@
             </wsdl:documentation>
             <wsdl:input message="exportConvidadoRequest"/>
             <wsdl:output message="exportConvidadoResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="updateMergeAtracao">
+            <wsdl:documentation>
+            THIS OPERATION IS PUBLIC. 
+            The 'updateMerge' request primitive for the Atracao entity. 
+            </wsdl:documentation>
+            <wsdl:input message="updateMergeAtracaoRequest"/>
+            <wsdl:output message="updateMergeAtracaoResponse"/>
         </wsdl:operation>
         <wsdl:operation name="createConvidado">
             <wsdl:documentation>
@@ -1597,6 +1859,14 @@
             WARNING: THIS OPERATION IS PRIVATE AND MAY HAVE ITS BEHAVIOR CHANGED AT ANY TIME WITHOUT NOTICE. 
             </wsdl:documentation>
             <wsdl:input message="cancelarEventoSignal"/>
+        </wsdl:operation>
+        <wsdl:operation name="createBulkAtracao">
+            <wsdl:documentation>
+            THIS OPERATION IS PUBLIC. 
+            The 'createBulk' request primitive for the Atracao entity. 
+            </wsdl:documentation>
+            <wsdl:input message="createBulkAtracaoRequest"/>
+            <wsdl:output message="createBulkAtracaoResponse"/>
         </wsdl:operation>
         <wsdl:operation name="exportEvento">
             <wsdl:documentation>
@@ -1768,8 +2038,26 @@
                 <soap:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
+        <wsdl:operation name="updateAtracao">
+            <soap:operation soapAction="updateAtracao"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
         <wsdl:operation name="updateMergeConvidado">
             <soap:operation soapAction="updateMergeConvidado"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="exportAtracao">
+            <soap:operation soapAction="exportAtracao"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -1795,8 +2083,35 @@
                 <soap:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
+        <wsdl:operation name="retrieveAtracao">
+            <soap:operation soapAction="retrieveAtracao"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
         <wsdl:operation name="listEvento">
             <soap:operation soapAction="listEvento"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="deleteAtracao">
+            <soap:operation soapAction="deleteAtracao"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="importAtracao">
+            <soap:operation soapAction="importAtracao"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -1815,6 +2130,15 @@
         </wsdl:operation>
         <wsdl:operation name="createBulkEvento">
             <soap:operation soapAction="createBulkEvento"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="createMergeAtracao">
+            <soap:operation soapAction="createMergeAtracao"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -1903,8 +2227,26 @@
                 <soap:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
+        <wsdl:operation name="listAtracao">
+            <soap:operation soapAction="listAtracao"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
         <wsdl:operation name="odata">
             <soap:operation soapAction="odata"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="createAtracao">
+            <soap:operation soapAction="createAtracao"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -1932,6 +2274,15 @@
         </wsdl:operation>
         <wsdl:operation name="exportConvidado">
             <soap:operation soapAction="exportConvidado"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updateMergeAtracao">
+            <soap:operation soapAction="updateMergeAtracao"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -1989,6 +2340,15 @@
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="createBulkAtracao">
+            <soap:operation soapAction="createBulkAtracao"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
         </wsdl:operation>
         <wsdl:operation name="exportEvento">
             <soap:operation soapAction="exportEvento"/>

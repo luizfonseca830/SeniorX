@@ -537,9 +537,222 @@
 					}
 				]
 			}
+		},
+		"atracao": {
+			"id": "id",
+			"name": "atracao",
+			"customizable": true,
+			"external": false,
+			"slots": {
+				"id": {
+					"name": "id",
+					"type": "string",
+					"format": "uuid",
+					"optional": true,
+					"hidden": false,
+					"multivalued": false,
+					"readOnly": true
+				},
+				"nome": {
+					"name": "nome",
+					"type": "string",
+					"optional": false,
+					"hidden": false,
+					"multivalued": false,
+					"readOnly": false
+				},
+				"dataHora": {
+					"name": "dataHora",
+					"type": "dateTime",
+					"optional": true,
+					"hidden": false,
+					"multivalued": false,
+					"readOnly": false
+				},
+				"local": {
+					"name": "local",
+					"type": "string",
+					"optional": false,
+					"hidden": false,
+					"multivalued": false,
+					"readOnly": false,
+					"maxLength": 30
+				},
+				"evento": {
+					"name": "evento",
+					"type": "evento",
+					"optional": true,
+					"hidden": false,
+					"multivalued": false,
+					"readOnly": false
+				}
+			},
+			"lookup": {
+				"searchFields": [
+					{
+						"name": "id",
+						"optional": true,
+						"multiple": false
+					},
+					{
+						"name": "nome",
+						"optional": true,
+						"multiple": false
+					},
+					{
+						"name": "dataHora",
+						"optional": true,
+						"multiple": false
+					},
+					{
+						"name": "local",
+						"optional": true,
+						"multiple": false
+					}
+				],
+				"displayFields": [
+					"id",
+					"nome",
+					"dataHora",
+					"local"
+				]
+			},
+			"advancedSearch": {
+				"searchFields": [
+					{
+						"name": "id",
+						"optional": true,
+						"multiple": false
+					},
+					{
+						"name": "nome",
+						"optional": true,
+						"multiple": false
+					},
+					{
+						"name": "dataHora",
+						"optional": true,
+						"multiple": false
+					},
+					{
+						"name": "local",
+						"optional": true,
+						"multiple": false
+					}
+				],
+				"displayFields": [
+					"id",
+					"nome",
+					"dataHora",
+					"local"
+				]
+			},
+			"relationships": {
+				"evento": [
+					{
+						"type": "aggregation",
+						"attribute": "evento",
+						"ownerEntity": "atracao",
+						"entityName": "evento",
+						"optional": true,
+						"filterDependent": false,
+						"multivalued": false,
+						"lookup": {
+							"searchFields": [
+								{
+									"name": "id",
+									"optional": true,
+									"multiple": false
+								},
+								{
+									"name": "nome",
+									"optional": true,
+									"multiple": false
+								},
+								{
+									"name": "lotacaoMaxima",
+									"optional": true,
+									"multiple": false
+								},
+								{
+									"name": "dataHora",
+									"optional": true,
+									"multiple": false
+								},
+								{
+									"name": "endereco",
+									"optional": true,
+									"multiple": false
+								},
+								{
+									"name": "tipoentradaevento",
+									"optional": true,
+									"multiple": false
+								}
+							],
+							"displayFields": [
+								"id",
+								"nome",
+								"lotacaoMaxima",
+								"dataHora",
+								"endereco",
+								"tipoentradaevento"
+							]
+						},
+						"advancedSearch": {
+							"searchFields": [
+								{
+									"name": "id",
+									"optional": true,
+									"multiple": false
+								},
+								{
+									"name": "nome",
+									"optional": true,
+									"multiple": false
+								},
+								{
+									"name": "lotacaoMaxima",
+									"optional": true,
+									"multiple": false
+								},
+								{
+									"name": "dataHora",
+									"optional": true,
+									"multiple": false
+								},
+								{
+									"name": "endereco",
+									"optional": true,
+									"multiple": false
+								},
+								{
+									"name": "tipoentradaevento",
+									"optional": true,
+									"multiple": false
+								}
+							],
+							"displayFields": [
+								"id",
+								"nome",
+								"lotacaoMaxima",
+								"dataHora",
+								"endereco",
+								"tipoentradaevento"
+							]
+						}
+					}
+				]
+			}
 		}
 	},
 	"translations": {
+		"my_domain.my_service.atracao": "Entidade que representa a atração do evento",
+		"my_domain.my_service.atracao_id": "ID da atracao",
+		"my_domain.my_service.atracao_nome": "nome da atracao",
+		"my_domain.my_service.atracao_data_hora": "data e hora da atracao",
+		"my_domain.my_service.atracao_local": "local da atracao",
+		"my_domain.my_service.atracao_evento": "Evento que a atracao pertence",
 		"my_domain.my_service.convidado": "Entidade que representa o convidado de evento",
 		"my_domain.my_service.convidado_id": "ID do convidado",
 		"my_domain.my_service.convidado_nome": "Nome do convidado",

@@ -438,6 +438,92 @@ public class MyServiceStubImpl  implements MyServiceStub {
 		return impl.exportEventoRequest(input, timeout, TimeUnit.MILLISECONDS);
 	}
 	/**
+	 * Chamada síncrona para o método importAtracao
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 * @throws MyServiceMessageException quando um erro com payload for retornado pela mensageria
+	 */
+	@Override
+	public ImportAtracaoOutput importAtracao(ImportAtracaoInput input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.ImportAtracaoImpl impl = new br.com.senior.mydomain.myservice.impl.ImportAtracaoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.importAtracao(input, timeout);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método importAtracao
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 */
+	@Override
+	public void importAtracao(ImportAtracaoInput input) {
+		br.com.senior.mydomain.myservice.impl.ImportAtracaoImpl impl = new br.com.senior.mydomain.myservice.impl.ImportAtracaoImpl(messengerSupplier, userId, messageSupplier);
+		impl.importAtracao(input);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método importAtracao
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 */
+	@Override
+	public CompletableFuture<ImportAtracaoOutput> importAtracaoRequest(ImportAtracaoInput input) {
+		return this.importAtracaoRequest(input, 0l);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método importAtracao
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	*/
+	@Override
+	public CompletableFuture<ImportAtracaoOutput> importAtracaoRequest(ImportAtracaoInput input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.ImportAtracaoImpl impl = new br.com.senior.mydomain.myservice.impl.ImportAtracaoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.importAtracaoRequest(input, timeout, TimeUnit.MILLISECONDS);
+	}
+	/**
+	 * Chamada síncrona para o método exportAtracao
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 * @throws MyServiceMessageException quando um erro com payload for retornado pela mensageria
+	 */
+	@Override
+	public ExportAtracaoOutput exportAtracao(ExportAtracaoInput input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.ExportAtracaoImpl impl = new br.com.senior.mydomain.myservice.impl.ExportAtracaoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.exportAtracao(input, timeout);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método exportAtracao
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 */
+	@Override
+	public void exportAtracao(ExportAtracaoInput input) {
+		br.com.senior.mydomain.myservice.impl.ExportAtracaoImpl impl = new br.com.senior.mydomain.myservice.impl.ExportAtracaoImpl(messengerSupplier, userId, messageSupplier);
+		impl.exportAtracao(input);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método exportAtracao
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 */
+	@Override
+	public CompletableFuture<ExportAtracaoOutput> exportAtracaoRequest(ExportAtracaoInput input) {
+		return this.exportAtracaoRequest(input, 0l);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método exportAtracao
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	*/
+	@Override
+	public CompletableFuture<ExportAtracaoOutput> exportAtracaoRequest(ExportAtracaoInput input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.ExportAtracaoImpl impl = new br.com.senior.mydomain.myservice.impl.ExportAtracaoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.exportAtracaoRequest(input, timeout, TimeUnit.MILLISECONDS);
+	}
+	/**
 	 * Chamada síncrona para o método getDependencies
 	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
 	 * Returns a list with all dependencies from this service, along with their respective versions
@@ -1737,6 +1823,331 @@ public class MyServiceStubImpl  implements MyServiceStub {
 	}
 	
 	
+	/**
+	 * Chamada síncrona para o método createAtracao
+	 * This is a public operation
+	 * The 'create' request primitive for the Atracao entity.
+	 * @throws MyServiceMessageException quando um erro com payload for retornado pela mensageria
+	 */
+	@Override
+	public Atracao createAtracao(Atracao input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.CreateAtracaoImpl impl = new br.com.senior.mydomain.myservice.impl.CreateAtracaoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.createAtracao(input, timeout);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método createAtracao
+	 * This is a public operation
+	 * The 'create' request primitive for the Atracao entity.
+	 */
+	@Override
+	public void createAtracao(Atracao input) {
+		br.com.senior.mydomain.myservice.impl.CreateAtracaoImpl impl = new br.com.senior.mydomain.myservice.impl.CreateAtracaoImpl(messengerSupplier, userId, messageSupplier);
+		impl.createAtracao(input);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método createAtracao
+	 * This is a public operation
+	 * The 'create' request primitive for the Atracao entity.
+	 */
+	@Override
+	public CompletableFuture<Atracao> createAtracaoRequest(Atracao input) {
+		return this.createAtracaoRequest(input, 0l);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método createAtracao
+	 * This is a public operation
+	 * The 'create' request primitive for the Atracao entity.
+	*/
+	@Override
+	public CompletableFuture<Atracao> createAtracaoRequest(Atracao input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.CreateAtracaoImpl impl = new br.com.senior.mydomain.myservice.impl.CreateAtracaoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.createAtracaoRequest(input, timeout, TimeUnit.MILLISECONDS);
+	}
+	/**
+	 * Chamada síncrona para o método createBulkAtracao
+	 * This is a public operation
+	 * The 'createBulk' request primitive for the Atracao entity.
+	 * @throws MyServiceMessageException quando um erro com payload for retornado pela mensageria
+	 */
+	@Override
+	public CreateBulkAtracaoOutput createBulkAtracao(CreateBulkAtracaoInput input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.CreateBulkAtracaoImpl impl = new br.com.senior.mydomain.myservice.impl.CreateBulkAtracaoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.createBulkAtracao(input, timeout);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método createBulkAtracao
+	 * This is a public operation
+	 * The 'createBulk' request primitive for the Atracao entity.
+	 */
+	@Override
+	public void createBulkAtracao(CreateBulkAtracaoInput input) {
+		br.com.senior.mydomain.myservice.impl.CreateBulkAtracaoImpl impl = new br.com.senior.mydomain.myservice.impl.CreateBulkAtracaoImpl(messengerSupplier, userId, messageSupplier);
+		impl.createBulkAtracao(input);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método createBulkAtracao
+	 * This is a public operation
+	 * The 'createBulk' request primitive for the Atracao entity.
+	 */
+	@Override
+	public CompletableFuture<CreateBulkAtracaoOutput> createBulkAtracaoRequest(CreateBulkAtracaoInput input) {
+		return this.createBulkAtracaoRequest(input, 0l);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método createBulkAtracao
+	 * This is a public operation
+	 * The 'createBulk' request primitive for the Atracao entity.
+	*/
+	@Override
+	public CompletableFuture<CreateBulkAtracaoOutput> createBulkAtracaoRequest(CreateBulkAtracaoInput input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.CreateBulkAtracaoImpl impl = new br.com.senior.mydomain.myservice.impl.CreateBulkAtracaoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.createBulkAtracaoRequest(input, timeout, TimeUnit.MILLISECONDS);
+	}
+	/**
+	 * Chamada síncrona para o método createMergeAtracao
+	 * This is a public operation
+	 * The 'createMerge' request primitive for the Atracao entity.
+	 * @throws MyServiceMessageException quando um erro com payload for retornado pela mensageria
+	 */
+	@Override
+	public Atracao createMergeAtracao(Atracao input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.CreateMergeAtracaoImpl impl = new br.com.senior.mydomain.myservice.impl.CreateMergeAtracaoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.createMergeAtracao(input, timeout);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método createMergeAtracao
+	 * This is a public operation
+	 * The 'createMerge' request primitive for the Atracao entity.
+	 */
+	@Override
+	public void createMergeAtracao(Atracao input) {
+		br.com.senior.mydomain.myservice.impl.CreateMergeAtracaoImpl impl = new br.com.senior.mydomain.myservice.impl.CreateMergeAtracaoImpl(messengerSupplier, userId, messageSupplier);
+		impl.createMergeAtracao(input);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método createMergeAtracao
+	 * This is a public operation
+	 * The 'createMerge' request primitive for the Atracao entity.
+	 */
+	@Override
+	public CompletableFuture<Atracao> createMergeAtracaoRequest(Atracao input) {
+		return this.createMergeAtracaoRequest(input, 0l);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método createMergeAtracao
+	 * This is a public operation
+	 * The 'createMerge' request primitive for the Atracao entity.
+	*/
+	@Override
+	public CompletableFuture<Atracao> createMergeAtracaoRequest(Atracao input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.CreateMergeAtracaoImpl impl = new br.com.senior.mydomain.myservice.impl.CreateMergeAtracaoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.createMergeAtracaoRequest(input, timeout, TimeUnit.MILLISECONDS);
+	}
+	/**
+	 * Chamada síncrona para o método retrieveAtracao
+	 * This is a public operation
+	 * The 'retrieve' request primitive for the Atracao entity.
+	 * @throws MyServiceMessageException quando um erro com payload for retornado pela mensageria
+	 */
+	@Override
+	public Atracao retrieveAtracao(Atracao.GetRequest input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.RetrieveAtracaoImpl impl = new br.com.senior.mydomain.myservice.impl.RetrieveAtracaoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.retrieveAtracao(input, timeout);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método retrieveAtracao
+	 * This is a public operation
+	 * The 'retrieve' request primitive for the Atracao entity.
+	 */
+	@Override
+	public void retrieveAtracao(Atracao.GetRequest input) {
+		br.com.senior.mydomain.myservice.impl.RetrieveAtracaoImpl impl = new br.com.senior.mydomain.myservice.impl.RetrieveAtracaoImpl(messengerSupplier, userId, messageSupplier);
+		impl.retrieveAtracao(input);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método retrieveAtracao
+	 * This is a public operation
+	 * The 'retrieve' request primitive for the Atracao entity.
+	 */
+	@Override
+	public CompletableFuture<Atracao> retrieveAtracaoRequest(Atracao.GetRequest input) {
+		return this.retrieveAtracaoRequest(input, 0l);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método retrieveAtracao
+	 * This is a public operation
+	 * The 'retrieve' request primitive for the Atracao entity.
+	*/
+	@Override
+	public CompletableFuture<Atracao> retrieveAtracaoRequest(Atracao.GetRequest input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.RetrieveAtracaoImpl impl = new br.com.senior.mydomain.myservice.impl.RetrieveAtracaoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.retrieveAtracaoRequest(input, timeout, TimeUnit.MILLISECONDS);
+	}
+	/**
+	 * Chamada síncrona para o método listAtracao
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'list' request primitive for the Atracao entity.
+	 * @throws MyServiceMessageException quando um erro com payload for retornado pela mensageria
+	 */
+	@Override
+	public Atracao.PagedResults listAtracao(Atracao.PageRequest input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.ListAtracaoImpl impl = new br.com.senior.mydomain.myservice.impl.ListAtracaoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.listAtracao(input, timeout);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método listAtracao
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'list' request primitive for the Atracao entity.
+	 */
+	@Override
+	public void listAtracao(Atracao.PageRequest input) {
+		br.com.senior.mydomain.myservice.impl.ListAtracaoImpl impl = new br.com.senior.mydomain.myservice.impl.ListAtracaoImpl(messengerSupplier, userId, messageSupplier);
+		impl.listAtracao(input);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método listAtracao
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'list' request primitive for the Atracao entity.
+	 */
+	@Override
+	public CompletableFuture<Atracao.PagedResults> listAtracaoRequest(Atracao.PageRequest input) {
+		return this.listAtracaoRequest(input, 0l);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método listAtracao
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * The 'list' request primitive for the Atracao entity.
+	*/
+	@Override
+	public CompletableFuture<Atracao.PagedResults> listAtracaoRequest(Atracao.PageRequest input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.ListAtracaoImpl impl = new br.com.senior.mydomain.myservice.impl.ListAtracaoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.listAtracaoRequest(input, timeout, TimeUnit.MILLISECONDS);
+	}
+	/**
+	 * Chamada síncrona para o método updateAtracao
+	 * This is a public operation
+	 * The 'update' request primitive for the Atracao entity.
+	 * @throws MyServiceMessageException quando um erro com payload for retornado pela mensageria
+	 */
+	@Override
+	public Atracao updateAtracao(Atracao input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.UpdateAtracaoImpl impl = new br.com.senior.mydomain.myservice.impl.UpdateAtracaoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.updateAtracao(input, timeout);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método updateAtracao
+	 * This is a public operation
+	 * The 'update' request primitive for the Atracao entity.
+	 */
+	@Override
+	public void updateAtracao(Atracao input) {
+		br.com.senior.mydomain.myservice.impl.UpdateAtracaoImpl impl = new br.com.senior.mydomain.myservice.impl.UpdateAtracaoImpl(messengerSupplier, userId, messageSupplier);
+		impl.updateAtracao(input);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método updateAtracao
+	 * This is a public operation
+	 * The 'update' request primitive for the Atracao entity.
+	 */
+	@Override
+	public CompletableFuture<Atracao> updateAtracaoRequest(Atracao input) {
+		return this.updateAtracaoRequest(input, 0l);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método updateAtracao
+	 * This is a public operation
+	 * The 'update' request primitive for the Atracao entity.
+	*/
+	@Override
+	public CompletableFuture<Atracao> updateAtracaoRequest(Atracao input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.UpdateAtracaoImpl impl = new br.com.senior.mydomain.myservice.impl.UpdateAtracaoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.updateAtracaoRequest(input, timeout, TimeUnit.MILLISECONDS);
+	}
+	/**
+	 * Chamada síncrona para o método updateMergeAtracao
+	 * This is a public operation
+	 * The 'updateMerge' request primitive for the Atracao entity.
+	 * @throws MyServiceMessageException quando um erro com payload for retornado pela mensageria
+	 */
+	@Override
+	public Atracao updateMergeAtracao(Atracao input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.UpdateMergeAtracaoImpl impl = new br.com.senior.mydomain.myservice.impl.UpdateMergeAtracaoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.updateMergeAtracao(input, timeout);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método updateMergeAtracao
+	 * This is a public operation
+	 * The 'updateMerge' request primitive for the Atracao entity.
+	 */
+	@Override
+	public void updateMergeAtracao(Atracao input) {
+		br.com.senior.mydomain.myservice.impl.UpdateMergeAtracaoImpl impl = new br.com.senior.mydomain.myservice.impl.UpdateMergeAtracaoImpl(messengerSupplier, userId, messageSupplier);
+		impl.updateMergeAtracao(input);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método updateMergeAtracao
+	 * This is a public operation
+	 * The 'updateMerge' request primitive for the Atracao entity.
+	 */
+	@Override
+	public CompletableFuture<Atracao> updateMergeAtracaoRequest(Atracao input) {
+		return this.updateMergeAtracaoRequest(input, 0l);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método updateMergeAtracao
+	 * This is a public operation
+	 * The 'updateMerge' request primitive for the Atracao entity.
+	*/
+	@Override
+	public CompletableFuture<Atracao> updateMergeAtracaoRequest(Atracao input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.UpdateMergeAtracaoImpl impl = new br.com.senior.mydomain.myservice.impl.UpdateMergeAtracaoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.updateMergeAtracaoRequest(input, timeout, TimeUnit.MILLISECONDS);
+	}
+	/**
+	 * Chamada síncrona para o método deleteAtracao
+	 * This is a public operation
+	 * The 'delete' request primitive for the Atracao entity.
+	 * @throws MyServiceMessageException quando um erro com payload for retornado pela mensageria
+	 */
+	@Override
+	public void deleteAtracao(Atracao.Id input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.DeleteAtracaoImpl impl = new br.com.senior.mydomain.myservice.impl.DeleteAtracaoImpl(messengerSupplier, userId, messageSupplier);
+		impl.deleteAtracao(input, timeout);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método deleteAtracao
+	 * This is a public operation
+	 * The 'delete' request primitive for the Atracao entity.
+	 */
+	@Override
+	public void deleteAtracao(Atracao.Id input) {
+		br.com.senior.mydomain.myservice.impl.DeleteAtracaoImpl impl = new br.com.senior.mydomain.myservice.impl.DeleteAtracaoImpl(messengerSupplier, userId, messageSupplier);
+		impl.deleteAtracao(input);
+	}
+	
+	
 
 	/**
 	 * Chamada assíncrona para o método cancelarEvento
@@ -1887,7 +2298,39 @@ public class MyServiceStubImpl  implements MyServiceStub {
 			DtoJsonConverter.toJSON(input));
 	}
 	
+	private Message createMessage(ExportAtracaoEventPayload input, String requestName) {
+		if (messageSupplier != null && messageSupplier.get() != null) {
+			return messageSupplier.get().followUp( //
+				userId.getTenant(), //
+				MyServiceConstants.DOMAIN, //
+				MyServiceConstants.SERVICE, //
+				requestName, //
+				DtoJsonConverter.toJSON(input));
+		}
+		return  new Message(userId.getTenant(), // 
+			MyServiceConstants.DOMAIN, // 
+			MyServiceConstants.SERVICE, //
+			requestName, // 
+			DtoJsonConverter.toJSON(input));
+	}
+	
 	private Message createMessage(ImportEventoEventPayload input, String requestName) {
+		if (messageSupplier != null && messageSupplier.get() != null) {
+			return messageSupplier.get().followUp( //
+				userId.getTenant(), //
+				MyServiceConstants.DOMAIN, //
+				MyServiceConstants.SERVICE, //
+				requestName, //
+				DtoJsonConverter.toJSON(input));
+		}
+		return  new Message(userId.getTenant(), // 
+			MyServiceConstants.DOMAIN, // 
+			MyServiceConstants.SERVICE, //
+			requestName, // 
+			DtoJsonConverter.toJSON(input));
+	}
+	
+	private Message createMessage(ImportAtracaoEventPayload input, String requestName) {
 		if (messageSupplier != null && messageSupplier.get() != null) {
 			return messageSupplier.get().followUp( //
 				userId.getTenant(), //
@@ -2100,6 +2543,34 @@ public class MyServiceStubImpl  implements MyServiceStub {
 	 */
 	public void publishExportIngressoEvent( ExportIngressoEventPayload input ) {
 		Message message = createMessage(input, MyServiceConstants.Events.EXPORT_INGRESSO_EVENT);
+		try {
+			addMessageHeaders(message);
+			messengerSupplier.get().publish(message);
+		} catch (Exception e) {
+			throw new MyServiceException("Erro ao enviar a mensagem", e);
+		}
+	}
+	
+	/**
+	 * Chamada assíncrona para o método publishImportAtracaoEvent
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 */
+	public void publishImportAtracaoEvent( ImportAtracaoEventPayload input ) {
+		Message message = createMessage(input, MyServiceConstants.Events.IMPORT_ATRACAO_EVENT);
+		try {
+			addMessageHeaders(message);
+			messengerSupplier.get().publish(message);
+		} catch (Exception e) {
+			throw new MyServiceException("Erro ao enviar a mensagem", e);
+		}
+	}
+	
+	/**
+	 * Chamada assíncrona para o método publishExportAtracaoEvent
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 */
+	public void publishExportAtracaoEvent( ExportAtracaoEventPayload input ) {
+		Message message = createMessage(input, MyServiceConstants.Events.EXPORT_ATRACAO_EVENT);
 		try {
 			addMessageHeaders(message);
 			messengerSupplier.get().publish(message);

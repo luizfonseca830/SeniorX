@@ -14,6 +14,56 @@ servers:
   - url: platform.senior.com.br/t/senior.com.br/bridge/1.0/
 
 paths:
+  /rest/my_domain/my_service/queries/exportAtracao:
+    post:
+      description: ""
+      tags:
+        - Queries
+      x-senior-visibility: PRIVATE
+      security :
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - config
+              properties:
+                config:
+                  type: object
+                  allOf:
+                    - $ref: '#/components/schemas/exportConfig'
+                  description: ""
+      parameters:
+        - in: header
+          name: Accept
+          description: 'Content types and endpoint version for the request. Example: application/json;seniorx.version=2'
+          schema:
+            type: string
+      responses:
+        200:
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - exportJobId
+                properties:
+                  exportJobId:
+                    type: string
+                    description: ""
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/genericError'
+  
   /rest/my_domain/my_service/queries/getMetadata:
     post:
       description: "Default 'getMetadata' query. Every service must handle this command and return metadata in the format requested."
@@ -453,6 +503,56 @@ paths:
                   - codigoIngresso
                 properties:
                   codigoIngresso:
+                    type: string
+                    description: ""
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/genericError'
+  
+  /rest/my_domain/my_service/actions/importAtracao:
+    post:
+      description: ""
+      tags:
+        - Actions
+      x-senior-visibility: PRIVATE
+      security :
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - config
+              properties:
+                config:
+                  type: object
+                  allOf:
+                    - $ref: '#/components/schemas/importConfig'
+                  description: ""
+      parameters:
+        - in: header
+          name: Accept
+          description: 'Content types and endpoint version for the request. Example: application/json;seniorx.version=2'
+          schema:
+            type: string
+      responses:
+        200:
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - importJobId
+                properties:
+                  importJobId:
                     type: string
                     description: ""
         401:
@@ -1660,6 +1760,231 @@ paths:
               schema:
                 $ref: '#/components/schemas/genericError'
   
+  /my_service/entities/atracao:
+    post:
+      description: "Esta entidade pode ser customizada."
+      tags:
+        - CRUD
+      x-senior-visibility: PRIVATE
+      requestBody:
+        required: true
+        content:
+          applicaton/json:
+            schema:
+              type: object
+              allOf:
+                - $ref: '#/components/schemas/atracao'
+      responses:
+        200:
+          description: 'The created resource'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/atracao'
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/genericError'
+    patch:
+      description: "Esta entidade pode ser customizada."
+      tags:
+        - CRUD
+      x-senior-visibility: PRIVATE
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              allOf:
+                - $ref: '#/components/schemas/atracao'
+      responses:
+        200:
+          description: 'The created resource'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/atracao'
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/genericError'
+    get:
+      description: "Esta entidade pode ser customizada."
+      tags:
+        - CRUD
+      x-senior-visibility: PRIVATE
+      parameters:
+        - name: offset
+          in: query
+          schema:
+            type: number
+        - name: size
+          in: query
+          schema:
+            type: number
+      responses:
+        200:
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/atracao'
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/genericError'
+  
+  /my_service/entities/atracao/{id}:
+    put:
+      description: "Esta entidade pode ser customizada."
+      tags:
+        - CRUD
+      x-senior-visibility: PRIVATE
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/atracao'
+      responses:
+        200:
+          description: Ok
+          content:
+            applicaton/json:
+              schema:
+                $ref: '#/components/schemas/atracao'
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/genericError'
+    patch:
+      description: "Esta entidade pode ser customizada."
+      tags:
+        - CRUD
+      x-senior-visibility: PRIVATE
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/atracao'
+      responses:
+        200:
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/atracao'
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/genericError'
+    get:
+      description: "Esta entidade pode ser customizada."
+      tags:
+        - CRUD
+      x-senior-visibility: PRIVATE
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/atracao'
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/genericError'
+    delete:
+      description: "Esta entidade pode ser customizada."
+      tags:
+        - CRUD
+      x-senior-visibility: PRIVATE
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Ok
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/genericError'
+  
+  /my_service/entities/atracao/bulk:
+    post:
+      description: "Esta entidade pode ser customizada."
+      tags:
+        - Bulk
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                 $ref: '#/components/schemas/atracao'
+      responses:
+        200:
+          description: 'The bulk creation has created resources'
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/genericError'
+  
 
 components:
   securitySchemes:
@@ -1961,6 +2286,34 @@ components:
           allOf:
             - $ref: '#/components/schemas/evento'
           description: "Evento que o ingresso pertence"
+    
+    atracao:
+      description: "Entidade que representa a atração do evento"
+      type: object
+      required:
+        - nome
+        - local
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: "ID da atracao"
+        nome:
+          type: string
+          description: "nome da atracao"
+        dataHora:
+          type: string
+          format: date-time
+          description: "data e hora da atracao"
+        local:
+          type: string
+          maxLength: 30
+          description: "local da atracao"
+        evento:
+          type: object
+          allOf:
+            - $ref: '#/components/schemas/evento'
+          description: "Evento que a atracao pertence"
     
     notifyUserEventPayload:
       description: "Represents a regular user event notification payload"

@@ -409,6 +409,34 @@ definitions:
          - $ref: '#/definitions/evento'
         description: "Evento que o ingresso pertence"
   
+  atracao:
+    description: "Entidade que representa a atração do evento"
+    type: object
+    required:
+      - nome
+      - local
+    properties:
+      id:
+        type: string
+        format: uuid
+        description: "ID da atracao"
+      nome:
+        type: string
+        description: "nome da atracao"
+      dataHora:
+        type: string
+        format: date-time
+        description: "data e hora da atracao"
+      local:
+        type: string
+        maxLength: 30
+        description: "local da atracao"
+      evento:
+        type: object
+        allOf:
+         - $ref: '#/definitions/evento'
+        description: "Evento que a atracao pertence"
+  
   notifyUserEventPayload:
     description: "Represents a regular user event notification payload"
     discriminator: _discriminator

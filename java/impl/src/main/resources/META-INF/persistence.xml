@@ -5,6 +5,7 @@
         <class>br.com.senior.mydomain.myservice.ConvidadoEntity</class>
         <class>br.com.senior.mydomain.myservice.EventoEntity</class>
         <class>br.com.senior.mydomain.myservice.IngressoEntity</class>
+        <class>br.com.senior.mydomain.myservice.AtracaoEntity</class>
         <properties>
             <property name="hibernate.show_sql" value="false"/>
         </properties>
