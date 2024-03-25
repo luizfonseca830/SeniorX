@@ -266,6 +266,49 @@ public class MyServiceStubImpl  implements MyServiceStub {
 		return impl.calculadoraDivisaoRequest(input, timeout, TimeUnit.MILLISECONDS);
 	}
 	/**
+	 * Chamada síncrona para o método findBynome
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 * @throws MyServiceMessageException quando um erro com payload for retornado pela mensageria
+	 */
+	@Override
+	public FindBynomeOutput findBynome(FindBynomeInput input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.FindBynomeImpl impl = new br.com.senior.mydomain.myservice.impl.FindBynomeImpl(messengerSupplier, userId, messageSupplier);
+		return impl.findBynome(input, timeout);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método findBynome
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 */
+	@Override
+	public void findBynome(FindBynomeInput input) {
+		br.com.senior.mydomain.myservice.impl.FindBynomeImpl impl = new br.com.senior.mydomain.myservice.impl.FindBynomeImpl(messengerSupplier, userId, messageSupplier);
+		impl.findBynome(input);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método findBynome
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 */
+	@Override
+	public CompletableFuture<FindBynomeOutput> findBynomeRequest(FindBynomeInput input) {
+		return this.findBynomeRequest(input, 0l);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método findBynome
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	*/
+	@Override
+	public CompletableFuture<FindBynomeOutput> findBynomeRequest(FindBynomeInput input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.FindBynomeImpl impl = new br.com.senior.mydomain.myservice.impl.FindBynomeImpl(messengerSupplier, userId, messageSupplier);
+		return impl.findBynomeRequest(input, timeout, TimeUnit.MILLISECONDS);
+	}
+	/**
 	 * Chamada síncrona para o método cadastrarEvento
 	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
 	 * Cadastra um novo evento (ex: SeniorTec, Casamento, Aniversário, etc)

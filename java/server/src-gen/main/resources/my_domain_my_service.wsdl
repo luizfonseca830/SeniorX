@@ -606,6 +606,28 @@
             <xsd:element name="updateConvidado">
                 <xsd:complexType/>
             </xsd:element>
+            <xsd:element name="findBynome">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="nome" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="findBynomeOutput">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <!-- collection wrapper for resultado -->
+                        <xsd:element name="resultado" minOccurs="1" maxOccurs="1">
+                            <xsd:complexType>
+                                <xsd:sequence>
+                                    <xsd:element name="item" type="convidado" minOccurs="1" maxOccurs="unbounded"/>
+                                </xsd:sequence>
+                            </xsd:complexType>
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
             <xsd:element name="createIngresso">
                 <xsd:complexType/>
             </xsd:element>
@@ -1193,6 +1215,12 @@
     <wsdl:message name="updateConvidadoResponse">
         <wsdl:part name="updated" element="updateConvidadoOutput"/>
     </wsdl:message>
+    <wsdl:message name="findBynomeRequest">
+        <wsdl:part name="parameters" element="findBynome"/>
+    </wsdl:message>
+    <wsdl:message name="findBynomeResponse">
+        <wsdl:part name="result" element="findBynomeOutput"/>
+    </wsdl:message>
     <wsdl:message name="createIngressoRequest">
         <wsdl:part name="toCreate" element="createIngresso"/>
     </wsdl:message>
@@ -1532,6 +1560,13 @@
             </wsdl:documentation>
             <wsdl:input message="updateConvidadoRequest"/>
             <wsdl:output message="updateConvidadoResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="findBynome">
+            <wsdl:documentation>
+            WARNING: THIS OPERATION IS PRIVATE AND MAY HAVE ITS BEHAVIOR CHANGED AT ANY TIME WITHOUT NOTICE. 
+            </wsdl:documentation>
+            <wsdl:input message="findBynomeRequest"/>
+            <wsdl:output message="findBynomeResponse"/>
         </wsdl:operation>
         <wsdl:operation name="createIngresso">
             <wsdl:documentation>
@@ -1986,6 +2021,15 @@
         </wsdl:operation>
         <wsdl:operation name="updateConvidado">
             <soap:operation soapAction="updateConvidado"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="findBynome">
+            <soap:operation soapAction="findBynome"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>

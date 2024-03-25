@@ -42,6 +42,16 @@ service my_service {
             out fieldResultadoCalculadora
         }
 
+        // Repositórios -----------
+        query findBynome{
+            in {
+                nome: string
+            }
+            out {
+               resultado: convidado*
+            }
+        }
+
         "Cadastra um novo evento (ex: SeniorTec, Casamento, Aniversário, etc)"
         action cadastrarEvento{
             in {

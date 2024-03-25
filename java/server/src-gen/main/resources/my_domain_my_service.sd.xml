@@ -24,6 +24,14 @@
             <input type="fieldCalculadora"/>
             <output type="fieldResultadoCalculadora"/>
         </query>
+        <query name="findBynome" idempotent="false" extensionPoint="false" visibility="PRIVATE">
+            <input>
+                <slot name="nome" type="string" optional="false" multivalued="false"/>
+            </input>
+            <output>
+                <slot name="resultado" type="convidado" optional="false" multivalued="true"/>
+            </output>
+        </query>
         <action name="cadastrarEvento" idempotent="false" extensionPoint="false" visibility="PRIVATE">
             <input>
                 <slot name="nome" type="string" optional="false" multivalued="false" maxLength="10"/>

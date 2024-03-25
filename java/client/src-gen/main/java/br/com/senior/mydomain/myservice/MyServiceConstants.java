@@ -102,6 +102,23 @@ public interface MyServiceConstants {
     	 */
     	String CALCULADORA_DIVISAO_ERROR = "calculadoraDivisaoError";
     	/**
+    	 * @see FindBynomeInput the request payload
+    	 */
+    	String FIND_BYNOME = "findBynome";
+    	/**
+    	 * The success response primitive for findBynome.
+    	 *
+    	 * @see #FIND_BYNOME the request primitive
+    	 * @see FindBynomeOutput the response payload
+    	 */
+    	String FIND_BYNOME_RESPONSE = "findBynomeResponse";
+    	/**
+    	 * An error response primitive for findBynome.
+    	 *
+    	 * @see #FIND_BYNOME the request primitive
+    	 */
+    	String FIND_BYNOME_ERROR = "findBynomeError";
+    	/**
     	 * Cadastra um novo evento (ex: SeniorTec, Casamento, Aniversário, etc)
     	 * @see CadastrarEventoInput the request payload
     	 */

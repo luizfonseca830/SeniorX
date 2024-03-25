@@ -336,6 +336,80 @@ paths:
           schema:
             $ref: '#/definitions/genericError'
   
+  /my_service/queries/findBynome:
+    post:
+      description: ""
+      tags:
+        - Queries
+      x-senior-visibility: PRIVATE
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            type: object
+            required:
+              - nome
+            properties:
+              nome:
+                type: string
+                description: ""
+      responses:
+        200:
+          description: Ok
+          schema:
+            type: object
+            required:
+              - resultado
+            properties:
+              resultado:
+                type: array
+                items:
+                  type: object
+                  allOf:
+                   - $ref: '#/definitions/convidado'
+                  minimum: 1
+                description: ""
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          schema:
+            $ref: '#/definitions/genericError'
+    get:
+      description: ""
+      tags:
+        - Queries
+      x-senior-visibility: PRIVATE
+      parameters:
+        - name: nome
+          description: ""
+          in: query
+          required: true
+          type: string
+      responses:
+        200:
+          description: Ok
+          schema:
+            type: object
+            required:
+              - resultado
+            properties:
+              resultado:
+                type: array
+                items:
+                  type: object
+                  allOf:
+                   - $ref: '#/definitions/convidado'
+                  minimum: 1
+                description: ""
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          schema:
+            $ref: '#/definitions/genericError'
+  
   /my_service/queries/getMetadata:
     post:
       description: "Default 'getMetadata' query. Every service must handle this command and return metadata in the format requested."
