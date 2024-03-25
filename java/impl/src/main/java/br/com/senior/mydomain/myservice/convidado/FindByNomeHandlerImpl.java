@@ -14,7 +14,7 @@ public class FindByNomeHandlerImpl implements FindBynome {
 
     @Override
     public FindBynomeOutput findBynome(FindBynomeInput request) {
-       final List<ConvidadoEntity> convidados = convidadoService.findByNomeContainingIgnoreCase(request.nome);
+       final List<ConvidadoEntity> convidados = convidadoService.findByNomeWithQuery(request.nome);
 
        final List<Convidado> convudadosDto = convidados
                .stream()

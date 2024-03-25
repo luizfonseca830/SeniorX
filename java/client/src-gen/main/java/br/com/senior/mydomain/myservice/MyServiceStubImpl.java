@@ -309,6 +309,49 @@ public class MyServiceStubImpl  implements MyServiceStub {
 		return impl.findBynomeRequest(input, timeout, TimeUnit.MILLISECONDS);
 	}
 	/**
+	 * Chamada síncrona para o método findIngressoBynomeConvidado
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 * @throws MyServiceMessageException quando um erro com payload for retornado pela mensageria
+	 */
+	@Override
+	public FindIngressoBynomeConvidadoOutput findIngressoBynomeConvidado(FindIngressoBynomeConvidadoInput input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.FindIngressoBynomeConvidadoImpl impl = new br.com.senior.mydomain.myservice.impl.FindIngressoBynomeConvidadoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.findIngressoBynomeConvidado(input, timeout);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método findIngressoBynomeConvidado
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 */
+	@Override
+	public void findIngressoBynomeConvidado(FindIngressoBynomeConvidadoInput input) {
+		br.com.senior.mydomain.myservice.impl.FindIngressoBynomeConvidadoImpl impl = new br.com.senior.mydomain.myservice.impl.FindIngressoBynomeConvidadoImpl(messengerSupplier, userId, messageSupplier);
+		impl.findIngressoBynomeConvidado(input);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método findIngressoBynomeConvidado
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 */
+	@Override
+	public CompletableFuture<FindIngressoBynomeConvidadoOutput> findIngressoBynomeConvidadoRequest(FindIngressoBynomeConvidadoInput input) {
+		return this.findIngressoBynomeConvidadoRequest(input, 0l);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método findIngressoBynomeConvidado
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	*/
+	@Override
+	public CompletableFuture<FindIngressoBynomeConvidadoOutput> findIngressoBynomeConvidadoRequest(FindIngressoBynomeConvidadoInput input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.FindIngressoBynomeConvidadoImpl impl = new br.com.senior.mydomain.myservice.impl.FindIngressoBynomeConvidadoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.findIngressoBynomeConvidadoRequest(input, timeout, TimeUnit.MILLISECONDS);
+	}
+	/**
 	 * Chamada síncrona para o método cadastrarEvento
 	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
 	 * Cadastra um novo evento (ex: SeniorTec, Casamento, Aniversário, etc)

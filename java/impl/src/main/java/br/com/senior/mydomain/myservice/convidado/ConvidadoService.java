@@ -15,4 +15,8 @@ public class ConvidadoService {
         return convidadoRepository.findByNomeContainingIgnoreCase(nome);
     }
 
+    public List<ConvidadoEntity> findByNomeWithQuery(String nome) {
+        return convidadoRepository.findByNomeWithQuery(nome);
+    }
+
 }

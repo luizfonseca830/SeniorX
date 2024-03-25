@@ -183,6 +183,33 @@
             "visibility" : "PRIVATE",
             "version": "0"
         },
+        "findIngressoBynomeConvidado": {
+            "endpointType" : "command",
+            "kind": "query",
+            "priority" : "NORMAL",
+            "idempotent": true,
+            "input" : {
+                "nomeConvidado" : {
+                    "type": "string",
+                    "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                }
+            },
+            "output" : {
+                "resultado" : {
+                    "type": "ingresso",
+                    "optional": false,
+                    "multivalued": true,
+                    "readOnly": false
+                }
+            },
+            "extensionPoint" : false,
+            "responses" : {
+            },
+            "visibility" : "PRIVATE",
+            "version": "0"
+        },
         "createEvento": {
             "endpointType" : "command",
             "kind": "create",

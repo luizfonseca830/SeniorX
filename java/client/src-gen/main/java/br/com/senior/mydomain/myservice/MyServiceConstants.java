@@ -119,6 +119,23 @@ public interface MyServiceConstants {
     	 */
     	String FIND_BYNOME_ERROR = "findBynomeError";
     	/**
+    	 * @see FindIngressoBynomeConvidadoInput the request payload
+    	 */
+    	String FIND_INGRESSO_BYNOME_CONVIDADO = "findIngressoBynomeConvidado";
+    	/**
+    	 * The success response primitive for findIngressoBynomeConvidado.
+    	 *
+    	 * @see #FIND_INGRESSO_BYNOME_CONVIDADO the request primitive
+    	 * @see FindIngressoBynomeConvidadoOutput the response payload
+    	 */
+    	String FIND_INGRESSO_BYNOME_CONVIDADO_RESPONSE = "findIngressoBynomeConvidadoResponse";
+    	/**
+    	 * An error response primitive for findIngressoBynomeConvidado.
+    	 *
+    	 * @see #FIND_INGRESSO_BYNOME_CONVIDADO the request primitive
+    	 */
+    	String FIND_INGRESSO_BYNOME_CONVIDADO_ERROR = "findIngressoBynomeConvidadoError";
+    	/**
     	 * Cadastra um novo evento (ex: SeniorTec, Casamento, Aniversário, etc)
     	 * @see CadastrarEventoInput the request payload
     	 */

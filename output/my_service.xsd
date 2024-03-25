@@ -635,6 +635,28 @@
             </xsd:sequence>
         </xsd:complexType>
     </xsd:element>
+    <xsd:element name="findIngressoBynomeConvidado">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="nomeConvidado" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="findIngressoBynomeConvidadoOutput">
+        <xsd:complexType>
+            <xsd:sequence>
+                <!-- collection wrapper for resultado -->
+                <xsd:element name="resultado" minOccurs="1" maxOccurs="1">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="item" type="ingresso" minOccurs="1" maxOccurs="unbounded"/>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
     <xsd:element name="createEvento">
         <xsd:complexType/>
     </xsd:element>

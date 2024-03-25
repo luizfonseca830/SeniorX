@@ -183,6 +183,33 @@ public interface MyServiceStub {
 	CompletableFuture<FindBynomeOutput> findBynomeRequest(FindBynomeInput input, long timeout);
 	/**
 	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 * Chamada síncrona, o valor de timeout deve ser informado em ms 
+	 */
+	FindIngressoBynomeConvidadoOutput findIngressoBynomeConvidado(FindIngressoBynomeConvidadoInput input, long timeout);
+	
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 * Chamada assíncrona
+	 */
+	void findIngressoBynomeConvidado(FindIngressoBynomeConvidadoInput input);
+	
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<FindIngressoBynomeConvidadoOutput> findIngressoBynomeConvidadoRequest(FindIngressoBynomeConvidadoInput input);
+	
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<FindIngressoBynomeConvidadoOutput> findIngressoBynomeConvidadoRequest(FindIngressoBynomeConvidadoInput input, long timeout);
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
 	 * Cadastra um novo evento (ex: SeniorTec, Casamento, Aniversário, etc)
 	 * Chamada síncrona, o valor de timeout deve ser informado em ms 
 	 */

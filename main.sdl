@@ -52,6 +52,15 @@ service my_service {
             }
         }
 
+        query findIngressoBynomeConvidado{
+            in {
+                nomeConvidado: string
+            }
+            out {
+                resultado: ingresso*
+            }
+        }
+
         "Cadastra um novo evento (ex: SeniorTec, Casamento, Aniversário, etc)"
         action cadastrarEvento{
             in {

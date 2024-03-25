@@ -1,4 +1,4 @@
-/* Database: SqlServer. Generation date: 2024-03-25 15:05:39:726 */
+/* Database: SqlServer. Generation date: 2024-03-25 17:31:19:959 */
 /* Entity Convidado */
 create table convidado (
 	id UNIQUEIDENTIFIER NOT NULL,
@@ -69,9 +69,9 @@ alter table ingresso add constraint pk_ingresso_id primary key(id);
 alter table atracao add constraint pk_atracao_id primary key(id);
 
 /* Foreign Key Constraints */
-alter table ingresso add constraint fkvunjsvudsjc1vomomayxku0qnea0 foreign key (convidado) references convidado (id);
-alter table ingresso add constraint fk8eqqnvqrwdu8lqbow8bwpudfymmx foreign key (evento) references evento (id);
-alter table atracao add constraint fk22lcjid4rswvkankjzlhjp2bjipo foreign key (evento) references evento (id);
+alter table ingresso add constraint fky3fw5umclhe4cs8vkcuezjap3h44 foreign key (convidado) references convidado (id);
+alter table ingresso add constraint fk9r5zl4tygaivxhmz7wxdhqzmmhic foreign key (evento) references evento (id);
+alter table atracao add constraint fkdcdpe5duf9kimhusfceetxknbow1 foreign key (evento) references evento (id);
 
 /* Unique Key Constraints */
 

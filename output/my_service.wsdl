@@ -647,6 +647,28 @@
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>
+            <xsd:element name="findIngressoBynomeConvidado">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="nomeConvidado" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="findIngressoBynomeConvidadoOutput">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <!-- collection wrapper for resultado -->
+                        <xsd:element name="resultado" minOccurs="1" maxOccurs="1">
+                            <xsd:complexType>
+                                <xsd:sequence>
+                                    <xsd:element name="item" type="ingresso" minOccurs="1" maxOccurs="unbounded"/>
+                                </xsd:sequence>
+                            </xsd:complexType>
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
             <xsd:element name="createEvento">
                 <xsd:complexType/>
             </xsd:element>
@@ -1236,6 +1258,12 @@
     <wsdl:message name="importEventoResponse">
         <wsdl:part name="result" element="importEventoOutput"/>
     </wsdl:message>
+    <wsdl:message name="findIngressoBynomeConvidadoRequest">
+        <wsdl:part name="parameters" element="findIngressoBynomeConvidado"/>
+    </wsdl:message>
+    <wsdl:message name="findIngressoBynomeConvidadoResponse">
+        <wsdl:part name="result" element="findIngressoBynomeConvidadoOutput"/>
+    </wsdl:message>
     <wsdl:message name="createEventoRequest">
         <wsdl:part name="toCreate" element="createEvento"/>
     </wsdl:message>
@@ -1588,6 +1616,13 @@
             </wsdl:documentation>
             <wsdl:input message="importEventoRequest"/>
             <wsdl:output message="importEventoResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="findIngressoBynomeConvidado">
+            <wsdl:documentation>
+            WARNING: THIS OPERATION IS PRIVATE AND MAY HAVE ITS BEHAVIOR CHANGED AT ANY TIME WITHOUT NOTICE. 
+            </wsdl:documentation>
+            <wsdl:input message="findIngressoBynomeConvidadoRequest"/>
+            <wsdl:output message="findIngressoBynomeConvidadoResponse"/>
         </wsdl:operation>
         <wsdl:operation name="createEvento">
             <wsdl:documentation>
@@ -2054,6 +2089,15 @@
         </wsdl:operation>
         <wsdl:operation name="importEvento">
             <soap:operation soapAction="importEvento"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="findIngressoBynomeConvidado">
+            <soap:operation soapAction="findIngressoBynomeConvidado"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
