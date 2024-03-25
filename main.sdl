@@ -7,16 +7,17 @@ service my_service {
         Primitiva que retorna uma mensagem de olá com o nome do requisitante
         Normalmente no campo who é informado seu próprio nome
         "
-        public query helloWorld {
-            in {
-          //Parametro com o nome do requisitante
-                who : string
-            }
-            out {
-                "Saida com a mensagem de olá mundo"
-                helloWorldMessage : string
-            }
-        }
+//        public query helloWorld {
+//            in {
+//          //Parametro com o nome do requisitante
+//                who : string
+//            }
+//            out {
+//                "Saida com a mensagem de olá mundo"
+//                helloWorldMessage : string
+//            }
+//        }
+
         "Realiza a operação matematica de adição"
         public query calculadoraAdicao{
             in fieldCalculadora
@@ -153,6 +154,7 @@ service my_service {
         }
 
     }
+
     entities {
     // define any entities here
 

@@ -14,6 +14,7 @@ public class AdicaoHandleImpl implements CalculadoraAdicao {
     public FieldResultadoCalculadora calculadoraAdicao(FieldCalculadora request) {
         final FieldResultadoCalculadora output = new FieldResultadoCalculadora();
         output.resultado = calculadoraService.adicao(request.numero1, request.numero2);
-        return output;
+       return output;
+
     }
 }
