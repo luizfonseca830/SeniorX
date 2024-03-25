@@ -13,6 +13,7 @@ service my_service {
 	entities {
 
 	    entity convidado {
+	        generateCustomValidator: true
 	    }
 
 	    entity evento {
