@@ -544,6 +544,28 @@
             "visibility" : "PRIVATE",
             "version": "0"
         },
+        "calculadoraDivisao": {
+            "endpointType" : "command",
+            "kind": "query",
+            "priority" : "NORMAL",
+            "documentation": "Realiza a opera\u00E7\u00E3o matematica de divis\u00E3o",
+            "idempotent": true,
+            "input" : "fieldCalculadora",
+            "output" : {
+                "resultado" : {
+                    "type": "string",
+                    "optional": false,
+                    "multivalued": false,
+                    "documentation": "Resultado",
+                    "readOnly": false
+                }
+            },
+            "extensionPoint" : false,
+            "responses" : {
+            },
+            "visibility" : "PUBLIC",
+            "version": "0"
+        },
         "deleteAtracao": {
             "endpointType" : "command",
             "kind": "delete",
@@ -601,6 +623,50 @@
             "responses" : {
             },
             "visibility" : "PRIVATE",
+            "version": "0"
+        },
+        "calculadoraSubtracao": {
+            "endpointType" : "command",
+            "kind": "query",
+            "priority" : "NORMAL",
+            "documentation": "Realiza a opera\u00E7\u00E3o matematica de subtra\u00E7\u00E3o",
+            "idempotent": true,
+            "input" : "fieldCalculadora",
+            "output" : {
+                "resultado" : {
+                    "type": "string",
+                    "optional": false,
+                    "multivalued": false,
+                    "documentation": "Resultado",
+                    "readOnly": false
+                }
+            },
+            "extensionPoint" : false,
+            "responses" : {
+            },
+            "visibility" : "PUBLIC",
+            "version": "0"
+        },
+        "calculadoraAdicao": {
+            "endpointType" : "command",
+            "kind": "query",
+            "priority" : "NORMAL",
+            "documentation": "Realiza a opera\u00E7\u00E3o matematica de adi\u00E7\u00E3o",
+            "idempotent": true,
+            "input" : "fieldCalculadora",
+            "output" : {
+                "resultado" : {
+                    "type": "string",
+                    "optional": false,
+                    "multivalued": false,
+                    "documentation": "Resultado",
+                    "readOnly": false
+                }
+            },
+            "extensionPoint" : false,
+            "responses" : {
+            },
+            "visibility" : "PUBLIC",
             "version": "0"
         },
         "createBulkEvento": {
@@ -1239,6 +1305,28 @@
             },
             "visibility" : "PRIVATE",
             "version": "0"
+        },
+        "calculadoraMultiplicacao": {
+            "endpointType" : "command",
+            "kind": "query",
+            "priority" : "NORMAL",
+            "documentation": "Realiza a opera\u00E7\u00E3o matematica de multiplica\u00E7\u00E3o",
+            "idempotent": true,
+            "input" : "fieldCalculadora",
+            "output" : {
+                "resultado" : {
+                    "type": "string",
+                    "optional": false,
+                    "multivalued": false,
+                    "documentation": "Resultado",
+                    "readOnly": false
+                }
+            },
+            "extensionPoint" : false,
+            "responses" : {
+            },
+            "visibility" : "PUBLIC",
+            "version": "0"
         }
     },
     "signals" : {
@@ -1540,6 +1628,31 @@
                 "type": "string",
                 "optional": true,
                 "multivalued": false,
+                "readOnly": false
+            }
+        },
+        "fieldCalculadora" : {
+            "numero1" : {
+                "type": "double",
+                "optional": false,
+                "multivalued": false,
+                "documentation": "Primeiro n\u00FAmero",
+                "readOnly": false
+            },
+            "numero2" : {
+                "type": "double",
+                "optional": false,
+                "multivalued": false,
+                "documentation": "Segundo n\u00FAmero",
+                "readOnly": false
+            }
+        },
+        "fieldResultadoCalculadora" : {
+            "resultado" : {
+                "type": "string",
+                "optional": false,
+                "multivalued": false,
+                "documentation": "Resultado",
                 "readOnly": false
             }
         },

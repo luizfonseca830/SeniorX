@@ -30,6 +30,78 @@ public interface MyServiceConstants {
     	 */
     	String HELLO_WORLD_ERROR = "helloWorldError";
     	/**
+    	 * Realiza a operação matematica de adição
+    	 * @see fieldCalculadora the request payload
+    	 */
+    	String CALCULADORA_ADICAO = "calculadoraAdicao";
+    	/**
+    	 * The success response primitive for calculadoraAdicao.
+    	 *
+    	 * @see #CALCULADORA_ADICAO the request primitive
+    	 * @see FieldResultadoCalculadora the response payload
+    	 */
+    	String CALCULADORA_ADICAO_RESPONSE = "calculadoraAdicaoResponse";
+    	/**
+    	 * An error response primitive for calculadoraAdicao.
+    	 *
+    	 * @see #CALCULADORA_ADICAO the request primitive
+    	 */
+    	String CALCULADORA_ADICAO_ERROR = "calculadoraAdicaoError";
+    	/**
+    	 * Realiza a operação matematica de subtração
+    	 * @see fieldCalculadora the request payload
+    	 */
+    	String CALCULADORA_SUBTRACAO = "calculadoraSubtracao";
+    	/**
+    	 * The success response primitive for calculadoraSubtracao.
+    	 *
+    	 * @see #CALCULADORA_SUBTRACAO the request primitive
+    	 * @see FieldResultadoCalculadora the response payload
+    	 */
+    	String CALCULADORA_SUBTRACAO_RESPONSE = "calculadoraSubtracaoResponse";
+    	/**
+    	 * An error response primitive for calculadoraSubtracao.
+    	 *
+    	 * @see #CALCULADORA_SUBTRACAO the request primitive
+    	 */
+    	String CALCULADORA_SUBTRACAO_ERROR = "calculadoraSubtracaoError";
+    	/**
+    	 * Realiza a operação matematica de multiplicação
+    	 * @see fieldCalculadora the request payload
+    	 */
+    	String CALCULADORA_MULTIPLICACAO = "calculadoraMultiplicacao";
+    	/**
+    	 * The success response primitive for calculadoraMultiplicacao.
+    	 *
+    	 * @see #CALCULADORA_MULTIPLICACAO the request primitive
+    	 * @see FieldResultadoCalculadora the response payload
+    	 */
+    	String CALCULADORA_MULTIPLICACAO_RESPONSE = "calculadoraMultiplicacaoResponse";
+    	/**
+    	 * An error response primitive for calculadoraMultiplicacao.
+    	 *
+    	 * @see #CALCULADORA_MULTIPLICACAO the request primitive
+    	 */
+    	String CALCULADORA_MULTIPLICACAO_ERROR = "calculadoraMultiplicacaoError";
+    	/**
+    	 * Realiza a operação matematica de divisão
+    	 * @see fieldCalculadora the request payload
+    	 */
+    	String CALCULADORA_DIVISAO = "calculadoraDivisao";
+    	/**
+    	 * The success response primitive for calculadoraDivisao.
+    	 *
+    	 * @see #CALCULADORA_DIVISAO the request primitive
+    	 * @see FieldResultadoCalculadora the response payload
+    	 */
+    	String CALCULADORA_DIVISAO_RESPONSE = "calculadoraDivisaoResponse";
+    	/**
+    	 * An error response primitive for calculadoraDivisao.
+    	 *
+    	 * @see #CALCULADORA_DIVISAO the request primitive
+    	 */
+    	String CALCULADORA_DIVISAO_ERROR = "calculadoraDivisaoError";
+    	/**
     	 * Cadastra um novo evento (ex: SeniorTec, Casamento, Aniversário, etc)
     	 * @see CadastrarEventoInput the request payload
     	 */

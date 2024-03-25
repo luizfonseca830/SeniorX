@@ -94,6 +94,178 @@ public class MyServiceStubImpl  implements MyServiceStub {
 		return impl.helloWorldRequest(input, timeout, TimeUnit.MILLISECONDS);
 	}
 	/**
+	 * Chamada síncrona para o método calculadoraAdicao
+	 * This is a public operation
+	 * Realiza a operação matematica de adição
+	 * @throws MyServiceMessageException quando um erro com payload for retornado pela mensageria
+	 */
+	@Override
+	public FieldResultadoCalculadora calculadoraAdicao(FieldCalculadora input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.CalculadoraAdicaoImpl impl = new br.com.senior.mydomain.myservice.impl.CalculadoraAdicaoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.calculadoraAdicao(input, timeout);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método calculadoraAdicao
+	 * This is a public operation
+	 * Realiza a operação matematica de adição
+	 */
+	@Override
+	public void calculadoraAdicao(FieldCalculadora input) {
+		br.com.senior.mydomain.myservice.impl.CalculadoraAdicaoImpl impl = new br.com.senior.mydomain.myservice.impl.CalculadoraAdicaoImpl(messengerSupplier, userId, messageSupplier);
+		impl.calculadoraAdicao(input);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método calculadoraAdicao
+	 * This is a public operation
+	 * Realiza a operação matematica de adição
+	 */
+	@Override
+	public CompletableFuture<FieldResultadoCalculadora> calculadoraAdicaoRequest(FieldCalculadora input) {
+		return this.calculadoraAdicaoRequest(input, 0l);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método calculadoraAdicao
+	 * This is a public operation
+	 * Realiza a operação matematica de adição
+	*/
+	@Override
+	public CompletableFuture<FieldResultadoCalculadora> calculadoraAdicaoRequest(FieldCalculadora input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.CalculadoraAdicaoImpl impl = new br.com.senior.mydomain.myservice.impl.CalculadoraAdicaoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.calculadoraAdicaoRequest(input, timeout, TimeUnit.MILLISECONDS);
+	}
+	/**
+	 * Chamada síncrona para o método calculadoraSubtracao
+	 * This is a public operation
+	 * Realiza a operação matematica de subtração
+	 * @throws MyServiceMessageException quando um erro com payload for retornado pela mensageria
+	 */
+	@Override
+	public FieldResultadoCalculadora calculadoraSubtracao(FieldCalculadora input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.CalculadoraSubtracaoImpl impl = new br.com.senior.mydomain.myservice.impl.CalculadoraSubtracaoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.calculadoraSubtracao(input, timeout);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método calculadoraSubtracao
+	 * This is a public operation
+	 * Realiza a operação matematica de subtração
+	 */
+	@Override
+	public void calculadoraSubtracao(FieldCalculadora input) {
+		br.com.senior.mydomain.myservice.impl.CalculadoraSubtracaoImpl impl = new br.com.senior.mydomain.myservice.impl.CalculadoraSubtracaoImpl(messengerSupplier, userId, messageSupplier);
+		impl.calculadoraSubtracao(input);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método calculadoraSubtracao
+	 * This is a public operation
+	 * Realiza a operação matematica de subtração
+	 */
+	@Override
+	public CompletableFuture<FieldResultadoCalculadora> calculadoraSubtracaoRequest(FieldCalculadora input) {
+		return this.calculadoraSubtracaoRequest(input, 0l);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método calculadoraSubtracao
+	 * This is a public operation
+	 * Realiza a operação matematica de subtração
+	*/
+	@Override
+	public CompletableFuture<FieldResultadoCalculadora> calculadoraSubtracaoRequest(FieldCalculadora input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.CalculadoraSubtracaoImpl impl = new br.com.senior.mydomain.myservice.impl.CalculadoraSubtracaoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.calculadoraSubtracaoRequest(input, timeout, TimeUnit.MILLISECONDS);
+	}
+	/**
+	 * Chamada síncrona para o método calculadoraMultiplicacao
+	 * This is a public operation
+	 * Realiza a operação matematica de multiplicação
+	 * @throws MyServiceMessageException quando um erro com payload for retornado pela mensageria
+	 */
+	@Override
+	public FieldResultadoCalculadora calculadoraMultiplicacao(FieldCalculadora input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.CalculadoraMultiplicacaoImpl impl = new br.com.senior.mydomain.myservice.impl.CalculadoraMultiplicacaoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.calculadoraMultiplicacao(input, timeout);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método calculadoraMultiplicacao
+	 * This is a public operation
+	 * Realiza a operação matematica de multiplicação
+	 */
+	@Override
+	public void calculadoraMultiplicacao(FieldCalculadora input) {
+		br.com.senior.mydomain.myservice.impl.CalculadoraMultiplicacaoImpl impl = new br.com.senior.mydomain.myservice.impl.CalculadoraMultiplicacaoImpl(messengerSupplier, userId, messageSupplier);
+		impl.calculadoraMultiplicacao(input);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método calculadoraMultiplicacao
+	 * This is a public operation
+	 * Realiza a operação matematica de multiplicação
+	 */
+	@Override
+	public CompletableFuture<FieldResultadoCalculadora> calculadoraMultiplicacaoRequest(FieldCalculadora input) {
+		return this.calculadoraMultiplicacaoRequest(input, 0l);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método calculadoraMultiplicacao
+	 * This is a public operation
+	 * Realiza a operação matematica de multiplicação
+	*/
+	@Override
+	public CompletableFuture<FieldResultadoCalculadora> calculadoraMultiplicacaoRequest(FieldCalculadora input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.CalculadoraMultiplicacaoImpl impl = new br.com.senior.mydomain.myservice.impl.CalculadoraMultiplicacaoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.calculadoraMultiplicacaoRequest(input, timeout, TimeUnit.MILLISECONDS);
+	}
+	/**
+	 * Chamada síncrona para o método calculadoraDivisao
+	 * This is a public operation
+	 * Realiza a operação matematica de divisão
+	 * @throws MyServiceMessageException quando um erro com payload for retornado pela mensageria
+	 */
+	@Override
+	public FieldResultadoCalculadora calculadoraDivisao(FieldCalculadora input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.CalculadoraDivisaoImpl impl = new br.com.senior.mydomain.myservice.impl.CalculadoraDivisaoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.calculadoraDivisao(input, timeout);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método calculadoraDivisao
+	 * This is a public operation
+	 * Realiza a operação matematica de divisão
+	 */
+	@Override
+	public void calculadoraDivisao(FieldCalculadora input) {
+		br.com.senior.mydomain.myservice.impl.CalculadoraDivisaoImpl impl = new br.com.senior.mydomain.myservice.impl.CalculadoraDivisaoImpl(messengerSupplier, userId, messageSupplier);
+		impl.calculadoraDivisao(input);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método calculadoraDivisao
+	 * This is a public operation
+	 * Realiza a operação matematica de divisão
+	 */
+	@Override
+	public CompletableFuture<FieldResultadoCalculadora> calculadoraDivisaoRequest(FieldCalculadora input) {
+		return this.calculadoraDivisaoRequest(input, 0l);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método calculadoraDivisao
+	 * This is a public operation
+	 * Realiza a operação matematica de divisão
+	*/
+	@Override
+	public CompletableFuture<FieldResultadoCalculadora> calculadoraDivisaoRequest(FieldCalculadora input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.CalculadoraDivisaoImpl impl = new br.com.senior.mydomain.myservice.impl.CalculadoraDivisaoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.calculadoraDivisaoRequest(input, timeout, TimeUnit.MILLISECONDS);
+	}
+	/**
 	 * Chamada síncrona para o método cadastrarEvento
 	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
 	 * Cadastra um novo evento (ex: SeniorTec, Casamento, Aniversário, etc)

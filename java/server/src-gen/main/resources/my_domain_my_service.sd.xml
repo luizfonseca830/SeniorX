@@ -8,6 +8,22 @@
                 <slot name="helloWorldMessage" type="string" optional="false" multivalued="false"/>
             </output>
         </query>
+        <query name="calculadoraAdicao" idempotent="false" extensionPoint="false" visibility="PUBLIC">
+            <input type="fieldCalculadora"/>
+            <output type="fieldResultadoCalculadora"/>
+        </query>
+        <query name="calculadoraSubtracao" idempotent="false" extensionPoint="false" visibility="PUBLIC">
+            <input type="fieldCalculadora"/>
+            <output type="fieldResultadoCalculadora"/>
+        </query>
+        <query name="calculadoraMultiplicacao" idempotent="false" extensionPoint="false" visibility="PUBLIC">
+            <input type="fieldCalculadora"/>
+            <output type="fieldResultadoCalculadora"/>
+        </query>
+        <query name="calculadoraDivisao" idempotent="false" extensionPoint="false" visibility="PUBLIC">
+            <input type="fieldCalculadora"/>
+            <output type="fieldResultadoCalculadora"/>
+        </query>
         <action name="cadastrarEvento" idempotent="false" extensionPoint="false" visibility="PRIVATE">
             <input>
                 <slot name="nome" type="string" optional="false" multivalued="false" maxLength="10"/>
@@ -411,6 +427,13 @@
         <record name="fieldCadastroConvidado">
             <slot name="nome" type="string" optional="false" multivalued="false" maxLength="20"/>
             <slot name="nomeSocial" type="string" optional="true" multivalued="false"/>
+        </record>
+        <record name="fieldCalculadora">
+            <slot name="numero1" type="double" optional="false" multivalued="false"/>
+            <slot name="numero2" type="double" optional="false" multivalued="false"/>
+        </record>
+        <record name="fieldResultadoCalculadora">
+            <slot name="resultado" type="string" optional="false" multivalued="false"/>
         </record>
         <record name="convidado">
             <slot name="id" type="string" format="uuid" optional="true" multivalued="false"/>

@@ -72,6 +72,20 @@
             </xsd:element>
         </xsd:sequence>
     </xsd:complexType>
+    <xsd:complexType name="fieldCalculadora">
+        <xsd:sequence>
+            <xsd:element name="numero1" type="xsd:double" minOccurs="1" maxOccurs="1"  readOnly="false">
+            </xsd:element>
+            <xsd:element name="numero2" type="xsd:double" minOccurs="1" maxOccurs="1"  readOnly="false">
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="fieldResultadoCalculadora">
+        <xsd:sequence>
+            <xsd:element name="resultado" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
     <xsd:complexType name="convidado">
         <xsd:sequence>
             <xsd:element name="id" type="xsd:uuid" minOccurs="0" maxOccurs="1"  readOnly="false">
@@ -785,6 +799,8 @@
             </xsd:sequence>
         </xsd:complexType>
     </xsd:element>
+    <xsd:element name="calculadoraDivisao" type="fieldCalculadora"/>
+    <xsd:element name="calculadoraDivisaoOutput" type="fieldResultadoCalculadora"/>
     <xsd:element name="deleteAtracao">
         <xsd:complexType>
             <xsd:sequence>
@@ -812,6 +828,10 @@
     <xsd:element name="updateEvento_Ingressos">
         <xsd:complexType/>
     </xsd:element>
+    <xsd:element name="calculadoraSubtracao" type="fieldCalculadora"/>
+    <xsd:element name="calculadoraSubtracaoOutput" type="fieldResultadoCalculadora"/>
+    <xsd:element name="calculadoraAdicao" type="fieldCalculadora"/>
+    <xsd:element name="calculadoraAdicaoOutput" type="fieldResultadoCalculadora"/>
     <xsd:element name="createBulkEvento">
         <xsd:complexType>
             <xsd:sequence>
@@ -1135,4 +1155,6 @@
             </xsd:sequence>
         </xsd:complexType>
     </xsd:element>
+    <xsd:element name="calculadoraMultiplicacao" type="fieldCalculadora"/>
+    <xsd:element name="calculadoraMultiplicacaoOutput" type="fieldResultadoCalculadora"/>
 </xsd:schema>

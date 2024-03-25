@@ -149,6 +149,258 @@ paths:
               schema:
                 $ref: '#/components/schemas/genericError'
   
+  /rest/my_domain/my_service/queries/calculadoraDivisao:
+    post:
+      description: "Realiza a operação matematica de divisão"
+      tags:
+        - Queries
+      x-senior-visibility: PUBLIC
+      security :
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              allOf:
+                - $ref: '#/components/schemas/fieldCalculadora'
+      parameters:
+        - in: header
+          name: Accept
+          description: 'Content types and endpoint version for the request. Example: application/json;seniorx.version=2'
+          schema:
+            type: string
+      responses:
+        200:
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: object
+                allOf:
+                  - $ref: '#/components/schemas/fieldResultadoCalculadora'
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/genericError'
+    get:
+      description: "Realiza a operação matematica de divisão"
+      tags:
+        - Queries
+      x-senior-visibility: PUBLIC
+      security :
+        - bearerAuth: []
+      parameters:
+        - in : query
+          name : numero1
+          description: "Primeiro número"
+          required: true
+          schema:
+            type: number
+            format: double
+        - in : query
+          name : numero2
+          description: "Segundo número"
+          required: true
+          schema:
+            type: number
+            format: double
+        - in: header
+          name: Accept
+          description: 'Content types and endpoint version for the request. Example: application/json;seniorx.version=2'
+          schema:
+            type: string
+      responses:
+        200:
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: object
+                allOf:
+                  - $ref: '#/components/schemas/fieldResultadoCalculadora'
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/genericError'
+  
+  /rest/my_domain/my_service/queries/calculadoraSubtracao:
+    post:
+      description: "Realiza a operação matematica de subtração"
+      tags:
+        - Queries
+      x-senior-visibility: PUBLIC
+      security :
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              allOf:
+                - $ref: '#/components/schemas/fieldCalculadora'
+      parameters:
+        - in: header
+          name: Accept
+          description: 'Content types and endpoint version for the request. Example: application/json;seniorx.version=2'
+          schema:
+            type: string
+      responses:
+        200:
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: object
+                allOf:
+                  - $ref: '#/components/schemas/fieldResultadoCalculadora'
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/genericError'
+    get:
+      description: "Realiza a operação matematica de subtração"
+      tags:
+        - Queries
+      x-senior-visibility: PUBLIC
+      security :
+        - bearerAuth: []
+      parameters:
+        - in : query
+          name : numero1
+          description: "Primeiro número"
+          required: true
+          schema:
+            type: number
+            format: double
+        - in : query
+          name : numero2
+          description: "Segundo número"
+          required: true
+          schema:
+            type: number
+            format: double
+        - in: header
+          name: Accept
+          description: 'Content types and endpoint version for the request. Example: application/json;seniorx.version=2'
+          schema:
+            type: string
+      responses:
+        200:
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: object
+                allOf:
+                  - $ref: '#/components/schemas/fieldResultadoCalculadora'
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/genericError'
+  
+  /rest/my_domain/my_service/queries/calculadoraAdicao:
+    post:
+      description: "Realiza a operação matematica de adição"
+      tags:
+        - Queries
+      x-senior-visibility: PUBLIC
+      security :
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              allOf:
+                - $ref: '#/components/schemas/fieldCalculadora'
+      parameters:
+        - in: header
+          name: Accept
+          description: 'Content types and endpoint version for the request. Example: application/json;seniorx.version=2'
+          schema:
+            type: string
+      responses:
+        200:
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: object
+                allOf:
+                  - $ref: '#/components/schemas/fieldResultadoCalculadora'
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/genericError'
+    get:
+      description: "Realiza a operação matematica de adição"
+      tags:
+        - Queries
+      x-senior-visibility: PUBLIC
+      security :
+        - bearerAuth: []
+      parameters:
+        - in : query
+          name : numero1
+          description: "Primeiro número"
+          required: true
+          schema:
+            type: number
+            format: double
+        - in : query
+          name : numero2
+          description: "Segundo número"
+          required: true
+          schema:
+            type: number
+            format: double
+        - in: header
+          name: Accept
+          description: 'Content types and endpoint version for the request. Example: application/json;seniorx.version=2'
+          schema:
+            type: string
+      responses:
+        200:
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: object
+                allOf:
+                  - $ref: '#/components/schemas/fieldResultadoCalculadora'
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/genericError'
+  
   /rest/my_domain/my_service/queries/helloWorld:
     post:
       description: "
@@ -408,6 +660,90 @@ paths:
                   exportJobId:
                     type: string
                     description: ""
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/genericError'
+  
+  /rest/my_domain/my_service/queries/calculadoraMultiplicacao:
+    post:
+      description: "Realiza a operação matematica de multiplicação"
+      tags:
+        - Queries
+      x-senior-visibility: PUBLIC
+      security :
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              allOf:
+                - $ref: '#/components/schemas/fieldCalculadora'
+      parameters:
+        - in: header
+          name: Accept
+          description: 'Content types and endpoint version for the request. Example: application/json;seniorx.version=2'
+          schema:
+            type: string
+      responses:
+        200:
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: object
+                allOf:
+                  - $ref: '#/components/schemas/fieldResultadoCalculadora'
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/genericError'
+    get:
+      description: "Realiza a operação matematica de multiplicação"
+      tags:
+        - Queries
+      x-senior-visibility: PUBLIC
+      security :
+        - bearerAuth: []
+      parameters:
+        - in : query
+          name : numero1
+          description: "Primeiro número"
+          required: true
+          schema:
+            type: number
+            format: double
+        - in : query
+          name : numero2
+          description: "Segundo número"
+          required: true
+          schema:
+            type: number
+            format: double
+        - in: header
+          name: Accept
+          description: 'Content types and endpoint version for the request. Example: application/json;seniorx.version=2'
+          schema:
+            type: string
+      responses:
+        200:
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: object
+                allOf:
+                  - $ref: '#/components/schemas/fieldResultadoCalculadora'
         401:
           description: "Invalid Credentials"
         default:
@@ -2183,6 +2519,32 @@ components:
         nomeSocial:
           type: string
           description: ""
+    
+    fieldCalculadora:
+      description: ""
+      type: object
+      required:
+        - numero1
+        - numero2
+      properties:
+        numero1:
+          type: number
+          format: double
+          description: "Primeiro número"
+        numero2:
+          type: number
+          format: double
+          description: "Segundo número"
+    
+    fieldResultadoCalculadora:
+      description: ""
+      type: object
+      required:
+        - resultado
+      properties:
+        resultado:
+          type: string
+          description: "Resultado"
     
     convidado:
       description: "Entidade que representa o convidado de evento"

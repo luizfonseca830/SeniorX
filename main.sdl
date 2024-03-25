@@ -17,6 +17,29 @@ service my_service {
                 helloWorldMessage : string
             }
         }
+        "Realiza a operação matematica de adição"
+        public query calculadoraAdicao{
+            in fieldCalculadora
+            out fieldResultadoCalculadora
+        }
+
+        "Realiza a operação matematica de subtração"
+        public query calculadoraSubtracao{
+            in fieldCalculadora
+            out fieldResultadoCalculadora
+        }
+
+        "Realiza a operação matematica de multiplicação"
+        public query calculadoraMultiplicacao{
+            in fieldCalculadora
+            out fieldResultadoCalculadora
+        }
+
+        "Realiza a operação matematica de divisão"
+        public query calculadoraDivisao{
+            in fieldCalculadora
+            out fieldResultadoCalculadora
+        }
 
         "Cadastra um novo evento (ex: SeniorTec, Casamento, Aniversário, etc)"
         action cadastrarEvento{
@@ -115,6 +138,18 @@ service my_service {
         record fieldCadastroConvidado {
             nome: string(20)
             nomeSocial: string?
+        }
+
+        record fieldCalculadora{
+            "Primeiro número"
+            numero1 : double
+            "Segundo número"
+            numero2 : double
+        }
+
+        record fieldResultadoCalculadora{
+            "Resultado"
+            resultado: string
         }
 
     }

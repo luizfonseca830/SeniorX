@@ -70,6 +70,33 @@
         	"required" : ["nome"]
         }
         ,
+        "fieldCalculadora" : {
+        	"type" : "object",
+        	"id" : "fieldCalculadora",
+        	"properties" : {
+            	"numero1" : {
+            		"type": "number",
+            		"format": "double"
+            	},
+            	"numero2" : {
+            		"type": "number",
+            		"format": "double"
+            	}
+        	},
+        	"required" : ["numero1","numero2"]
+        }
+        ,
+        "fieldResultadoCalculadora" : {
+        	"type" : "object",
+        	"id" : "fieldResultadoCalculadora",
+        	"properties" : {
+            	"resultado" : {
+            		"type": "string"
+            	}
+        	},
+        	"required" : ["resultado"]
+        }
+        ,
         "convidado" : {
         	"type" : "object",
         	"id" : "convidado",

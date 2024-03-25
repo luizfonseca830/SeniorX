@@ -100,6 +100,242 @@ paths:
           schema:
             $ref: '#/definitions/genericError'
   
+  /my_service/queries/calculadoraAdicao:
+    post:
+      description: "Realiza a operação matematica de adição"
+      tags:
+        - Queries
+      x-senior-visibility: PUBLIC
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            type: object
+            allOf:
+             - $ref: '#/definitions/fieldCalculadora'
+      responses:
+        200:
+          description: Ok
+          schema:
+            type: object
+            allOf:
+             - $ref: '#/definitions/fieldResultadoCalculadora'
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          schema:
+            $ref: '#/definitions/genericError'
+    get:
+      description: "Realiza a operação matematica de adição"
+      tags:
+        - Queries
+      x-senior-visibility: PUBLIC
+      parameters:
+        - name: numero1
+          description: "Primeiro número"
+          in: query
+          required: true
+          type: number
+          format: double
+        - name: numero2
+          description: "Segundo número"
+          in: query
+          required: true
+          type: number
+          format: double
+      responses:
+        200:
+          description: Ok
+          schema:
+            type: object
+            allOf:
+             - $ref: '#/definitions/fieldResultadoCalculadora'
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          schema:
+            $ref: '#/definitions/genericError'
+  
+  /my_service/queries/calculadoraSubtracao:
+    post:
+      description: "Realiza a operação matematica de subtração"
+      tags:
+        - Queries
+      x-senior-visibility: PUBLIC
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            type: object
+            allOf:
+             - $ref: '#/definitions/fieldCalculadora'
+      responses:
+        200:
+          description: Ok
+          schema:
+            type: object
+            allOf:
+             - $ref: '#/definitions/fieldResultadoCalculadora'
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          schema:
+            $ref: '#/definitions/genericError'
+    get:
+      description: "Realiza a operação matematica de subtração"
+      tags:
+        - Queries
+      x-senior-visibility: PUBLIC
+      parameters:
+        - name: numero1
+          description: "Primeiro número"
+          in: query
+          required: true
+          type: number
+          format: double
+        - name: numero2
+          description: "Segundo número"
+          in: query
+          required: true
+          type: number
+          format: double
+      responses:
+        200:
+          description: Ok
+          schema:
+            type: object
+            allOf:
+             - $ref: '#/definitions/fieldResultadoCalculadora'
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          schema:
+            $ref: '#/definitions/genericError'
+  
+  /my_service/queries/calculadoraMultiplicacao:
+    post:
+      description: "Realiza a operação matematica de multiplicação"
+      tags:
+        - Queries
+      x-senior-visibility: PUBLIC
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            type: object
+            allOf:
+             - $ref: '#/definitions/fieldCalculadora'
+      responses:
+        200:
+          description: Ok
+          schema:
+            type: object
+            allOf:
+             - $ref: '#/definitions/fieldResultadoCalculadora'
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          schema:
+            $ref: '#/definitions/genericError'
+    get:
+      description: "Realiza a operação matematica de multiplicação"
+      tags:
+        - Queries
+      x-senior-visibility: PUBLIC
+      parameters:
+        - name: numero1
+          description: "Primeiro número"
+          in: query
+          required: true
+          type: number
+          format: double
+        - name: numero2
+          description: "Segundo número"
+          in: query
+          required: true
+          type: number
+          format: double
+      responses:
+        200:
+          description: Ok
+          schema:
+            type: object
+            allOf:
+             - $ref: '#/definitions/fieldResultadoCalculadora'
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          schema:
+            $ref: '#/definitions/genericError'
+  
+  /my_service/queries/calculadoraDivisao:
+    post:
+      description: "Realiza a operação matematica de divisão"
+      tags:
+        - Queries
+      x-senior-visibility: PUBLIC
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            type: object
+            allOf:
+             - $ref: '#/definitions/fieldCalculadora'
+      responses:
+        200:
+          description: Ok
+          schema:
+            type: object
+            allOf:
+             - $ref: '#/definitions/fieldResultadoCalculadora'
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          schema:
+            $ref: '#/definitions/genericError'
+    get:
+      description: "Realiza a operação matematica de divisão"
+      tags:
+        - Queries
+      x-senior-visibility: PUBLIC
+      parameters:
+        - name: numero1
+          description: "Primeiro número"
+          in: query
+          required: true
+          type: number
+          format: double
+        - name: numero2
+          description: "Segundo número"
+          in: query
+          required: true
+          type: number
+          format: double
+      responses:
+        200:
+          description: Ok
+          schema:
+            type: object
+            allOf:
+             - $ref: '#/definitions/fieldResultadoCalculadora'
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          schema:
+            $ref: '#/definitions/genericError'
+  
   /my_service/queries/getMetadata:
     post:
       description: "Default 'getMetadata' query. Every service must handle this command and return metadata in the format requested."
@@ -2091,6 +2327,32 @@ definitions:
       nomeSocial:
         type: string
         description: ""
+  
+  fieldCalculadora:
+    description: ""
+    type: object
+    required:
+      - numero1
+      - numero2
+    properties:
+      numero1:
+        type: number
+        format: double
+        description: "Primeiro número"
+      numero2:
+        type: number
+        format: double
+        description: "Segundo número"
+  
+  fieldResultadoCalculadora:
+    description: ""
+    type: object
+    required:
+      - resultado
+    properties:
+      resultado:
+        type: string
+        description: "Resultado"
   
   convidado:
     description: "Entidade que representa o convidado de evento"

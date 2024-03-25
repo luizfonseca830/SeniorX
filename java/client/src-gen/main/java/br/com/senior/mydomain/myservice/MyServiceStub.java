@@ -47,6 +47,114 @@ public interface MyServiceStub {
 	 */
 	CompletableFuture<HelloWorldOutput> helloWorldRequest(HelloWorldInput input, long timeout);
 	/**
+	 * This is a public operation
+	 * Realiza a operação matematica de adição
+	 * Chamada síncrona, o valor de timeout deve ser informado em ms 
+	 */
+	FieldResultadoCalculadora calculadoraAdicao(FieldCalculadora input, long timeout);
+	
+	/**
+	 * This is a public operation
+	 * Realiza a operação matematica de adição
+	 * Chamada assíncrona
+	 */
+	void calculadoraAdicao(FieldCalculadora input);
+	
+	/**
+	 * This is a public operation
+	 * Realiza a operação matematica de adição
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<FieldResultadoCalculadora> calculadoraAdicaoRequest(FieldCalculadora input);
+	
+	/**
+	 * This is a public operation
+	 * Realiza a operação matematica de adição
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<FieldResultadoCalculadora> calculadoraAdicaoRequest(FieldCalculadora input, long timeout);
+	/**
+	 * This is a public operation
+	 * Realiza a operação matematica de subtração
+	 * Chamada síncrona, o valor de timeout deve ser informado em ms 
+	 */
+	FieldResultadoCalculadora calculadoraSubtracao(FieldCalculadora input, long timeout);
+	
+	/**
+	 * This is a public operation
+	 * Realiza a operação matematica de subtração
+	 * Chamada assíncrona
+	 */
+	void calculadoraSubtracao(FieldCalculadora input);
+	
+	/**
+	 * This is a public operation
+	 * Realiza a operação matematica de subtração
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<FieldResultadoCalculadora> calculadoraSubtracaoRequest(FieldCalculadora input);
+	
+	/**
+	 * This is a public operation
+	 * Realiza a operação matematica de subtração
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<FieldResultadoCalculadora> calculadoraSubtracaoRequest(FieldCalculadora input, long timeout);
+	/**
+	 * This is a public operation
+	 * Realiza a operação matematica de multiplicação
+	 * Chamada síncrona, o valor de timeout deve ser informado em ms 
+	 */
+	FieldResultadoCalculadora calculadoraMultiplicacao(FieldCalculadora input, long timeout);
+	
+	/**
+	 * This is a public operation
+	 * Realiza a operação matematica de multiplicação
+	 * Chamada assíncrona
+	 */
+	void calculadoraMultiplicacao(FieldCalculadora input);
+	
+	/**
+	 * This is a public operation
+	 * Realiza a operação matematica de multiplicação
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<FieldResultadoCalculadora> calculadoraMultiplicacaoRequest(FieldCalculadora input);
+	
+	/**
+	 * This is a public operation
+	 * Realiza a operação matematica de multiplicação
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<FieldResultadoCalculadora> calculadoraMultiplicacaoRequest(FieldCalculadora input, long timeout);
+	/**
+	 * This is a public operation
+	 * Realiza a operação matematica de divisão
+	 * Chamada síncrona, o valor de timeout deve ser informado em ms 
+	 */
+	FieldResultadoCalculadora calculadoraDivisao(FieldCalculadora input, long timeout);
+	
+	/**
+	 * This is a public operation
+	 * Realiza a operação matematica de divisão
+	 * Chamada assíncrona
+	 */
+	void calculadoraDivisao(FieldCalculadora input);
+	
+	/**
+	 * This is a public operation
+	 * Realiza a operação matematica de divisão
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<FieldResultadoCalculadora> calculadoraDivisaoRequest(FieldCalculadora input);
+	
+	/**
+	 * This is a public operation
+	 * Realiza a operação matematica de divisão
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<FieldResultadoCalculadora> calculadoraDivisaoRequest(FieldCalculadora input, long timeout);
+	/**
 	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
 	 * Cadastra um novo evento (ex: SeniorTec, Casamento, Aniversário, etc)
 	 * Chamada síncrona, o valor de timeout deve ser informado em ms 
