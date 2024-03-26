@@ -1,4 +1,4 @@
-/* Database: Oracle. Generation date: 2024-03-25 17:31:19:964 */
+/* Database: Oracle. Generation date: 2024-03-26 08:22:40:483 */
 /* Entity Convidado */
 create table convidado (
 	id RAW(16) NOT NULL,
@@ -73,9 +73,9 @@ alter table ingresso add constraint pk_ingresso_id primary key(id);
 alter table atracao add constraint pk_atracao_id primary key(id);
 
 /* Foreign Key Constraints */
-alter table ingresso add constraint fkeipkosptk0zer3fczcgymqbmhbaw foreign key (convidado) references convidado (id);
-alter table ingresso add constraint fkyzi2suyfdwbkrzliump5viskgmxo foreign key (evento) references evento (id);
-alter table atracao add constraint fkhhyxmpopipixscetmik6ng8pea5t foreign key (evento) references evento (id);
+alter table ingresso add constraint fkl5rc5vop9gm387mhet38eough0qd foreign key (convidado) references convidado (id);
+alter table ingresso add constraint fkatjwxueugqrv2cyq2p5llyoaanxe foreign key (evento) references evento (id);
+alter table atracao add constraint fkal7jstlf30z18whc0ll2b6secs6z foreign key (evento) references evento (id);
 
 /* Unique Key Constraints */
 

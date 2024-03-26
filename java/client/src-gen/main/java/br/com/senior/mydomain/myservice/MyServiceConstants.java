@@ -136,6 +136,23 @@ public interface MyServiceConstants {
     	 */
     	String FIND_INGRESSO_BYNOME_CONVIDADO_ERROR = "findIngressoBynomeConvidadoError";
     	/**
+    	 * @see UpdateConvidadoNomeByIdInput the request payload
+    	 */
+    	String UPDATE_CONVIDADO_NOME_BY_ID = "updateConvidadoNomeById";
+    	/**
+    	 * The success response primitive for updateConvidadoNomeById.
+    	 *
+    	 * @see #UPDATE_CONVIDADO_NOME_BY_ID the request primitive
+    	 * @see UpdateConvidadoNomeByIdOutput the response payload
+    	 */
+    	String UPDATE_CONVIDADO_NOME_BY_ID_RESPONSE = "updateConvidadoNomeByIdResponse";
+    	/**
+    	 * An error response primitive for updateConvidadoNomeById.
+    	 *
+    	 * @see #UPDATE_CONVIDADO_NOME_BY_ID the request primitive
+    	 */
+    	String UPDATE_CONVIDADO_NOME_BY_ID_ERROR = "updateConvidadoNomeByIdError";
+    	/**
     	 * Cadastra um novo evento (ex: SeniorTec, Casamento, Aniversário, etc)
     	 * @see CadastrarEventoInput the request payload
     	 */

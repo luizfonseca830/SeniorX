@@ -494,6 +494,44 @@
             "visibility" : "PRIVATE",
             "version": "0"
         },
+        "updateConvidadoNomeById": {
+            "endpointType" : "command",
+            "kind": "action",
+            "priority" : "NORMAL",
+            "input" : {
+                "id" : {
+                    "type": "string",
+                    "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                },
+                "nome" : {
+                    "type": "string",
+                    "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                }
+            },
+            "output" : {
+                "id" : {
+                    "type": "string",
+                    "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                },
+                "nome" : {
+                    "type": "string",
+                    "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                }
+            },
+            "extensionPoint" : false,
+            "responses" : {
+            },
+            "visibility" : "PRIVATE",
+            "version": "0"
+        },
         "comprarIngresso": {
             "endpointType" : "command",
             "kind": "action",

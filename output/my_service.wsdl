@@ -795,6 +795,26 @@
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>
+            <xsd:element name="updateConvidadoNomeById">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="id" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                        </xsd:element>
+                        <xsd:element name="nome" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="updateConvidadoNomeByIdOutput">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="id" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                        </xsd:element>
+                        <xsd:element name="nome" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
             <xsd:element name="comprarIngresso">
                 <xsd:complexType>
                     <xsd:sequence>
@@ -1354,6 +1374,12 @@
     <wsdl:message name="getMetadataResponse">
         <wsdl:part name="result" element="getMetadataOutput"/>
     </wsdl:message>
+    <wsdl:message name="updateConvidadoNomeByIdRequest">
+        <wsdl:part name="parameters" element="updateConvidadoNomeById"/>
+    </wsdl:message>
+    <wsdl:message name="updateConvidadoNomeByIdResponse">
+        <wsdl:part name="result" element="updateConvidadoNomeByIdOutput"/>
+    </wsdl:message>
     <wsdl:message name="comprarIngressoRequest">
         <wsdl:part name="parameters" element="comprarIngresso"/>
     </wsdl:message>
@@ -1742,6 +1768,13 @@
             </wsdl:documentation>
             <wsdl:input message="getMetadataRequest"/>
             <wsdl:output message="getMetadataResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="updateConvidadoNomeById">
+            <wsdl:documentation>
+            WARNING: THIS OPERATION IS PRIVATE AND MAY HAVE ITS BEHAVIOR CHANGED AT ANY TIME WITHOUT NOTICE. 
+            </wsdl:documentation>
+            <wsdl:input message="updateConvidadoNomeByIdRequest"/>
+            <wsdl:output message="updateConvidadoNomeByIdResponse"/>
         </wsdl:operation>
         <wsdl:operation name="comprarIngresso">
             <wsdl:documentation>
@@ -2233,6 +2266,15 @@
         </wsdl:operation>
         <wsdl:operation name="getMetadata">
             <soap:operation soapAction="getMetadata"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updateConvidadoNomeById">
+            <soap:operation soapAction="updateConvidadoNomeById"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>

@@ -61,6 +61,17 @@ service my_service {
             }
         }
 
+        action updateConvidadoNomeById{
+            in {
+                id: string
+                nome: string
+            }
+            out {
+                id: string
+                nome: string
+            }
+        }
+
         "Cadastra um novo evento (ex: SeniorTec, Casamento, Aniversário, etc)"
         action cadastrarEvento{
             in {

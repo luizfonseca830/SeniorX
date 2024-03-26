@@ -352,6 +352,49 @@ public class MyServiceStubImpl  implements MyServiceStub {
 		return impl.findIngressoBynomeConvidadoRequest(input, timeout, TimeUnit.MILLISECONDS);
 	}
 	/**
+	 * Chamada síncrona para o método updateConvidadoNomeById
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 * @throws MyServiceMessageException quando um erro com payload for retornado pela mensageria
+	 */
+	@Override
+	public UpdateConvidadoNomeByIdOutput updateConvidadoNomeById(UpdateConvidadoNomeByIdInput input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.UpdateConvidadoNomeByIdImpl impl = new br.com.senior.mydomain.myservice.impl.UpdateConvidadoNomeByIdImpl(messengerSupplier, userId, messageSupplier);
+		return impl.updateConvidadoNomeById(input, timeout);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método updateConvidadoNomeById
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 */
+	@Override
+	public void updateConvidadoNomeById(UpdateConvidadoNomeByIdInput input) {
+		br.com.senior.mydomain.myservice.impl.UpdateConvidadoNomeByIdImpl impl = new br.com.senior.mydomain.myservice.impl.UpdateConvidadoNomeByIdImpl(messengerSupplier, userId, messageSupplier);
+		impl.updateConvidadoNomeById(input);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método updateConvidadoNomeById
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 */
+	@Override
+	public CompletableFuture<UpdateConvidadoNomeByIdOutput> updateConvidadoNomeByIdRequest(UpdateConvidadoNomeByIdInput input) {
+		return this.updateConvidadoNomeByIdRequest(input, 0l);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método updateConvidadoNomeById
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	*/
+	@Override
+	public CompletableFuture<UpdateConvidadoNomeByIdOutput> updateConvidadoNomeByIdRequest(UpdateConvidadoNomeByIdInput input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.UpdateConvidadoNomeByIdImpl impl = new br.com.senior.mydomain.myservice.impl.UpdateConvidadoNomeByIdImpl(messengerSupplier, userId, messageSupplier);
+		return impl.updateConvidadoNomeByIdRequest(input, timeout, TimeUnit.MILLISECONDS);
+	}
+	/**
 	 * Chamada síncrona para o método cadastrarEvento
 	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
 	 * Cadastra um novo evento (ex: SeniorTec, Casamento, Aniversário, etc)

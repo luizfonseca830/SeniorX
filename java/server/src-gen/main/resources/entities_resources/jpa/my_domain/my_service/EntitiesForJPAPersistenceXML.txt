@@ -1,4 +1,4 @@
-<!-- GENERATED ENTITIES: 2024-03-25 17:31:19:687 -->
+<!-- GENERATED ENTITIES: 2024-03-26 08:22:40:118 -->
 <class>br.com.senior.mydomain.myservice.ConvidadoEntity</class>
 <class>br.com.senior.mydomain.myservice.EventoEntity</class>
 <class>br.com.senior.mydomain.myservice.IngressoEntity</class>

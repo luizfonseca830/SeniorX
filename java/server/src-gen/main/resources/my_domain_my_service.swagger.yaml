@@ -714,6 +714,50 @@ paths:
           description: Error response
           schema:
             $ref: '#/definitions/genericError'
+  /my_service/actions/updateConvidadoNomeById:
+    post:
+      description: ""
+      tags:
+        - Actions
+      x-senior-visibility: PRIVATE
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            type: object
+            required:
+              - id
+              - nome
+            properties:
+              id:
+                type: string
+                description: ""
+              nome:
+                type: string
+                description: ""
+      responses:
+        200:
+          description: Ok
+          schema:
+            type: object
+            required:
+              - id
+              - nome
+            properties:
+              id:
+                type: string
+                description: ""
+              nome:
+                type: string
+                description: ""
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          schema:
+            $ref: '#/definitions/genericError'
+  
   /my_service/actions/cadastrarEvento:
     post:
       description: "Cadastra um novo evento (ex: SeniorTec, Casamento, Aniversário, etc)"
