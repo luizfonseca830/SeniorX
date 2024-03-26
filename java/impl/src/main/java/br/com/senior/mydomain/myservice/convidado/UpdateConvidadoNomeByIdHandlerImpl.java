@@ -8,7 +8,7 @@ import javax.inject.Inject;
 @HandlerImpl
 public class UpdateConvidadoNomeByIdHandlerImpl implements UpdateConvidadoNomeById {
     @Inject
-    ConvidadoService convidadoService;
+    private ConvidadoService convidadoService;
     @Override
     public UpdateConvidadoNomeByIdOutput updateConvidadoNomeById(UpdateConvidadoNomeByIdInput request) {
         final ConvidadoEntity convidado = convidadoService.updateNomeById(request.nome, request.id);

@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @HandlerImpl
-public class findIngressoBynomeConvidadoHandleImpl implements FindIngressoBynomeConvidado {
+public class FindIngressoBynomeConvidadoHandleImpl implements FindIngressoBynomeConvidado {
     @Inject
     IngressoService ingressoService;
     @Override

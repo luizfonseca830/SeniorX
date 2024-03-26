@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface IngressoRepository extends IngressoBaseRepository {
+public interface IngressoRepository extends IngressoBaseRepository, IngressoCustomRepository {
     @Query("select i from my_domain.my_service.IngressoEntity i " +
             "join my_domain.my_service.ConvidadoEntity c " +
             "on c.id = i.convidado " +

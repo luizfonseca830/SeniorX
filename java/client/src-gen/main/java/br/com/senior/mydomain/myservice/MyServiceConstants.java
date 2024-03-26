@@ -153,6 +153,40 @@ public interface MyServiceConstants {
     	 */
     	String FIND_NOME_BY_ID_CUSTOM_ERROR = "findNomeByIdCustomError";
     	/**
+    	 * @see GetAllConvidadosInput the request payload
+    	 */
+    	String GET_ALL_CONVIDADOS = "getAllConvidados";
+    	/**
+    	 * The success response primitive for getAllConvidados.
+    	 *
+    	 * @see #GET_ALL_CONVIDADOS the request primitive
+    	 * @see GetAllConvidadosOutput the response payload
+    	 */
+    	String GET_ALL_CONVIDADOS_RESPONSE = "getAllConvidadosResponse";
+    	/**
+    	 * An error response primitive for getAllConvidados.
+    	 *
+    	 * @see #GET_ALL_CONVIDADOS the request primitive
+    	 */
+    	String GET_ALL_CONVIDADOS_ERROR = "getAllConvidadosError";
+    	/**
+    	 * @see GetIdsByNomeConvidadoInput the request payload
+    	 */
+    	String GET_IDS_BY_NOME_CONVIDADO = "getIdsByNomeConvidado";
+    	/**
+    	 * The success response primitive for getIdsByNomeConvidado.
+    	 *
+    	 * @see #GET_IDS_BY_NOME_CONVIDADO the request primitive
+    	 * @see GetIdsByNomeConvidadoOutput the response payload
+    	 */
+    	String GET_IDS_BY_NOME_CONVIDADO_RESPONSE = "getIdsByNomeConvidadoResponse";
+    	/**
+    	 * An error response primitive for getIdsByNomeConvidado.
+    	 *
+    	 * @see #GET_IDS_BY_NOME_CONVIDADO the request primitive
+    	 */
+    	String GET_IDS_BY_NOME_CONVIDADO_ERROR = "getIdsByNomeConvidadoError";
+    	/**
     	 * @see UpdateConvidadoNomeByIdInput the request payload
     	 */
     	String UPDATE_CONVIDADO_NOME_BY_ID = "updateConvidadoNomeById";

@@ -395,6 +395,92 @@ public class MyServiceStubImpl  implements MyServiceStub {
 		return impl.findNomeByIdCustomRequest(input, timeout, TimeUnit.MILLISECONDS);
 	}
 	/**
+	 * Chamada síncrona para o método getAllConvidados
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 * @throws MyServiceMessageException quando um erro com payload for retornado pela mensageria
+	 */
+	@Override
+	public GetAllConvidadosOutput getAllConvidados(GetAllConvidadosInput input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.GetAllConvidadosImpl impl = new br.com.senior.mydomain.myservice.impl.GetAllConvidadosImpl(messengerSupplier, userId, messageSupplier);
+		return impl.getAllConvidados(input, timeout);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método getAllConvidados
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 */
+	@Override
+	public void getAllConvidados(GetAllConvidadosInput input) {
+		br.com.senior.mydomain.myservice.impl.GetAllConvidadosImpl impl = new br.com.senior.mydomain.myservice.impl.GetAllConvidadosImpl(messengerSupplier, userId, messageSupplier);
+		impl.getAllConvidados(input);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método getAllConvidados
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 */
+	@Override
+	public CompletableFuture<GetAllConvidadosOutput> getAllConvidadosRequest(GetAllConvidadosInput input) {
+		return this.getAllConvidadosRequest(input, 0l);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método getAllConvidados
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	*/
+	@Override
+	public CompletableFuture<GetAllConvidadosOutput> getAllConvidadosRequest(GetAllConvidadosInput input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.GetAllConvidadosImpl impl = new br.com.senior.mydomain.myservice.impl.GetAllConvidadosImpl(messengerSupplier, userId, messageSupplier);
+		return impl.getAllConvidadosRequest(input, timeout, TimeUnit.MILLISECONDS);
+	}
+	/**
+	 * Chamada síncrona para o método getIdsByNomeConvidado
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 * @throws MyServiceMessageException quando um erro com payload for retornado pela mensageria
+	 */
+	@Override
+	public GetIdsByNomeConvidadoOutput getIdsByNomeConvidado(GetIdsByNomeConvidadoInput input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.GetIdsByNomeConvidadoImpl impl = new br.com.senior.mydomain.myservice.impl.GetIdsByNomeConvidadoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.getIdsByNomeConvidado(input, timeout);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método getIdsByNomeConvidado
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 */
+	@Override
+	public void getIdsByNomeConvidado(GetIdsByNomeConvidadoInput input) {
+		br.com.senior.mydomain.myservice.impl.GetIdsByNomeConvidadoImpl impl = new br.com.senior.mydomain.myservice.impl.GetIdsByNomeConvidadoImpl(messengerSupplier, userId, messageSupplier);
+		impl.getIdsByNomeConvidado(input);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método getIdsByNomeConvidado
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 */
+	@Override
+	public CompletableFuture<GetIdsByNomeConvidadoOutput> getIdsByNomeConvidadoRequest(GetIdsByNomeConvidadoInput input) {
+		return this.getIdsByNomeConvidadoRequest(input, 0l);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método getIdsByNomeConvidado
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	*/
+	@Override
+	public CompletableFuture<GetIdsByNomeConvidadoOutput> getIdsByNomeConvidadoRequest(GetIdsByNomeConvidadoInput input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.GetIdsByNomeConvidadoImpl impl = new br.com.senior.mydomain.myservice.impl.GetIdsByNomeConvidadoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.getIdsByNomeConvidadoRequest(input, timeout, TimeUnit.MILLISECONDS);
+	}
+	/**
 	 * Chamada síncrona para o método updateConvidadoNomeById
 	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
 	 * 

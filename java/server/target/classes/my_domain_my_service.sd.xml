@@ -48,6 +48,21 @@
                 <slot name="nome" type="string" optional="false" multivalued="false"/>
             </output>
         </query>
+        <query name="getAllConvidados" idempotent="false" extensionPoint="false" visibility="PRIVATE">
+            <input>
+            </input>
+            <output>
+                <slot name="id" type="string" optional="false" multivalued="true"/>
+            </output>
+        </query>
+        <query name="getIdsByNomeConvidado" idempotent="false" extensionPoint="false" visibility="PRIVATE">
+            <input>
+                <slot name="nomeConvidado" type="string" optional="false" multivalued="false"/>
+            </input>
+            <output>
+                <slot name="id" type="string" optional="false" multivalued="true"/>
+            </output>
+        </query>
         <action name="updateConvidadoNomeById" idempotent="false" extensionPoint="false" visibility="PRIVATE">
             <input>
                 <slot name="id" type="string" optional="false" multivalued="false"/>

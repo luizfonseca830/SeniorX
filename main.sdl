@@ -70,6 +70,24 @@ service my_service {
             }
         }
 
+        query getAllConvidados{
+            in {
+
+            }
+            out {
+                id: string*
+            }
+        }
+
+        query getIdsByNomeConvidado {
+            in{
+                nomeConvidado: string
+            }
+            out {
+                id: string*
+            }
+        }
+
         action updateConvidadoNomeById{
             in {
                 id: string

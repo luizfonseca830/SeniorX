@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/java/client/hello-world-client.iml" filepath="$PROJECT_DIR$/java/client/hello-world-client.iml" />
       <module fileurl="file://$PROJECT_DIR$/java/impl/hello-world-impl.iml" filepath="$PROJECT_DIR$/java/impl/hello-world-impl.iml" />
       <module fileurl="file://$PROJECT_DIR$/java/server/hello-world-server.iml" filepath="$PROJECT_DIR$/java/server/hello-world-server.iml" />
     </modules>

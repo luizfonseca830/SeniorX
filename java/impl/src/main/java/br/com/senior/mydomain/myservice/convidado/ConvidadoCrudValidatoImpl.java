@@ -16,7 +16,7 @@ import java.util.regex.Pattern;
 public class ConvidadoCrudValidatoImpl implements ConvidadoCrudValidator {
 
     @Inject
-    TranslationHubApi translationHubApi;
+    private TranslationHubApi translationHubApi;
 
     @Override
     public void beforeCreate(ConvidadoEntity entity) {

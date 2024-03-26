@@ -1219,6 +1219,26 @@
             </xsd:sequence>
         </xsd:complexType>
     </xsd:element>
+    <xsd:element name="getAllConvidados">
+        <xsd:complexType>
+            <xsd:sequence>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="getAllConvidadosOutput">
+        <xsd:complexType>
+            <xsd:sequence>
+                <!-- collection wrapper for id -->
+                <xsd:element name="id" minOccurs="1" maxOccurs="1">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="item" type="xsd:string" minOccurs="1" maxOccurs="unbounded"/>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
     <xsd:element name="exportEvento">
         <xsd:complexType>
             <xsd:sequence>
@@ -1231,6 +1251,28 @@
         <xsd:complexType>
             <xsd:sequence>
                 <xsd:element name="exportJobId" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="getIdsByNomeConvidado">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="nomeConvidado" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="getIdsByNomeConvidadoOutput">
+        <xsd:complexType>
+            <xsd:sequence>
+                <!-- collection wrapper for id -->
+                <xsd:element name="id" minOccurs="1" maxOccurs="1">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="item" type="xsd:string" minOccurs="1" maxOccurs="unbounded"/>
+                        </xsd:sequence>
+                    </xsd:complexType>
                 </xsd:element>
             </xsd:sequence>
         </xsd:complexType>

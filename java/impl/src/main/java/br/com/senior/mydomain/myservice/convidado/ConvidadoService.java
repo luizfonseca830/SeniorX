@@ -41,4 +41,8 @@ public class ConvidadoService {
         return convidadoRepository.findNomeByIdCustom(id);
     }
 
+    public List<UUID> getAll(){
+        return convidadoRepository.getAllIds();
+    }
+
 }
