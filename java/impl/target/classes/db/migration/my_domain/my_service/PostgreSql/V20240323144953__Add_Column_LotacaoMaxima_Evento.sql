@@ -1,0 +1,1 @@
+ALTER TABLE evento ADD COLUMN lotacao_maxima NUMERIC(19) NOT NULL

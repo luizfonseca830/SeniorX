@@ -1,0 +1,703 @@
+<service appName="hello-world" domain="my_domain" name="my_service" version="${version}">
+    <commands>
+        <query name="helloWorld" idempotent="false" extensionPoint="false" visibility="PUBLIC">
+            <input>
+                <slot name="who" type="string" optional="false" multivalued="false"/>
+            </input>
+            <output>
+                <slot name="helloWorldMessage" type="string" optional="false" multivalued="false"/>
+            </output>
+        </query>
+        <query name="calculadoraAdicao" idempotent="false" extensionPoint="false" visibility="PUBLIC">
+            <input type="fieldCalculadora"/>
+            <output type="fieldResultadoCalculadora"/>
+        </query>
+        <query name="calculadoraSubtracao" idempotent="false" extensionPoint="false" visibility="PUBLIC">
+            <input type="fieldCalculadora"/>
+            <output type="fieldResultadoCalculadora"/>
+        </query>
+        <query name="calculadoraMultiplicacao" idempotent="false" extensionPoint="false" visibility="PUBLIC">
+            <input type="fieldCalculadora"/>
+            <output type="fieldResultadoCalculadora"/>
+        </query>
+        <query name="calculadoraDivisao" idempotent="false" extensionPoint="false" visibility="PUBLIC">
+            <input type="fieldCalculadora"/>
+            <output type="fieldResultadoCalculadora"/>
+        </query>
+        <query name="findBynome" idempotent="false" extensionPoint="false" visibility="PRIVATE">
+            <input>
+                <slot name="nome" type="string" optional="false" multivalued="false"/>
+            </input>
+            <output>
+                <slot name="resultado" type="convidado" optional="false" multivalued="true"/>
+            </output>
+        </query>
+        <query name="findIngressoBynomeConvidado" idempotent="false" extensionPoint="false" visibility="PRIVATE">
+            <input>
+                <slot name="nomeConvidado" type="string" optional="false" multivalued="false"/>
+            </input>
+            <output>
+                <slot name="resultado" type="ingresso" optional="false" multivalued="true"/>
+            </output>
+        </query>
+        <query name="findNomeByIdCustom" idempotent="false" extensionPoint="false" visibility="PRIVATE">
+            <input>
+                <slot name="id" type="string" optional="false" multivalued="false"/>
+            </input>
+            <output>
+                <slot name="nome" type="string" optional="false" multivalued="false"/>
+            </output>
+        </query>
+        <action name="updateConvidadoNomeById" idempotent="false" extensionPoint="false" visibility="PRIVATE">
+            <input>
+                <slot name="id" type="string" optional="false" multivalued="false"/>
+                <slot name="nome" type="string" optional="false" multivalued="false"/>
+            </input>
+            <output>
+                <slot name="id" type="string" optional="false" multivalued="false"/>
+                <slot name="nome" type="string" optional="false" multivalued="false"/>
+            </output>
+        </action>
+        <action name="cadastrarEvento" idempotent="false" extensionPoint="false" visibility="PRIVATE">
+            <input>
+                <slot name="nome" type="string" optional="false" multivalued="false" maxLength="10"/>
+                <slot name="apenasColaboradores" type="boolean" optional="true" multivalued="false"/>
+                <slot name="lotacaoMaxima" type="integer" optional="false" multivalued="false" minValue="1" maxValue="999"/>
+                <slot name="data" type="date" optional="false" multivalued="false"/>
+                <slot name="tipoEntradaEvento" type="tipoEntrada" optional="true" multivalued="true"/>
+            </input>
+            <output type="retornoCadastrarEvento"/>
+        </action>
+        <action name="cadastrarConvidado" idempotent="false" extensionPoint="false" visibility="PRIVATE">
+            <input>
+                <slot name="nome" type="fieldCadastroConvidado" optional="false" multivalued="false"/>
+                <slot name="quantidadeAcompanhantes" type="integer" optional="false" multivalued="false" minValue="0" maxValue="9"/>
+            </input>
+            <output>
+                <slot name="convidado" type="fieldCadastroConvidado" optional="false" multivalued="false"/>
+                <slot name="resultado" type="resultadoCadastradoConvidado" optional="false" multivalued="false"/>
+            </output>
+        </action>
+        <action name="comprarIngresso" idempotent="false" extensionPoint="false" visibility="PRIVATE">
+            <input>
+                <slot name="nomeComprador" type="string" optional="false" multivalued="false"/>
+            </input>
+            <output>
+                <slot name="codigoIngresso" type="string" optional="false" multivalued="false"/>
+            </output>
+        </action>
+        <query name="getMetadata" idempotent="false" extensionPoint="false" visibility="PRIVATE">
+            <input>
+                <slot name="metadataFormat" type="string" optional="true" multivalued="false"/>
+            </input>
+            <output>
+                <slot name="metadata" type="string" optional="false" multivalued="false"/>
+            </output>
+        </query>
+        <action name="odata" idempotent="false" extensionPoint="false" visibility="PRIVATE">
+        </action>
+        <action name="importConvidado" idempotent="false" extensionPoint="false" visibility="PRIVATE">
+            <input>
+                <slot name="config" type="importConfig" optional="false" multivalued="false"/>
+            </input>
+            <output>
+                <slot name="importJobId" type="string" optional="false" multivalued="false"/>
+            </output>
+        </action>
+        <query name="exportConvidado" idempotent="false" extensionPoint="false" visibility="PRIVATE">
+            <input>
+                <slot name="config" type="exportConfig" optional="false" multivalued="false"/>
+            </input>
+            <output>
+                <slot name="exportJobId" type="string" optional="false" multivalued="false"/>
+            </output>
+        </query>
+        <action name="importEvento" idempotent="false" extensionPoint="false" visibility="PRIVATE">
+            <input>
+                <slot name="config" type="importConfig" optional="false" multivalued="false"/>
+            </input>
+            <output>
+                <slot name="importJobId" type="string" optional="false" multivalued="false"/>
+            </output>
+        </action>
+        <query name="exportEvento" idempotent="false" extensionPoint="false" visibility="PRIVATE">
+            <input>
+                <slot name="config" type="exportConfig" optional="false" multivalued="false"/>
+            </input>
+            <output>
+                <slot name="exportJobId" type="string" optional="false" multivalued="false"/>
+            </output>
+        </query>
+        <action name="importAtracao" idempotent="false" extensionPoint="false" visibility="PRIVATE">
+            <input>
+                <slot name="config" type="importConfig" optional="false" multivalued="false"/>
+            </input>
+            <output>
+                <slot name="importJobId" type="string" optional="false" multivalued="false"/>
+            </output>
+        </action>
+        <query name="exportAtracao" idempotent="false" extensionPoint="false" visibility="PRIVATE">
+            <input>
+                <slot name="config" type="exportConfig" optional="false" multivalued="false"/>
+            </input>
+            <output>
+                <slot name="exportJobId" type="string" optional="false" multivalued="false"/>
+            </output>
+        </query>
+        <query name="getDependencies" idempotent="false" extensionPoint="false" visibility="PRIVATE">
+            <output>
+                <slot name="dependencies" type="dependency" optional="false" multivalued="true"/>
+            </output>
+        </query>
+        <create name="createConvidado" idempotent="false" extensionPoint="false" visibility="PUBLIC">
+            <input type="convidado"/>
+            <output type="convidado"/>
+        </create>
+        <createBulk name="createBulkConvidado" idempotent="false" extensionPoint="false" visibility="PUBLIC">
+            <input>
+                <slot name="entities" type="convidado" optional="false" multivalued="true"/>
+            </input>
+            <output>
+            </output>
+        </createBulk>
+        <createMerge name="createMergeConvidado" idempotent="false" extensionPoint="false" visibility="PUBLIC">
+            <input type="convidado"/>
+            <output type="convidado"/>
+        </createMerge>
+        <retrieve name="retrieveConvidado" idempotent="false" extensionPoint="false" visibility="PUBLIC">
+            <input>
+                <slot name="id" type="string" format="uuid" optional="false" multivalued="false"/>
+            </input>
+            <output type="convidado"/>
+        </retrieve>
+        <list name="listConvidado" idempotent="false" extensionPoint="false" visibility="PRIVATE">
+            <input>
+                <slot name="offset" type="integer" optional="false" multivalued="false"/>
+                <slot name="size" type="integer" optional="false" multivalued="false"/>
+                <slot name="orderBy" type="string" optional="false" multivalued="false"/>
+                <slot name="filter" type="string" optional="false" multivalued="false"/>
+                <slot name="displayFields" type="string" optional="false" multivalued="true"/>
+            </input>
+            <output>
+                <slot name="contents" type="convidado" optional="false" multivalued="true"/>
+            </output>
+        </list>
+        <update name="updateConvidado" idempotent="false" extensionPoint="false" visibility="PUBLIC">
+            <input type="convidado"/>
+            <output type="convidado"/>
+        </update>
+        <updateMerge name="updateMergeConvidado" idempotent="false" extensionPoint="false" visibility="PUBLIC">
+            <input type="convidado"/>
+            <output type="convidado"/>
+        </updateMerge>
+        <delete name="deleteConvidado" idempotent="false" extensionPoint="false" visibility="PUBLIC">
+            <input>
+                <slot name="id" type="string" format="uuid" optional="false" multivalued="false"/>
+            </input>
+        </delete>
+        <create name="createEvento" idempotent="false" extensionPoint="false" visibility="PUBLIC">
+            <input type="evento"/>
+            <output type="evento"/>
+        </create>
+        <createBulk name="createBulkEvento" idempotent="false" extensionPoint="false" visibility="PUBLIC">
+            <input>
+                <slot name="entities" type="evento" optional="false" multivalued="true"/>
+            </input>
+            <output>
+            </output>
+        </createBulk>
+        <createMerge name="createMergeEvento" idempotent="false" extensionPoint="false" visibility="PUBLIC">
+            <input type="evento"/>
+            <output type="evento"/>
+        </createMerge>
+        <retrieve name="retrieveEvento" idempotent="false" extensionPoint="false" visibility="PUBLIC">
+            <input>
+                <slot name="id" type="string" format="uuid" optional="false" multivalued="false"/>
+            </input>
+            <output type="evento"/>
+        </retrieve>
+        <list name="listEvento" idempotent="false" extensionPoint="false" visibility="PRIVATE">
+            <input>
+                <slot name="offset" type="integer" optional="false" multivalued="false"/>
+                <slot name="size" type="integer" optional="false" multivalued="false"/>
+                <slot name="orderBy" type="string" optional="false" multivalued="false"/>
+                <slot name="filter" type="string" optional="false" multivalued="false"/>
+                <slot name="displayFields" type="string" optional="false" multivalued="true"/>
+            </input>
+            <output>
+                <slot name="contents" type="evento" optional="false" multivalued="true"/>
+            </output>
+        </list>
+        <update name="updateEvento" idempotent="false" extensionPoint="false" visibility="PUBLIC">
+            <input type="evento"/>
+            <output type="evento"/>
+        </update>
+        <updateMerge name="updateMergeEvento" idempotent="false" extensionPoint="false" visibility="PUBLIC">
+            <input type="evento"/>
+            <output type="evento"/>
+        </updateMerge>
+        <delete name="deleteEvento" idempotent="false" extensionPoint="false" visibility="PUBLIC">
+            <input>
+                <slot name="id" type="string" format="uuid" optional="false" multivalued="false"/>
+            </input>
+        </delete>
+        <create name="createEvento_Ingressos" idempotent="false" extensionPoint="false" visibility="PRIVATE">
+            <input type="ingresso"/>
+            <output type="ingresso"/>
+        </create>
+        <createMerge name="createMergeEvento_Ingressos" idempotent="false" extensionPoint="false" visibility="PRIVATE">
+            <input type="ingresso"/>
+            <output type="ingresso"/>
+        </createMerge>
+        <update name="updateEvento_Ingressos" idempotent="false" extensionPoint="false" visibility="PRIVATE">
+            <input type="ingresso"/>
+            <output type="ingresso"/>
+        </update>
+        <updateMerge name="updateMergeEvento_Ingressos" idempotent="false" extensionPoint="false" visibility="PRIVATE">
+            <input type="ingresso"/>
+            <output type="ingresso"/>
+        </updateMerge>
+        <retrieve name="retrieveEvento_Ingressos" idempotent="false" extensionPoint="false" visibility="PRIVATE">
+            <input type="string" format="uuid"/>
+            <output type="ingresso"/>
+        </retrieve>
+        <delete name="deleteEvento_Ingressos" idempotent="false" extensionPoint="false" visibility="PRIVATE">
+            <input type="string" format="uuid"/>
+        </delete>
+        <list name="listEvento_Ingressos" idempotent="false" extensionPoint="false" visibility="PRIVATE">
+            <input>
+                <slot name="offset" type="integer" optional="false" multivalued="false"/>
+                <slot name="size" type="integer" optional="false" multivalued="false"/>
+                <slot name="orderBy" type="string" optional="false" multivalued="false"/>
+                <slot name="filter" type="string" optional="false" multivalued="false"/>
+                <slot name="displayFields" type="string" optional="false" multivalued="true"/>
+            </input>
+            <output>
+                <slot name="contents" type="ingresso" optional="false" multivalued="true"/>
+            </output>
+        </list>
+        <create name="createIngresso" idempotent="false" extensionPoint="false" visibility="PUBLIC">
+            <input type="ingresso"/>
+            <output type="ingresso"/>
+        </create>
+        <createBulk name="createBulkIngresso" idempotent="false" extensionPoint="false" visibility="PUBLIC">
+            <input>
+                <slot name="entities" type="ingresso" optional="false" multivalued="true"/>
+            </input>
+            <output>
+            </output>
+        </createBulk>
+        <createMerge name="createMergeIngresso" idempotent="false" extensionPoint="false" visibility="PUBLIC">
+            <input type="ingresso"/>
+            <output type="ingresso"/>
+        </createMerge>
+        <retrieve name="retrieveIngresso" idempotent="false" extensionPoint="false" visibility="PUBLIC">
+            <input>
+                <slot name="id" type="string" format="uuid" optional="false" multivalued="false"/>
+            </input>
+            <output type="ingresso"/>
+        </retrieve>
+        <list name="listIngresso" idempotent="false" extensionPoint="false" visibility="PRIVATE">
+            <input>
+                <slot name="offset" type="integer" optional="false" multivalued="false"/>
+                <slot name="size" type="integer" optional="false" multivalued="false"/>
+                <slot name="orderBy" type="string" optional="false" multivalued="false"/>
+                <slot name="filter" type="string" optional="false" multivalued="false"/>
+                <slot name="displayFields" type="string" optional="false" multivalued="true"/>
+            </input>
+            <output>
+                <slot name="contents" type="ingresso" optional="false" multivalued="true"/>
+            </output>
+        </list>
+        <update name="updateIngresso" idempotent="false" extensionPoint="false" visibility="PUBLIC">
+            <input type="ingresso"/>
+            <output type="ingresso"/>
+        </update>
+        <updateMerge name="updateMergeIngresso" idempotent="false" extensionPoint="false" visibility="PUBLIC">
+            <input type="ingresso"/>
+            <output type="ingresso"/>
+        </updateMerge>
+        <delete name="deleteIngresso" idempotent="false" extensionPoint="false" visibility="PUBLIC">
+            <input>
+                <slot name="id" type="string" format="uuid" optional="false" multivalued="false"/>
+            </input>
+        </delete>
+        <create name="createAtracao" idempotent="false" extensionPoint="false" visibility="PUBLIC">
+            <input type="atracao"/>
+            <output type="atracao"/>
+        </create>
+        <createBulk name="createBulkAtracao" idempotent="false" extensionPoint="false" visibility="PUBLIC">
+            <input>
+                <slot name="entities" type="atracao" optional="false" multivalued="true"/>
+            </input>
+            <output>
+            </output>
+        </createBulk>
+        <createMerge name="createMergeAtracao" idempotent="false" extensionPoint="false" visibility="PUBLIC">
+            <input type="atracao"/>
+            <output type="atracao"/>
+        </createMerge>
+        <retrieve name="retrieveAtracao" idempotent="false" extensionPoint="false" visibility="PUBLIC">
+            <input>
+                <slot name="id" type="string" format="uuid" optional="false" multivalued="false"/>
+            </input>
+            <output type="atracao"/>
+        </retrieve>
+        <list name="listAtracao" idempotent="false" extensionPoint="false" visibility="PRIVATE">
+            <input>
+                <slot name="offset" type="integer" optional="false" multivalued="false"/>
+                <slot name="size" type="integer" optional="false" multivalued="false"/>
+                <slot name="orderBy" type="string" optional="false" multivalued="false"/>
+                <slot name="filter" type="string" optional="false" multivalued="false"/>
+                <slot name="displayFields" type="string" optional="false" multivalued="true"/>
+            </input>
+            <output>
+                <slot name="contents" type="atracao" optional="false" multivalued="true"/>
+            </output>
+        </list>
+        <update name="updateAtracao" idempotent="false" extensionPoint="false" visibility="PUBLIC">
+            <input type="atracao"/>
+            <output type="atracao"/>
+        </update>
+        <updateMerge name="updateMergeAtracao" idempotent="false" extensionPoint="false" visibility="PUBLIC">
+            <input type="atracao"/>
+            <output type="atracao"/>
+        </updateMerge>
+        <delete name="deleteAtracao" idempotent="false" extensionPoint="false" visibility="PUBLIC">
+            <input>
+                <slot name="id" type="string" format="uuid" optional="false" multivalued="false"/>
+            </input>
+        </delete>
+    </commands>
+    <signals>
+        <inboundSignal name="cancelarEvento" extensionPoint="false" visibility="PRIVATE">
+            <payload>
+                <slot name="codigoEvento" type="string" optional="false" multivalued="false"/>
+            </payload>
+        </inboundSignal>
+        <inboundSignal name="estornarPagamentos" extensionPoint="false" visibility="PRIVATE">
+            <payload>
+                <slot name="ingressos" type="string" optional="false" multivalued="true"/>
+            </payload>
+        </inboundSignal>
+    </signals>
+    <events>
+        <event name="ingressoComprado" extensionPoint="false" visibility="PRIVATE">
+            <payload>
+                <slot name="codigoIngresso" type="string" optional="false" multivalued="false"/>
+            </payload>
+        </event>
+        <event name="pagamentoEstornado" extensionPoint="false" visibility="PRIVATE">
+            <payload>
+                <slot name="codigoIngresso" type="string" optional="false" multivalued="false"/>
+            </payload>
+        </event>
+        <event name="serviceStarted" extensionPoint="false" visibility="PRIVATE">
+            <payload>
+                <slot name="domain" type="string" optional="false" multivalued="false"/>
+                <slot name="service" type="string" optional="false" multivalued="false"/>
+            </payload>
+        </event>
+        <event name="notifyUserEvent" extensionPoint="false" visibility="PRIVATE">
+            <payload type="notifyUserEventPayload"/>
+        </event>
+        <event name="importConvidadoEvent" extensionPoint="false" visibility="PRIVATE">
+            <payload>
+                <slot name="eventpl" type="importEventStatus" optional="false" multivalued="false"/>
+            </payload>
+        </event>
+        <event name="exportConvidadoEvent" extensionPoint="false" visibility="PRIVATE">
+            <payload>
+                <slot name="eventpl" type="exportEventStatus" optional="false" multivalued="false"/>
+            </payload>
+        </event>
+        <event name="importEventoEvent" extensionPoint="false" visibility="PRIVATE">
+            <payload>
+                <slot name="eventpl" type="importEventStatus" optional="false" multivalued="false"/>
+            </payload>
+        </event>
+        <event name="exportEventoEvent" extensionPoint="false" visibility="PRIVATE">
+            <payload>
+                <slot name="eventpl" type="exportEventStatus" optional="false" multivalued="false"/>
+            </payload>
+        </event>
+        <event name="importIngressoEvent" extensionPoint="false" visibility="PRIVATE">
+            <payload>
+                <slot name="eventpl" type="importEventStatus" optional="false" multivalued="false"/>
+            </payload>
+        </event>
+        <event name="exportIngressoEvent" extensionPoint="false" visibility="PRIVATE">
+            <payload>
+                <slot name="eventpl" type="exportEventStatus" optional="false" multivalued="false"/>
+            </payload>
+        </event>
+        <event name="importAtracaoEvent" extensionPoint="false" visibility="PRIVATE">
+            <payload>
+                <slot name="eventpl" type="importEventStatus" optional="false" multivalued="false"/>
+            </payload>
+        </event>
+        <event name="exportAtracaoEvent" extensionPoint="false" visibility="PRIVATE">
+            <payload>
+                <slot name="eventpl" type="exportEventStatus" optional="false" multivalued="false"/>
+            </payload>
+        </event>
+    </events>
+    <records>
+        <record name="mensagemRetornoComCodigo">
+            <slot name="mensagemRetorno" type="string" optional="false" multivalued="false"/>
+            <slot name="codigoCadastrado" type="string" optional="false" multivalued="false"/>
+            <slot name="contemErro" type="boolean" optional="true" multivalued="false"/>
+        </record>
+        <record name="retornoCadastrarEvento">
+            <slot name="mensagemRetorno" type="string" optional="false" multivalued="false"/>
+            <slot name="codigoCadastrado" type="string" optional="false" multivalued="false"/>
+            <slot name="contemErro" type="boolean" optional="true" multivalued="false"/>
+            <slot name="nome" type="string" optional="false" multivalued="false"/>
+            <slot name="apenasColaboradores" type="boolean" optional="true" multivalued="false"/>
+            <slot name="lotacaoMaxima" type="integer" optional="false" multivalued="false"/>
+            <slot name="data" type="date" optional="false" multivalued="false"/>
+            <slot name="tipoEntradaEvento" type="tipoEntrada" optional="true" multivalued="true"/>
+        </record>
+        <record name="fieldCadastroConvidado">
+            <slot name="nome" type="string" optional="false" multivalued="false" maxLength="20"/>
+            <slot name="nomeSocial" type="string" optional="true" multivalued="false"/>
+        </record>
+        <record name="fieldCalculadora">
+            <slot name="numero1" type="double" optional="false" multivalued="false"/>
+            <slot name="numero2" type="double" optional="false" multivalued="false"/>
+        </record>
+        <record name="fieldResultadoCalculadora">
+            <slot name="resultado" type="string" optional="false" multivalued="false"/>
+        </record>
+        <record name="convidado">
+            <slot name="id" type="string" format="uuid" optional="true" multivalued="false"/>
+            <slot name="nome" type="string" optional="false" multivalued="false"/>
+            <slot name="nomeSocial" type="string" optional="true" multivalued="false"/>
+            <slot name="cpf" type="string" optional="false" multivalued="false"/>
+            <slot name="dataNascimneto" type="date" optional="false" multivalued="false"/>
+        </record>
+        <record name="evento">
+            <slot name="id" type="string" format="uuid" optional="true" multivalued="false"/>
+            <slot name="nome" type="string" optional="false" multivalued="false" maxLength="30"/>
+            <slot name="lotacaoMaxima" type="integer" optional="false" multivalued="false" minValue="1" maxValue="99999"/>
+            <slot name="dataHora" type="dateTime" optional="false" multivalued="false"/>
+            <slot name="endereco" type="string" optional="false" multivalued="false" maxLength="50"/>
+            <slot name="tipoentradaevento" type="tipoEntrada" optional="true" multivalued="true"/>
+            <slot name="ingressos" type="ingresso" optional="true" multivalued="true"/>
+        </record>
+        <record name="ingresso">
+            <slot name="id" type="string" format="uuid" optional="true" multivalued="false"/>
+            <slot name="dataHora" type="dateTime" optional="true" multivalued="false"/>
+            <slot name="convidado" type="convidado" optional="true" multivalued="false"/>
+            <slot name="quantidadeAcompanhantes" type="integer" optional="false" multivalued="false" minValue="0" maxValue="9"/>
+            <slot name="evento" type="evento" optional="true" multivalued="false"/>
+        </record>
+        <record name="atracao">
+            <slot name="id" type="string" format="uuid" optional="true" multivalued="false"/>
+            <slot name="nome" type="string" optional="false" multivalued="false"/>
+            <slot name="dataHora" type="dateTime" optional="true" multivalued="false"/>
+            <slot name="local" type="string" optional="false" multivalued="false" maxLength="30"/>
+            <slot name="evento" type="evento" optional="true" multivalued="false"/>
+        </record>
+        <record name="notifyUserEventPayload">
+            <slot name="notificationClass" type="string" optional="true" multivalued="false"/>
+            <slot name="notificationOrigin" type="string" optional="true" multivalued="false"/>
+            <slot name="notificationKind" type="userNotificationKind" optional="false" multivalued="false"/>
+            <slot name="notificationPriority" type="userNotificationPriority" optional="false" multivalued="false"/>
+            <slot name="notificationSubject" type="string" optional="false" multivalued="false"/>
+            <slot name="notificationContent" type="string" optional="false" multivalued="false"/>
+            <slot name="sourceDomain" type="string" optional="false" multivalued="false"/>
+            <slot name="sourceService" type="string" optional="false" multivalued="false"/>
+            <slot name="destinationUser" type="string" optional="false" multivalued="false"/>
+            <slot name="link" type="string" optional="true" multivalued="false"/>
+        </record>
+        <record name="emailNotifyUserEventPayload">
+            <slot name="notificationClass" type="string" optional="true" multivalued="false"/>
+            <slot name="notificationOrigin" type="string" optional="true" multivalued="false"/>
+            <slot name="notificationKind" type="userNotificationKind" optional="false" multivalued="false"/>
+            <slot name="notificationPriority" type="userNotificationPriority" optional="false" multivalued="false"/>
+            <slot name="notificationSubject" type="string" optional="false" multivalued="false"/>
+            <slot name="notificationContent" type="string" optional="false" multivalued="false"/>
+            <slot name="sourceDomain" type="string" optional="false" multivalued="false"/>
+            <slot name="sourceService" type="string" optional="false" multivalued="false"/>
+            <slot name="destinationUser" type="string" optional="false" multivalued="false"/>
+            <slot name="link" type="string" optional="true" multivalued="false"/>
+            <slot name="from" type="string" optional="false" multivalued="false"/>
+            <slot name="sendTo" type="string" optional="true" multivalued="true"/>
+            <slot name="format" type="eventEmailFormat" optional="true" multivalued="false"/>
+        </record>
+        <record name="pushNotifyUserEventPayload">
+            <slot name="notificationClass" type="string" optional="true" multivalued="false"/>
+            <slot name="notificationOrigin" type="string" optional="true" multivalued="false"/>
+            <slot name="notificationKind" type="userNotificationKind" optional="false" multivalued="false"/>
+            <slot name="notificationPriority" type="userNotificationPriority" optional="false" multivalued="false"/>
+            <slot name="notificationSubject" type="string" optional="false" multivalued="false"/>
+            <slot name="notificationContent" type="string" optional="false" multivalued="false"/>
+            <slot name="sourceDomain" type="string" optional="false" multivalued="false"/>
+            <slot name="sourceService" type="string" optional="false" multivalued="false"/>
+            <slot name="destinationUser" type="string" optional="false" multivalued="false"/>
+            <slot name="link" type="string" optional="true" multivalued="false"/>
+            <slot name="applicationId" type="string" optional="false" multivalued="false"/>
+        </record>
+        <record name="blobReference">
+            <slot name="domainName" type="string" optional="true" multivalued="false"/>
+            <slot name="serviceName" type="string" optional="true" multivalued="false"/>
+            <slot name="targetObjectId" type="string" optional="false" multivalued="false"/>
+            <slot name="targetCopyId" type="string" optional="true" multivalued="false"/>
+        </record>
+        <record name="basicErrorPayload">
+            <slot name="message" type="string" optional="true" multivalued="false"/>
+            <slot name="errorCode" type="string" optional="true" multivalued="false"/>
+        </record>
+        <record name="importError">
+            <slot name="errorType" type="errorType" optional="false" multivalued="false"/>
+            <slot name="lineNumber" type="integer" optional="false" multivalued="false"/>
+            <slot name="bean" type="string" optional="false" multivalued="false"/>
+            <slot name="message" type="string" optional="false" multivalued="false"/>
+            <slot name="exceptionClass" type="string" optional="false" multivalued="false"/>
+        </record>
+        <record name="fielddto">
+            <slot name="id" type="integer" optional="false" multivalued="false"/>
+            <slot name="name" type="string" optional="false" multivalued="false"/>
+            <slot name="fieldType" type="fieldType" optional="false" multivalued="false"/>
+            <slot name="start" type="integer" optional="true" multivalued="false"/>
+            <slot name="size" type="integer" optional="true" multivalued="false"/>
+            <slot name="maskPattern" type="string" optional="true" multivalued="false"/>
+        </record>
+        <record name="hookdto">
+            <slot name="hookFunction" type="hookFunction" optional="false" multivalued="false"/>
+            <slot name="script" type="string" optional="false" multivalued="false"/>
+        </record>
+        <record name="layoutdto">
+            <slot name="id" type="integer" optional="false" multivalued="false"/>
+            <slot name="description" type="string" optional="false" multivalued="false"/>
+            <slot name="fileFormat" type="fileFormat" optional="false" multivalued="false"/>
+            <slot name="errorStrategy" type="errorStrategy" optional="false" multivalued="false"/>
+            <slot name="delimiter" type="string" optional="true" multivalued="false"/>
+            <slot name="skipLines" type="integer" optional="false" multivalued="false"/>
+            <slot name="fields" type="fielddto" optional="false" multivalued="true"/>
+            <slot name="hooks" type="hookdto" optional="true" multivalued="true"/>
+        </record>
+        <record name="importReport">
+            <slot name="id" type="string" optional="false" multivalued="false"/>
+            <slot name="startTime" type="dateTime" optional="false" multivalued="false"/>
+            <slot name="endTime" type="dateTime" optional="false" multivalued="false"/>
+            <slot name="uri" type="string" optional="false" multivalued="false"/>
+            <slot name="beanClass" type="string" optional="false" multivalued="false"/>
+            <slot name="serviceClass" type="string" optional="false" multivalued="false"/>
+            <slot name="layout" type="layoutdto" optional="false" multivalued="false"/>
+            <slot name="sucessCount" type="integer" optional="false" multivalued="false"/>
+            <slot name="errorsCount" type="integer" optional="false" multivalued="false"/>
+            <slot name="filteredCount" type="integer" optional="false" multivalued="false"/>
+            <slot name="skippedCount" type="integer" optional="false" multivalued="false"/>
+            <slot name="importErrors" type="importError" optional="true" multivalued="true"/>
+        </record>
+        <record name="exportEventStatus">
+            <slot name="importerId" type="string" optional="false" multivalued="false"/>
+            <slot name="eventType" type="eventType" optional="false" multivalued="false"/>
+            <slot name="recordCount" type="integer" optional="false" multivalued="false"/>
+        </record>
+        <record name="importEventStatus">
+            <slot name="importerId" type="string" optional="false" multivalued="false"/>
+            <slot name="eventType" type="eventType" optional="false" multivalued="false"/>
+            <slot name="status" type="status" optional="false" multivalued="false"/>
+            <slot name="errorMessage" type="string" optional="true" multivalued="false"/>
+            <slot name="recordCount" type="integer" optional="false" multivalued="false"/>
+            <slot name="importReport" type="importReport" optional="true" multivalued="false"/>
+        </record>
+        <record name="exportConfig">
+            <slot name="uri" type="string" optional="false" multivalued="false"/>
+            <slot name="layout" type="layoutdto" optional="false" multivalued="false"/>
+            <slot name="async" type="boolean" optional="false" multivalued="false"/>
+            <slot name="errorStrategy" type="string" optional="false" multivalued="false"/>
+        </record>
+        <record name="importConfig">
+            <slot name="uri" type="string" optional="false" multivalued="false"/>
+            <slot name="layout" type="layoutdto" optional="false" multivalued="false"/>
+            <slot name="async" type="boolean" optional="false" multivalued="false"/>
+            <slot name="batchSize" type="integer" optional="false" multivalued="false"/>
+            <slot name="errorStrategy" type="errorStrategy" optional="false" multivalued="false"/>
+        </record>
+        <record name="dependency">
+            <slot name="domain" type="string" optional="false" multivalued="false"/>
+            <slot name="service" type="string" optional="false" multivalued="false"/>
+            <slot name="version" type="string" optional="false" multivalued="false"/>
+        </record>
+    </records>
+    <enumerations>
+        <enumeration name="tipoEntrada">
+            <value name="LIVRE"/>
+            <value name="NO_LOCAL"/>
+            <value name="ANTECIPADO"/>
+            <value name="LISTA"/>
+        </enumeration>
+        <enumeration name="resultadoCadastradoConvidado">
+            <value name="CADASTRADO_NOVO"/>
+            <value name="NAO_CADASTRADO_EXISTENTE"/>
+            <value name="NAO_CADASTRADO_ERRO"/>
+        </enumeration>
+        <enumeration name="userNotificationKind">
+            <value name="Operational"/>
+            <value name="Management"/>
+            <value name="News"/>
+        </enumeration>
+        <enumeration name="userNotificationPriority">
+            <value name="Error"/>
+            <value name="Alert"/>
+            <value name="None"/>
+        </enumeration>
+        <enumeration name="eventEmailFormat">
+            <value name="HTML"/>
+            <value name="PLAIN_TEXT"/>
+        </enumeration>
+        <enumeration name="fieldType">
+            <value name="BINARY"/>
+            <value name="BOOLEAN"/>
+            <value name="DATE"/>
+            <value name="DATETIME"/>
+            <value name="LOCALDATETIME"/>
+            <value name="DOUBLE"/>
+            <value name="ENUM"/>
+            <value name="INTEGER"/>
+            <value name="MONEY"/>
+            <value name="STRING"/>
+            <value name="TIME"/>
+        </enumeration>
+        <enumeration name="fileFormat">
+            <value name="CSV"/>
+            <value name="FLAT"/>
+            <value name="JSON"/>
+            <value name="XML"/>
+        </enumeration>
+        <enumeration name="hookFunction">
+            <value name="BEFORE_PARSE"/>
+            <value name="BEFORE_CONVERSION"/>
+            <value name="ON_ERROR"/>
+            <value name="VALIDATE"/>
+        </enumeration>
+        <enumeration name="eventType">
+            <value name="CHUNK"/>
+            <value name="DOWNLOAD"/>
+            <value name="ERROR"/>
+            <value name="FINISH"/>
+            <value name="START"/>
+        </enumeration>
+        <enumeration name="errorStrategy">
+            <value name="CALL_SCRIPT"/>
+            <value name="IGNORE"/>
+            <value name="STOP"/>
+        </enumeration>
+        <enumeration name="status">
+            <value name="DONE"/>
+            <value name="DONE_WITH_ERRORS"/>
+            <value name="DOWNLOADING"/>
+            <value name="ERROR"/>
+            <value name="NOT_STARTED"/>
+            <value name="RUNNING"/>
+        </enumeration>
+        <enumeration name="errorType">
+            <value name="CONVERT_ERROR"/>
+            <value name="SERVICE_ERROR"/>
+        </enumeration>
+    </enumerations>
+</service>

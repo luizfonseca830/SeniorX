@@ -1,0 +1,781 @@
+{
+	"version": "0.0.1",
+	"edlVersion": "31.1.1",
+	"app": "hello-world",
+	"domain": "my_domain",
+	"service": "my_service",
+	"enumType": "string",
+	"enumerations": {
+		"tipoEntrada": {
+			"name": "tipoEntrada",
+			"values": [
+				"LIVRE",
+				"NO_LOCAL",
+				"ANTECIPADO",
+				"LISTA"
+			]
+		}
+	},
+	"entities": {
+		"convidado": {
+			"id": "id",
+			"name": "convidado",
+			"customizable": true,
+			"external": false,
+			"slots": {
+				"id": {
+					"name": "id",
+					"type": "string",
+					"format": "uuid",
+					"optional": true,
+					"hidden": false,
+					"multivalued": false,
+					"readOnly": true
+				},
+				"nome": {
+					"name": "nome",
+					"type": "string",
+					"optional": false,
+					"hidden": false,
+					"multivalued": false,
+					"readOnly": false
+				},
+				"nomeSocial": {
+					"name": "nomeSocial",
+					"type": "string",
+					"optional": true,
+					"hidden": false,
+					"multivalued": false,
+					"readOnly": false
+				},
+				"cpf": {
+					"name": "cpf",
+					"type": "string",
+					"optional": false,
+					"hidden": false,
+					"multivalued": false,
+					"readOnly": false
+				},
+				"dataNascimneto": {
+					"name": "dataNascimneto",
+					"type": "date",
+					"optional": false,
+					"hidden": false,
+					"multivalued": false,
+					"readOnly": false
+				}
+			},
+			"lookup": {
+				"searchFields": [
+					{
+						"name": "id",
+						"optional": true,
+						"multiple": false
+					},
+					{
+						"name": "nome",
+						"optional": true,
+						"multiple": false
+					},
+					{
+						"name": "nomeSocial",
+						"optional": true,
+						"multiple": false
+					},
+					{
+						"name": "cpf",
+						"optional": true,
+						"multiple": false
+					},
+					{
+						"name": "dataNascimneto",
+						"optional": true,
+						"multiple": false
+					}
+				],
+				"displayFields": [
+					"id",
+					"nome",
+					"nomeSocial",
+					"cpf",
+					"dataNascimneto"
+				]
+			},
+			"advancedSearch": {
+				"searchFields": [
+					{
+						"name": "id",
+						"optional": true,
+						"multiple": false
+					},
+					{
+						"name": "nome",
+						"optional": true,
+						"multiple": false
+					},
+					{
+						"name": "nomeSocial",
+						"optional": true,
+						"multiple": false
+					},
+					{
+						"name": "cpf",
+						"optional": true,
+						"multiple": false
+					},
+					{
+						"name": "dataNascimneto",
+						"optional": true,
+						"multiple": false
+					}
+				],
+				"displayFields": [
+					"id",
+					"nome",
+					"nomeSocial",
+					"cpf",
+					"dataNascimneto"
+				]
+			}
+		},
+		"evento": {
+			"id": "id",
+			"name": "evento",
+			"customizable": true,
+			"external": false,
+			"slots": {
+				"id": {
+					"name": "id",
+					"type": "string",
+					"format": "uuid",
+					"optional": true,
+					"hidden": false,
+					"multivalued": false,
+					"readOnly": true
+				},
+				"nome": {
+					"name": "nome",
+					"type": "string",
+					"optional": false,
+					"hidden": false,
+					"multivalued": false,
+					"readOnly": false,
+					"maxLength": 30
+				},
+				"lotacaoMaxima": {
+					"name": "lotacaoMaxima",
+					"type": "integer",
+					"thousandSeparator": ".",
+					"optional": false,
+					"hidden": false,
+					"multivalued": false,
+					"readOnly": false,
+					"minValue": 1,
+					"maxValue": 99999
+				},
+				"dataHora": {
+					"name": "dataHora",
+					"type": "dateTime",
+					"optional": false,
+					"hidden": false,
+					"multivalued": false,
+					"readOnly": false
+				},
+				"endereco": {
+					"name": "endereco",
+					"type": "string",
+					"optional": false,
+					"hidden": false,
+					"multivalued": false,
+					"readOnly": false,
+					"maxLength": 50
+				},
+				"tipoentradaevento": {
+					"name": "tipoentradaevento",
+					"type": "tipoEntrada",
+					"optional": true,
+					"hidden": false,
+					"multivalued": true,
+					"readOnly": false
+				},
+				"ingressos": {
+					"name": "ingressos",
+					"type": "ingresso",
+					"optional": true,
+					"hidden": false,
+					"multivalued": true,
+					"readOnly": false
+				}
+			},
+			"lookup": {
+				"searchFields": [
+					{
+						"name": "id",
+						"optional": true,
+						"multiple": false
+					},
+					{
+						"name": "nome",
+						"optional": true,
+						"multiple": false
+					},
+					{
+						"name": "lotacaoMaxima",
+						"optional": true,
+						"multiple": false
+					},
+					{
+						"name": "dataHora",
+						"optional": true,
+						"multiple": false
+					},
+					{
+						"name": "endereco",
+						"optional": true,
+						"multiple": false
+					},
+					{
+						"name": "tipoentradaevento",
+						"optional": true,
+						"multiple": false
+					}
+				],
+				"displayFields": [
+					"id",
+					"nome",
+					"lotacaoMaxima",
+					"dataHora",
+					"endereco",
+					"tipoentradaevento"
+				]
+			},
+			"advancedSearch": {
+				"searchFields": [
+					{
+						"name": "id",
+						"optional": true,
+						"multiple": false
+					},
+					{
+						"name": "nome",
+						"optional": true,
+						"multiple": false
+					},
+					{
+						"name": "lotacaoMaxima",
+						"optional": true,
+						"multiple": false
+					},
+					{
+						"name": "dataHora",
+						"optional": true,
+						"multiple": false
+					},
+					{
+						"name": "endereco",
+						"optional": true,
+						"multiple": false
+					},
+					{
+						"name": "tipoentradaevento",
+						"optional": true,
+						"multiple": false
+					}
+				],
+				"displayFields": [
+					"id",
+					"nome",
+					"lotacaoMaxima",
+					"dataHora",
+					"endereco",
+					"tipoentradaevento"
+				]
+			},
+			"relationships": {
+				"ingresso": [
+					{
+						"type": "composition",
+						"attribute": "ingressos",
+						"ownerEntity": "evento",
+						"entityName": "ingresso",
+						"optional": true,
+						"filterDependent": false,
+						"multivalued": true,
+						"lookup": {
+							"searchFields": [
+								{
+									"name": "id",
+									"optional": true,
+									"multiple": false
+								},
+								{
+									"name": "dataHora",
+									"optional": true,
+									"multiple": false
+								},
+								{
+									"name": "quantidadeAcompanhantes",
+									"optional": true,
+									"multiple": false
+								}
+							],
+							"displayFields": [
+								"id",
+								"dataHora",
+								"quantidadeAcompanhantes"
+							]
+						},
+						"advancedSearch": {
+							"searchFields": [
+								{
+									"name": "id",
+									"optional": true,
+									"multiple": false
+								},
+								{
+									"name": "dataHora",
+									"optional": true,
+									"multiple": false
+								},
+								{
+									"name": "quantidadeAcompanhantes",
+									"optional": true,
+									"multiple": false
+								}
+							],
+							"displayFields": [
+								"id",
+								"dataHora",
+								"quantidadeAcompanhantes"
+							]
+						}
+					}
+				]
+			}
+		},
+		"ingresso": {
+			"id": "id",
+			"name": "ingresso",
+			"customizable": true,
+			"external": false,
+			"slots": {
+				"id": {
+					"name": "id",
+					"type": "string",
+					"format": "uuid",
+					"optional": true,
+					"hidden": false,
+					"multivalued": false,
+					"readOnly": true
+				},
+				"dataHora": {
+					"name": "dataHora",
+					"type": "dateTime",
+					"optional": true,
+					"hidden": false,
+					"multivalued": false,
+					"readOnly": false
+				},
+				"convidado": {
+					"name": "convidado",
+					"type": "convidado",
+					"optional": true,
+					"hidden": false,
+					"multivalued": false,
+					"readOnly": false
+				},
+				"quantidadeAcompanhantes": {
+					"name": "quantidadeAcompanhantes",
+					"type": "integer",
+					"thousandSeparator": ".",
+					"optional": false,
+					"hidden": false,
+					"multivalued": false,
+					"readOnly": false,
+					"minValue": 0,
+					"maxValue": 9
+				},
+				"evento": {
+					"name": "evento",
+					"type": "evento",
+					"optional": true,
+					"hidden": false,
+					"multivalued": false,
+					"readOnly": false
+				}
+			},
+			"lookup": {
+				"searchFields": [
+					{
+						"name": "id",
+						"optional": true,
+						"multiple": false
+					},
+					{
+						"name": "dataHora",
+						"optional": true,
+						"multiple": false
+					},
+					{
+						"name": "quantidadeAcompanhantes",
+						"optional": true,
+						"multiple": false
+					}
+				],
+				"displayFields": [
+					"id",
+					"dataHora",
+					"quantidadeAcompanhantes"
+				]
+			},
+			"advancedSearch": {
+				"searchFields": [
+					{
+						"name": "id",
+						"optional": true,
+						"multiple": false
+					},
+					{
+						"name": "dataHora",
+						"optional": true,
+						"multiple": false
+					},
+					{
+						"name": "quantidadeAcompanhantes",
+						"optional": true,
+						"multiple": false
+					}
+				],
+				"displayFields": [
+					"id",
+					"dataHora",
+					"quantidadeAcompanhantes"
+				]
+			},
+			"relationships": {
+				"convidado": [
+					{
+						"type": "aggregation",
+						"attribute": "convidado",
+						"ownerEntity": "ingresso",
+						"entityName": "convidado",
+						"optional": true,
+						"filterDependent": false,
+						"multivalued": false,
+						"lookup": {
+							"searchFields": [
+								{
+									"name": "id",
+									"optional": true,
+									"multiple": false
+								},
+								{
+									"name": "nome",
+									"optional": true,
+									"multiple": false
+								},
+								{
+									"name": "nomeSocial",
+									"optional": true,
+									"multiple": false
+								},
+								{
+									"name": "cpf",
+									"optional": true,
+									"multiple": false
+								},
+								{
+									"name": "dataNascimneto",
+									"optional": true,
+									"multiple": false
+								}
+							],
+							"displayFields": [
+								"id",
+								"nome",
+								"nomeSocial",
+								"cpf",
+								"dataNascimneto"
+							]
+						},
+						"advancedSearch": {
+							"searchFields": [
+								{
+									"name": "id",
+									"optional": true,
+									"multiple": false
+								},
+								{
+									"name": "nome",
+									"optional": true,
+									"multiple": false
+								},
+								{
+									"name": "nomeSocial",
+									"optional": true,
+									"multiple": false
+								},
+								{
+									"name": "cpf",
+									"optional": true,
+									"multiple": false
+								},
+								{
+									"name": "dataNascimneto",
+									"optional": true,
+									"multiple": false
+								}
+							],
+							"displayFields": [
+								"id",
+								"nome",
+								"nomeSocial",
+								"cpf",
+								"dataNascimneto"
+							]
+						}
+					}
+				]
+			}
+		},
+		"atracao": {
+			"id": "id",
+			"name": "atracao",
+			"customizable": true,
+			"external": false,
+			"slots": {
+				"id": {
+					"name": "id",
+					"type": "string",
+					"format": "uuid",
+					"optional": true,
+					"hidden": false,
+					"multivalued": false,
+					"readOnly": true
+				},
+				"nome": {
+					"name": "nome",
+					"type": "string",
+					"optional": false,
+					"hidden": false,
+					"multivalued": false,
+					"readOnly": false
+				},
+				"dataHora": {
+					"name": "dataHora",
+					"type": "dateTime",
+					"optional": true,
+					"hidden": false,
+					"multivalued": false,
+					"readOnly": false
+				},
+				"local": {
+					"name": "local",
+					"type": "string",
+					"optional": false,
+					"hidden": false,
+					"multivalued": false,
+					"readOnly": false,
+					"maxLength": 30
+				},
+				"evento": {
+					"name": "evento",
+					"type": "evento",
+					"optional": true,
+					"hidden": false,
+					"multivalued": false,
+					"readOnly": false
+				}
+			},
+			"lookup": {
+				"searchFields": [
+					{
+						"name": "id",
+						"optional": true,
+						"multiple": false
+					},
+					{
+						"name": "nome",
+						"optional": true,
+						"multiple": false
+					},
+					{
+						"name": "dataHora",
+						"optional": true,
+						"multiple": false
+					},
+					{
+						"name": "local",
+						"optional": true,
+						"multiple": false
+					}
+				],
+				"displayFields": [
+					"id",
+					"nome",
+					"dataHora",
+					"local"
+				]
+			},
+			"advancedSearch": {
+				"searchFields": [
+					{
+						"name": "id",
+						"optional": true,
+						"multiple": false
+					},
+					{
+						"name": "nome",
+						"optional": true,
+						"multiple": false
+					},
+					{
+						"name": "dataHora",
+						"optional": true,
+						"multiple": false
+					},
+					{
+						"name": "local",
+						"optional": true,
+						"multiple": false
+					}
+				],
+				"displayFields": [
+					"id",
+					"nome",
+					"dataHora",
+					"local"
+				]
+			},
+			"relationships": {
+				"evento": [
+					{
+						"type": "aggregation",
+						"attribute": "evento",
+						"ownerEntity": "atracao",
+						"entityName": "evento",
+						"optional": true,
+						"filterDependent": false,
+						"multivalued": false,
+						"lookup": {
+							"searchFields": [
+								{
+									"name": "id",
+									"optional": true,
+									"multiple": false
+								},
+								{
+									"name": "nome",
+									"optional": true,
+									"multiple": false
+								},
+								{
+									"name": "lotacaoMaxima",
+									"optional": true,
+									"multiple": false
+								},
+								{
+									"name": "dataHora",
+									"optional": true,
+									"multiple": false
+								},
+								{
+									"name": "endereco",
+									"optional": true,
+									"multiple": false
+								},
+								{
+									"name": "tipoentradaevento",
+									"optional": true,
+									"multiple": false
+								}
+							],
+							"displayFields": [
+								"id",
+								"nome",
+								"lotacaoMaxima",
+								"dataHora",
+								"endereco",
+								"tipoentradaevento"
+							]
+						},
+						"advancedSearch": {
+							"searchFields": [
+								{
+									"name": "id",
+									"optional": true,
+									"multiple": false
+								},
+								{
+									"name": "nome",
+									"optional": true,
+									"multiple": false
+								},
+								{
+									"name": "lotacaoMaxima",
+									"optional": true,
+									"multiple": false
+								},
+								{
+									"name": "dataHora",
+									"optional": true,
+									"multiple": false
+								},
+								{
+									"name": "endereco",
+									"optional": true,
+									"multiple": false
+								},
+								{
+									"name": "tipoentradaevento",
+									"optional": true,
+									"multiple": false
+								}
+							],
+							"displayFields": [
+								"id",
+								"nome",
+								"lotacaoMaxima",
+								"dataHora",
+								"endereco",
+								"tipoentradaevento"
+							]
+						}
+					}
+				]
+			}
+		}
+	},
+	"translations": {
+		"my_domain.my_service.atracao": "Entidade que representa a atração do evento",
+		"my_domain.my_service.atracao_id": "ID da atracao",
+		"my_domain.my_service.atracao_nome": "nome da atracao",
+		"my_domain.my_service.atracao_data_hora": "data e hora da atracao",
+		"my_domain.my_service.atracao_local": "local da atracao",
+		"my_domain.my_service.atracao_evento": "Evento que a atracao pertence",
+		"my_domain.my_service.convidado": "Entidade que representa o convidado de evento",
+		"my_domain.my_service.convidado_id": "ID do convidado",
+		"my_domain.my_service.convidado_nome": "Nome do convidado",
+		"my_domain.my_service.convidado_nome_social": "Nome social do convidado",
+		"my_domain.my_service.convidado_cpf": "CPF do convidado",
+		"my_domain.my_service.convidado_data_nascimneto": "Data de nascimento do convidado",
+		"my_domain.my_service.evento": "Entidade que representa o evento",
+		"my_domain.my_service.evento_id": "ID do evento",
+		"my_domain.my_service.evento_nome": "Nome do evento",
+		"my_domain.my_service.evento_lotacao_maxima": "",
+		"my_domain.my_service.evento_data_hora": "Data e hora do evento",
+		"my_domain.my_service.evento_endereco": "Enderenço do evento",
+		"my_domain.my_service.evento_tipoentradaevento": "Tipos de entrada permitidos no evento",
+		"my_domain.my_service.evento_ingressos": "Ingressos do evento",
+		"my_domain.my_service.ingresso": "Entidade que representa o ingresso",
+		"my_domain.my_service.ingresso_id": "ID do ingresso",
+		"my_domain.my_service.ingresso_data_hora": "Data e hora do evento. Opcional, pois a data e hora estão no evento",
+		"my_domain.my_service.ingresso_convidado": "Convidado dono do ingresso",
+		"my_domain.my_service.ingresso_quantidade_acompanhantes": "Quantidade de acompanhantes do ingresso",
+		"my_domain.my_service.ingresso_evento": "Evento que o ingresso pertence",
+		"my_domain.my_service.tipo_entrada_livre": "",
+		"my_domain.my_service.tipo_entrada_nolocal": "",
+		"my_domain.my_service.tipo_entrada_antecipado": "",
+		"my_domain.my_service.tipo_entrada_lista": ""
+	}
+}

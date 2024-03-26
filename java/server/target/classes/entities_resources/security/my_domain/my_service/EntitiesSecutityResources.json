@@ -1,0 +1,98 @@
+"resources": [
+	{
+		"name": "convidado",
+		"label": "platform.authorization.my_domain_my_service_entities_convidado_label",
+		"description": "platform.authorization.my_domain_my_service_entities_convidado_description",
+		"URI": "res://senior.com.br/my_domain/my_service/entities/convidado",
+		"actions" : [
+		    {
+		    	"name": "Incluir",
+		    	"label": "platform.authorization.my_domain_my_service_entities_convidado_action_incluir_label"
+		    },
+		    {
+		    	"name": "Editar",
+		    	"label": "platform.authorization.my_domain_my_service_entities_convidado_action_editar_label"
+		    },
+		    {
+		    	"name": "Excluir",
+		    	"label": "platform.authorization.my_domain_my_service_entities_convidado_action_excluir_label"
+		    },
+		    {
+		    	"name": "Visualizar",
+		    	"label": "platform.authorization.my_domain_my_service_entities_convidado_action_visualizar_label"
+		    }
+		]
+	},
+	{
+		"name": "evento",
+		"label": "platform.authorization.my_domain_my_service_entities_evento_label",
+		"description": "platform.authorization.my_domain_my_service_entities_evento_description",
+		"URI": "res://senior.com.br/my_domain/my_service/entities/evento",
+		"actions" : [
+		    {
+		    	"name": "Incluir",
+		    	"label": "platform.authorization.my_domain_my_service_entities_evento_action_incluir_label"
+		    },
+		    {
+		    	"name": "Editar",
+		    	"label": "platform.authorization.my_domain_my_service_entities_evento_action_editar_label"
+		    },
+		    {
+		    	"name": "Excluir",
+		    	"label": "platform.authorization.my_domain_my_service_entities_evento_action_excluir_label"
+		    },
+		    {
+		    	"name": "Visualizar",
+		    	"label": "platform.authorization.my_domain_my_service_entities_evento_action_visualizar_label"
+		    }
+		]
+	},
+	{
+		"name": "ingresso",
+		"label": "platform.authorization.my_domain_my_service_entities_ingresso_label",
+		"description": "platform.authorization.my_domain_my_service_entities_ingresso_description",
+		"URI": "res://senior.com.br/my_domain/my_service/entities/ingresso",
+		"actions" : [
+		    {
+		    	"name": "Incluir",
+		    	"label": "platform.authorization.my_domain_my_service_entities_ingresso_action_incluir_label"
+		    },
+		    {
+		    	"name": "Editar",
+		    	"label": "platform.authorization.my_domain_my_service_entities_ingresso_action_editar_label"
+		    },
+		    {
+		    	"name": "Excluir",
+		    	"label": "platform.authorization.my_domain_my_service_entities_ingresso_action_excluir_label"
+		    },
+		    {
+		    	"name": "Visualizar",
+		    	"label": "platform.authorization.my_domain_my_service_entities_ingresso_action_visualizar_label"
+		    }
+		]
+	},
+	{
+		"name": "atracao",
+		"label": "platform.authorization.my_domain_my_service_entities_atracao_label",
+		"description": "platform.authorization.my_domain_my_service_entities_atracao_description",
+		"URI": "res://senior.com.br/my_domain/my_service/entities/atracao",
+		"actions" : [
+		    {
+		    	"name": "Incluir",
+		    	"label": "platform.authorization.my_domain_my_service_entities_atracao_action_incluir_label"
+		    },
+		    {
+		    	"name": "Editar",
+		    	"label": "platform.authorization.my_domain_my_service_entities_atracao_action_editar_label"
+		    },
+		    {
+		    	"name": "Excluir",
+		    	"label": "platform.authorization.my_domain_my_service_entities_atracao_action_excluir_label"
+		    },
+		    {
+		    	"name": "Visualizar",
+		    	"label": "platform.authorization.my_domain_my_service_entities_atracao_action_visualizar_label"
+		    }
+		]
+	}
+]
