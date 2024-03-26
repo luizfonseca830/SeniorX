@@ -438,6 +438,49 @@ public class MyServiceStubImpl  implements MyServiceStub {
 		return impl.getAllConvidadosRequest(input, timeout, TimeUnit.MILLISECONDS);
 	}
 	/**
+	 * Chamada síncrona para o método getConvidadosByCpf
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 * @throws MyServiceMessageException quando um erro com payload for retornado pela mensageria
+	 */
+	@Override
+	public GetConvidadosByCpfOutput getConvidadosByCpf(GetConvidadosByCpfInput input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.GetConvidadosByCpfImpl impl = new br.com.senior.mydomain.myservice.impl.GetConvidadosByCpfImpl(messengerSupplier, userId, messageSupplier);
+		return impl.getConvidadosByCpf(input, timeout);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método getConvidadosByCpf
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 */
+	@Override
+	public void getConvidadosByCpf(GetConvidadosByCpfInput input) {
+		br.com.senior.mydomain.myservice.impl.GetConvidadosByCpfImpl impl = new br.com.senior.mydomain.myservice.impl.GetConvidadosByCpfImpl(messengerSupplier, userId, messageSupplier);
+		impl.getConvidadosByCpf(input);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método getConvidadosByCpf
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 */
+	@Override
+	public CompletableFuture<GetConvidadosByCpfOutput> getConvidadosByCpfRequest(GetConvidadosByCpfInput input) {
+		return this.getConvidadosByCpfRequest(input, 0l);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método getConvidadosByCpf
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	*/
+	@Override
+	public CompletableFuture<GetConvidadosByCpfOutput> getConvidadosByCpfRequest(GetConvidadosByCpfInput input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.GetConvidadosByCpfImpl impl = new br.com.senior.mydomain.myservice.impl.GetConvidadosByCpfImpl(messengerSupplier, userId, messageSupplier);
+		return impl.getConvidadosByCpfRequest(input, timeout, TimeUnit.MILLISECONDS);
+	}
+	/**
 	 * Chamada síncrona para o método getIdsByNomeConvidado
 	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
 	 * 
@@ -481,6 +524,49 @@ public class MyServiceStubImpl  implements MyServiceStub {
 		return impl.getIdsByNomeConvidadoRequest(input, timeout, TimeUnit.MILLISECONDS);
 	}
 	/**
+	 * Chamada síncrona para o método getAtracaoByNomeEvento
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 * @throws MyServiceMessageException quando um erro com payload for retornado pela mensageria
+	 */
+	@Override
+	public GetAtracaoByNomeEventoOutput getAtracaoByNomeEvento(GetAtracaoByNomeEventoInput input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.GetAtracaoByNomeEventoImpl impl = new br.com.senior.mydomain.myservice.impl.GetAtracaoByNomeEventoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.getAtracaoByNomeEvento(input, timeout);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método getAtracaoByNomeEvento
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 */
+	@Override
+	public void getAtracaoByNomeEvento(GetAtracaoByNomeEventoInput input) {
+		br.com.senior.mydomain.myservice.impl.GetAtracaoByNomeEventoImpl impl = new br.com.senior.mydomain.myservice.impl.GetAtracaoByNomeEventoImpl(messengerSupplier, userId, messageSupplier);
+		impl.getAtracaoByNomeEvento(input);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método getAtracaoByNomeEvento
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 */
+	@Override
+	public CompletableFuture<GetAtracaoByNomeEventoOutput> getAtracaoByNomeEventoRequest(GetAtracaoByNomeEventoInput input) {
+		return this.getAtracaoByNomeEventoRequest(input, 0l);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método getAtracaoByNomeEvento
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	*/
+	@Override
+	public CompletableFuture<GetAtracaoByNomeEventoOutput> getAtracaoByNomeEventoRequest(GetAtracaoByNomeEventoInput input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.GetAtracaoByNomeEventoImpl impl = new br.com.senior.mydomain.myservice.impl.GetAtracaoByNomeEventoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.getAtracaoByNomeEventoRequest(input, timeout, TimeUnit.MILLISECONDS);
+	}
+	/**
 	 * Chamada síncrona para o método updateConvidadoNomeById
 	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
 	 * 
@@ -522,6 +608,49 @@ public class MyServiceStubImpl  implements MyServiceStub {
 	public CompletableFuture<UpdateConvidadoNomeByIdOutput> updateConvidadoNomeByIdRequest(UpdateConvidadoNomeByIdInput input, long timeout) {
 		br.com.senior.mydomain.myservice.impl.UpdateConvidadoNomeByIdImpl impl = new br.com.senior.mydomain.myservice.impl.UpdateConvidadoNomeByIdImpl(messengerSupplier, userId, messageSupplier);
 		return impl.updateConvidadoNomeByIdRequest(input, timeout, TimeUnit.MILLISECONDS);
+	}
+	/**
+	 * Chamada síncrona para o método updateConvidadoNomeSocialByNome
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 * @throws MyServiceMessageException quando um erro com payload for retornado pela mensageria
+	 */
+	@Override
+	public UpdateConvidadoNomeSocialByNomeOutput updateConvidadoNomeSocialByNome(UpdateConvidadoNomeSocialByNomeInput input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.UpdateConvidadoNomeSocialByNomeImpl impl = new br.com.senior.mydomain.myservice.impl.UpdateConvidadoNomeSocialByNomeImpl(messengerSupplier, userId, messageSupplier);
+		return impl.updateConvidadoNomeSocialByNome(input, timeout);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método updateConvidadoNomeSocialByNome
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 */
+	@Override
+	public void updateConvidadoNomeSocialByNome(UpdateConvidadoNomeSocialByNomeInput input) {
+		br.com.senior.mydomain.myservice.impl.UpdateConvidadoNomeSocialByNomeImpl impl = new br.com.senior.mydomain.myservice.impl.UpdateConvidadoNomeSocialByNomeImpl(messengerSupplier, userId, messageSupplier);
+		impl.updateConvidadoNomeSocialByNome(input);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método updateConvidadoNomeSocialByNome
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 */
+	@Override
+	public CompletableFuture<UpdateConvidadoNomeSocialByNomeOutput> updateConvidadoNomeSocialByNomeRequest(UpdateConvidadoNomeSocialByNomeInput input) {
+		return this.updateConvidadoNomeSocialByNomeRequest(input, 0l);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método updateConvidadoNomeSocialByNome
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	*/
+	@Override
+	public CompletableFuture<UpdateConvidadoNomeSocialByNomeOutput> updateConvidadoNomeSocialByNomeRequest(UpdateConvidadoNomeSocialByNomeInput input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.UpdateConvidadoNomeSocialByNomeImpl impl = new br.com.senior.mydomain.myservice.impl.UpdateConvidadoNomeSocialByNomeImpl(messengerSupplier, userId, messageSupplier);
+		return impl.updateConvidadoNomeSocialByNomeRequest(input, timeout, TimeUnit.MILLISECONDS);
 	}
 	/**
 	 * Chamada síncrona para o método cadastrarEvento

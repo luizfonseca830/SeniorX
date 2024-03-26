@@ -4,5 +4,5 @@ import br.com.senior.mydomain.myservice.AtracaoBaseRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface atracaoRepository extends AtracaoBaseRepository {
+public interface AtracaoRepository extends AtracaoBaseRepository, AtracaoRepositoryCustom {
 }

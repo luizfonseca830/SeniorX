@@ -79,12 +79,29 @@ service my_service {
             }
         }
 
+        query getConvidadosByCpf{
+            in {
+                cpf: string
+            }out {
+                nomeConvidado: string*
+            }
+        }
+
         query getIdsByNomeConvidado {
             in{
                 nomeConvidado: string
             }
             out {
                 id: string*
+            }
+        }
+
+        query getAtracaoByNomeEvento{
+            in {
+                nomeEvento: string
+            }
+            out{
+                nomeAtracao: string*
             }
         }
 
@@ -96,6 +113,16 @@ service my_service {
             out {
                 id: string
                 nome: string
+            }
+        }
+
+        action updateConvidadoNomeSocialByNome{
+            in {
+                nome: string
+                nomeSocial: string
+            }
+            out {
+                id: string*
             }
         }
 

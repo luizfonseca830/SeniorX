@@ -2,6 +2,7 @@ package br.com.senior.mydomain.myservice.convidado;
 
 import br.com.senior.mydomain.myservice.QConvidadoEntity;
 import com.querydsl.jpa.impl.JPAQuery;
+import com.querydsl.jpa.impl.JPAUpdateClause;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -30,5 +31,15 @@ public class ConvidadoRepositoryCustomImpl implements ConvidadoRepositoryCustom 
                 .select(qConvidado.id)
                 .from(qConvidado)
                 .fetch();
+    }
+
+    @Override
+    public void updateNomeSocialByNome(String nome, String nomeSocial) {
+        QConvidadoEntity convidadoEntity = QConvidadoEntity.convidadoEntity;
+
+        new JPAUpdateClause(entityManager, convidadoEntity)
+                .set(convidadoEntity.nomeSocial, nomeSocial)
+                .where(convidadoEntity.nome.eq(nome))
+                .execute();
     }
 }

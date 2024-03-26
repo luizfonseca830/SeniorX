@@ -10,6 +10,7 @@ import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Service
 public class ConvidadoService {
@@ -24,6 +25,10 @@ public class ConvidadoService {
         return convidadoRepository.findByNomeWithQuery(nome);
     }
 
+    public List<ConvidadoEntity> getConvidadosByCpf(String cpf){
+        return convidadoRepository.findByCpf(cpf);
+    }
+
     @Transactional
     public ConvidadoEntity updateNomeById(String nome, String id) {
 
@@ -35,6 +40,17 @@ public class ConvidadoService {
         } else {
             throw new ServiceException(ErrorCategory.BAD_REQUEST, "ID inválido");
         }
+    }
+
+    @Transactional
+    public List<String> updateConvidadoNomeSocialByNome(String nome , String nomeSocial){
+        final List<ConvidadoEntity> byNome = convidadoRepository.findByNome(nome);
+
+        List<String> ids = byNome.stream().map(c -> c.getId().toString()).collect(Collectors.toList());
+
+        convidadoRepository.updateNomeSocialByNome(nome, nomeSocial);
+
+        return ids;
     }
 
     public String findNomeByIdCustom(String id) {

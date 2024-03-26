@@ -306,6 +306,33 @@
             "visibility" : "PRIVATE",
             "version": "0"
         },
+        "getAtracaoByNomeEvento": {
+            "endpointType" : "command",
+            "kind": "query",
+            "priority" : "NORMAL",
+            "idempotent": true,
+            "input" : {
+                "nomeEvento" : {
+                    "type": "string",
+                    "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                }
+            },
+            "output" : {
+                "nomeAtracao" : {
+                    "type": "string",
+                    "optional": false,
+                    "multivalued": true,
+                    "readOnly": false
+                }
+            },
+            "extensionPoint" : false,
+            "responses" : {
+            },
+            "visibility" : "PRIVATE",
+            "version": "0"
+        },
         "createMergeConvidado": {
             "endpointType" : "command",
             "kind": "createMerge",
@@ -1310,6 +1337,38 @@
             "visibility" : "PRIVATE",
             "version": "0"
         },
+        "updateConvidadoNomeSocialByNome": {
+            "endpointType" : "command",
+            "kind": "action",
+            "priority" : "NORMAL",
+            "input" : {
+                "nome" : {
+                    "type": "string",
+                    "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                },
+                "nomeSocial" : {
+                    "type": "string",
+                    "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                }
+            },
+            "output" : {
+                "id" : {
+                    "type": "string",
+                    "optional": false,
+                    "multivalued": true,
+                    "readOnly": false
+                }
+            },
+            "extensionPoint" : false,
+            "responses" : {
+            },
+            "visibility" : "PRIVATE",
+            "version": "0"
+        },
         "importConvidado": {
             "endpointType" : "command",
             "kind": "action",
@@ -1437,6 +1496,33 @@
                     "type": "string",
                     "optional": false,
                     "multivalued": false,
+                    "readOnly": false
+                }
+            },
+            "extensionPoint" : false,
+            "responses" : {
+            },
+            "visibility" : "PRIVATE",
+            "version": "0"
+        },
+        "getConvidadosByCpf": {
+            "endpointType" : "command",
+            "kind": "query",
+            "priority" : "NORMAL",
+            "idempotent": true,
+            "input" : {
+                "cpf" : {
+                    "type": "string",
+                    "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                }
+            },
+            "output" : {
+                "nomeConvidado" : {
+                    "type": "string",
+                    "optional": false,
+                    "multivalued": true,
                     "readOnly": false
                 }
             },

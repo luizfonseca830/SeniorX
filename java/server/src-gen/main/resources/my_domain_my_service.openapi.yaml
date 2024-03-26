@@ -210,6 +210,100 @@ paths:
               schema:
                 $ref: '#/components/schemas/genericError'
   
+  /rest/my_domain/my_service/queries/getAtracaoByNomeEvento:
+    post:
+      description: ""
+      tags:
+        - Queries
+      x-senior-visibility: PRIVATE
+      security :
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - nomeEvento
+              properties:
+                nomeEvento:
+                  type: string
+                  description: ""
+      parameters:
+        - in: header
+          name: Accept
+          description: 'Content types and endpoint version for the request. Example: application/json;seniorx.version=2'
+          schema:
+            type: string
+      responses:
+        200:
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - nomeAtracao
+                properties:
+                  nomeAtracao:
+                    type: array
+                    items:
+                      type: string
+                      minimum: 1
+                    description: ""
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/genericError'
+    get:
+      description: ""
+      tags:
+        - Queries
+      x-senior-visibility: PRIVATE
+      security :
+        - bearerAuth: []
+      parameters:
+        - in : query
+          name : nomeEvento
+          description: ""
+          required: true
+          schema:
+            type: string
+        - in: header
+          name: Accept
+          description: 'Content types and endpoint version for the request. Example: application/json;seniorx.version=2'
+          schema:
+            type: string
+      responses:
+        200:
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - nomeAtracao
+                properties:
+                  nomeAtracao:
+                    type: array
+                    items:
+                      type: string
+                      minimum: 1
+                    description: ""
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/genericError'
+  
   /rest/my_domain/my_service/queries/exportAtracao:
     post:
       description: ""
@@ -1035,6 +1129,100 @@ paths:
               schema:
                 $ref: '#/components/schemas/genericError'
   
+  /rest/my_domain/my_service/queries/getConvidadosByCpf:
+    post:
+      description: ""
+      tags:
+        - Queries
+      x-senior-visibility: PRIVATE
+      security :
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - cpf
+              properties:
+                cpf:
+                  type: string
+                  description: ""
+      parameters:
+        - in: header
+          name: Accept
+          description: 'Content types and endpoint version for the request. Example: application/json;seniorx.version=2'
+          schema:
+            type: string
+      responses:
+        200:
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - nomeConvidado
+                properties:
+                  nomeConvidado:
+                    type: array
+                    items:
+                      type: string
+                      minimum: 1
+                    description: ""
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/genericError'
+    get:
+      description: ""
+      tags:
+        - Queries
+      x-senior-visibility: PRIVATE
+      security :
+        - bearerAuth: []
+      parameters:
+        - in : query
+          name : cpf
+          description: ""
+          required: true
+          schema:
+            type: string
+        - in: header
+          name: Accept
+          description: 'Content types and endpoint version for the request. Example: application/json;seniorx.version=2'
+          schema:
+            type: string
+      responses:
+        200:
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - nomeConvidado
+                properties:
+                  nomeConvidado:
+                    type: array
+                    items:
+                      type: string
+                      minimum: 1
+                    description: ""
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/genericError'
+  
   /rest/my_domain/my_service/queries/getIdsByNomeConvidado:
     post:
       description: ""
@@ -1566,6 +1754,61 @@ paths:
       responses:
         204:
           description: No response
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/genericError'
+  
+  /rest/my_domain/my_service/actions/updateConvidadoNomeSocialByNome:
+    post:
+      description: ""
+      tags:
+        - Actions
+      x-senior-visibility: PRIVATE
+      security :
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - nome
+                - nomeSocial
+              properties:
+                nome:
+                  type: string
+                  description: ""
+                nomeSocial:
+                  type: string
+                  description: ""
+      parameters:
+        - in: header
+          name: Accept
+          description: 'Content types and endpoint version for the request. Example: application/json;seniorx.version=2'
+          schema:
+            type: string
+      responses:
+        200:
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - id
+                properties:
+                  id:
+                    type: array
+                    items:
+                      type: string
+                      minimum: 1
+                    description: ""
         401:
           description: "Invalid Credentials"
         default:

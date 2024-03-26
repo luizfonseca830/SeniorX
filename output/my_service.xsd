@@ -702,6 +702,28 @@
     <xsd:element name="updateMergeIngresso">
         <xsd:complexType/>
     </xsd:element>
+    <xsd:element name="getAtracaoByNomeEvento">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="nomeEvento" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="getAtracaoByNomeEventoOutput">
+        <xsd:complexType>
+            <xsd:sequence>
+                <!-- collection wrapper for nomeAtracao -->
+                <xsd:element name="nomeAtracao" minOccurs="1" maxOccurs="1">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="item" type="xsd:string" minOccurs="1" maxOccurs="unbounded"/>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
     <xsd:element name="createMergeConvidado">
         <xsd:complexType/>
     </xsd:element>
@@ -1155,6 +1177,30 @@
             </xsd:sequence>
         </xsd:complexType>
     </xsd:element>
+    <xsd:element name="updateConvidadoNomeSocialByNome">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="nome" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                </xsd:element>
+                <xsd:element name="nomeSocial" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="updateConvidadoNomeSocialByNomeOutput">
+        <xsd:complexType>
+            <xsd:sequence>
+                <!-- collection wrapper for id -->
+                <xsd:element name="id" minOccurs="1" maxOccurs="1">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="item" type="xsd:string" minOccurs="1" maxOccurs="unbounded"/>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
     <xsd:element name="importConvidado">
         <xsd:complexType>
             <xsd:sequence>
@@ -1251,6 +1297,28 @@
         <xsd:complexType>
             <xsd:sequence>
                 <xsd:element name="exportJobId" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="getConvidadosByCpf">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="cpf" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="getConvidadosByCpfOutput">
+        <xsd:complexType>
+            <xsd:sequence>
+                <!-- collection wrapper for nomeConvidado -->
+                <xsd:element name="nomeConvidado" minOccurs="1" maxOccurs="1">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="item" type="xsd:string" minOccurs="1" maxOccurs="unbounded"/>
+                        </xsd:sequence>
+                    </xsd:complexType>
                 </xsd:element>
             </xsd:sequence>
         </xsd:complexType>

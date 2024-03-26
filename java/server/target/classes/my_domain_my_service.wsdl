@@ -714,6 +714,28 @@
             <xsd:element name="updateMergeIngresso">
                 <xsd:complexType/>
             </xsd:element>
+            <xsd:element name="getAtracaoByNomeEvento">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="nomeEvento" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getAtracaoByNomeEventoOutput">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <!-- collection wrapper for nomeAtracao -->
+                        <xsd:element name="nomeAtracao" minOccurs="1" maxOccurs="1">
+                            <xsd:complexType>
+                                <xsd:sequence>
+                                    <xsd:element name="item" type="xsd:string" minOccurs="1" maxOccurs="unbounded"/>
+                                </xsd:sequence>
+                            </xsd:complexType>
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
             <xsd:element name="createMergeConvidado">
                 <xsd:complexType/>
             </xsd:element>
@@ -1167,6 +1189,30 @@
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>
+            <xsd:element name="updateConvidadoNomeSocialByNome">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="nome" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                        </xsd:element>
+                        <xsd:element name="nomeSocial" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="updateConvidadoNomeSocialByNomeOutput">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <!-- collection wrapper for id -->
+                        <xsd:element name="id" minOccurs="1" maxOccurs="1">
+                            <xsd:complexType>
+                                <xsd:sequence>
+                                    <xsd:element name="item" type="xsd:string" minOccurs="1" maxOccurs="unbounded"/>
+                                </xsd:sequence>
+                            </xsd:complexType>
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
             <xsd:element name="importConvidado">
                 <xsd:complexType>
                     <xsd:sequence>
@@ -1263,6 +1309,28 @@
                 <xsd:complexType>
                     <xsd:sequence>
                         <xsd:element name="exportJobId" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getConvidadosByCpf">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="cpf" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getConvidadosByCpfOutput">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <!-- collection wrapper for nomeConvidado -->
+                        <xsd:element name="nomeConvidado" minOccurs="1" maxOccurs="1">
+                            <xsd:complexType>
+                                <xsd:sequence>
+                                    <xsd:element name="item" type="xsd:string" minOccurs="1" maxOccurs="unbounded"/>
+                                </xsd:sequence>
+                            </xsd:complexType>
                         </xsd:element>
                     </xsd:sequence>
                 </xsd:complexType>
@@ -1365,6 +1433,12 @@
     </wsdl:message>
     <wsdl:message name="updateMergeIngressoResponse">
         <wsdl:part name="result" element="updateMergeIngressoOutput"/>
+    </wsdl:message>
+    <wsdl:message name="getAtracaoByNomeEventoRequest">
+        <wsdl:part name="parameters" element="getAtracaoByNomeEvento"/>
+    </wsdl:message>
+    <wsdl:message name="getAtracaoByNomeEventoResponse">
+        <wsdl:part name="result" element="getAtracaoByNomeEventoOutput"/>
     </wsdl:message>
     <wsdl:message name="createMergeConvidadoRequest">
         <wsdl:part name="parameters" element="createMergeConvidado"/>
@@ -1609,6 +1683,12 @@
     <wsdl:message name="getDependenciesResponse">
         <wsdl:part name="result" element="getDependenciesOutput"/>
     </wsdl:message>
+    <wsdl:message name="updateConvidadoNomeSocialByNomeRequest">
+        <wsdl:part name="parameters" element="updateConvidadoNomeSocialByNome"/>
+    </wsdl:message>
+    <wsdl:message name="updateConvidadoNomeSocialByNomeResponse">
+        <wsdl:part name="result" element="updateConvidadoNomeSocialByNomeOutput"/>
+    </wsdl:message>
     <wsdl:message name="importConvidadoRequest">
         <wsdl:part name="parameters" element="importConvidado"/>
     </wsdl:message>
@@ -1644,6 +1724,12 @@
     </wsdl:message>
     <wsdl:message name="exportEventoResponse">
         <wsdl:part name="result" element="exportEventoOutput"/>
+    </wsdl:message>
+    <wsdl:message name="getConvidadosByCpfRequest">
+        <wsdl:part name="parameters" element="getConvidadosByCpf"/>
+    </wsdl:message>
+    <wsdl:message name="getConvidadosByCpfResponse">
+        <wsdl:part name="result" element="getConvidadosByCpfOutput"/>
     </wsdl:message>
     <wsdl:message name="getIdsByNomeConvidadoRequest">
         <wsdl:part name="parameters" element="getIdsByNomeConvidado"/>
@@ -1757,6 +1843,13 @@
             </wsdl:documentation>
             <wsdl:input message="updateMergeIngressoRequest"/>
             <wsdl:output message="updateMergeIngressoResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getAtracaoByNomeEvento">
+            <wsdl:documentation>
+            WARNING: THIS OPERATION IS PRIVATE AND MAY HAVE ITS BEHAVIOR CHANGED AT ANY TIME WITHOUT NOTICE. 
+            </wsdl:documentation>
+            <wsdl:input message="getAtracaoByNomeEventoRequest"/>
+            <wsdl:output message="getAtracaoByNomeEventoResponse"/>
         </wsdl:operation>
         <wsdl:operation name="createMergeConvidado">
             <wsdl:documentation>
@@ -2087,6 +2180,13 @@
             <wsdl:input message="getDependenciesRequest"/>
             <wsdl:output message="getDependenciesResponse"/>
         </wsdl:operation>
+        <wsdl:operation name="updateConvidadoNomeSocialByNome">
+            <wsdl:documentation>
+            WARNING: THIS OPERATION IS PRIVATE AND MAY HAVE ITS BEHAVIOR CHANGED AT ANY TIME WITHOUT NOTICE. 
+            </wsdl:documentation>
+            <wsdl:input message="updateConvidadoNomeSocialByNomeRequest"/>
+            <wsdl:output message="updateConvidadoNomeSocialByNomeResponse"/>
+        </wsdl:operation>
         <wsdl:operation name="importConvidado">
             <wsdl:documentation>
             WARNING: THIS OPERATION IS PRIVATE AND MAY HAVE ITS BEHAVIOR CHANGED AT ANY TIME WITHOUT NOTICE. 
@@ -2137,6 +2237,13 @@
             </wsdl:documentation>
             <wsdl:input message="exportEventoRequest"/>
             <wsdl:output message="exportEventoResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getConvidadosByCpf">
+            <wsdl:documentation>
+            WARNING: THIS OPERATION IS PRIVATE AND MAY HAVE ITS BEHAVIOR CHANGED AT ANY TIME WITHOUT NOTICE. 
+            </wsdl:documentation>
+            <wsdl:input message="getConvidadosByCpfRequest"/>
+            <wsdl:output message="getConvidadosByCpfResponse"/>
         </wsdl:operation>
         <wsdl:operation name="getIdsByNomeConvidado">
             <wsdl:documentation>
@@ -2264,6 +2371,15 @@
         </wsdl:operation>
         <wsdl:operation name="updateMergeIngresso">
             <soap:operation soapAction="updateMergeIngresso"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getAtracaoByNomeEvento">
+            <soap:operation soapAction="getAtracaoByNomeEvento"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -2649,6 +2765,15 @@
                 <soap:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
+        <wsdl:operation name="updateConvidadoNomeSocialByNome">
+            <soap:operation soapAction="updateConvidadoNomeSocialByNome"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
         <wsdl:operation name="importConvidado">
             <soap:operation soapAction="importConvidado"/>
             <wsdl:input>
@@ -2702,6 +2827,15 @@
         </wsdl:operation>
         <wsdl:operation name="exportEvento">
             <soap:operation soapAction="exportEvento"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getConvidadosByCpf">
+            <soap:operation soapAction="getConvidadosByCpf"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>

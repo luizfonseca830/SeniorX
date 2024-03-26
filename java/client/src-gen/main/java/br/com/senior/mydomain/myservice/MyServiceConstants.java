@@ -170,6 +170,23 @@ public interface MyServiceConstants {
     	 */
     	String GET_ALL_CONVIDADOS_ERROR = "getAllConvidadosError";
     	/**
+    	 * @see GetConvidadosByCpfInput the request payload
+    	 */
+    	String GET_CONVIDADOS_BY_CPF = "getConvidadosByCpf";
+    	/**
+    	 * The success response primitive for getConvidadosByCpf.
+    	 *
+    	 * @see #GET_CONVIDADOS_BY_CPF the request primitive
+    	 * @see GetConvidadosByCpfOutput the response payload
+    	 */
+    	String GET_CONVIDADOS_BY_CPF_RESPONSE = "getConvidadosByCpfResponse";
+    	/**
+    	 * An error response primitive for getConvidadosByCpf.
+    	 *
+    	 * @see #GET_CONVIDADOS_BY_CPF the request primitive
+    	 */
+    	String GET_CONVIDADOS_BY_CPF_ERROR = "getConvidadosByCpfError";
+    	/**
     	 * @see GetIdsByNomeConvidadoInput the request payload
     	 */
     	String GET_IDS_BY_NOME_CONVIDADO = "getIdsByNomeConvidado";
@@ -187,6 +204,23 @@ public interface MyServiceConstants {
     	 */
     	String GET_IDS_BY_NOME_CONVIDADO_ERROR = "getIdsByNomeConvidadoError";
     	/**
+    	 * @see GetAtracaoByNomeEventoInput the request payload
+    	 */
+    	String GET_ATRACAO_BY_NOME_EVENTO = "getAtracaoByNomeEvento";
+    	/**
+    	 * The success response primitive for getAtracaoByNomeEvento.
+    	 *
+    	 * @see #GET_ATRACAO_BY_NOME_EVENTO the request primitive
+    	 * @see GetAtracaoByNomeEventoOutput the response payload
+    	 */
+    	String GET_ATRACAO_BY_NOME_EVENTO_RESPONSE = "getAtracaoByNomeEventoResponse";
+    	/**
+    	 * An error response primitive for getAtracaoByNomeEvento.
+    	 *
+    	 * @see #GET_ATRACAO_BY_NOME_EVENTO the request primitive
+    	 */
+    	String GET_ATRACAO_BY_NOME_EVENTO_ERROR = "getAtracaoByNomeEventoError";
+    	/**
     	 * @see UpdateConvidadoNomeByIdInput the request payload
     	 */
     	String UPDATE_CONVIDADO_NOME_BY_ID = "updateConvidadoNomeById";
@@ -203,6 +237,23 @@ public interface MyServiceConstants {
     	 * @see #UPDATE_CONVIDADO_NOME_BY_ID the request primitive
     	 */
     	String UPDATE_CONVIDADO_NOME_BY_ID_ERROR = "updateConvidadoNomeByIdError";
+    	/**
+    	 * @see UpdateConvidadoNomeSocialByNomeInput the request payload
+    	 */
+    	String UPDATE_CONVIDADO_NOME_SOCIAL_BY_NOME = "updateConvidadoNomeSocialByNome";
+    	/**
+    	 * The success response primitive for updateConvidadoNomeSocialByNome.
+    	 *
+    	 * @see #UPDATE_CONVIDADO_NOME_SOCIAL_BY_NOME the request primitive
+    	 * @see UpdateConvidadoNomeSocialByNomeOutput the response payload
+    	 */
+    	String UPDATE_CONVIDADO_NOME_SOCIAL_BY_NOME_RESPONSE = "updateConvidadoNomeSocialByNomeResponse";
+    	/**
+    	 * An error response primitive for updateConvidadoNomeSocialByNome.
+    	 *
+    	 * @see #UPDATE_CONVIDADO_NOME_SOCIAL_BY_NOME the request primitive
+    	 */
+    	String UPDATE_CONVIDADO_NOME_SOCIAL_BY_NOME_ERROR = "updateConvidadoNomeSocialByNomeError";
     	/**
     	 * Cadastra um novo evento (ex: SeniorTec, Casamento, Aniversário, etc)
     	 * @see CadastrarEventoInput the request payload

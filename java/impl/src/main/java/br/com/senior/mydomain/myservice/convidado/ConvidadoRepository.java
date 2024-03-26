@@ -13,9 +13,12 @@ import java.util.UUID;
 @Repository
 public interface ConvidadoRepository extends ConvidadoBaseRepository, ConvidadoRepositoryCustom {
     List<ConvidadoEntity> findByNomeContainingIgnoreCase(String nome);
+
+    List<ConvidadoEntity> findByNome(String nome);
     @Query("select c from my_domain.my_service.ConvidadoEntity c where c.nome like :nome")
     List<ConvidadoEntity> findByNomeWithQuery(@Param("nome") String nome);
     @Query("update my_domain.my_service.ConvidadoEntity c set c.nome = :nome where c.id = :id  ")
     @Modifying
     void updateNomeById(@Param("nome") String nome, @Param("id") UUID id);
+    List<ConvidadoEntity> findByCpf(String cpf);
 }

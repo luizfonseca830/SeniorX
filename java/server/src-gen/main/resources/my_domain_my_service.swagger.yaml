@@ -607,6 +607,76 @@ paths:
           schema:
             $ref: '#/definitions/genericError'
   
+  /my_service/queries/getConvidadosByCpf:
+    post:
+      description: ""
+      tags:
+        - Queries
+      x-senior-visibility: PRIVATE
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            type: object
+            required:
+              - cpf
+            properties:
+              cpf:
+                type: string
+                description: ""
+      responses:
+        200:
+          description: Ok
+          schema:
+            type: object
+            required:
+              - nomeConvidado
+            properties:
+              nomeConvidado:
+                type: array
+                items:
+                  type: string
+                  minimum: 1
+                description: ""
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          schema:
+            $ref: '#/definitions/genericError'
+    get:
+      description: ""
+      tags:
+        - Queries
+      x-senior-visibility: PRIVATE
+      parameters:
+        - name: cpf
+          description: ""
+          in: query
+          required: true
+          type: string
+      responses:
+        200:
+          description: Ok
+          schema:
+            type: object
+            required:
+              - nomeConvidado
+            properties:
+              nomeConvidado:
+                type: array
+                items:
+                  type: string
+                  minimum: 1
+                description: ""
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          schema:
+            $ref: '#/definitions/genericError'
+  
   /my_service/queries/getIdsByNomeConvidado:
     post:
       description: ""
@@ -665,6 +735,76 @@ paths:
               - id
             properties:
               id:
+                type: array
+                items:
+                  type: string
+                  minimum: 1
+                description: ""
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          schema:
+            $ref: '#/definitions/genericError'
+  
+  /my_service/queries/getAtracaoByNomeEvento:
+    post:
+      description: ""
+      tags:
+        - Queries
+      x-senior-visibility: PRIVATE
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            type: object
+            required:
+              - nomeEvento
+            properties:
+              nomeEvento:
+                type: string
+                description: ""
+      responses:
+        200:
+          description: Ok
+          schema:
+            type: object
+            required:
+              - nomeAtracao
+            properties:
+              nomeAtracao:
+                type: array
+                items:
+                  type: string
+                  minimum: 1
+                description: ""
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          schema:
+            $ref: '#/definitions/genericError'
+    get:
+      description: ""
+      tags:
+        - Queries
+      x-senior-visibility: PRIVATE
+      parameters:
+        - name: nomeEvento
+          description: ""
+          in: query
+          required: true
+          type: string
+      responses:
+        200:
+          description: Ok
+          schema:
+            type: object
+            required:
+              - nomeAtracao
+            properties:
+              nomeAtracao:
                 type: array
                 items:
                   type: string
@@ -943,6 +1083,49 @@ paths:
                 description: ""
               nome:
                 type: string
+                description: ""
+        401:
+          description: "Invalid Credentials"
+        default:
+          description: Error response
+          schema:
+            $ref: '#/definitions/genericError'
+  
+  /my_service/actions/updateConvidadoNomeSocialByNome:
+    post:
+      description: ""
+      tags:
+        - Actions
+      x-senior-visibility: PRIVATE
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            type: object
+            required:
+              - nome
+              - nomeSocial
+            properties:
+              nome:
+                type: string
+                description: ""
+              nomeSocial:
+                type: string
+                description: ""
+      responses:
+        200:
+          description: Ok
+          schema:
+            type: object
+            required:
+              - id
+            properties:
+              id:
+                type: array
+                items:
+                  type: string
+                  minimum: 1
                 description: ""
         401:
           description: "Invalid Credentials"

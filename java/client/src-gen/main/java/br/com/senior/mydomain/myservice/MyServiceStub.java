@@ -267,6 +267,33 @@ public interface MyServiceStub {
 	 * 
 	 * Chamada síncrona, o valor de timeout deve ser informado em ms 
 	 */
+	GetConvidadosByCpfOutput getConvidadosByCpf(GetConvidadosByCpfInput input, long timeout);
+	
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 * Chamada assíncrona
+	 */
+	void getConvidadosByCpf(GetConvidadosByCpfInput input);
+	
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<GetConvidadosByCpfOutput> getConvidadosByCpfRequest(GetConvidadosByCpfInput input);
+	
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<GetConvidadosByCpfOutput> getConvidadosByCpfRequest(GetConvidadosByCpfInput input, long timeout);
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 * Chamada síncrona, o valor de timeout deve ser informado em ms 
+	 */
 	GetIdsByNomeConvidadoOutput getIdsByNomeConvidado(GetIdsByNomeConvidadoInput input, long timeout);
 	
 	/**
@@ -294,6 +321,33 @@ public interface MyServiceStub {
 	 * 
 	 * Chamada síncrona, o valor de timeout deve ser informado em ms 
 	 */
+	GetAtracaoByNomeEventoOutput getAtracaoByNomeEvento(GetAtracaoByNomeEventoInput input, long timeout);
+	
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 * Chamada assíncrona
+	 */
+	void getAtracaoByNomeEvento(GetAtracaoByNomeEventoInput input);
+	
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<GetAtracaoByNomeEventoOutput> getAtracaoByNomeEventoRequest(GetAtracaoByNomeEventoInput input);
+	
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<GetAtracaoByNomeEventoOutput> getAtracaoByNomeEventoRequest(GetAtracaoByNomeEventoInput input, long timeout);
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 * Chamada síncrona, o valor de timeout deve ser informado em ms 
+	 */
 	UpdateConvidadoNomeByIdOutput updateConvidadoNomeById(UpdateConvidadoNomeByIdInput input, long timeout);
 	
 	/**
@@ -316,6 +370,33 @@ public interface MyServiceStub {
 	 * Chamada assíncrona utilizando request
 	 */
 	CompletableFuture<UpdateConvidadoNomeByIdOutput> updateConvidadoNomeByIdRequest(UpdateConvidadoNomeByIdInput input, long timeout);
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 * Chamada síncrona, o valor de timeout deve ser informado em ms 
+	 */
+	UpdateConvidadoNomeSocialByNomeOutput updateConvidadoNomeSocialByNome(UpdateConvidadoNomeSocialByNomeInput input, long timeout);
+	
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 * Chamada assíncrona
+	 */
+	void updateConvidadoNomeSocialByNome(UpdateConvidadoNomeSocialByNomeInput input);
+	
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<UpdateConvidadoNomeSocialByNomeOutput> updateConvidadoNomeSocialByNomeRequest(UpdateConvidadoNomeSocialByNomeInput input);
+	
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<UpdateConvidadoNomeSocialByNomeOutput> updateConvidadoNomeSocialByNomeRequest(UpdateConvidadoNomeSocialByNomeInput input, long timeout);
 	/**
 	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
 	 * Cadastra um novo evento (ex: SeniorTec, Casamento, Aniversário, etc)

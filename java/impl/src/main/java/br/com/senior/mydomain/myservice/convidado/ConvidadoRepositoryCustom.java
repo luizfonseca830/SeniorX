@@ -8,4 +8,6 @@ public interface ConvidadoRepositoryCustom {
     String findNomeByIdCustom(String id);
 
     List<UUID> getAllIds();
+
+    void updateNomeSocialByNome(String nome, String nomeSocial);
 }

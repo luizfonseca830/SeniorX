@@ -55,12 +55,28 @@
                 <slot name="id" type="string" optional="false" multivalued="true"/>
             </output>
         </query>
+        <query name="getConvidadosByCpf" idempotent="false" extensionPoint="false" visibility="PRIVATE">
+            <input>
+                <slot name="cpf" type="string" optional="false" multivalued="false"/>
+            </input>
+            <output>
+                <slot name="nomeConvidado" type="string" optional="false" multivalued="true"/>
+            </output>
+        </query>
         <query name="getIdsByNomeConvidado" idempotent="false" extensionPoint="false" visibility="PRIVATE">
             <input>
                 <slot name="nomeConvidado" type="string" optional="false" multivalued="false"/>
             </input>
             <output>
                 <slot name="id" type="string" optional="false" multivalued="true"/>
+            </output>
+        </query>
+        <query name="getAtracaoByNomeEvento" idempotent="false" extensionPoint="false" visibility="PRIVATE">
+            <input>
+                <slot name="nomeEvento" type="string" optional="false" multivalued="false"/>
+            </input>
+            <output>
+                <slot name="nomeAtracao" type="string" optional="false" multivalued="true"/>
             </output>
         </query>
         <action name="updateConvidadoNomeById" idempotent="false" extensionPoint="false" visibility="PRIVATE">
@@ -71,6 +87,15 @@
             <output>
                 <slot name="id" type="string" optional="false" multivalued="false"/>
                 <slot name="nome" type="string" optional="false" multivalued="false"/>
+            </output>
+        </action>
+        <action name="updateConvidadoNomeSocialByNome" idempotent="false" extensionPoint="false" visibility="PRIVATE">
+            <input>
+                <slot name="nome" type="string" optional="false" multivalued="false"/>
+                <slot name="nomeSocial" type="string" optional="false" multivalued="false"/>
+            </input>
+            <output>
+                <slot name="id" type="string" optional="false" multivalued="true"/>
             </output>
         </action>
         <action name="cadastrarEvento" idempotent="false" extensionPoint="false" visibility="PRIVATE">

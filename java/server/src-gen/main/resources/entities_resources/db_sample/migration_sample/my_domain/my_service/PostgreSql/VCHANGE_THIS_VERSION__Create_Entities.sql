@@ -1,4 +1,4 @@
-/* Database: PostgreSql. Generation date: 2024-03-26 13:40:53:437 */
+/* Database: PostgreSql. Generation date: 2024-03-26 17:39:02:353 */
 /* Entity Convidado */
 create table convidado (
 	id UUID NOT NULL,
@@ -69,9 +69,9 @@ alter table ingresso add constraint pk_ingresso_id primary key(id);
 alter table atracao add constraint pk_atracao_id primary key(id);
 
 /* Foreign Key Constraints */
-alter table ingresso add constraint fk3dotca5gw7aohp5x0oy6hqvcvtyj foreign key (convidado) references convidado (id);
-alter table ingresso add constraint fkheugsfxmr7doecjgbvtcpdacyr3k foreign key (evento) references evento (id);
-alter table atracao add constraint fkfbu6yal2opyosxn50e8ogg9rgsdg foreign key (evento) references evento (id);
+alter table ingresso add constraint fkdioeupier2rxpvu6ekzso1odegzk foreign key (convidado) references convidado (id);
+alter table ingresso add constraint fkjlsp05crtpd4pzoptqkygznolqkz foreign key (evento) references evento (id);
+alter table atracao add constraint fkceoveu7ckbmslzgraicw4unfsiaz foreign key (evento) references evento (id);
 
 /* Unique Key Constraints */
 
