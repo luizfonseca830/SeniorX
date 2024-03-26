@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Repository
-public interface ConvidadoRepository extends ConvidadoBaseRepository {
+public interface ConvidadoRepository extends ConvidadoBaseRepository, ConvidadoRepositoryCustom {
     List<ConvidadoEntity> findByNomeContainingIgnoreCase(String nome);
     @Query("select c from my_domain.my_service.ConvidadoEntity c where c.nome like :nome")
     List<ConvidadoEntity> findByNomeWithQuery(@Param("nome") String nome);

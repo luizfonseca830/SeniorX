@@ -136,6 +136,23 @@ public interface MyServiceConstants {
     	 */
     	String FIND_INGRESSO_BYNOME_CONVIDADO_ERROR = "findIngressoBynomeConvidadoError";
     	/**
+    	 * @see FindNomeByIdCustomInput the request payload
+    	 */
+    	String FIND_NOME_BY_ID_CUSTOM = "findNomeByIdCustom";
+    	/**
+    	 * The success response primitive for findNomeByIdCustom.
+    	 *
+    	 * @see #FIND_NOME_BY_ID_CUSTOM the request primitive
+    	 * @see FindNomeByIdCustomOutput the response payload
+    	 */
+    	String FIND_NOME_BY_ID_CUSTOM_RESPONSE = "findNomeByIdCustomResponse";
+    	/**
+    	 * An error response primitive for findNomeByIdCustom.
+    	 *
+    	 * @see #FIND_NOME_BY_ID_CUSTOM the request primitive
+    	 */
+    	String FIND_NOME_BY_ID_CUSTOM_ERROR = "findNomeByIdCustomError";
+    	/**
     	 * @see UpdateConvidadoNomeByIdInput the request payload
     	 */
     	String UPDATE_CONVIDADO_NOME_BY_ID = "updateConvidadoNomeById";

@@ -40,6 +40,14 @@
                 <slot name="resultado" type="ingresso" optional="false" multivalued="true"/>
             </output>
         </query>
+        <query name="findNomeByIdCustom" idempotent="false" extensionPoint="false" visibility="PRIVATE">
+            <input>
+                <slot name="id" type="string" optional="false" multivalued="false"/>
+            </input>
+            <output>
+                <slot name="nome" type="string" optional="false" multivalued="false"/>
+            </output>
+        </query>
         <action name="updateConvidadoNomeById" idempotent="false" extensionPoint="false" visibility="PRIVATE">
             <input>
                 <slot name="id" type="string" optional="false" multivalued="false"/>

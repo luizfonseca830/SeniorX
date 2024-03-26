@@ -25,16 +25,20 @@ public class ConvidadoService {
     }
 
     @Transactional
-    public ConvidadoEntity updateNomeById(String nome, String id){
+    public ConvidadoEntity updateNomeById(String nome, String id) {
 
         convidadoRepository.updateNomeById(nome, UUID.fromString(id));
 
-         final Optional<ConvidadoEntity> convidadoOpt = convidadoRepository.findById(UUID.fromString(id));
-         if(convidadoOpt.isPresent()){
-             return convidadoOpt.get();
-         }else {
-             throw new ServiceException(ErrorCategory.BAD_REQUEST, "ID inválido");
-         }
+        final Optional<ConvidadoEntity> convidadoOpt = convidadoRepository.findById(UUID.fromString(id));
+        if (convidadoOpt.isPresent()) {
+            return convidadoOpt.get();
+        } else {
+            throw new ServiceException(ErrorCategory.BAD_REQUEST, "ID inválido");
+        }
+    }
+
+    public String findNomeByIdCustom(String id) {
+        return convidadoRepository.findNomeByIdCustom(id);
     }
 
 }

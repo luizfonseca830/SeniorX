@@ -352,6 +352,49 @@ public class MyServiceStubImpl  implements MyServiceStub {
 		return impl.findIngressoBynomeConvidadoRequest(input, timeout, TimeUnit.MILLISECONDS);
 	}
 	/**
+	 * Chamada síncrona para o método findNomeByIdCustom
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 * @throws MyServiceMessageException quando um erro com payload for retornado pela mensageria
+	 */
+	@Override
+	public FindNomeByIdCustomOutput findNomeByIdCustom(FindNomeByIdCustomInput input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.FindNomeByIdCustomImpl impl = new br.com.senior.mydomain.myservice.impl.FindNomeByIdCustomImpl(messengerSupplier, userId, messageSupplier);
+		return impl.findNomeByIdCustom(input, timeout);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método findNomeByIdCustom
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 */
+	@Override
+	public void findNomeByIdCustom(FindNomeByIdCustomInput input) {
+		br.com.senior.mydomain.myservice.impl.FindNomeByIdCustomImpl impl = new br.com.senior.mydomain.myservice.impl.FindNomeByIdCustomImpl(messengerSupplier, userId, messageSupplier);
+		impl.findNomeByIdCustom(input);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método findNomeByIdCustom
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 */
+	@Override
+	public CompletableFuture<FindNomeByIdCustomOutput> findNomeByIdCustomRequest(FindNomeByIdCustomInput input) {
+		return this.findNomeByIdCustomRequest(input, 0l);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método findNomeByIdCustom
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	*/
+	@Override
+	public CompletableFuture<FindNomeByIdCustomOutput> findNomeByIdCustomRequest(FindNomeByIdCustomInput input, long timeout) {
+		br.com.senior.mydomain.myservice.impl.FindNomeByIdCustomImpl impl = new br.com.senior.mydomain.myservice.impl.FindNomeByIdCustomImpl(messengerSupplier, userId, messageSupplier);
+		return impl.findNomeByIdCustomRequest(input, timeout, TimeUnit.MILLISECONDS);
+	}
+	/**
 	 * Chamada síncrona para o método updateConvidadoNomeById
 	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
 	 * 

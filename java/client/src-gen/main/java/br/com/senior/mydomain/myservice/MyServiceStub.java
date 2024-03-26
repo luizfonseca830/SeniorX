@@ -213,6 +213,33 @@ public interface MyServiceStub {
 	 * 
 	 * Chamada síncrona, o valor de timeout deve ser informado em ms 
 	 */
+	FindNomeByIdCustomOutput findNomeByIdCustom(FindNomeByIdCustomInput input, long timeout);
+	
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 * Chamada assíncrona
+	 */
+	void findNomeByIdCustom(FindNomeByIdCustomInput input);
+	
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<FindNomeByIdCustomOutput> findNomeByIdCustomRequest(FindNomeByIdCustomInput input);
+	
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<FindNomeByIdCustomOutput> findNomeByIdCustomRequest(FindNomeByIdCustomInput input, long timeout);
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 * Chamada síncrona, o valor de timeout deve ser informado em ms 
+	 */
 	UpdateConvidadoNomeByIdOutput updateConvidadoNomeById(UpdateConvidadoNomeByIdInput input, long timeout);
 	
 	/**

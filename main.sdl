@@ -61,6 +61,15 @@ service my_service {
             }
         }
 
+        query findNomeByIdCustom{
+            in {
+                id: string
+            }
+            out {
+                nome: string
+            }
+        }
+
         action updateConvidadoNomeById{
             in {
                 id: string

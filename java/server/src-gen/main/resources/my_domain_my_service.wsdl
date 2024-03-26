@@ -885,6 +885,22 @@
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>
+            <xsd:element name="findNomeByIdCustom">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="id" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="findNomeByIdCustomOutput">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="nome" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
             <xsd:element name="importAtracao">
                 <xsd:complexType>
                     <xsd:sequence>
@@ -1407,6 +1423,12 @@
     <wsdl:message name="deleteAtracaoRequest">
         <wsdl:part name="toDelete" element="deleteAtracao"/>
     </wsdl:message>
+    <wsdl:message name="findNomeByIdCustomRequest">
+        <wsdl:part name="parameters" element="findNomeByIdCustom"/>
+    </wsdl:message>
+    <wsdl:message name="findNomeByIdCustomResponse">
+        <wsdl:part name="result" element="findNomeByIdCustomOutput"/>
+    </wsdl:message>
     <wsdl:message name="importAtracaoRequest">
         <wsdl:part name="parameters" element="importAtracao"/>
     </wsdl:message>
@@ -1814,6 +1836,13 @@
             </wsdl:documentation>
             <wsdl:input message="deleteAtracaoRequest"/>
             <wsdl:output message="deleteAtracaoResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="findNomeByIdCustom">
+            <wsdl:documentation>
+            WARNING: THIS OPERATION IS PRIVATE AND MAY HAVE ITS BEHAVIOR CHANGED AT ANY TIME WITHOUT NOTICE. 
+            </wsdl:documentation>
+            <wsdl:input message="findNomeByIdCustomRequest"/>
+            <wsdl:output message="findNomeByIdCustomResponse"/>
         </wsdl:operation>
         <wsdl:operation name="importAtracao">
             <wsdl:documentation>
@@ -2320,6 +2349,15 @@
         </wsdl:operation>
         <wsdl:operation name="deleteAtracao">
             <soap:operation soapAction="deleteAtracao"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="findNomeByIdCustom">
+            <soap:operation soapAction="findNomeByIdCustom"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
