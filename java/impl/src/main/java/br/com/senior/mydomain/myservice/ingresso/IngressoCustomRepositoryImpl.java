@@ -9,7 +9,7 @@ import javax.persistence.PersistenceContext;
 import java.util.List;
 import java.util.UUID;
 
-public class IngressoCustomRepositoryImpl implements IngressoCustomRepository {
+class IngressoCustomRepositoryImpl implements IngressoCustomRepository {
     @PersistenceContext
     EntityManager entityManager;
     @Override

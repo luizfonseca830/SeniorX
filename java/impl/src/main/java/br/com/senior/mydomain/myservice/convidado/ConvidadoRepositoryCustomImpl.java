@@ -9,7 +9,7 @@ import javax.persistence.PersistenceContext;
 import java.util.List;
 import java.util.UUID;
 
-public class ConvidadoRepositoryCustomImpl implements ConvidadoRepositoryCustom {
+class ConvidadoRepositoryCustomImpl implements ConvidadoRepositoryCustom {
 
     @PersistenceContext
     private EntityManager entityManager;
