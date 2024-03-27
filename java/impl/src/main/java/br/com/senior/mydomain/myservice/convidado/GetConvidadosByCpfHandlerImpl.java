@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @HandlerImpl
-public class getConvidadosByCpfHandlerImpl implements GetConvidadosByCpf {
+public class GetConvidadosByCpfHandlerImpl implements GetConvidadosByCpf {
     @Inject
     ConvidadoService convidadoService;
 

@@ -12,15 +12,16 @@ public class FindByNomeHandlerImpl implements FindBynome {
     @Inject
     private ConvidadoService convidadoService;
 
+    @Inject
+    private ConvidadoConverter convidadoConverter;
+
     @Override
     public FindBynomeOutput findBynome(FindBynomeInput request) {
-       final List<ConvidadoEntity> convidados = convidadoService.findByNomeWithQuery(request.nome);
+        final List<ConvidadoEntity> convidados = convidadoService.findByNomeWithQuery(request.nome);
 
-       final List<Convidado> convudadosDto = convidados
-               .stream()
-               .map(c -> new Convidado(c.getId().toString(), c.getNome(), c.getNomeSocial(), c.getCpf(), c.getDataNascimneto(), null))
-               .collect(Collectors.toList());
-
-       return new FindBynomeOutput(convudadosDto);
+        return new FindBynomeOutput(convidados
+                .stream()
+                .map(c -> convidadoConverter.toConvidado(c))
+                .collect(Collectors.toList()));
     }
 }

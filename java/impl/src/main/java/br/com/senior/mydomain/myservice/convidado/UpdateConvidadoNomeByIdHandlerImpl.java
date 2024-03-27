@@ -1,6 +1,8 @@
 package br.com.senior.mydomain.myservice.convidado;
 
+import br.com.senior.SecurityConstants;
 import br.com.senior.messaging.model.HandlerImpl;
+import br.com.senior.messaging.security.SecureResource;
 import br.com.senior.mydomain.myservice.*;
 
 import javax.inject.Inject;
@@ -9,14 +11,16 @@ import javax.inject.Inject;
 public class UpdateConvidadoNomeByIdHandlerImpl implements UpdateConvidadoNomeById {
     @Inject
     private ConvidadoService convidadoService;
+
+    @Inject
+    private ConvidadoConverter convidadoConverter;
     @Override
+    @SecureResource(name = ConvidadoEntity.SECURITY_RESOURCE, action = SecurityConstants.ENTITY_SECURITY_ACTION_VIEW)
+    @SecureResource(name = ConvidadoEntity.SECURITY_RESOURCE, action = SecurityConstants.ENTITY_SECURITY_ACTION_UPDATE)
     public UpdateConvidadoNomeByIdOutput updateConvidadoNomeById(UpdateConvidadoNomeByIdInput request) {
+
         final ConvidadoEntity convidado = convidadoService.updateNomeById(request.nome, request.id);
 
-        final UpdateConvidadoNomeByIdOutput output = new UpdateConvidadoNomeByIdOutput();
-        output.id = convidado.getId().toString();
-        output.nome = convidado.getNome();
-
-        return output;
+        return convidadoConverter.toUpdateConvidadoNomeByIdOuput(convidado);
     }
 }
